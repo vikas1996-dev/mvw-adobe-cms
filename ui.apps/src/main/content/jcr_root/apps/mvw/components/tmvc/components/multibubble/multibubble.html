@@ -1,0 +1,90 @@
+<sly data-sly-use.model="com.mvw.core.models.MultiBubbleModel" />
+<section
+        class="multi-bubble bg-theme-${model.bgColor}"
+        aria-label="Destinations Discovery"
+>
+  <div class="multi-bubble__background"
+       style="--desktop-opacity: ${model.bgImageTransparency || '90' @ context='styleToken'};">
+    <picture>
+      <sly data-sly-test="${model.mobileImage}">
+        <source media="(max-width: 768px)"
+                srcset="${model.mobileImage}" />
+      </sly>
+      <img data-sly-test="${model.bgImage}"
+           src="${model.bgImage}"
+           class="multi-bubble__map"
+           aria-hidden="true"
+           alt="background image" loading="lazy"/>
+    </picture>
+  </div>
+  <div class="grid-container">
+    <div class="multi-bubble__container">
+      <div class="multi-bubble__wrapper">
+        <div class="multi-bubble__content">
+          <sly data-sly-test="${model.headlineText}">
+                  <span
+                          data-sly-element="${model.headlineTag || 'h3'}"
+                          class="cmp-title multi-bubble__title
+                     ${model.headlineSize}
+                     align-${model.headlineAlignment}
+                     m-align-${model.mobileHeadlineAlignment}">
+                  ${model.headlineText}
+                  </span>
+          </sly>
+          <div
+                  class="multi-bubble__description
+                  align-${model.descriptionAlignment}
+                  m-align-${model.mobileDescriptionAlignment}"
+                  data-sly-test="${model.description}">
+            ${model.description @ context='html'}
+          </div>
+          <div
+                  class="multi-bubble__cta-wrapper
+                  align-${model.headlineAlignment}
+                  m-align-${model.mobileHeadlineAlignment}">
+            <sly
+                    data-sly-resource="${'primaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}">
+            </sly>
+          </div>
+        </div>
+        <div class="multi-bubble__bubbles" aria-label="Destination images">
+          <div class="multi-bubble__bubble multi-bubble__bubble--3" data-sly-test="${model.image6}">
+            <div class="multi-bubble__bubble-inner">
+              <img src="${model.image6}" alt="${model.altText6}" class="multi-bubble__image" loading="lazy"/>
+            </div>
+            <div class="multi-bubble__bubble multi-bubble__bubble--2" data-sly-test="${model.image5}">
+              <div class="multi-bubble__bubble-inner">
+                <img src="${model.image5}" alt="${model.altText5}" class="multi-bubble__image" loading="lazy"/>
+              </div>
+            </div>
+          </div>
+          <div class="multi-bubble__bubble multi-bubble__bubble--4" data-sly-test="${model.image3}">
+            <div class="multi-bubble__bubble-inner">
+              <img src="${model.image3}" alt="${model.altText3}" class="multi-bubble__image" loading="lazy" />
+            </div>
+          </div>
+          <div class="multi-bubble__bubble multi-bubble__bubble--5" data-sly-test="${model.image7}">
+            <div class="multi-bubble__bubble-inner">
+              <img src="${model.image7}" alt="${model.altText7}" class="multi-bubble__image" loading="lazy"/>
+            </div>
+          </div>
+          <div class="multi-bubble__bubble multi-bubble__bubble--6" data-sly-test="${model.image1}">
+            <div class="multi-bubble__bubble-inner">
+              <img src="${model.image1}" alt="${model.altText1}" class="multi-bubble__image" loading="lazy" />
+            </div>
+            <div class="multi-bubble__bubble multi-bubble__bubble--7" data-sly-test="${model.image2}">
+              <div class="multi-bubble__bubble-inner">
+                <img src="${model.image2}" alt="${model.altText2}" class="multi-bubble__image" loading="lazy"/>
+              </div>
+            </div>
+          </div>
+          <div class="multi-bubble__bubble multi-bubble__bubble--1" data-sly-test="${model.image4}">
+            <div class="multi-bubble__bubble-inner">
+              <img src="${model.image4}" alt="${model.altText4}" class="multi-bubble__image" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

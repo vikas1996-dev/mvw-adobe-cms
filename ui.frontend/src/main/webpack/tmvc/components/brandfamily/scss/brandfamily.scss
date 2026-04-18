@@ -1,0 +1,260 @@
+:root {
+    --f-svg-color: #{$teal-20-dark};
+}
+
+[f-svg-color="white"] {
+    --f-svg-color: #{$white};
+}
+
+[f-svg-color="indigo"] {
+    --f-svg-color: #{$indigo-20-dark};
+}
+
+[f-svg-color="pearl"] {
+    --f-svg-color: #{$pearl-20-dark};
+}
+
+[f-svg-color="teal"] {
+    --f-svg-color: #{$teal-20-dark};
+}
+
+[f-svg-color="linen"] {
+    --f-svg-color: #{$linen-20-dark};
+}
+
+[f-svg-color="gray"] {
+    --f-svg-color: #{$gray-20-dark};
+}
+
+
+
+.brand-family-cmp {
+    padding-top: 64px;
+    padding-bottom: 32px;
+
+    .family-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 16px;
+        grid-column: 1/13;
+        border-radius: 5px;
+
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-column: 1 / 5;
+        }
+    }
+
+    .text-block {
+        grid-column: 1/7;
+        padding: 64px 56px;
+
+        @media (max-width: 767px) {
+            grid-column: 1/5;
+            padding: 40px 24px 0px 24px;
+        }
+
+        .title {
+            word-wrap: break-word;
+
+            @media (max-width: 767px) {
+                margin: 0px;
+                font-size: 24px;
+                line-height: 30px;
+            }
+        }
+
+        .description {
+            padding: 24px 0px;
+            p{
+            font-size: 18px;
+            font-family: Roboto;
+            font-weight: 400;
+            line-height: 28px;
+            word-wrap: break-word;
+
+            @media (max-width: 767px) {
+                font-size: 18px;
+                line-height: 28px;
+            }
+            }
+            
+        }
+
+        .buttons {
+            margin-bottom: 56px;
+
+            @media (max-width: 767px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        .owner-sec {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+
+            .owner-text {
+                font-size: 24px;
+                font-family: arsenal;
+                font-weight: 400;
+                line-height: 30px;
+                padding-bottom: 4px;
+
+                @media (max-width: 767px) {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+
+            }
+        }
+    }
+
+    .brand-logos {
+        grid-column: 7/13;
+        display: flex;
+        gap: 32px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 5px;
+        position: relative;
+
+        @media (max-width: 767px) {
+            grid-column: 1/5;
+            min-height: 320px;
+            min-width: 100%;
+            justify-content: flex-end;
+            padding-bottom: 40px;
+        }
+
+        .logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 64px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+
+            @media (max-width: 767px) {
+                gap: 40px;
+            }
+        }
+
+        /* Desktop - single column layout */
+        @media (min-width: 768px) {
+            .logo-row {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 64px;
+                width: 100%;
+            }
+
+            .brand-logo {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 150px;
+            }
+        }
+
+        /* Mobile - 2+1 layout */
+        @media (max-width: 767px) {
+            .logo-row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                width: 100%;
+            }
+
+            .logo-row:first-child {
+
+                /* First row with 2 logos */
+                .brand-logo {
+                    flex: 0 0 auto;
+                }
+            }
+
+            .logo-row:last-child {
+                /* Second row with 1 centered logo */
+                justify-content: center;
+            }
+        }
+
+        .brand-logo {
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s ease;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.8);
+                transition: all 0.3s ease;
+                z-index: -1;
+                @media (max-width: 768px) {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+
+            &:hover {
+                &::before {
+                    transform: translate(-50%, -50%) scale(1.2);
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
+            }
+
+            img {
+                max-width: 145px;
+                object-fit: contain;
+                position: relative;
+                z-index: 1;
+
+                @media (max-width: 768px) {
+                    max-width: 114px;
+                }
+               
+            }
+        }
+
+        .bg-shape {
+            fill: var(--f-svg-color);
+            height: 100%;
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+            border-radius: 5px;
+            transform: scale(1.4);
+            transform-origin: left;
+
+            @media (max-width: 767px) {
+                top: 108pt;
+                transform: scale(1.45) rotate(90deg);
+                height: 100%;
+                -webkit-transform-origin: inherit;
+                transform-origin: inherit;
+                border-radius: 50%;
+            }
+        }
+    }
+}

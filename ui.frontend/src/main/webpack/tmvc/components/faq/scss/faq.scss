@@ -1,0 +1,157 @@
+.faq.accordion.panelcontainer {
+    margin: 0px;
+    // padding: 40px 0px;
+
+    .cmp-accordion.mvw-faq {
+        &.bg-theme-indigo {
+            .cmp-accordion__button {
+                color: #fff;
+
+                .cmp-accordion__title {
+                    color: #fff;
+                }
+
+                .fa-solid.fa-chevron-down {
+                    color: #fff;
+                }
+            }
+        }
+
+        .grid-container {
+            .faq-container-wrapper {
+                .cmp-button {
+                    .cmp-button__icon.fa.fa-brands {
+                        font-size: 24px;
+                    }
+                }
+
+                grid-column: 1 / -1;
+                padding: 80px 0px;
+                @media (max-width: 768px) {
+                    padding: 48px 0px;
+                }
+            }
+        }
+    }
+
+    .cmp-accordion.mvw-faq {
+        .faq-heading {
+            margin-bottom: 1rem;
+            font-family: Arsenal;
+            font-style: normal;
+            font-weight: 400;
+
+            &:empty {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .cmp-accordion__item {
+        .cmp-accordion__header {
+            .cmp-accordion__button {
+                padding: 1rem 0;
+
+                .cmp-accordion__title {
+                    font-family: Arsenal;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 30px;
+
+                }
+
+                .fa-solid.fa-chevron-down {
+                    width: 20px;
+                    height: 20px;
+                    color: rgb(8, 41, 64, 1);
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .cmp-accordion__panel {
+            &.cmp-accordion__panel--expanded {
+                .resources {
+                    p {
+                        font-feature-settings: 'liga' off, 'clig' off;
+                        font-family: Roboto;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .cmp-accordion__button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 16px 0;
+        font-size: 20px;
+
+        @media (min-width: 600px) {
+            font-size: 20px;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 20px;
+        }
+
+        i.fa-chevron-down {
+            transition: transform 0.3s ease;
+            font-size: 20px;
+
+            @media (min-width: 600px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .cmp-accordion__button--expanded i.fa-chevron-down,
+    .cmp-accordion__button[aria-expanded="true"] i.fa-chevron-down {
+        transform: rotate(180deg);
+    }
+
+    .cmp-accordion__panel {
+        font-size: 14px;
+        line-height: 20px;
+
+        @media (min-width: 600px) {
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        &.cmp-accordion__panel--expanded {
+            padding: 0 0 1rem 0;
+            background-color: unset;
+            border-top: none !important;
+
+            &::after {
+                @media (min-width: 600px) {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    .cmp-accordion__item::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: #D9D9D9;
+    }
+
+    .faq-container-wrapper .cmp-button {
+        margin-top: 16px;
+    }
+}

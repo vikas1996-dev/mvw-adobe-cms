@@ -1,0 +1,69 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='mvw.vacationcard'}"
+/>
+
+<sly data-sly-use.model="com.mvw.core.models.VacationCardModel" />
+<sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+<sly
+  data-sly-call="${tpl.placeHolderBlock @ 
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}"
+/>
+
+<div
+  class="multicard-cmp ${model.style} bg-theme-${model.backgroundColor} m-bg-theme-${model.brandIconImageBgColor}"
+  data-mod="multicard"
+  data-stacked="${model.stackOnMobile ? 'true' : 'false'}"
+  data-parent-component="MultiCard"
+>
+  <div
+    class="grid-container m-align-${model.copyAlignment}"
+    data-parent-component="MultiCard"
+  >
+    <sly data-sly-test="${model.subheader}">
+      <p class="cmp-title subheader align-${model.headlineAlignment} m-align-${model.copyAlignment}">
+        ${model.subheader @ context='html'}
+      </p>
+    </sly>
+    <div class="subtitle__container align-${model.headlineAlignment} m-align-${model.copyAlignment}">
+      <sly data-sly-test="${model.headlineType}">
+        <sly data-sly-test="${model.headlineTag}">
+          <span
+            data-sly-element="${model.headlineTag}"
+            class="cmp-title title align-${model.headlineAlignment} m-align-${model.copyAlignment} ${model.headlineType} ${model.headlineStyledBorder ? '' : 'no-styled-border'}"
+            >${model.headlineText @ context='html'}</span
+          >
+        </sly>
+      </sly>
+      <div class="nav-icons" role="group" aria-label="Carousel navigation">
+        <button class="nav-icon-left" type="button" aria-label="Previous slide">
+          <i class="prev-icon"></i>
+        </button>
+        <button class="nav-icon-right" type="button" aria-label="Next slide">
+          <i class="next-icon"></i>
+        </button>
+      </div>
+    </div>
+    <sly data-sly-test="${model.copyText}">
+      <div class="subtitle description align-${model.headlineAlignment} m-align-${model.copyAlignment}">
+        ${model.copyText @ context='html'}
+      </div>
+    </sly>
+  </div>
+  <!-- <div class="vacation-cards"> -->
+  <sly
+    data-sly-resource="${'card' @ resourceType='mvw/components/tmvc/components/vacationcard'}"
+  ></sly>
+  <!-- </div> -->
+  <div id="carouselBullets" class="carousel-bullets"></div>
+
+  <div class="benefits-box m-align-${model.secondaryCopyAlignment}">
+    <p>${model.secondaryCopyText @ context='html'}</p>
+    <sly
+      data-sly-resource="${'cta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"
+    ></sly>
+  </div>
+</div>

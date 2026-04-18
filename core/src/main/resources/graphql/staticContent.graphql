@@ -1,0 +1,31 @@
+query {
+    jcr(workspace: LIVE) {
+      staticContent: nodeByPath(path: "/sites/mvcs/contents/") {
+        textFields: descendants (typesFilter: {types: ["sc:Input", "sc:Text", "sc:Richtext"]}) {
+          documents: nodes {
+              nodename: name
+              name: value(name: "name", language:"en")
+              path
+              properties: value(name:"value")
+              }
+        }  
+        images: descendants(typesFilter: { types: ["sc:Asset"] }) {
+            nodes {
+                name
+                images: refNodes(name: "images") {
+                    name: value(name: "name")
+                     assetTypeRef: refNode(name: "referenceID") {
+                        name: value(name: "name")
+                        }
+                    photo: refNodes(name: "photo") {
+                        name
+                        path
+                        altText: value(name: "altText", language: "en")
+                        }
+                    }
+                }
+            }
+        
+    }
+}
+}

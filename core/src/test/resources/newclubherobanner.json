@@ -1,0 +1,22 @@
+{
+  "bannerImage": {
+    "fileReference": "/content/dam/mvw/banner.jpg"
+  },
+  "mbBannerImage": {
+    "fileReference": "/content/dam/mvw/banner-mobile.jpg"
+  },
+  "bannerImageAltText": "Hero Banner",
+  "disableLazyLoading": "false",
+  "fetchPriority": "true",
+  "overlayImage": "/content/dam/mvw/overlay.png",
+  "overlayTitle": "The Feeling of Having It All.",
+  "overlayDescription": "Enjoy One Carefree Resort After Another, All at So-Worth-It Prices.",
+  "videoUrl": "/content/dam/brightcove_assets/1441355349001/64136f46d1326a451b81e3b3/6379697734112.mp4",
+  "overlay": {
+    "fileReference": "/content/dam/mvw/overlay-image.jpg",
+    "overlayImageAltText": "Overlay Image"
+  },
+  "mboverlay": {
+    "fileReference": "/content/dam/mvw/overlay-image-mobile.jpg"
+  }
+}

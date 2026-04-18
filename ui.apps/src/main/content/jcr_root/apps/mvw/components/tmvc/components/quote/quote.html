@@ -1,0 +1,39 @@
+<sly data-sly-use.model="com.mvw.core.models.QuoteModel" />
+<sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+<sly data-sly-call="${tpl.placeHolderBlock @
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+<div class="quote-cmp bg-theme-${model.copySectionBgColor}  m-bg-theme-${model.brandIconImageBgColor}" data-mod="quote-component" data-parent-component="Quote">
+    <div class="grid-container">
+        <sly data-sly-test="${model.headlineText}">
+            <sly data-sly-test="${model.headlineTag}">
+                <span data-sly-element="${model.headlineTag}" class="cmp-title title align-${model.copySectionAlignment} m-align-${model.copyAlignment} ${model.headlineType}">${model.headlineText @ context ='html'}</span>
+            </sly>
+        </sly>
+
+        <div data-sly-test="${model.shortDescription}" class="description align-${model.copySectionAlignment} m-align-${model.copyAlignment}">${model.shortDescription @ context='html'}</div>
+
+        <div class="quote-content ">
+            <div data-sly-test="${model.image}" class="quote-image ${model.bgImageJustification} ${(model.bgImageTopMargin && model.bgImageTopMargin != '0') ? 'top' : ''} ${(model.mobileBgImageTopMargin && model.mobileBgImageTopMargin != '0') ? 'm-top' : ''}"
+                 style="--top-value:${model.bgImageTopMargin @ context='uri'}px; --mobile-top-value:${model.mobileBgImageTopMargin @ context='uri'}px;">
+                <img src="${model.image}" loading="lazy" alt="${model.bgImageAlt @ context='html'}" />
+            </div>
+
+            <div class="quote-text ${model.quoteJustification}">
+                <div class="quote-sec">
+                    <sly data-sly-test="${model.quoteHeadlineTag}">
+                        <span data-sly-element="${model.quoteHeadlineTag}" class="quote-description ${model.quoteHeadlineType}">${model.quote @ context='html'}</span>
+                    </sly>
+                    <div data-sly-test="${model.author}" class="quote-author"> ${model.author @ context ='html'}</div>
+
+                    <div class="quote-buttons">
+                        <sly data-sly-resource="${'cta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"></sly>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

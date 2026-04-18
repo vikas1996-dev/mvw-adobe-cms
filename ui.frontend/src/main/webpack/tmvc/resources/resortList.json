@@ -1,0 +1,2372 @@
+{
+  "brandsFilter": [
+    {
+      "name": "Grand Residences by Marriott®",
+      "nodename": "Grand Residences by Marriott®"
+    },
+    {
+      "name": "Marriott Vacation Club®",
+      "nodename": "Marriott Vacation Club®"
+    },
+    {
+      "name": "Sheraton® Vacation Club",
+      "nodename": "Sheraton® Vacation Club"
+    },
+    {
+      "name": "The Ritz-Carlton Club®",
+      "nodename": "The Ritz-Carlton Club®"
+    },
+    {
+      "name": "Unbranded",
+      "nodename": "Unbranded"
+    },
+    {
+      "name": "Westin® Vacation Club",
+      "nodename": "Westin® Vacation Club"
+    }
+  ],
+  "leftColumn": [
+    {
+      "mainHeader": "North America",
+      "subHeader": "Florida",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club®, South Beach",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Miami Beach",
+          "slug": "miamv-marriott-vacation-club-south-beach",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's BeachPlace Towers",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Fort Lauderdale",
+          "slug": "fllbp-marriotts-beachplace-towers",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Crystal Shores",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Marco Island",
+          "slug": "mrkml-marriotts-crystal-shores",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Cypress Harbour",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "mcocy-marriotts-cypress-harbour",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Grande Vista",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "mcogv-marriotts-grande-vista",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Harbour Lake",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "mcoho-marriotts-harbour-lake",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Imperial Palms",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "mcoip-marriotts-imperial-palms",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Lakeshore Reserve",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "mcolr-marriotts-lakeshore-reserve",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Legends Edge at Bay Point",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Panama City",
+          "slug": "pfnle-marriotts-legends-edge-at-bay-point",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Ocean Pointe",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Palm Beach Shores",
+          "slug": "pbips-marriotts-ocean-pointe",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Oceana Palms",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Riviera Beach",
+          "slug": "pbisn-marriotts-oceana-palms",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Royal Palms",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "mcorp-marriotts-royal-palms",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Sabal Palms",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "mcosp-marriotts-sabal-palms",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Villas at Doral",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Miami",
+          "slug": "miada-marriotts-villas-at-doral",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Sheraton PGA Vacation Resort",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Port St. Lucie",
+          "slug": "sheraton-pga-vacation-resort",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Sheraton Vistana Resort",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "sheraton-vistana-resort",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "United States",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Sheraton Vistana Villages",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Orlando",
+          "slug": "sheraton-vistana-villages",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Vistana Beach Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Florida",
+          "city": "Jensen Beach",
+          "slug": "vistana-beach-club",
+          "dcmBrand": {
+            "name": "Unbranded",
+            "nodename": "unbranded"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Florida",
+            "priority": "100"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Massachusetts",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club® at Custom House, Boston",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Massachusetts",
+          "city": "Boston",
+          "slug": "bosch-marriott-vacation-club-at-custom-house-boston",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Massachusetts",
+            "priority": "200"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "New Jersey",
+      "resorts": [
+        {
+          "name": "Marriott's Fairway Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "New Jersey",
+          "city": "Galloway",
+          "slug": "aiyfw-marriotts-fairway-villas",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "New Jersey",
+            "priority": "300"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "New York",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club®, New York City",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "New York",
+          "city": "New York City",
+          "slug": "nycvc-marriott-vacation-club-new-york-city",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "New York",
+            "priority": "400"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "South Carolina",
+      "resorts": [
+        {
+          "name": "Marriott's Barony Beach Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhbb-marriotts-barony-beach-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's Grande Ocean",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhvi-marriotts-grande-ocean",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's Harbour Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhht-marriotts-harbour-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's Harbour Point",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhpt-marriotts-harbour-point",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's Heritage Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhhr-marriotts-heritage-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's Monarch",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhmo-marriotts-monarch",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's OceanWatch",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Myrtle Beach",
+          "slug": "myrow-marriotts-oceanwatch-at-grande-dunes",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's Sunset Pointe",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhpt-marriotts-sunset-pointe",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Marriott's SurfWatch®",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Hilton Head Island",
+          "slug": "hhhsf-marriotts-surfwatch",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        },
+        {
+          "name": "Sheraton Broadway Resort",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "South Carolina",
+          "city": "Myrtle Beach",
+          "slug": "sheraton-broadway-resort",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "South Carolina",
+            "priority": "500"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Virginia",
+      "resorts": [
+        {
+          "name": "Marriott's Manor Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Virginia",
+          "city": "Williamsburg",
+          "slug": "phfvi-marriotts-manor-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Virginia",
+            "priority": "600"
+          }
+        },
+        {
+          "name": "Marriott's Manor Club – Sequel",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Virginia",
+          "city": "Williamsburg",
+          "slug": "mq-marriotts-manor-club-sequel",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Virginia",
+            "priority": "600"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Washington, D.C.",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club® at The Mayflower, Washington, D.C.",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - East",
+          "state": "Washington, D.C.",
+          "city": "Washington",
+          "slug": "wasmv-marriott-vacation-club-at-the-mayflower-washington-dc",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - East",
+            "priority": "100"
+          },
+          "subLocale": {
+            "name": "Washington, D.C.",
+            "priority": "700"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Arizona",
+      "resorts": [
+        {
+          "name": "Marriott's Canyon Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Arizona",
+          "city": "Phoenix",
+          "slug": "phxcv-marriotts-canyon-villas",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Arizona",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Sheraton Desert Oasis",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Arizona",
+          "city": "Scottsdale",
+          "slug": "sheraton-desert-oasis",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Arizona",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "The Westin Kierland Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Arizona",
+          "city": "Scottsdale",
+          "slug": "the-westin-kierland-villas",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Arizona",
+            "priority": "100"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "California",
+      "resorts": [
+        {
+          "name": "Marriott Grand Residence Club® 2, Lake Tahoe",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "South Lake Tahoe",
+          "slug": "rnoph-marriott-grand-residence-club-lake-tahoe",
+          "dcmBrand": {
+            "name": "Grand Residences by Marriott®",
+            "nodename": "grand-residences-by-marriott"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott Vacation Club®, San Diego",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "San Diego",
+          "slug": "sanva-marriott-vacation-club-san-diego",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott Vacation Club®, San Francisco",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "San Francisco",
+          "slug": "sfovm-marriott-vacation-club-san-francisco",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott's Desert Springs Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Palm Desert",
+          "slug": "ctdds-marriotts-desert-springs-villas",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott's Desert Springs Villas II",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Palm Desert",
+          "slug": "ctdvi-marriotts-desert-springs-villas-ii",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott's Grand Residence Club® 1, Lake Tahoe",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "South Lake Tahoe",
+          "slug": "rnogr-grand-residences-lake-tahoe",
+          "dcmBrand": {
+            "name": "Grand Residences by Marriott®",
+            "nodename": "grand-residences-by-marriott"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott's Newport Coast® Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Newport Coast",
+          "slug": "laxnc-marriotts-newport-coast-villas",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott's Shadow Ridge",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Palm Desert",
+          "slug": "ctdsr-marriotts-shadow-ridge",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott's Shadow Ridge II – The Enclaves",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Palm Desert",
+          "slug": "ctdst-marriotts-shadow-ridge-ii-the-enclaves",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "Marriott's Timber Lodge®",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "South Lake Tahoe",
+          "slug": "rnotl-marriotts-timber-lodge",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "The Ritz-Carlton Club® and Residences, San Francisco",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "San Francisco",
+          "slug": "sforf-the-ritz-carlton-club-and-residences-san-francisco",
+          "dcmBrand": {
+            "name": "The Ritz-Carlton Club®",
+            "nodename": "ritz-carlton-destination-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "The Ritz-Carlton Club®, Lake Tahoe",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Truckee",
+          "slug": "rnort-the-ritz-carlton-club-lake-tahoe",
+          "dcmBrand": {
+            "name": "The Ritz-Carlton Club®",
+            "nodename": "ritz-carlton-destination-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "The Westin Desert Willow Villas, Palm Desert",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Palm Desert",
+          "slug": "the-westin-desert-willow-villas-palm-desert",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        },
+        {
+          "name": "The Westin Mission Hills Resort Villas, Palm Springs",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "California",
+          "city": "Rancho Mirage",
+          "slug": "the-westin-mission-hills-resort-villas",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "California",
+            "priority": "150"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Colorado",
+      "resorts": [
+        {
+          "name": "Marriott's Mountain Valley Lodge",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Breckenridge",
+          "slug": "qkbvi-marriotts-mountain-valley-lodge",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Marriott's StreamSide – Birch",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Vail",
+          "slug": "whrbi-marriotts-streamside",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Marriott's StreamSide – Douglas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Vail",
+          "slug": "whrdo-marriotts-streamside-douglas-at-vail",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Marriott's StreamSide – Evergreen",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Vail",
+          "slug": "whrvi-marriotts-streamside-evergreen-at-vail",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Sheraton Lakeside Terrace Villas at Mountain Vista",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Avon",
+          "slug": "sheraton-lakeside-terrace-villas-at-mountain-vista",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Sheraton Mountain Vista",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Avon",
+          "slug": "sheraton-mountain-vista",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Sheraton Steamboat Resort Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Steamboat Springs",
+          "slug": "sheraton-steamboat-resort-villas",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "The Ritz-Carlton Club®, Aspen Highlands",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Aspen",
+          "slug": "asera-the-ritz-carlton-club-aspen-highlands",
+          "dcmBrand": {
+            "name": "The Ritz-Carlton Club®",
+            "nodename": "ritz-carlton-destination-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "The Ritz-Carlton Club®, Vail",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Vail",
+          "slug": "whrlh-the-ritz-carlton-club-vail",
+          "dcmBrand": {
+            "name": "The Ritz-Carlton Club®",
+            "nodename": "ritz-carlton-destination-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "The Westin Riverfront Mountain Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Colorado",
+          "city": "Avon",
+          "slug": "the-westin-riverfront-mountain-villas",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Colorado",
+            "priority": "200"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Hawaiʻi",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club®, Waikīkī",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Honolulu, Oʻahu",
+          "slug": "wx-marriott-vacation-club-waikiki",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Marriott's Kauaʻi Beach Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Līhuʻe, Kauaʻi",
+          "slug": "lihka-marriotts-kauai-beach-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Marriott's Kauaʻi Lagoons – Kalanipuʻu",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Līhuʻe, Kauaʻi",
+          "slug": "lihkn-marriotts-kauai-lagoons-kalanipuu",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Marriott's Ko Olina Beach Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Kapolei, Oʻahu",
+          "slug": "hnlko-marriotts-ko-olina-beach-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Marriott's Maui Ocean Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Lāhainā, Maui",
+          "slug": "hnmmu-marriotts-maui-ocean-club-lahaina-and-napili-towers",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Marriott's Maui Ocean Club – Molokai, Maui, and Lanai Towers",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Lāhainā, Maui",
+          "slug": "hnmmh-marriotts-maui-ocean-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Marriott's Waikoloa Ocean Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Waikoloa Beach, Big Island",
+          "slug": "koamv-marriotts-waikoloa-ocean-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Marriott's Waiohai Beach Club",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Kōloa, Kauaʻi",
+          "slug": "lihwi-marriotts-waiohai-beach-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "Sheraton Kauaʻi Resort Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Kōloa, Kauaʻi",
+          "slug": "sheraton-kauai-resort",
+          "dcmBrand": {
+            "name": "Sheraton® Vacation Club",
+            "nodename": "sheraton-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "The Westin Kāʻanapali Ocean Resort Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Lāhainā, Maui",
+          "slug": "the-westin-kaanapali-ocean-resort-villas",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "The Westin Kāʻanapali Ocean Resort Villas North",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Lāhainā, Maui",
+          "slug": "the-westin-kaanapali-ocean-resort-villas-north",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "The Westin Nanea Ocean Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Lāhainā, Maui",
+          "slug": "the-westin-nanea-ocean-villas",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        },
+        {
+          "name": "The Westin Princeville Ocean Resort Villas",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Hawaiʻi",
+          "city": "Princeville, Kauaʻi",
+          "slug": "the-westin-princeville-ocean-resort-villas",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Hawai‘i-MVC",
+            "priority": "250"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Missouri",
+      "resorts": [
+        {
+          "name": "Marriott's Willow Ridge Lodge",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Missouri",
+          "city": "Branson",
+          "slug": "sgfhb-marriotts-willow-ridge-lodge",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Missouri",
+            "priority": "300"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Nevada",
+      "resorts": [
+        {
+          "name": "Marriott's Grand Chateau®",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Nevada",
+          "city": "Las Vegas",
+          "slug": "lasvg-marriotts-grand-chateau",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Nevada",
+            "priority": "350"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "North America",
+      "subHeader": "Utah",
+      "resorts": [
+        {
+          "name": "Marriott's MountainSide",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Utah",
+          "city": "Park City",
+          "slug": "slcms-marriotts-mountainside",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Utah",
+            "priority": "400"
+          }
+        },
+        {
+          "name": "Marriott's Summit Watch",
+          "continent": "North America",
+          "country": "United States",
+          "region": "USA - West",
+          "state": "Utah",
+          "city": "Park City",
+          "slug": "slcvi-marriotts-summit-watch",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "USA - West",
+            "priority": "200"
+          },
+          "subLocale": {
+            "name": "Utah",
+            "priority": "400"
+          }
+        }
+      ]
+    }
+  ],
+  "rightColumn": [
+    {
+      "mainHeader": "Mexico",
+      "subHeader": "Cancún",
+      "resorts": [
+        {
+          "name": "The Westin Lagunamar Ocean Resort",
+          "continent": "North America",
+          "country": "Mexico",
+          "region": "Mexico",
+          "state": "Quintana Roo",
+          "city": "Cancún",
+          "slug": "the-westin-lagunamar-ocean-resort",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "Mexico",
+            "priority": "300"
+          },
+          "subLocale": {
+            "name": "Cancún",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "The Westin Resort & Spa, Cancún",
+          "continent": "North America",
+          "country": "Mexico",
+          "region": "Mexico",
+          "state": "Quintana Roo",
+          "city": "Cancún",
+          "slug": "the-westin-resort-spa-cancun",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "Mexico",
+            "priority": "300"
+          },
+          "subLocale": {
+            "name": "Cancún",
+            "priority": "100"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Mexico",
+      "subHeader": "Los Cabos",
+      "resorts": [
+        {
+          "name": "The Westin Los Cabos Resort Villas & Spa",
+          "continent": "North America",
+          "country": "Mexico",
+          "region": "Mexico",
+          "state": "Baja California Sur",
+          "city": "Los Cabos",
+          "slug": "the-westin-los-cabos-resort-villas-spa",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "Mexico",
+            "priority": "300"
+          },
+          "subLocale": {
+            "name": "Los Cabos",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "The Westin Los Cabos Resort Villas & Spa Baja Point",
+          "continent": "North America",
+          "country": "Mexico",
+          "region": "Mexico",
+          "state": "Baja California Sur",
+          "city": "Los Cabos",
+          "slug": "the-westin-los-cabos-resort-villas-spa-baja-point",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "Mexico",
+            "priority": "300"
+          },
+          "subLocale": {
+            "name": "Los Cabos",
+            "priority": "200"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Caribbean",
+      "subHeader": "Aruba",
+      "resorts": [
+        {
+          "name": "Marriott's Aruba Ocean Club",
+          "continent": "Caribbean",
+          "country": "Aruba",
+          "region": "Caribbean",
+          "state": "",
+          "city": "Palm Beach",
+          "slug": "auaao-marriotts-aruba-ocean-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Caribbean",
+            "priority": "500"
+          },
+          "subLocale": {
+            "name": "Aruba",
+            "priority": "100"
+          }
+        },
+        {
+          "name": "Marriott's Aruba Surf Club®",
+          "continent": "Caribbean",
+          "country": "Aruba",
+          "region": "Caribbean",
+          "state": "",
+          "city": "Palm Beach",
+          "slug": "auaac-marriotts-aruba-surf-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Caribbean",
+            "priority": "500"
+          },
+          "subLocale": {
+            "name": "Aruba",
+            "priority": "100"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Caribbean",
+      "subHeader": "St. Kitts and Nevis",
+      "resorts": [
+        {
+          "name": "Marriott's St. Kitts Beach Club",
+          "continent": "Caribbean",
+          "country": "St. Kitts and Nevis",
+          "region": "Caribbean",
+          "state": "",
+          "city": "St. Kitts",
+          "slug": "skbkt-marriotts-st-kitts-beach-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Caribbean",
+            "priority": "500"
+          },
+          "subLocale": {
+            "name": "St. Kitts and Nevis",
+            "priority": "200"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Caribbean",
+      "subHeader": "The Bahamas",
+      "resorts": [
+        {
+          "name": "Harborside Resort at Atlantis",
+          "continent": "Caribbean",
+          "country": "The Bahamas",
+          "region": "Caribbean",
+          "state": null,
+          "city": "Nassau",
+          "slug": "harborside-resort-at-atlantis",
+          "dcmBrand": {
+            "name": "Unbranded",
+            "nodename": "unbranded"
+          },
+          "locale": {
+            "name": "Caribbean",
+            "priority": "500"
+          },
+          "subLocale": {
+            "name": "The Bahamas",
+            "priority": "300"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Caribbean",
+      "subHeader": "U.S. Virgin Islands",
+      "resorts": [
+        {
+          "name": "Marriott's Frenchman's Cove",
+          "continent": "Caribbean",
+          "country": "U.S. Virgin Islands",
+          "region": "Caribbean",
+          "state": null,
+          "city": "St. Thomas",
+          "slug": "sttuv-marriotts-frenchmans-cove",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Caribbean",
+            "priority": "500"
+          },
+          "subLocale": {
+            "name": "U.S. Virgin Islands",
+            "priority": "400"
+          }
+        },
+        {
+          "name": "The Ritz-Carlton Club®, St. Thomas",
+          "continent": "Caribbean",
+          "country": "U.S. Virgin Islands",
+          "region": "Caribbean",
+          "state": null,
+          "city": "St. Thomas",
+          "slug": "sttrs-the-ritz-carlton-club-st-thomas",
+          "dcmBrand": {
+            "name": "The Ritz-Carlton Club®",
+            "nodename": "ritz-carlton-destination-club"
+          },
+          "locale": {
+            "name": "Caribbean",
+            "priority": "500"
+          },
+          "subLocale": {
+            "name": "U.S. Virgin Islands",
+            "priority": "400"
+          }
+        },
+        {
+          "name": "The Westin St. John Resort Villas",
+          "continent": "Caribbean",
+          "country": "U.S. Virgin Islands",
+          "region": "Caribbean",
+          "state": null,
+          "city": "St. John",
+          "slug": "the-westin-st-john-resort-villas",
+          "dcmBrand": {
+            "name": "Westin® Vacation Club",
+            "nodename": "westin-vacation-club"
+          },
+          "locale": {
+            "name": "Caribbean",
+            "priority": "500"
+          },
+          "subLocale": {
+            "name": "U.S. Virgin Islands",
+            "priority": "400"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Central America",
+      "subHeader": "Costa Rica",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club® at Los Sueños",
+          "continent": "Central America",
+          "country": "Costa Rica",
+          "region": "Central America",
+          "state": "Puntarenas",
+          "city": "Garabito",
+          "slug": "sjomv-marriott-vacation-club-at-los-suenos",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "C. America",
+            "priority": "525"
+          },
+          "subLocale": {
+            "name": "Costa Rica",
+            "priority": "100"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Europe",
+      "subHeader": "France",
+      "resorts": [
+        {
+          "name": "Marriott's Village d'Ile-de-France",
+          "continent": "Europe",
+          "country": "France",
+          "region": "Europe",
+          "state": "",
+          "city": "Bailly-Romainvilliers",
+          "slug": "pardp-marriotts-village-dile-de-france",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Europe",
+            "priority": "600"
+          },
+          "subLocale": {
+            "name": "France",
+            "priority": "100"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Europe",
+      "subHeader": "Spain",
+      "resorts": [
+        {
+          "name": "Marriott's Club Son Antem",
+          "continent": "Europe",
+          "country": "Spain",
+          "region": "Europe",
+          "state": null,
+          "city": "Mallorca",
+          "slug": "pmimc-marriotts-club-son-antem",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Europe",
+            "priority": "600"
+          },
+          "subLocale": {
+            "name": "Spain",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Marriott's Marbella Beach Resort",
+          "continent": "Europe",
+          "country": "Spain",
+          "region": "Europe",
+          "state": null,
+          "city": "Marbella",
+          "slug": "agpmb-marriotts-marbella-beach-resort",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Europe",
+            "priority": "600"
+          },
+          "subLocale": {
+            "name": "Spain",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Marriott's Playa Andaluza",
+          "continent": "Europe",
+          "country": "Spain",
+          "region": "Europe",
+          "state": null,
+          "city": "Estepona",
+          "slug": "agppy-marriotts-playa-andaluza",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Europe",
+            "priority": "600"
+          },
+          "subLocale": {
+            "name": "Spain",
+            "priority": "200"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Asia",
+      "subHeader": "Indonesia",
+      "resorts": [
+        {
+          "name": "Marriott’s Bali Nusa Dua Gardens",
+          "continent": "Asia",
+          "country": "Indonesia",
+          "region": "Asia-Pacific",
+          "state": "Bali",
+          "city": "Nusa Dua",
+          "slug": "dpsmv-marriotts-bali-nusa-dua-gardens",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Asia-Pacific",
+            "priority": "700"
+          },
+          "subLocale": {
+            "name": "Indonesia",
+            "priority": "200"
+          }
+        },
+        {
+          "name": "Marriott’s Bali Nusa Dua Terrace",
+          "continent": "Asia",
+          "country": "Indonesia",
+          "region": "Asia-Pacific",
+          "state": "Bali",
+          "city": "Nusa Dua",
+          "slug": "dpsvc-marriotts-bali-nusa-dua-terrace",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Asia-Pacific",
+            "priority": "700"
+          },
+          "subLocale": {
+            "name": "Indonesia",
+            "priority": "200"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Asia",
+      "subHeader": "Thailand",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club® at The Empire Place©, Bangkok",
+          "continent": "Asia",
+          "country": "Thailand",
+          "region": "Asia-Pacific",
+          "state": "Bangkok",
+          "city": "Yannawa, Sathorn",
+          "slug": "bkkep-marriott-vacation-club-at-the-empire-place",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Asia-Pacific",
+            "priority": "700"
+          },
+          "subLocale": {
+            "name": "Thailand",
+            "priority": "300"
+          }
+        },
+        {
+          "name": "Marriott Vacation Club®, Khao Lak Beach Resort",
+          "continent": "Asia",
+          "country": "Thailand",
+          "region": "Asia-Pacific",
+          "state": "Phang Nga",
+          "city": "Takua Pa District",
+          "slug": "htktv-marriott-vacation-club-khao-lak-beach-resort",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Asia-Pacific",
+            "priority": "700"
+          },
+          "subLocale": {
+            "name": "Thailand",
+            "priority": "300"
+          }
+        },
+        {
+          "name": "Marriott's Mai Khao Resort – Phuket",
+          "continent": "Asia",
+          "country": "Thailand",
+          "region": "Asia-Pacific",
+          "state": "Phuket",
+          "city": "Mai Khao, Talang",
+          "slug": "hktpa-marriotts-mai-khao-resort-phuket",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Asia-Pacific",
+            "priority": "700"
+          },
+          "subLocale": {
+            "name": "Thailand",
+            "priority": "300"
+          }
+        },
+        {
+          "name": "Marriott's Phuket Beach Club",
+          "continent": "Asia",
+          "country": "Thailand",
+          "region": "Asia-Pacific",
+          "state": "Phuket",
+          "city": "Mai Khao Beach",
+          "slug": "hktpb-marriotts-phuket-beach-club",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Asia-Pacific",
+            "priority": "700"
+          },
+          "subLocale": {
+            "name": "Thailand",
+            "priority": "300"
+          }
+        }
+      ]
+    },
+    {
+      "mainHeader": "Australia",
+      "subHeader": "Australia",
+      "resorts": [
+        {
+          "name": "Marriott Vacation Club® at Surfers Paradise",
+          "continent": "Australia",
+          "country": "Australia",
+          "region": "Asia-Pacific",
+          "state": "Surfers Paradise",
+          "city": "Gold Coast",
+          "slug": "oolmv-marriott-vacation-club-at-surfers-paradise",
+          "dcmBrand": {
+            "name": "Marriott Vacation Club®",
+            "nodename": "marriott-vacation-club"
+          },
+          "locale": {
+            "name": "Asia-Pacific",
+            "priority": "700"
+          },
+          "subLocale": {
+            "name": "Australia",
+            "priority": "100"
+          }
+        }
+      ]
+    }
+  ],
+  "regionFilter": [
+    {
+      "header": "North America",
+      "subHeader": [
+        "Arizona",
+        "California",
+        "Colorado",
+        "Florida",
+        "Hawaiʻi",
+        "Massachusetts",
+        "Missouri",
+        "Nevada",
+        "New Jersey",
+        "New York",
+        "South Carolina",
+        "Utah",
+        "Virginia",
+        "Washington, D.C."
+      ]
+    },
+    {
+      "header": "Mexico",
+      "subHeader": [
+        "Cancún",
+        "Los Cabos"
+      ]
+    },
+    {
+      "header": "Caribbean",
+      "subHeader": [
+        "Aruba",
+        "St. Kitts and Nevis",
+        "The Bahamas",
+        "U.S. Virgin Islands"
+      ]
+    },
+    {
+      "header": "Central America",
+      "subHeader": [
+        "Costa Rica"
+      ]
+    },
+    {
+      "header": "Europe",
+      "subHeader": [
+        "France",
+        "Spain"
+      ]
+    },
+    {
+      "header": "Asia",
+      "subHeader": [
+        "Indonesia",
+        "Thailand"
+      ]
+    },
+    {
+      "header": "Australia",
+      "subHeader": [
+        "Australia"
+      ]
+    }
+  ]
+}

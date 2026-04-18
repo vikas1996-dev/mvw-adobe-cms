@@ -1,0 +1,139 @@
+<sly data-sly-use.content="com.mvw.core.models.StaticDetailModel" />
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+    <sly data-sly-test="${contents.propertiesList}">
+        <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.nodename == 'experience-even-more-header'}">
+                <sly data-sly-set.header="${content.properties}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'experience-even-more-description'}">
+                <sly data-sly-set.description="${content.properties}" />
+            </sly>
+
+        </sly>
+    </sly>
+</sly>
+
+
+
+<sly data-sly-use.contents="com.mvw.core.models.DestinationLandingPageEditorialArticals">
+    <sly data-sly-test="${contents.propertiesList}">
+        <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.name == 'abound-header'}">
+                <sly data-sly-set.aboundHeader="${content.description}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'abound-description'}">
+                <sly data-sly-set.aboundDescription="${content.description}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'bonvoy-header'}">
+                <sly data-sly-set.bonvoyHeader="${content.description}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'bonvoy-description'}">
+                <sly data-sly-set.bonvoyDescription="${content.description}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'interval-header'}">
+                <sly data-sly-set.intervalHeader="${content.description}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'interval-description'}">
+                <sly data-sly-set.intervalDescription="${content.description}" />
+            </sly>
+
+
+        </sly>
+    </sly>
+</sly>
+
+<sly data-sly-use.contents="com.mvw.core.models.DestinationLandingPageEditorialArticalsImages">
+    <sly data-sly-test="${contents.propertiesList}">
+        <sly data-sly-list.content="${contents.propertiesList}">
+            
+            <sly data-sly-test="${content.name == 'abound-logo'}">
+                <sly data-sly-set.aboundLogo="${content.imagePath}" />
+<sly data-sly-set.aboundAlt="${content.altText}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'bonvoy-logo'}">
+                <sly data-sly-set.bonvoyLogo="${content.imagePath}" />
+                <sly data-sly-set.bonvoyAlt="${content.altText}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'interval-logo'}">
+                <sly data-sly-set.intervalLogo="${content.imagePath}" />
+                <sly data-sly-set.intervalAlt="${content.altText}" />
+            </sly>
+            <sly data-sly-test="${content.name == 'abound-tile-hero'}">
+                <sly data-sly-set.aboundHero="${content.imagePath}" />
+                <sly data-sly-set.aboundHeroAlt="${content.altText}" />
+             </sly>
+            <sly data-sly-test="${content.name == 'bonvoy-tile-hero'}">
+                <sly data-sly-set.bonvoyHero="${content.imagePath}" />
+                <sly data-sly-set.bonvoyHeroAlt="${content.altText}" />
+            </sly>
+
+            <sly data-sly-test="${content.name == 'interval-tile-hero'}">
+                <sly data-sly-set.intervalHero="${content.imagePath}" />
+                <sly data-sly-set.intervalHeroAlt="${content.altText}" />
+            </sly>
+
+
+        </sly>
+    </sly>
+</sly>
+
+
+<section class="experience-more-section" aria-labelledby="experience-more-title">
+    <div class="grid-container">
+        <div class="section-header">
+            <h2 class="section-title" id="experience-more-title">${header}</h2>
+            <p class="section-description">${description @context ='html'}</p>
+        </div>
+        <div class="experience-cards-container">
+            <!-- Card 1: Cruises, Hotels & More -->
+            <article class="experience-card">
+                <div class="card-image-wrapper">
+                    <img src="${aboundHero}" alt="${aboundHeroAlt}" />
+                </div>
+                <div class="card-icon-overlay">
+                    <div class="card-icon bg-theme-tide">
+                        <img src="${aboundLogo}" alt="${aboundAlt}" />
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">${aboundHeader @context ='html'}</h3>
+                     ${aboundDescription @context ='html'}
+                </div>
+            </article>
+
+            <!-- Card 2: Marriott Bonvoy-->
+            <article class="experience-card">
+                <div class="card-image-wrapper">
+                    <img src="${bonvoyHero}" alt="${bonvoyHeroAlt}" />
+                </div>
+                <div class="card-icon-overlay">
+                    <div class="card-icon bg-theme-pearl">
+                        <img src="${bonvoyLogo}" alt="${bonvoyAlt}" />
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">${bonvoyHeader @context ='html'}</h3>
+                    ${bonvoyDescription @context ='html'}
+
+
+                </div>
+            </article>
+
+            <!-- Card 3: Interval International -->
+            <article class="experience-card">
+                <div class="card-image-wrapper">
+                    <img src="${intervalHero}" alt="${intervalHero}" />
+                </div>
+                <div class="card-icon-overlay">
+                    <div class="card-icon bg-theme-indigo">
+                        <img src="${intervalLogo}" alt="${intervalHeroAlt}" />
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">${intervalHeader @context ='html'}</h3>
+                    ${intervalDescription @context ='html'}
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

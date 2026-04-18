@@ -1,0 +1,50 @@
+{
+    "missingPrimaryImage":{
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "jcr:lastModifiedBy": "admin",
+    "copyText": "\u003Cp\u003ESheraton San Jose Hotel, Costa Rica\u003C/p\u003E\r\n\u003Cp\u003ELegal Documents\u003C/p\u003E\r\n",
+    "jcr:created": "Sun Nov 16 2025 20:17:52 GMT-0500",
+    "jcr:lastModified": "Thu Nov 20 2025 10:03:02 GMT-0500",
+    "sling:resourceType": "mvw/components/legal/heroBanner",
+    "textIsRich": "true",
+    "decorationImage": {
+      "jcr:primaryType": "nt:unstructured",
+      "fileReference": "/content/dam/usb-legal/pattern (1).png",
+      "jcr:lastModifiedBy": "admin",
+      "jcr:lastModified": "Thu Nov 20 2025 10:03:02 GMT-0500"
+    }
+  },
+  "full":{
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "jcr:lastModifiedBy": "admin",
+    "copyText": "\u003Cp\u003ESheraton San Jose Hotel, Costa Rica\u003C/p\u003E\r\n\u003Cp\u003ELegal Documents\u003C/p\u003E\r\n",
+    "jcr:created": "Sun Nov 16 2025 20:17:52 GMT-0500",
+    "jcr:lastModified": "Thu Nov 20 2025 10:03:02 GMT-0500",
+    "sling:resourceType": "mvw/components/legal/heroBanner",
+    "textIsRich": "true",
+    "bannerImage": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:lastModifiedBy": "admin",
+      "jcr:lastModified": "Thu Nov 20 2025 10:03:02 GMT-0500",
+      "fileReference":"/content/dam/usb-legal/banner.png"
+    },
+    "decorationImage": {
+      "jcr:primaryType": "nt:unstructured",
+      "fileReference": "/content/dam/usb-legal/pattern (1).png",
+      "jcr:lastModifiedBy": "admin",
+      "jcr:lastModified": "Thu Nov 20 2025 10:03:02 GMT-0500"
+    }
+  },
+    "noImages":{
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "jcr:lastModifiedBy": "admin",
+    "copyText": "\u003Cp\u003ESheraton San Jose Hotel, Costa Rica\u003C/p\u003E\r\n\u003Cp\u003ELegal Documents\u003C/p\u003E\r\n",
+    "jcr:created": "Sun Nov 16 2025 20:17:52 GMT-0500",
+    "jcr:lastModified": "Thu Nov 20 2025 10:03:02 GMT-0500",
+    "sling:resourceType": "mvw/components/legal/heroBanner",
+    "textIsRich": "true"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "cdnPurgeKey1": "$[env:CDN_PURGEKEY_PROD_1;default=]",
+  "cdnPurgeKey2": "$[env:CDN_PURGEKEY_PROD_2;default=]",
+  "cdnPurgeDomain": "www.marriottvacationclubs.com"
+}

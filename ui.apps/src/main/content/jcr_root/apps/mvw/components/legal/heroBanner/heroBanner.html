@@ -1,0 +1,16 @@
+<sly data-sly-use.model="com.mvw.core.models.LegalHeroBanner">
+  <sly data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Hero Banner' }" />
+
+  <sly data-sly-set.bgImage="${model.bannerImageFileReference}" />
+  <sly data-sly-set.decorationImage="${model.decorationImage}" />
+
+  <section class="hero-section">
+    <div  class="hero-body-section cutom-bg" style="--bg-image: url('${bgImage @ context='uri'}')"></div>
+    <div class="text-section ">
+      <input type="hidden" class="resort-banner-text"/>
+      ${model.copyText @ context='html'}
+    </div>
+  <div data-sly-test="${decorationImage}" class="extra-img" style="--bg-image: url('${decorationImage @ context='uri'}')"></div>
+  </section>
+</sly>

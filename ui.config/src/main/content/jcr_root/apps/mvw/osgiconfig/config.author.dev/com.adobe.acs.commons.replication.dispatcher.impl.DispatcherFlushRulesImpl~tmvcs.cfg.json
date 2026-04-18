@@ -1,0 +1,9 @@
+{
+  "prop.replication-action-type": "INHERIT",
+  "prop.rules.hierarchical": [
+    "/content/tmvcs/([^/]+)/([^/]+)/destination(/.*)?=/content/tmvcs/$1/$2/destination",
+    "/content/tmvcs/([^/]+)/([^/]+)/resorts(/.*)?=/content/tmvcs/$1/$2/resorts",
+    "/content/tmvcs/([^/]+)/([^/]+)/city-collection(/.*)?=/content/tmvcs/$1/$2/resorts"
+
+  ]
+}

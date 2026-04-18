@@ -1,0 +1,64 @@
+<sly data-sly-use.model="com.mvw.core.models.VacationCard"/>
+<sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+<sly data-sly-call="${tpl.placeHolderBlock @
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+
+<sly data-sly-test="${!model.cards}">
+    <span class="placeholder">Configure VacationCard here</span>
+</sly>
+<div class="grid-container vacation-card-cmp ${model.cards.size == 1 ? 'single-card-container' : ''}"  data-parent-component="MultiCard">
+    <div class="vacation-cards ${model.cards.size == 1 ? 'single-card' : ''}">
+        <sly data-sly-list.card="${model.cards}">
+            <div class="card bg-theme-${card.cardBgColor == 'none' ? 'white' : card.cardBgColor } m-bg-theme-${card.brandIconImageBgColor}">
+                <sly data-sly-test="${card.cardImage}">
+                    <div class="image-container">
+                        <picture>
+                            <sly data-sly-test="${card.mobileImage}">
+                                <source media="(max-width: 768px)"
+                                        srcset="${card.mobileImage @ context='uri'}" />
+                            </sly>
+                            <img src="${card.cardImage @ context='uri'}"
+                                 loading="lazy"
+                                 alt="${card.cardImageAlt}" />
+                        </picture>
+                    </div>
+                    <div data-sly-test="${card.badge}" class="location bg-theme-${card.badgeColor}">
+                        <i class="${card.badgeFontAwesomeIcon}"></i>
+                        <span>${card.badge @ context='html'}</span>
+                    </div>
+                </sly>
+                <div class="card-content">
+                    <sly data-sly-test="${card.cardHeadline}">
+                        <sly data-sly-test="${card.headlineTag}">
+                            <span data-sly-element="${card.headlineTag}" class="title ${card.headlineType}">${card.cardHeadline @ context='html'}</span>
+                        </sly>
+                    </sly>
+                    <div class="description">${card.cardDescription @ context='html'}</div>
+                    <a href="${card.ctaDestination}"
+                       class="cmp-button cmp-button--${card.ctaStyle} cmp-button--large cmp-button--${card.ctaPlacement == 'icon-only' ? ' cmp-button--icon-only' : ''}"
+                       data-url="${card.ctaDestination}"
+                       data-tab="${card.ctaTab}">
+                        <sly data-sly-test="${card.ctaPlacement != 'icon-only'}">
+                            <sly data-sly-test="${card.ctaPlacement == 'left-icon' && card.fontAwesomeIcon}">
+                                <span class="cmp-button__icon cmp-button__icon--left fa fa-brands ${card.fontAwesomeIcon}"></span>
+                            </sly>
+                            <span data-sly-test="${card.ctaText}" class="cmp-button__text">${card.ctaText @ context='html'}</span>
+
+                            <sly data-sly-test="${card.ctaPlacement == 'right-icon' && card.fontAwesomeIcon}">
+                                <span class="cmp-button__icon cmp-button__icon--right fa fa-brands ${card.fontAwesomeIcon}"></span>
+                            </sly>
+                        </sly>
+                        <sly data-sly-test="${card.ctaPlacement == 'icon-only'}">
+                            <span class="cmp-button__icon cmp-button__icon fa fa-brands  ${card.fontAwesomeIcon}"></span>
+                        </sly>
+                    </a>
+                </div>
+                <a class="card-link" href="${card.ctaDestination}"
+                   target="${card.ctaTab == 'newTab' ? '_blank' : '_self'}" aria-label="${card.ctaText}" data-link-type="Call To Action"></a>
+            </div>
+        </sly>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+Resort plan component.
+<!--
+<sly data-sly-use.resortDetailsModel="com.mvw.core.models.ResortDetailsModel" />
+
+<sly data-sly-list.properties="${resortDetailsModel.propertiesList}">
+  <div class="property-item">
+    <p>coordinateLatitude: ${properties.coordinateLatitude}</p>
+    <p>coordinateLongitude: ${properties.coordinateLongitude}</p>
+    <p>checkIn: ${properties.checkIn}</p>
+    <p>checkOut: ${properties.checkOut}</p>
+    <p>Club: 	
+        <sly data-sly-list.club="${properties.club}">
+          <li>name : ${club.name} ; description : ${club.clubDescription} ; code : ${club.code}</li>
+        </sly>
+    </p>
+    <p>name: ${properties.name}</p>
+    <p>nodename: ${properties.nodename}</p>
+    <p>description: ${properties.description}</p>
+    <p>longDescription: ${properties.longDescription}</p>
+    <p>slug: ${properties.slug}</p>
+    <p>universalPropertyCode: ${properties.universalPropertyCode}</p>
+    
+    <p>Flags: 	
+        <sly data-sly-list.flag="${properties.flags}">
+          <li>name : ${flag.name} ; nodename : ${club.nodename}</li>
+        </sly>
+    </p>
+    
+    <p>flags: ${properties.flags}</p>
+    <p>dcmBrand: ${properties.dcmBrand}</p>
+    <p>path: ${properties.path}</p>
+    <p>address1: ${properties.address1}</p>
+    <p>address2: ${properties.address2}</p>
+    <p>city: ${properties.city}</p>
+    <p>state: ${properties.state}</p>
+    <p>country: ${properties.country}</p>
+    <p>continent: ${properties.continent}</p>
+    <p>region: ${properties.region}</p>
+    <p>phoneMain: ${properties.phoneMain}</p>
+    <p>accessibility: ${properties.accessibility}</p>
+    <p>announcements: ${properties.announcements}</p>
+    <p>policies: ${properties.policies}</p>
+    <p>twitter: ${properties.twitter}</p>
+    <p>facebook: ${properties.facebook}</p>
+    <p>instagram: ${properties.instagram}</p>
+    <p>pinterest: ${properties.pinterest}</p>
+    <p>youtube: ${properties.youtube}</p>
+    <p>tripadvisor: ${properties.tripadvisor}</p>
+    <p>videos: ${properties.videos}</p>
+    <p>images: ${properties.images}</p>
+    <p>documents: ${properties.documents}</p>
+    <p>gallery: ${properties.gallery}</p>
+
+  </div>
+</sly>
+-->

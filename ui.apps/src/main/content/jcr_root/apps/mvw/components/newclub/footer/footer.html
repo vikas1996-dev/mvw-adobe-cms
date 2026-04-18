@@ -1,0 +1,162 @@
+<sly data-sly-use.footerModel="com.mvw.core.models.NewClubFooterModel" />
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Footer' }" />
+
+<footer role="contentinfo">
+    <div class="footer-wrapper">
+
+        <!-- Start: Section-A -->
+        <sly data-sly-test="${!footerModel.hideSectionA}">
+
+            <!-- Top RTE Section -->
+            <sly data-sly-test="${footerModel.footerCopy}">
+                <div class="footer-section footer-rte top-rte" aria-label="Disclosure Information">
+                    <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
+                        <div class="cmp-container">
+                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
+                                <div class="text aem-GridColumn aem-GridColumn--default--12">
+                                    <div class="cmp-text">${footerModel.footerCopy @ context='html'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider" role="separator" aria-hidden="true"></div>
+            </sly>
+
+            <!-- Navigation and Contact Section -->
+            <sly data-sly-test="${footerModel.navigationHeading}">
+                <div class="footer-section nav-contact-section" role="navigation"
+                    aria-label="Footer Navigation and Contact Information">
+
+                    <sly data-sly-test.ctaNavLinks="${footerModel.ctaNavLinks}">
+                        <div class="nav-links-col">
+                            <div class="nav-item-group" role="group" aria-labelledby="navigation-title">
+                                <div class="nav-title" id="navigation-title">${footerModel.navigationHeading}</div>
+                                <sly data-sly-list="${ctaNavLinks}">
+                                    <a class="${item.thirdParty =='true' ? 'third-party-link' : ''}" 
+                                       data-sly-test="${!item.navHideLink}"
+                                       target="${item.navLinkTab}" aria-label="${item.navLinkText @ context='text'}"
+                                       href="${item.navLinkUrl @ context='uri'}" class="nav-link">${item.navLinkText @ context='text'}</a>
+                                </sly>
+                            </div>
+                        </div>
+                    </sly>
+
+                    <sly data-sly-test.ctaNavLinksCol2="${footerModel.ctaNavLinksCol2}">
+                        <div class="nav-links-col">
+                            <div class="nav-item-group" role="group" aria-labelledby="navigation-title">
+                                <div class="nav-title" id="navigation-title-col2">${footerModel.navigationHeadingColTwo}</div>
+                                <sly data-sly-list="${ctaNavLinksCol2}">
+                                    <a class="${item.thirdParty =='true' ? 'third-party-link' : ''}"
+                                       data-sly-test="${!item.navHideLink}"
+                                       target="${item.navLinkTab}" aria-label="${item.navLinkText @ context='text'}"
+                                       href="${item.navLinkUrl @ context='uri'}" class="nav-link">${item.navLinkText @ context='text'}</a>
+                                </sly>
+                            </div>
+                        </div>
+                    </sly>
+
+                    <sly data-sly-test.ctaNavLinksCol3="${footerModel.ctaNavLinksCol3}">
+                        <div class="nav-links-col">
+                            <div class="nav-item-group" role="group" aria-labelledby="navigation-title">
+                                <div class="nav-title" id="navigation-title-col3">${footerModel.navigationHeadingColThree}</div>
+                                <sly data-sly-list="${ctaNavLinksCol3}">
+                                    <a class="${item.thirdParty =='true' ? 'third-party-link' : ''}"
+                                       data-sly-test="${!item.navHideLink}"
+                                       target="${item.navLinkTab}"
+                                       href="${item.navLinkUrl @ context='uri'}" class="nav-link">${item.navLinkText @ context='text'}</a>
+                                </sly>
+                            </div>
+                        </div>
+                    </sly>
+
+                    <!-- Contact section -->
+                    <div class="contact-info-col" data-sly-test="${footerModel.contactUsText}">
+                        <div class="nav-item-group" role="group" aria-label="Contact Information">
+                            ${footerModel.contactUsText @ context='html'}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="footer-divider" role="separator" aria-hidden="true"></div>
+            </sly>
+
+        </sly>
+        <!-- Ends: Section-A -->
+
+        <!-- Start: Section-B -->
+        <sly data-sly-test="${!footerModel.hideSectionB}">
+
+            <!-- Brand Logo and Social Icons Section -->
+            <sly data-sly-test="${footerModel.logoImage}">
+                <div class="footer-section brand-social-section" aria-label="Brand Logo and Social Media">
+                    <div class="brand-logo-container" data-sly-test="${footerModel.logoImage}">
+                        <a class="${item.thirdParty =='true' ? 'third-party-link' : ''} footer-logo uphoria-logo-link"
+                            href="${footerModel.homeLink @ context='uri'}"
+                            aria-label="${footerModel.logoImageAltText @ context='text'}">
+                            <img src="${footerModel.logoImage @ context='attribute'}"
+                                alt="${footerModel.logoImageAltText @ context='text'}" class="uphoria-logo">
+                        </a>
+                    </div>
+
+                    <sly data-sly-test.socialLinks="${footerModel.socialMediaLinks}">
+                        <div class="social-icons-container social-links" data-sly-list="${socialLinks}" role="group"
+                            aria-label="Social Media Links">
+                            <a 
+                                href="${item.navLinkUrl @ context='uri'}" target=${item.navLinkTab}
+                                class="social-icon-link ${item.thirdParty=='true' ? 'third-party-link' : ''}" 
+                                data-sly-set.iconName="${item.navLinkText.toLowerCase}"
+                                aria-label="${item.navLinkText}">
+                                <i class="${iconName}" aria-hidden="true"></i>
+                            </a>
+
+                        </div>
+                    </sly>
+
+                </div>
+
+                <div class="footer-divider" role="separator" aria-hidden="true"></div>
+            </sly>
+
+            <!-- Bottom RTE Legal Text -->
+            <sly data-sly-test="${footerModel.legalCopy}">
+                <div class="footer-section footer-rte bottom-rte" aria-label="Legal Disclosures">
+                    <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
+                        <div class="cmp-container">
+                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12">
+                                <div class="text aem-GridColumn aem-GridColumn--default--12">
+                                    <div class="cmp-text">${footerModel.legalCopy @ context='html'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-divider" role="separator" aria-hidden="true"></div>
+            </sly>
+
+            <!-- Legal Links Section -->
+            <div class="footer-section" data-sly-test.legalLinks="${footerModel.legalLinks}" role="navigation"
+                aria-label="Legal Links">
+
+                <div class="legal-links" data-sly-list="${legalLinks}">
+
+                    <a class="footer-legal-link" data-sly-attribute.class="${item.cookieLink ? 'ot-sdk-show-settings' : ''}${item.thirdParty =='true' ? ' third-party-link' : ''}"
+                        id="${item.cookieLink ? 'ot-sdk-btn' : ''}" href="${item.legalLinkUrl @ context='uri'}" aria-label="${item.legalLinkText @ context='text'}"
+                        target="${item.legalLinkTab}">
+                        ${item.legalLinkText @ context='text'}
+                    </a>
+
+                    <span class="divider" aria-hidden="true" data-sly-test="${!itemList.last}">|</span>
+                </div>
+
+            </div>
+
+        </sly>
+        <!-- Ends: Section-B -->
+
+    </div>
+</footer>

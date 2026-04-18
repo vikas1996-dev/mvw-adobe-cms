@@ -1,0 +1,162 @@
+@import '../../variables.scss';
+
+.cmp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    font-family: "roboto";
+    font-weight: 300;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    border-radius: 1000px;
+    position: relative;
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 16px;
+        width: 16px;
+    }
+
+    &--large {
+        height: 47px;
+        padding: 8.5px $spacing-xl;
+        font-size: 24px;
+        line-height: 30px;
+
+        &.cmp-button--icon-only {
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+    }
+
+    &--small {
+        height: 32px;
+        padding: 6px $spacing-md;
+        font-size: 16px;
+        line-height: 20px;
+
+
+        &.cmp-button--icon-only {
+            width: 32px;
+            padding: 0;
+            border-radius: 50%;
+
+            .cmp-button__icon {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+    }
+
+    &--icon-only {
+        padding: 0;
+        line-height: 1;
+
+        .cmp-button__icon {
+            margin: 0;
+        }
+    }
+
+    &--primary {
+        background: var(--primary-button-color, #D17F65);
+        color: var(--primary-button-font-color, #000000);
+
+        &:hover:not(:disabled) {
+            background: var(--primary-button-hover-color, #D17F65);
+        }
+
+        &:active:not(:disabled) {
+            background: var(--primary-button-active-color, #CC765C);
+        }
+
+        &:focus:not(:disabled) {
+            outline: 5px solid var(--primary-button-pressed-color, #79BCF2);
+        }
+
+        &.cmp-button--small:focus:not(:disabled) {
+            outline: 3px solid var(--primary-button-pressed-color, #79BCF2);
+        }
+
+        &:disabled {
+            background: var(--button-background-disabled, #A5A5A5);
+            color: var(--button-text-disabled, #DCDCDC);
+            cursor: not-allowed;
+        }
+    }
+
+    &--secondary {
+        background: var(--secondary-button-color, #000000);
+        color: var(--secondary-button-font-color, #FFFFFF);
+
+        &:hover:not(:disabled) {
+            background: var(--secondary-button-hover-color, #D17F65);
+        }
+
+        &:active:not(:disabled) {
+            background: var(--secondary-button-hover-color, #D17F65);
+        }
+
+        &:focus:not(:disabled) {
+            outline: 5px solid var(--primary-button-pressed-color, #79BCF2);
+        }
+
+        &.cmp-button--small:focus:not(:disabled) {
+            outline: 3px solid var(--primary-button-pressed-color, #79BCF2);
+        }
+
+        &:disabled {
+            background: var(--button-background-disabled, #A5A5A5);
+            color: var(--button-text-disabled, #DCDCDC);
+            cursor: not-allowed;
+        }
+    }
+
+    &--teritiary {
+        background-color: $white;
+        border: none;
+        outline: 2px var(--teritiary-color, #FAA387) solid;
+        outline-offset: -2px;
+        color: var(--secondary-button-color, #000000);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease, outline 0.2s ease, outline-offset 0.2s ease;
+
+        &:hover:not(:disabled) {
+            outline: 2px var(--teritiary-hover-color, #D17F65) solid;
+        }
+
+        &:focus:not(:disabled) {
+            outline: 2px var(--primary-button-hover-color, #D17F65) solid;
+            box-shadow: 0 0 0 5px var(--primary-button-pressed-color, #79BCF2);
+            outline-offset: -2px;
+        }
+
+        &.cmp-button--small:focus:not(:disabled) {
+            box-shadow: 0 0 0 3px var(--primary-button-pressed-color, #79BCF2);
+        }
+
+        &:active:not(:disabled) {
+            outline: 2px var(--teritiary-color, #FAA387) solid;
+            box-shadow: none;
+        }
+
+        &:disabled {
+            background: var(--button-background-disabled, #A5A5A5);
+            color: var(--button-text-disabled, #DCDCDC);
+            outline: none;
+            cursor: not-allowed;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "apiUrl": "$[env:REQUEST_INFORMATION_LOCATION_ENDPOINT;default=]",
+  "jwtToken": "$[secret:REQUEST_INFORMATION_JWT_TOKEN]",
+  "caseUrl": "$[env:REQUEST_INFORMATION_CASE_URL;default=]",
+  "leadUrl": "$[env:REQUEST_INFORMATION_LEAD_URL;default=]"
+}

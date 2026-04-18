@@ -1,0 +1,26 @@
+{
+  "scripts": [
+    "create path (sling:OrderedFolder) /content/dam/mvw",
+    "create path (nt:unstructured) /content/dam/mvw/jcr:content",
+    "set properties on /content/dam/mvw/jcr:content\n  set cq:conf{String} to /conf/mvw\n  set jcr:title{String} to \"Marriott Vacations Worldwide\"\nend",
+
+    "create path (sling:OrderedFolder) /content/dam/legal",
+    "create path (nt:unstructured) /content/dam/legal/jcr:content",
+    "set properties on /content/dam/legal/jcr:content\n  set cq:conf{String} to /conf/legal\n  set jcr:title{String} to \"MVW Governing Documents \"\nend",
+
+    "# =============================================",
+    "# Service Users (Read Only)",
+    "# =============================================",
+    "create service user mvw-service-reader with forced path system/cq:services/mvw",
+    "set principal ACL for mvw-service-reader\n  allow jcr:read on /etc/acs-commons/lists/mvwlegal-language-specifier\n  allow jcr:read on /etc/acs-commons/lists/mvwlegal-language-specifier/jcr:content\n  allow jcr:read on /content\n  allow jcr:read on /content/dam\n  allow jcr:read on /var/workflow/instances\nend",
+
+    "# =============================================",
+    "# Cleanup old service users from Publish tier, leaving only single serviceUser --> mvw-service-reader ",
+    "# =============================================",
+
+    "delete service user mvwServiceReader",
+    "delete service user mvwServiceWriter",
+    "delete service user mvw-service-writer",
+    "delete service user mvw-workflow-user"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "spacer":{
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "mobileSpacing": "24",
+    "jcr:lastModifiedBy": "admin",
+    "jcr:created": "Mon Dec 08 2025 12:18:34 GMT+0530",
+    "jcr:lastModified": "Mon Dec 08 2025 12:20:26 GMT+0530",
+    "sling:resourceType": "mvw/components/newclub/spacer",
+    "desktopSpacing": "64",
+    "desktopSpacingText": "--spacer-height-desktop:64px;",
+    "mobileSpacingText": "--spacer-height-mobile:48px;"
+  }
+}

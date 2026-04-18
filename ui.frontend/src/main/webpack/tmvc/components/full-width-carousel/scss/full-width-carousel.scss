@@ -1,0 +1,561 @@
+.full-width-carousel {
+  overflow: hidden;
+  padding: 56px 0px 72px 0px;
+
+  @media (max-width: 768px) {
+    padding: 48px 0px;
+  }
+
+  .full-container {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .text-sec-mobile {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  .carousel-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .carousel-title {
+    font-family: "Arsenal";
+    margin-bottom: 24px;
+    // line-height: 1.2;
+    display: inline-block;
+    width: 100%;
+    grid-column: 1 / -1;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .carousel-intro {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    grid-column: 1 / -1;
+
+    &.secondary {
+      margin-top: 24px;
+    }
+  }
+
+  .carousel-description {
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      margin-bottom: 16px;
+    }
+
+    &.mobile-only {
+      display: none;
+    }
+  }
+
+  .btn-explore {
+    width: fit-content;
+    padding: 14px 40px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #082940;
+    background-color: #FFFFFF;
+    border: 1px solid #082940;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: #E3E8EC;
+    }
+
+    &:active {
+      background-color: transparent;
+    }
+
+    &.mobile-only {
+      display: none;
+      margin: 24px auto 0;
+      padding: 16px 40px;
+    }
+  }
+
+  .services-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 428px;
+    gap: 25px;
+  }
+
+  .service-card {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: var(--card-base-transform, translateX(-50%));
+    width: 588px;
+    height: 428px;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    opacity 0.3s ease;
+    opacity: 0.5;
+
+    .card-link {
+      position: absolute;
+      inset: 0; /* top:0 left:0 right:0 bottom:0 */
+      z-index: 20; /* ABOVE card content */
+      display: block;
+      cursor: pointer;
+    }
+
+    .cmp-button {
+      position: relative;
+      z-index: 30;
+      pointer-events: auto;
+    }
+  }
+  .service-card.is-active {
+    opacity: 1;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .service-card.is-active:hover,
+    .service-card.is-active:focus-within {
+      transform: var(--card-base-transform, translateX(-50%)) scale(1.02);
+    }
+  }
+
+  .service-card.is-active {
+    opacity: 1;
+    z-index: 100;
+  
+    &:hover {
+      z-index: 999 !important; 
+      transform: var(--card-base-transform) scale(1.02);
+    }
+  }
+
+
+  .image-container {
+    width: 100%;
+    height: 319px;
+    overflow: hidden;
+    padding: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .location {
+    position: absolute;
+    height: 32px;
+    top: 16px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: Roboto;
+    font-weight: 500;
+
+    i {
+      font-size: 15px;
+    }
+
+    span {
+      margin-left: 4px;
+    }
+
+    img {
+      width: 12px;
+      height: 16px;
+      margin-right: 6px;
+    }
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px 24px 32px;
+    height: 111px;
+    .icon {
+      width: 120px;
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  .text {
+    text-align: left;
+    align-items: flex-start;
+
+    h3 {
+      font-weight: 400;
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-family: "arsenal";
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 18px;
+      margin: 0;
+      padding-bottom: 4px;
+      border-bottom: solid 1px #ac6523;
+      font-family: roboto;
+    }
+  }
+
+  .nav-icons {
+    padding-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-icon-left,
+  .nav-icon-right {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    img {
+      width: 38px;
+      height: 38px;
+      display: block;
+    }
+  }
+
+  .current-slide {
+    margin: 0 12px;
+    font-size: 14px;
+    min-width: 40px;
+    text-align: center;
+    font-family: roboto;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-header {
+      margin-bottom: 40px;
+    }
+
+    .carousel-title {
+      margin-bottom: 0;
+      width: 100%;
+      grid-column: 1 / 5;
+    }
+
+    .carousel-intro {
+      display: none;
+    }
+
+    .carousel-description.mobile-only {
+      display: block;
+      text-align: center;
+      font-size: 16px;
+      margin: 24px 20px 0;
+      padding: 0;
+    }
+
+    .btn-explore.mobile-only {
+      display: block;
+    }
+
+    .services-grid {
+      gap: 8px;
+      height: 448px;
+    }
+
+    .service-card {
+      width: 90%;
+      height: 448px;
+    }
+
+    .image-container {
+      height: 342px;
+    }
+
+    .details {
+      padding: 12px 20px;
+    }
+
+    .text {
+      h3 {
+        font-size: 24px;
+        font-family: "arsenal";
+      }
+
+      p {
+        font-family: roboto;
+        font-size: 16px;
+      }
+    }
+
+    .icon {
+      width: 80px !important;
+      height: 80px;
+      border: 3px solid $gray;
+      display: flex;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -35px;
+      right: 24px;
+      img {
+        width: 50px !important;
+      }
+    }
+
+    .text-sec-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+      padding: 0px 24px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &.xl2CardCarousel {
+    .carousel-header,.services-grid,.nav-icons, .text-sec-mobile{
+      grid-column: 1/-1;
+    } 
+    .carousel-title {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .grid-container{
+      @media (max-width: 768px) {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+      max-width: calc($grid-max-width + ($grid-margin-desktop * 2));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 1439px) {
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+
+    @media (max-width: 1023px) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @media (max-width: 768px) {
+      // padding-left: 24px;
+      // padding-right: 0;
+      padding: 32px 24px;
+    }
+
+    .carousel-title {
+
+      @media (max-width: 768px) {
+        padding-left: 0px;
+      }
+    }
+
+    .services-grid {
+      justify-content: flex-start;
+      padding-left: calc((100% - 1200px) / 2);
+      gap: 32px;
+      height: 575px;
+
+      @media (max-width: 1440px) {
+        padding-left: 5%;
+      }
+
+      @media (max-width: 1024px) {
+        padding-left: 0;
+        gap: 24px;
+      }
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        padding-left: 0;
+        gap: 8px;
+        height: 555px;
+      }
+    }
+
+    .service-card {
+      left: 0;
+      transform: var(--card-base-transform, translateX(0));
+      width: 858px;
+      height: 575px;
+
+      @media (max-width: 1024px) {
+        width: 80%;
+      }
+
+      @media (max-width: 768px) {
+        left: 50%;
+        transform: var(--card-base-transform, translateX(-50%));
+        width: 90%;
+        height: 555px;
+      }
+
+      .details {
+        height: 144px;
+        padding: 24px;
+        @media (max-width: 768px) {
+          height: 210px;
+        }
+      }
+
+      .image-container {
+        height: 429px;
+
+        @media (max-width: 768px) {
+          height: 342px;
+        }
+      }
+
+      .text h3 {
+        margin: 0;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @media (max-width: 768px) {
+          width: 260px;
+        }
+
+        .resort-details {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+
+          @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+          }
+          &-name {
+            all: initial;
+            color: $indigo;
+            font-family: "roboto";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+          }
+          &-features {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            @media (max-width: 768px) {
+              gap: 8px;
+              flex-direction: row-reverse;
+            }
+
+            &-pax,
+            &-view {
+              display: flex;
+              align-items: center;
+            }
+
+            &-pax p,
+            &-view p {
+              all: initial;
+              display: flex;
+              align-items: center;
+              color: $indigo;
+              font-family: "roboto";
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 16px;
+              margin-left: 4px;
+            }
+          }
+        }
+
+        .cta-group a {
+          margin: 0;
+        }
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .service-card.is-active:hover,
+      .service-card.is-active:focus-within {
+        transform: var(--card-base-transform, translateX(0)) scale(1.02);
+
+        @media (max-width: 768px) {
+          transform: var(--card-base-transform, translateX(-50%)) scale(1.02);
+        }
+      }
+    }
+
+    .nav-icons {
+      justify-content: flex-start;
+      padding-left: calc((100% - 1200px) / 2);
+
+      @media (max-width: 1024px) {
+        padding-left: 0;
+      }
+
+      @media (max-width: 768px) {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.carousel--inactive .nav-icons {
+    display: none !important;
+}

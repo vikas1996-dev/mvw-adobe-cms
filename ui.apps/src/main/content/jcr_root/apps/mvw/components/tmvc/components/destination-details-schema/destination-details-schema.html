@@ -1,0 +1,6 @@
+<sly data-sly-use.schema="com.mvw.core.models.DestinationSchemaModel">
+    <!-- Renders the JSON-LD structured data for TouristDestination from the Sling Model -->
+    <script type="application/ld+json">
+        ${schema.jsonLD @ context='unsafe'}
+    </script>
+</sly>

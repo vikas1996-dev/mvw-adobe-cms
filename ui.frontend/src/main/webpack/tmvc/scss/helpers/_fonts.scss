@@ -1,0 +1,133 @@
+/* ---------------------------
+   Font Face Declarations
+--------------------------- */
+$font-folder: '/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/fonts';
+
+// Font path - from scss/helpers to resources/fonts
+//$font-folder: '../../resources/fonts';
+
+
+/* ---------------------------
+   Roboto Font Family
+--------------------------- */
+
+@font-face {
+  font-family: 'roboto';
+  src: url('#{$font-folder}/roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'roboto-medium';
+  src: url('#{$font-folder}/roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'roboto-semibold';
+  src: url('#{$font-folder}/roboto/Roboto-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'roboto-bold';
+  src: url('#{$font-folder}/roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------------------------
+   Arsenal Font Family
+--------------------------- */
+
+@font-face {
+  font-family: 'arsenal';
+  src: url('#{$font-folder}/arsenal/Arsenal-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'arsenal-medium';
+  src: url('#{$font-folder}/arsenal/Arsenal-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'arsenal-semibold';
+  src: url('#{$font-folder}/arsenal/Arsenal-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'arsenal-bold';
+  src: url('#{$font-folder}/arsenal/Arsenal-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Local Font Awesome files (awesome-fonts)
+$awesome-font-folder: '/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/awesome-fonts/fonts';
+
+@font-face {
+  font-family: "Font Awesome 6 Pro";
+  src: url('#{$awesome-font-folder}/fa-solid-900.woff2') format('woff2'),
+       url('#{$awesome-font-folder}/fa-solid-900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Pro";
+  src: url('#{$awesome-font-folder}/fa-regular-400.woff2') format('woff2'),
+       url('#{$awesome-font-folder}/fa-regular-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  src: url('#{$awesome-font-folder}/fa-brands-400.woff2') format('woff2'),
+       url('#{$awesome-font-folder}/fa-brands-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Optional additional Font Awesome weights (if present in awesome-fonts folder)
+@font-face {
+  font-family: "Font Awesome 6 Pro";
+  src: url('#{$awesome-font-folder}/fa-light-300.woff2') format('woff2'),
+       url('#{$awesome-font-folder}/fa-light-300.woff') format('woff'),
+       url('#{$awesome-font-folder}/fa-light-300.ttf') format('truetype'),
+       url('#{$awesome-font-folder}/fa-light-300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Pro";
+  src: url('#{$awesome-font-folder}/fa-thin-100.woff2') format('woff2'),
+       url('#{$awesome-font-folder}/fa-thin-100.woff') format('woff'),
+       url('#{$awesome-font-folder}/fa-thin-100.ttf') format('truetype'),
+       url('#{$awesome-font-folder}/fa-thin-100.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}

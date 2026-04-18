@@ -1,0 +1,158 @@
+Include conf.d/variables/custom.vars
+
+<VirtualHost *:80>
+	ServerName ${WWW_NEWCLUB}
+    ServerAlias ${ENV_NEWCLUB} ${SITE_NEWCLUB} ${NEWCLUB_DEV} ${NEWCLUB_QA} ${NEWCLUB_STAGE}
+	DocumentRoot "${DOCROOT}"
+
+	AllowEncodedSlashes On
+
+		ErrorDocument 404 /content/newclub/us/en/errors/404.html
+		ErrorDocument 500 /content/newclub/us/en/errors/500.html
+
+	# Add header breadcrumbs for help in troubleshooting
+	<IfModule mod_headers.c>
+		Header add X-Vhost "NEWCLUB"
+
+		<LocationMatch "^\/content\/dam.*xml">
+			Header unset Content-Disposition
+			Header set Content-Disposition inline
+		</LocationMatch>
+
+        # Open robots.txt in new window
+		<LocationMatch "^\/content\/dam.*txt">
+			Header unset Content-Disposition
+			Header set Content-Disposition inline
+		</LocationMatch>
+
+        # Open DAM pdfs in preview mode
+		<LocationMatch "^\/content\/dam.*pdf">
+			Header unset Content-Disposition
+			Header set Content-Disposition inline
+		</LocationMatch>
+
+        #view videos on page and not download
+
+        <LocationMatch "^\/content\/dam.*.(mp4|webp).*">
+			Header unset Content-Disposition
+			Header set Content-Disposition inline
+		</LocationMatch>
+
+
+
+
+        # Cache-control for fonts, 2 weeks
+        <LocationMatch "^/content/newclub/us/.*\.(html)$">
+            Header always unset Expires
+            Header set Cache-Control "max-age=1209600,stale-while-revalidate=43200" "expr=%{REQUEST_STATUS} < 400"
+        #    Header set Surrogate-Control "stale-while-revalidate=43200,stale-if-error=43200" "expr=%{REQUEST_STATUS} < 400"
+            Header set Age 0
+        </LocationMatch>
+
+
+        # Disallow caching for the specific HTML file
+        <LocationMatch ".*\.nocache\..*">
+            Header set Cache-Control "no-cache, no-store, must-revalidate"
+            Header set Pragma "no-cache"
+            Header set Expires "0"
+            Header set Age 0
+        </LocationMatch>
+
+
+
+        # Cache-control for scripts and stylesheets, 1 hours
+        <LocationMatch "^/etc\.clientlibs/.*\.(css|js)$">
+             Header set Cache-Control "max-age=86400,stale-while-revalidate=3600" "expr=%{REQUEST_STATUS} < 400"
+           #  Header set Surrogate-Control "stale-while-revalidate=3600,stale-if-error=3600" "expr=%{REQUEST_STATUS} < 400"
+           # Header set Cache-Control "no-cache, no-store, must-revalidate"
+           # Header set Pragma "no-cache"
+           # Header set Expires "0"
+            # Header set Age 0
+        </LocationMatch>
+
+        # Cache-control for fonts, 2 weeks
+        <LocationMatch "^/etc\.clientlibs/.*\.(otf|eot|ttf|woff|woff2)$">
+            Header set Cache-Control "max-age=1209600,stale-while-revalidate=43200" "expr=%{REQUEST_STATUS} < 400"
+        #    Header set Surrogate-Control "stale-while-revalidate=43200,stale-if-error=43200" "expr=%{REQUEST_STATUS} < 400"
+            Header set Age 0
+        </LocationMatch>
+
+        # Cache-control for dam assets, 1 hour
+        <LocationMatch "^/content/dam/newclub/.*\.(jpg|jpeg|png|gif|zip|pdf|mp4|mov|svg|webp)$">
+           Header set Cache-Control "max-age=86400,stale-while-revalidate=3600" "expr=%{REQUEST_STATUS} < 400"
+         #  Header set Surrogate-Control "stale-while-revalidate=3600,stale-if-error=3600" "expr=%{REQUEST_STATUS} < 400"
+           Header set Age 0
+        </LocationMatch>
+
+
+        Header set Access-Control-Allow-Origin "*"
+
+	</IfModule>
+
+     
+
+    <Directory />
+        <IfModule disp_apache2.c>
+            # Some items cache with the wrong mime type
+            # Use this option to use the name to auto-detect mime types when cached improperly
+            ModMimeUsePathInfo On
+            # Use this option to avoid cache poisioning
+            # Sling will return /content/image.jpg as well as /content/image.jpg/ but apache can't search /content/image.jpg/ as a file
+            # Apache will treat that like a directory.  This assures the last slash is never stored in cache
+            DirectorySlash Off
+            # Enable the dispatcher file handler for apache to fetch files from AEM
+            SetHandler dispatcher-handler
+            Header set X-Route "dispatcher"
+
+        </IfModule>
+        Options FollowSymLinks
+        AllowOverride None
+        # Insert filter
+        SetOutputFilter DEFLATE
+        # Don't compress images
+        SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+        # Make sure proxies don't deliver the wrong content
+        #Header append Vary User-Agent env=!dont-vary
+        # Prevent clickjacking
+        Header always append X-Frame-Options SAMEORIGIN
+    </Directory>
+	<Directory "${DOCROOT}">
+	    # Add Includes to enable SSI Includes used by Sling Dynamic Include
+		Options FollowSymLinks Includes
+
+		# Set includes to process .html files
+		AddOutputFilter INCLUDES .html
+		AllowOverride None
+		Require all granted
+
+		# Insert filter
+		SetOutputFilter DEFLATE
+
+		# Don't compress images
+		SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+
+		# Make sure proxies don't deliver the wrong content
+		#Header append Vary User-Agent env=!dont-vary
+
+		# Prevent clickjacking
+		Header always append X-Frame-Options SAMEORIGIN
+
+		# Enforce HTTPS
+        SetEnvIf X-Forwarded-Proto "https" HTTPS=on
+        Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+
+        
+	</Directory>
+    <IfModule disp_apache2.c>
+        # Enabled to allow rewrites to take affect and not be ignored by the dispatcher module
+        DispatcherUseProcessedURL	On
+        # Default setting to allow all errors to come from the aem instance
+        DispatcherPassError		1
+    </IfModule>
+    <IfModule mod_rewrite.c>
+        RewriteEngine on
+
+        # Redirects
+        Include conf.d/rewrites/newclub_rewrite.rules
+    </IfModule>
+</VirtualHost>

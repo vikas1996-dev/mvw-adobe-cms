@@ -1,0 +1,10 @@
+{
+  "externalizer.domains": [
+    "local $[env:externalizerDomainLocal;default=http://localhost:4502]",
+    "author $[env:externalizerDomainAuthor;default=http://localhost:4502]",
+    "publish $[env:externalizerDomainPublish;default=http://localhost:4503]",
+    "tmvcs $[env:TMVC_DOMAIN_NAME;default=https://www.marriottvacationclubs.com]",
+    "legal_tmvcs $[env:LEGALTMVC_DOMAIN_NAME;default=https://www.docs.marriottvacationclubs.com]",
+    "legal_hvc $[env:LEGALHVC_DOMAIN_NAME;default=https://www.docs.hyattvacationclub.com]"
+  ]
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="/conf/legal/settings/wcm/templates/(?!xf-).*"
+        cq:conf="/conf/legal"
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2026-01-07T19:27:21.069Z"
+        cq:lastModifiedBy="Manikanti.Chalamcharla.TPR@vacationclub.com"
+        cq:lastReplicated="{Date}2026-01-20T16:04:21.323Z"
+        cq:lastReplicated_publish="{Date}2026-01-20T16:04:21.323Z"
+        cq:lastReplicatedBy="workflow-process-service"
+        cq:lastReplicatedBy_publish="workflow-process-service"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:redirectTarget="/content/newclub/us/en"
+        cq:template="/conf/legal/settings/wcm/templates/legal-landing-page-template"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:referenceable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="MVW Governing Documents Web Pages"
+        jcr:uuid="6966c19d-49bb-4086-b83d-b5b895478d04"
+        sling:configRef="/conf/newclub"
+        sling:redirect="true"
+        sling:redirectStatus="{Long}302"
+        sling:resourceType="mvw/components/legal/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any">
+        <image jcr:primaryType="nt:unstructured"/>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2026-01-07T19:27:21.062Z"
+            jcr:lastModifiedBy="Manikanti.Chalamcharla.TPR@vacationclub.com"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+    <hyattvacationclub/>
+    <marriottvacationclubs/>
+</jcr:root>

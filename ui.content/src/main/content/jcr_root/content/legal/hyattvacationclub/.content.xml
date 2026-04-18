@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastModified="{Date}2026-02-16T20:49:50.583Z"
+        cq:template="/conf/legal/settings/wcm/templates/hyatt-vacation-club"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[cq:ReplicationStatus2,mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Hyatt Vacation Club"
+        jcr:uuid="3b50969a-830e-4c5d-906d-337670278bab"
+        sling:resourceType="mvw/components/legal/hvcpage"
+        errorPages="/content/legal/hyattvacationclub/errors"
+        cq:robotsTags="[noindex,nofollow]"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any"
+        site_id="legal_hvc"
+        siteName="hvc">
+        <cq:featuredimage
+            jcr:lastModified="{Date}2026-02-16T20:49:50.577Z"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+</jcr:root>

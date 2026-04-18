@@ -1,0 +1,13 @@
+function check() {
+    var metadataMap = workflowData.getMetaDataMap();
+    var reviewer = metadataMap.get("businessReviewer", "");
+    log.info("Workflow Debug: businessReviewer value is: " + reviewer);
+
+    // Only proceed if reviewer is not empty
+    if (reviewer != null && reviewer != "") {
+        metadataMap.put("currentFlowReviewStatus", "business");
+        return true;
+    }
+
+    return false;
+}

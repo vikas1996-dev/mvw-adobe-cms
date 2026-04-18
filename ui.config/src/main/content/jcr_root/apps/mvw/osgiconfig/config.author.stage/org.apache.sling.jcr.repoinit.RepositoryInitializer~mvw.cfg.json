@@ -1,0 +1,134 @@
+{
+  "scripts": [
+    "create path (sling:OrderedFolder) /content/dam/mvw",
+    "create path (nt:unstructured) /content/dam/mvw/jcr:content",
+    "set properties on /content/dam/mvw/jcr:content\n  set cq:conf{String} to /conf/mvw\n  set jcr:title{String} to \"Marriott Vacations Worldwide\"\nend",
+
+    "create path (sling:OrderedFolder) /content/dam/legal",
+    "create path (nt:unstructured) /content/dam/legal/jcr:content",
+    "set properties on /content/dam/legal/jcr:content\n  set cq:conf{String} to /conf/legal\n  set jcr:title{String} to \"MVW Governing Documents \"\nend",
+
+    "create path (cq:Page) /content/tmvcs",
+    "create path (cq:PageContent) /content/tmvcs/jcr:content",
+    "set properties on /content/tmvcs/jcr:content\n set jcr:title{String} to \"TMVCs\"\nend",
+
+    "create path (sling:OrderedFolder) /content/dam/tmvcs",
+    "create path (nt:unstructured) /content/dam/tmvcs/jcr:content",
+    "set properties on /content/dam/tmvcs/jcr:content\n  set jcr:title{String} to \"TMVCs DAM\"\nend",
+
+    "create path (sling:OrderedFolder) /content/dam/legalwebpages",
+    "create path (nt:unstructured) /content/dam/legalwebpages/jcr:content",
+    "set properties on /content/dam/legalwebpages/jcr:content\n  set jcr:title{String} to \"MVW Legal WebPages\"\nend",
+
+    "# 19. mvw-law-registration-reviewers - Legal registration access for author/stage",
+    "create group mvw-law-registration-reviewers",
+    "set ACL on /,/content,/content/dam,/content/experience-fragments (ACLOptions=mergePreserve)\n  allow jcr:read for mvw-law-registration-reviewers\nend",
+    "set ACL on /content/legal,/content/dam/legal,/content/dam/legalwebpages,/content/experience-fragments/legal (ACLOptions=mergePreserve)\n  allow jcr:read for mvw-law-registration-reviewers\nend",
+    "set ACL on /content/brightcovetools,/content/campaigns,/content/cq:graphql,/content/launches,/content/mvw,/content/outbound-marketing,/content/tmvcs,/content/usergenerated,/content/dam/assetinsights,/content/dam/brightcove_assets,/content/dam/collections,/content/dam/mvw,/content/dam/tmvcs,/content/experience-fragments/mvw,/content/experience-fragments/tmvcs (ACLOptions=mergePreserve)\n  deny jcr:read for mvw-law-registration-reviewers\nend",
+    "add ims-stage-mvw-governingdocs-reviewer to group mvw-law-registration-reviewers",
+
+    "# =============================================",
+    "# Service Users",
+    "# =============================================",
+    "create service user mvw-service-reader with forced path system/cq:services/mvw",
+    "set principal ACL for mvw-service-reader\n  allow jcr:read on /etc/acs-commons/lists/mvwlegal-language-specifier\n  allow jcr:read on /etc/acs-commons/lists/mvwlegal-language-specifier/jcr:content\n  allow jcr:read on /content\n  allow jcr:read on /content/dam\n  allow jcr:read on /var/workflow/instances\nend",
+
+    "create service user mvw-service-writer with forced path system/cq:services/mvw",
+    "set principal ACL for mvw-service-writer\n  allow jcr:all on /var\n  allow jcr:all on /conf\n  allow jcr:all on /content/dam\nend",
+
+    "create service user mvw-workflow-user with forced path system/cq:services/mvw",
+    "set principal ACL for mvw-workflow-user\n  allow jcr:all on /var/workflow/instances\n  allow jcr:read on /home/users\n  allow jcr:read on /home/groups\n  allow jcr:all, rep:write, crx:replicate on /content/tmvcs\nend",
+
+    "# =============================================",
+    "# AEM Authorization Groups",
+    "# =============================================",
+
+    "# 1. mvw-content-managers - Same access as AEM's administrators group",
+    "create group mvw-content-managers",
+    "add mvw-content-managers to group administrators",
+    "add ims-stage-mvw-content-managers to group mvw-content-managers",
+
+    "# 2. mvw-global-technology-bau - Same access as AEM's administrators group",
+    "create group mvw-global-technology-bau",
+    "add mvw-global-technology-bau to group administrators",
+    "add ims-stage-mvw-global-technology-bau to group mvw-global-technology-bau",
+
+    "# 3. mvw-content-coordinators - Can edit content across all projects, Not an administrator",
+    "create group mvw-content-coordinators",
+    "set ACL for mvw-content-coordinators\n  allow jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement, crx:replicate on /content/tmvcs\n  allow jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement on /content/dam\n  allow jcr:read on /content/experience-fragments\n  allow jcr:read on /conf\nend",
+    "add ims-stage-mvw-content-coordinators to group mvw-content-coordinators",
+
+    "# 4. mvw-creatives - Has write access only to AEM DAM, across all projects",
+    "create group mvw-creatives",
+    "set ACL for mvw-creatives\n  allow jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement on /content/dam\n  allow jcr:read on /content/tmvcs\n  allow jcr:read on /conf\nend",
+    "add ims-stage-mvw-creatives to group mvw-creatives",
+
+    "# 5. mvw-product-owners-tmvcs - Can edit content only on tmvcs sites and DAM",
+    "create group mvw-product-owners-tmvcs",
+    "set ACL for mvw-product-owners-tmvcs\n  allow jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement on /content/tmvcs\n  allow jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement on /content/dam\n  allow jcr:read on /conf\nend",
+    "add ims-stage-mvw-product-owners-tmvcs to group mvw-product-owners-tmvcs",
+
+    "# 7. mvw-legal-tmvcs - Read only access for sites and DAM",
+    "create group mvw-legal-tmvcs",
+    "set ACL for mvw-legal-tmvcs\n  allow jcr:read on /content/tmvcs\n  allow jcr:read on /content/dam\n  allow jcr:read on /conf\nend",
+    "add ims-stage-mvw-legal-tmvcs to group mvw-legal-tmvcs",
+
+    "# 9. mvw-io-tmvcs - Read only access for sites and DAM",
+    "create group mvw-io-tmvcs",
+    "set ACL for mvw-io-tmvcs\n  allow jcr:read on /content/tmvcs\n  allow jcr:read on /content/dam\n  allow jcr:read on /conf\nend",
+    "add ims-stage-mvw-io-tmvcs to group mvw-io-tmvcs",
+
+    "# 11. mvw-external-partner-tmvcs - Read only access for sites and DAM",
+    "create group mvw-external-partner-tmvcs",
+    "set ACL for mvw-external-partner-tmvcs\n  allow jcr:read on /content/tmvcs\n  allow jcr:read on /content/dam\n  allow jcr:read on /conf\nend",
+    "add ims-stage-mvw-external-partner-tmvcs to group mvw-external-partner-tmvcs",
+
+    "# 13. mvw-qa-tmvcs - Read only access for sites and DAM",
+    "create group mvw-qa-tmvcs",
+    "set ACL for mvw-qa-tmvcs\n  allow jcr:read on /content/tmvcs\n  allow jcr:read on /content/dam\n  allow jcr:read on /conf\nend",
+    "add ims-stage-mvw-qa-tmvcs to group mvw-qa-tmvcs",
+
+    "# 18. mvw-law-registration-governingdocs - Legal registration access for author/stage",
+    "create group mvw-law-registration-governingdocs",
+    "set ACL on /,/apps,/conf,/etc,/home,/libs,/system,/tmp,/var (ACLOptions=mergePreserve)\n  allow jcr:read for mvw-law-registration-governingdocs\nend",
+    "set ACL on /conf/legal,/content/dam/legal,/content/dam/legalwebpages,/var/replication (ACLOptions=mergePreserve)\n  allow jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement for mvw-law-registration-governingdocs\nend",
+    "set ACL on /content/experience-fragments,/etc/workflow (ACLOptions=mergePreserve)\n  allow rep:write, jcr:versionManagement, jcr:lockManagement for mvw-law-registration-governingdocs\nend",
+    "set ACL on /content/legal,/var/workflow (ACLOptions=mergePreserve)\n  allow rep:write, jcr:versionManagement, jcr:lockManagement, crx:replicate for mvw-law-registration-governingdocs\nend",
+    "set ACL on /var/audit (ACLOptions=mergePreserve)\n  allow jcr:read for mvw-law-registration-governingdocs\nend",
+    "set ACL on /content/legal (ACLOptions=mergePreserve)\n  allow jcr:removeChildNodes, jcr:removeNode, jcr:addChildNodes, jcr:nodeTypeManagement for mvw-law-registration-governingdocs restriction(rep:glob,*/jcr:content/*)\nend",
+    "set ACL on /content/brightcovetools,/content/campaigns,/content/cq:graphql,/content/launches,/content/mvw,/content/outbound-marketing,/content/tmvcs,/content/usergenerated,/content/dam/assetinsights,/content/dam/brightcove_assets,/content/dam/collections,/content/dam/mvw,/content/dam/tmvcs,/content/dam/trainingmodels (ACLOptions=mergePreserve)\n  deny jcr:read for mvw-law-registration-governingdocs\nend",
+    "set ACL on /content/tmvc,/content/experience-fragments/mvw,/content/experience-fragments/tmvcs (ACLOptions=mergePreserve)\n  deny jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement for mvw-law-registration-governingdocs\nend",
+    "add ims-stage-mvw-governingdocs-law-registration to group mvw-law-registration-governingdocs",
+
+    "# =============================================",
+    "# Workflow Authorization Groups",
+    "# =============================================",
+
+    "# mvw-reviewer - Can annotate, provide feedback comments, progress workflow step",
+    "create group mvw-reviewer",
+    "set ACL for mvw-reviewer\n deny crx:replicate on /content/tmvcs\n deny crx:replicate on /content/dam/mvw\n allow jcr:read, rep:write on /var/workflow/instances\nend",
+
+    "# mvw-publisher - All that reviewers can do, plus: Can initiate workflow, Can publish content",
+    "create group mvw-publisher",
+    "set ACL for mvw-publisher\n allow crx:replicate on /content/tmvcs\n allow crx:replicate on /content/dam/mvw\n allow jcr:all on /conf\n allow jcr:read, rep:write, jcr:versionManagement on /var/workflow\n allow jcr:read, rep:write on /etc/workflow\nend",
+
+    "# =============================================",
+    "# Group Inheritance - Workflow Groups",
+    "# =============================================",
+
+    "# Groups that inherit from mvw-publisher (can initiate workflow and publish)",
+    "add mvw-content-managers to group mvw-publisher",
+    "add mvw-content-coordinators to group mvw-publisher",
+    "add mvw-global-technology-bau to group mvw-publisher",
+
+    "# Groups that inherit from mvw-reviewer (can annotate, feedback, progress workflow)",
+    "add mvw-creatives to group mvw-reviewer",
+    "add mvw-product-owners-tmvcs to group mvw-reviewer",
+    "add mvw-legal-tmvcs to group mvw-reviewer",
+    "add mvw-io-tmvcs to group mvw-reviewer",
+    "add mvw-external-partner-tmvcs to group mvw-reviewer",
+    "add mvw-qa-tmvcs to group mvw-reviewer",
+    "add mvw-law-registration-governingdocs to group workflow-users",
+    "add mvw-law-registration-reviewers to group workflow-users"
+  ]
+}

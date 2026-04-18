@@ -1,0 +1,4 @@
+{
+  "apiUrl": "$[env:TRIPADVISOR_API_ENDPOINT;default=]",
+  "apiKey": "$[secret:TRIPADVISOR_API_KEY]"
+}

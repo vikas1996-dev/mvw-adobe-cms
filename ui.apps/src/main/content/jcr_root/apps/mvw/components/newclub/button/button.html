@@ -1,0 +1,13 @@
+<sly data-sly-use.templates="mvw/components/newclub/templates.html" />
+<sly data-sly-use.buttonProperties="com.mvw.core.models.NewClubButtonModel">
+    <div class="site-header__login-button--mobile">
+        <sly
+            data-sly-call="${ templates.button @ iconOnly=buttonProperties.iconOnly   , label=buttonProperties.buttonText, href=buttonProperties.buttonLink,
+                        target=buttonProperties.opensIn, ariaLabel=buttonProperties.buttonText, size ='cmp-button--small', type=buttonProperties.buttonVariation ,iconClass=buttonProperties.iconClass.toLowerCase}" />
+    </div>
+    <div class="site-header__login-button--desktop">
+        <sly
+            data-sly-call="${ templates.button @ iconOnly=buttonProperties.iconOnly  , label=buttonProperties.buttonText, href=buttonProperties.buttonLink,
+                        target=buttonProperties.opensIn, ariaLabel=buttonProperties.buttonText, size='cmp-button--large', type= buttonProperties.buttonVariation,iconClass=buttonProperties.iconClass.toLowerCase}" />
+    </div>
+</sly>

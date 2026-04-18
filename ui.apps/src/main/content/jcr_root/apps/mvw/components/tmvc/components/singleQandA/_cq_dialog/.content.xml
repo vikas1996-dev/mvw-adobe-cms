@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Single Q&amp;A"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[core.wcm.components.image.v3.editor,core.wcm.components.commons.editor.dialog.pageimagethumbnail.v1]">
+    <content
+            granite:class="cmp-image__editor"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <copySection
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Copy Section"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <headlineText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Headline Text"
+                                                    name="./headlineText"/>
+                                            <headlineType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Headline Type"
+                                                    name="./headlineType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <h3
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="H3"
+                                                            value="heading3"/>
+                                                    <h4
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="H4"
+                                                            value="heading4"/>
+                                                    <h5
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="H5"
+                                                            value="heading5"/>
+                                                    <h6
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="H6"
+                                                            value="heading6"/>
+                                                </items>
+                                            </headlineType>
+                                            <copyAlignment
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Copy Alignment"
+                                                    name="./copyAlignmentDesktop">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <center
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Center"
+                                                            value="center"/>
+                                                    <left
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Left"
+                                                            value="left"/>
+                                                    <right
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Right"
+                                                            value="right"/>
+                                                </items>
+                                            </copyAlignment>
+                                            <image
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                    allowUpload="{Boolean}true"
+                                                    autoUpload="{Boolean}true"
+                                                    class="cq-droptarget"
+                                                    enableNextGenDynamicMedia="{Boolean}true"
+                                                    fieldLabel="Image"
+                                                    fileNameParameter="./fileName"
+                                                    fileReferenceParameter="./logo"
+                                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                                    name="./image"/>
+                                            <altText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Alt Text"
+                                                    name="./bgImageAlt"/>
+                                            <backgroundColor
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="Background Color"
+                                                    name="./copySectionBgColor">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <None
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="None"
+                                                            value="\0"/>
+                                                    <Indigo
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Indigo"
+                                                            value="indigo"/>
+                                                    <Pearl
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Pearl"
+                                                            value="pearl"/>
+                                                    <teal
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Teal"
+                                                            value="teal"/>
+                                                    <linen
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Linen"
+                                                            value="linen"/>
+                                                </items>
+                                            </backgroundColor>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </copySection>
+                    <mobile
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Mobile"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <backgroundColor
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="Mobile Brand Icon Background Color"
+                                                    name="./brandIconImageBgColor">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <none
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="None"
+                                                            value="none"/>
+                                                    <indigo
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Indigo"
+                                                            value="indigo"/>
+                                                    <pearl
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Pearl"
+                                                            value="pearl"/>
+                                                    <teal
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Teal"
+                                                            value="teal"/>
+                                                    <linen
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Linen"
+                                                            value="linen"/>
+                                                </items>
+                                            </backgroundColor>
+                                            <copyAlignment
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Copy Alignment"
+                                                    name="./copyAlignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <center
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Center"
+                                                            value="center"/>
+                                                    <left
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Left"
+                                                            value="left"/>
+                                                    <right
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Right"
+                                                            value="right"/>
+                                                </items>
+                                            </copyAlignment>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </mobile>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

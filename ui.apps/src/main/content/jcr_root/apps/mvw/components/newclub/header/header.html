@@ -1,0 +1,119 @@
+<!--/*
+    Copyright 2015 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+<sly data-sly-use.model="com.mvw.core.models.NewClubHeaderModal" />
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Header' }" />
+
+<div class="site-header">
+    <div class="site-header__container">
+        <sly data-sly-test="${model.navigationLink}">
+            <div class="site-header__mobile-toggle" id="mobileMenuToggle" aria-label="Open menu" role="button"
+                tabindex="0" aria-controls="mobileMenu"></div>
+        </sly>
+        <div class="site-header__logo">
+            <a class="header_logo" href="${model.homeLink @ context='uri'}">
+                <img src="${model.logoImage @ context='uri'}" alt="${model.logoImageAltText @ context='text'}" />
+            </a>
+        </div>
+
+        <!-- Desktop Navigation (hidden on mobile) -->
+        <nav class="site-header__nav site-header__nav--desktop" aria-label="Main Site Navigation">
+            <sly data-sly-test="${model.navigationLink}">
+                <ul class="site-header__menu" role="menubar">
+                    <sly data-sly-list.navigationLinks="${model.navigationLink}">
+                        <sly data-sly-test="${!navigationLinks.navHideLink}">
+                            <li class="site-header__menu-item"
+                                role="none">
+                                <a href="${navigationLinks.navLinkUrl @ context='uri'}"  class="header-navigation site-header__menu-link${navigationLinks.thirdParty=='true' ? ' third-party-link' : ''}${navigationLinks.currentPageUrlFlag ? ' site-header__menu-nav-link' : ''}"
+                                    target="${navigationLinks.navLinkTab @ context='attribute'}" role="menuitem" aria-label="${navigationLinks.navLinkText @ context='text'}"
+                                    tabindex="0">
+                                    ${navigationLinks.navLinkText @ context='text'}
+                                </a>
+                            </li>
+                        </sly>
+                    </sly>
+                </ul>
+            </sly>
+        </nav>
+        <sly data-sly-test="${model.newClubButtonModel.buttonText || model.newClubButtonModel.iconClass}">
+            <sly data-sly-test="${!model.newClubButtonModel.buttonHide}">
+                <div class="site-header__login-button--mobile">
+                    <sly
+                        data-sly-call="${ templates.button @ iconOnly=model.newClubButtonModel.iconOnly   , label=model.newClubButtonModel.buttonText, href=model.newClubButtonModel.buttonLink, 
+                        target=model.newClubButtonModel.opensIn, ariaLabel=model.newClubButtonModel.buttonText, size ='cmp-button--small', type=model.newClubButtonModel.buttonVariation ,iconClass=model.newClubButtonModel.iconClass.toLowerCase, external=model.newClubButtonModel.thirdParty}" />
+                </div>
+                <div class="site-header__login-button--desktop">
+                    <sly
+                        data-sly-call="${ templates.button @ iconOnly=model.newClubButtonModel.iconOnly  , label=model.newClubButtonModel.buttonText, href=model.newClubButtonModel.buttonLink,
+                        target= model.newClubButtonModel.opensIn, ariaLabel=model.newClubButtonModel.buttonText, size='cmp-button--large', type= model.newClubButtonModel.buttonVariation,iconClass=model.newClubButtonModel.iconClass.toLowerCase, external=model.newClubButtonModel.thirdParty}" />
+                </div>
+            </sly>
+        </sly>
+    </div>
+
+    <!-- Mobile Full-Screen Menu Overlay -->
+    <nav class="site-header__nav site-header__nav--mobile" id="mobileMenu" aria-label="Main menu" aria-hidden="true"
+        role="dialog" aria-modal="true" aria-labelledby="mobileMenuLabel">
+        <div class="site-header__mobile-menu-header">
+            <div class="site-header__logo">
+                <a class="header_logo" href="${model.homeLink @ context='uri'}">
+                    <img src="${model.logoImage @ context='uri'}" alt="${model.logoImageAltText @ context='text'}" />
+                </a>
+            </div>
+            <button class="site-header__mobile-close" id="mobileMenuClose" aria-label="Close menu"
+                aria-controls="mobileMenu"></button>
+        </div>
+        <div class="site-header__mobile-content-wrapper">
+            <ul class="site-header__mobile-menu-list" role="menu" aria-label="Mobile Menu">
+                <sly data-sly-test="${model.navigationLink}">
+                    <sly data-sly-list.navigationLinks="${model.navigationLink}">
+                        <sly data-sly-test="${!navigationLinks.navHideLink}">
+                            <li class="site-header__mobile-menu-item"
+                                role="none">
+                                <a href="${navigationLinks.navLinkUrl @ context='uri'}"
+                                    class="header-navigation site-header__mobile-menu-link ${navigationLinks.thirdParty=='true' ? 'third-party-link' : ''}"
+                                    target="${navigationLinks.navLinkTab @ context='attribute'}" role="menuitem" aria-label="${navigationLinks.navLinkText @ context='text'}"
+                                    tabindex="0">
+                                    ${navigationLinks.navLinkText @ context='text'}
+                                </a>
+                            </li>
+                        </sly>
+                    </sly>
+                </sly>
+
+                <li class="site-header__mobile-menu-item site-header__mobile-menu-item--login ${model.navigationLink ? 'site-header__mobile-menu-item--login-seperator' : ''}"
+                    role="none">
+                    <sly data-sly-test="${model.newClubButtonModel.buttonText || model.newClubButtonModel.iconClass}">
+                        <sly data-sly-test="${!model.buttonHide}">
+                            <a href="${model.newClubButtonModel.buttonLink @ context='uri'}"
+                                class="site-header__mobile-menu-link ${model.newClubButtonModel.thirdParty=='true' ? 'third-party-link' : ''}" role="menuitem" tabindex="0"
+                                target="${model.newClubButtonModel.opensIn}">
+                                <sly data-sly-test="${model.newClubButtonModel.iconOnly == 'false'}">
+                                    ${model.newClubButtonModel.buttonText @context='text'} </sly>
+
+                                <sly data-sly-test="${model.newClubButtonModel.iconOnly == 'true'}">
+                                    <span class="cmp-button__icon">
+                                        <i class="${model.newClubButtonModel.iconClass}"></i>
+                                    </span>
+                                </sly>
+                            </a>
+                        </sly>
+                    </sly>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

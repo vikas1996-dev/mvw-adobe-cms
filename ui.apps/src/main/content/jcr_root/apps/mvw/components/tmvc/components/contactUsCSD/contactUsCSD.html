@@ -1,0 +1,74 @@
+<sly data-sly-use.model="com.mvw.core.models.ContactUsCSDModel"/>
+<sly data-sly-test="${model.prospect}">
+    <div class="contact-us-form__contact-info bg-theme-${model.copySectionBgColor}">
+        <h2 class="contact-us-form__learn-title
+         cmp-title
+         align-left
+         m-align-${model.prospectHeadlineAlignment @ context='attribute'}">
+            ${model.prospectHeadlineText}
+        </h2>
+        <div class="contact-us-form__separator"></div>
+        <div class="contact-us-form__learn-desc rte-content text-left"
+             data-sly-test="${model.prospectCopyText}">
+            ${model.prospectCopyText @ context='html'}
+        </div>
+        <sly data-sly-test="${model.ctas && model.ctas.size > 0}">
+            <div class="contact-us-form__learn-cta-group align-left">
+                <sly data-sly-list.cta="${model.ctas}">
+                    <a href="${cta.href}"
+                       class="cmp-button cmp-button--${cta.ctaStyle} cmp-button--large"
+                       target="${cta.target}"
+                       aria-label="${cta.ctaText}">
+               <span class="cmp-button__text">
+               ${cta.ctaText @ context='html'}
+               </span>
+                    </a>
+                </sly>
+            </div>
+        </sly>
+        <div class="contact-us-form__learn-hours rte-content text-left"
+             data-sly-test="${model.prospectSecondaryText}">
+            ${model.prospectSecondaryText @ context='html'}
+        </div>
+    </div>
+</sly>
+<sly data-sly-test="${model.owner}">
+    <div class="contact-us-form__contact-info bg-theme-${model.copySectionBgColor}">
+        <sly data-sly-test="${model.headlineType == 'heading2'}">
+            <h2 class="contact-us-form__learn-title
+            cmp-title
+            align-left
+            m-align-${model.ownerHeadlineAlignment @ context='attribute'}">
+                ${model.ownerHeadlineText}
+            </h2>
+        </sly>
+        <sly data-sly-test="${model.headlineType != 'heading2'}">
+            <h3 class="contact-us-form__learn-title
+            cmp-title
+            align-left
+            m-align-${model.ownerHeadlineAlignment @ context='attribute'}">
+                ${model.ownerHeadlineText}
+            </h3>
+        </sly>
+        <div class="contact-us-form__separator"></div>
+        <div class="contact-us-form__learn-desc rte-content text-left"
+             data-sly-test="${model.ownerShortDescription}">
+            ${model.ownerShortDescription @ context='html'}
+        </div>
+        <sly data-sly-test="${model.speakButtons.size > 0}">
+            <div class="contact-us-form__speak-buttons">
+                <sly data-sly-list.button="${model.speakButtons}">
+                    <a href="${button.href}"
+                       class="contact-us-form__speak-btn">
+                        ${button.ctaText}
+                    </a>
+                </sly>
+            </div>
+            <p class="contact-us-form__speak-footnote">*Formerly Vistana</p>
+        </sly>
+        <div class="contact-us-form__learn-hours rte-content text-left"
+             data-sly-test="${model.ownerSecondaryText}">
+            ${model.ownerSecondaryText @ context='html'}
+        </div>
+    </div>
+</sly>

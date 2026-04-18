@@ -1,0 +1,61 @@
+### START LEGAL HVC RULES ###
+
+# Keep the dev docs host on the original URL while serving the custom 404 page.
+RewriteRule ^/$ /content/legal/hyattvacationclub/errors/404.html [PT,L]
+
+# Match only Legal HVC hosts (allow optional port for local testing).
+
+# 1) Redirect root internal content path to custom 404 page.
+RewriteCond %{REQUEST_URI} ^/content/legal/hyattvacationclub/?$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/content/legal/hyattvacationclub\.html$ [NC]
+RewriteRule ^/content/legal/hyattvacationclub(?:\.html)?/?$ /content/legal/hyattvacationclub/errors/404.html [NE,L,R=302]
+
+# 2) Strip internal content path -> pretty URL.
+RewriteCond %{REQUEST_URI} !jcr:content [NC]
+RewriteCond %{REQUEST_URI} !^/content/legal/hyattvacationclub/errors/ [NC]
+RewriteRule ^/content/legal/hyattvacationclub/(.*)$ /$1 [NE,L,R=302]
+
+# 3) robots.txt
+RewriteRule ^/?robots\.txt$ /content/dam/legalwebpages/seo/hyattvacationclub/robots.txt [PT,L]
+
+# 4) Extensionless page URL -> ".html".
+RewriteCond %{REQUEST_METHOD} =GET [OR]
+RewriteCond %{REQUEST_METHOD} =HEAD
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} !^/apps/ [NC]
+RewriteCond %{REQUEST_URI} !^/bin/ [NC]
+RewriteCond %{REQUEST_URI} !^/content/ [NC]
+RewriteCond %{REQUEST_URI} !^/conf/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc\.clientlibs/ [NC]
+RewriteCond %{REQUEST_URI} !^/home/ [NC]
+RewriteCond %{REQUEST_URI} !^/libs/ [NC]
+RewriteCond %{REQUEST_URI} !^/system/ [NC]
+RewriteCond %{REQUEST_URI} !^/tmp/ [NC]
+RewriteCond %{REQUEST_URI} !^/var/ [NC]
+RewriteCond %{REQUEST_URI} !^/dispatcher/ [NC]
+RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteCond %{REQUEST_URI} !^/cgi/ [NC]
+RewriteCond %{REQUEST_URI} !\.[^/]+$
+RewriteRule ^/(.+?)/?$ /content/legal/hyattvacationclub/$1.html [PT,QSA,L]
+
+# 5) Canonicalize pretty URLs by removing ".html" from the browser URL.
+RewriteCond %{REQUEST_URI} !^/apps/ [NC]
+RewriteCond %{REQUEST_URI} !^/bin/ [NC]
+RewriteCond %{REQUEST_URI} !^/content/ [NC]
+RewriteCond %{REQUEST_URI} !^/conf/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc\.clientlibs/ [NC]
+RewriteCond %{REQUEST_URI} !^/home/ [NC]
+RewriteCond %{REQUEST_URI} !^/libs/ [NC]
+RewriteCond %{REQUEST_URI} !^/system/ [NC]
+RewriteCond %{REQUEST_URI} !^/tmp/ [NC]
+RewriteCond %{REQUEST_URI} !^/var/ [NC]
+RewriteCond %{REQUEST_URI} !^/dispatcher/ [NC]
+RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteCond %{REQUEST_URI} !^/cgi/ [NC]
+RewriteRule ^/(.*)\.html$ /$1 [NE,L,R=302]
+
+### END LEGAL HVC RULES ###

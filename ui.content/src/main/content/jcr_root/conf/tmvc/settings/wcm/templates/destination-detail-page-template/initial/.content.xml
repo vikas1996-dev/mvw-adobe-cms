@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2026-02-04T10:54:32.225+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/tmvc/settings/wcm/templates/destination-detail-page-template"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="mvw/components/tmvc/components/destinationDetailPage">
+        <root jcr:primaryType="nt:unstructured">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/container">
+                <destinationsdetails
+                    jcr:created="{Date}2026-02-04T10:54:32.215+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2026-02-04T10:54:32.215+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mvw/components/tmvc/components/destinationsDetails"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

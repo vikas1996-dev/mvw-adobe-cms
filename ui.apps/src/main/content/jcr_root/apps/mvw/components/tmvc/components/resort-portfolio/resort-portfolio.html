@@ -1,0 +1,112 @@
+<div class="resort-list-cmp"
+     data-mod="resort-list"
+     data-api-endpoint="${currentPage.path}/_jcr_content.data.json"
+     data-image-base-url="https://content-stg.vistana.com/files/live">
+    <div class="sr-announcer sr-only" aria-live="polite"></div>
+ 
+    <div class="grid-container">
+        
+        <aside class="filters-sidebar" role="region" aria-label="Filter resorts">
+            <div class="mobile-close-row">
+                <button class="close-filters" aria-label="Close filters" type="button">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+ 
+            <div class="filters-inner-container">
+                <div class="filter-header">
+                    <h2>FILTERS</h2>
+                    <button class="clear-filters" type="button">Clear All</button>
+                </div>
+ 
+                <div class="active-filters" role="list" aria-label="Selected filters"></div>
+ 
+                <div class="filter-group" data-filter-type="region">
+                    <button type="button" class="filter-title" aria-expanded="true">
+                        <span>Region</span>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="filter-options"></div>
+                </div>
+ 
+                <div class="filter-group" data-filter-type="vacationType">
+                    <button type="button" class="filter-title" aria-expanded="true">
+                        <span>Vacation Type</span>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="filter-options"></div>
+                </div>
+ 
+                <div class="filter-group" data-filter-type="activities">
+                    <button type="button" class="filter-title" aria-expanded="true">
+                        <span>Activities</span>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="filter-options"></div>
+                </div>
+ 
+                <div class="filter-group" data-filter-type="brand">
+                    <button type="button" class="filter-title" aria-expanded="true">
+                        <span>Brand</span>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="filter-options"></div>
+                </div>
+            </div>
+        </aside>
+ 
+        <!-- Main Content Area -->
+        <div class="content-area">
+            <div class="resort-search-filter">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search resorts" aria-label="Search resorts by name or location" />
+                    <button class="search-icon" aria-label="Search" type="button">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="results-sort-row">
+                <div class="results-count" aria-live="polite"></div>
+                
+                <div class="sort-container" id="sort-container" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0" aria-label="Sort options">
+                    <div class="sort-icon"><i class="fas fa-arrows-up-down" aria-hidden="true"></i></div>
+                    <span class="sort-label">Sort By: Promoted</span>
+                    <div class="dropdown-icon"><i class="fas fa-angle-down" aria-hidden="true"></i></div>
+                    <div class="dropdown-menu" role="listbox">
+                        <div class="dropdown-item active" role="option" tabindex="0" aria-selected="true" data-value="promoted">Promoted</div>
+                        <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="name-asc">Brand A–Z</div>
+                        <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="name-desc">City A–Z</div>
+                        <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="location">City Z–A</div>
+                        <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="rating">Guest Rating</div>
+                        <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="reviews">Number of Reviews</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mobile-filters-row">
+                <button class="filters-toggle" type="button">
+                    <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                    <span>Filters</span>
+                </button>
+                
+                <div class="sort-container" id="sort-container-mobile" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0" aria-label="Sort options mobile">
+                    <div class="sort-icon"><i class="fas fa-arrows-up-down" aria-hidden="true"></i></div>
+                    <span class="sort-label">Sort By: Promoted</span>
+                    <div class="dropdown-icon"><i class="fas fa-angle-down" aria-hidden="true"></i></div>
+                    <div class="dropdown-menu" role="listbox">
+                         <div class="dropdown-item active" role="option" tabindex="0" aria-selected="true" data-value="promoted">Promoted</div>
+                         <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="name-asc">Brand A–Z</div>
+                         <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="name-desc">City A–Z</div>
+                         <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="location">City Z–A</div>
+                         <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="rating">Guest Rating</div>
+                         <div class="dropdown-item" role="option" tabindex="0" aria-selected="false" data-value="reviews">Number of Reviews</div>
+                    </div>
+                </div>
+            </div>
+            <div class="active-filters mobile-content-pills"></div>
+            <div class="resort-grid"></div>
+        </div>
+    </div>
+    <div class="filter-overlay" aria-hidden="true"></div>
+</div>

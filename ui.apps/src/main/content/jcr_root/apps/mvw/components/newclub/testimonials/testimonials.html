@@ -1,0 +1,36 @@
+<sly
+    data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Testimonials' }"
+/>
+<sly data-sly-use.testimonialsCards="com.mvw.core.models.NewclubTestimonialsModel">
+    <div class="testimonials-container" role="region" aria-label="Testimonials">
+        <div class="testimonials">
+            <div class="cards-container" role="list">
+                <sly data-sly-test="${testimonialsCards.cardList}">
+                    <sly data-sly-list.cardList="${testimonialsCards.cardList}">
+                        <div class="testimonial-card" role="listitem" tabindex="0">
+                            <div class="quote-testimonial">
+                                <p>${cardList.cardDescription @context='text'}</p>
+                            </div>
+                            <div class="testimonial-card-footer">
+                                <sly data-sly-test="${cardList.thumbnailImage}">
+                                <img
+                                    src="${cardList.thumbnailImage @context='uri'}"
+                                    alt="${cardList.altText @context='text'}"
+                                    loading="${!cardList.disableLazyLoading ? 'lazy' : ''}"
+                                    tabindex="0"
+                                />
+                                </sly>
+                                <div class="quote-author" tabindex="0">
+                                    
+                                    <p class="quote-author-name">${cardList.name @context='text'}</p>
+                                    <p class="quote-author-designation">${cardList.cardTitle @context='text'}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+    </div>
+</sly>

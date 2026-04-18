@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2025-11-12T20:48:42.691-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/legal/settings/wcm/templates/marriott-vacations-club"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="mvw/components/legal/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        cq:robotsTags="[noindex,nofollow]"
+        pwaOrientation="any"
+        siteName="mvc">
+        <cq:featuredimage
+            jcr:lastModified="{Date}2025-11-12T20:48:42.687-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+</jcr:root>

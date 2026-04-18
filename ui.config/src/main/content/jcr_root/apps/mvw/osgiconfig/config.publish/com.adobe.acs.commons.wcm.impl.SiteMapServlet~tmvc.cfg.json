@@ -1,0 +1,25 @@
+{
+    "sling.servlet.resourceTypes": [
+        "mvw/components/tmvc/components/resortPage",
+        "mvw/components/tmvc/components/standardPage",
+        "mvw/components/tmvc/components/formsPage",
+        "mvw/components/tmvc/components/page",
+        "mvw/components/tmvc/components/resortListingPage",
+        "mvw/components/tmvc/components/destinationDetailPage",
+        "mvw/components/tmvc/components/destinationListingPage"
+    ],
+    "use.vanity": true,
+    "include.lastmod": false,
+    "character.encoding": "",
+    "extensionless.urls": false,
+    "exclude.templates": "",
+    "changefreq.properties": [""],
+    "remove.slash": false,
+    "url.rewrites": [""],
+    "include.inherit": false,
+    "damassets.property": "",
+    "damassets.types": [""],
+    "priority.properties": [""],
+    "exclude.property": "null",
+    "externalizer.domain": "tmvcs"
+}

@@ -1,0 +1,117 @@
+.breadcrumb {
+  color: inherit;
+  height: 56px;
+  width: 100%;
+  padding: 20px 0px 16px;
+  padding-left: $grid-margin-desktop;
+  padding-right: $grid-margin-desktop;
+
+   @media (min-width: 1920px) {
+    max-width: calc($grid-max-width + ($grid-margin-desktop * 2));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 1439px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @media (max-width: 1023px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: $grid-margin-mobile;
+    padding-right: $grid-margin-mobile;
+    grid-template-columns: repeat($columns-mobile, 1fr);
+  }
+
+  .cmp-breadcrumb {
+    width: 100%;
+    display: flex;
+  }
+
+  .cmp-breadcrumb__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+
+    .cmp-breadcrumb__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 400;
+      font-family: "roboto";
+      font-size: 14px;
+      line-height: 20px;
+
+      a {
+        color: #082940;
+        text-decoration: none;
+        transition: color 0.3s ease, text-decoration 0.3s ease;
+
+        &:hover {
+          color: #082940;
+          text-decoration: underline;
+        }
+
+        &:active {
+          color: #526979;
+          text-decoration: underline;
+        }
+      }
+
+      &.cmp-breadcrumb__item--active {
+        span[itemprop="name"] {
+          color: #5e5e5e;
+        }
+      }
+
+      &:not(:first-child):before {
+        content: url("../../../clientlibs/clientlib-tmvc/resources/images/icons/chevron.svg");
+        transform: rotate(270deg);
+        font-weight: 900;
+        margin-left: 8px;
+        font-size: 12px;
+        display: inline-block;
+        color: #5e5e5e;
+        @media (max-width: 768px) {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px 10px;
+    .cmp-breadcrumb__list {
+      
+      li:not(:nth-last-child(2)) {
+        display: none;
+      }
+      
+      .cmp-breadcrumb__item {
+        &::before {
+          content: url("../../../clientlibs/clientlib-tmvc/resources/images/icons/chevron.svg");
+          transform: rotate(270deg);
+          font-weight: 900;
+          margin-left: 8px;
+          font-size: 12px;
+          display: inline-block;
+          color: #5e5e5e;
+          @media (max-width: 768px) {
+            transform: rotate(90deg);
+          }
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+}

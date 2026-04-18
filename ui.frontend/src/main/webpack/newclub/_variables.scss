@@ -1,0 +1,42 @@
+$primary-color: #f06a4e;
+$secondary-color: #333;
+ 
+$gray-color: #1C1C1C;
+$primary-coral: #FAA387;
+$white: #FFFFFF;
+$black: #000000;
+$gray-light: #CCCCCC;
+$grayish-blue: #94B7BB;
+$bg-light: #EAF0F1;
+$gray-02: #8E8E8E;
+$indigo: #082940 !default;
+$secondary-blue: #D4E1E4;
+ 
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 20px;
+$spacing-xl: 24px;
+
+
+:root {
+    --primary-button-font-color: #000000;
+    --primary-button-color: #FAA387;
+    --primary-button-hover-color: #D17F65;
+    --primary-button-active-color: #CC765C;
+    --primary-button-pressed-color: #79BCF2;
+    --button-text-disabled: #A5A5A5;
+    --button-background-disabled: #DCDCDC;
+    --secondary-button-font-color: #FFFFFF;
+    --secondary-button-color: #000000;
+    --secondary-button-hover-color: #4d4d4d;
+    --secondary-button-active-color: #CC765C;
+    --secondary-button-pressed-color: #79BCF2;
+    --teritiary-color: #FAA387;
+    --teritiary-hover-color: #D17F65;
+    --teritiary-active-color: #CC765C;
+
+    --font-family-heading: "cormorantgaramond";
+    --font-family-body: "roboto";
+    --font-family-body-bold: "roboto";
+}

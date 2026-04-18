@@ -1,0 +1,172 @@
+<sly data-sly-use.destinationDetails="com.mvw.core.models.DestinationDetails"
+     data-sly-test="${destinationDetails.propertiesList}">
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+                            <sly data-sly-test="${contents.propertiesList}">
+                                <sly data-sly-list.content="${contents.propertiesList}">
+                                    <sly data-sly-test="${content.nodename == 'view-resort-button-label'}">
+                                       <sly data-sly-set.view="${content.properties  @ context='html'}"/>
+                                    </sly>
+                                    <sly data-sly-test="${content.nodename == 'view-all-resorts-label'}">
+                                       <sly data-sly-set.allResorts="${content.properties  @ context='html'}"/>
+                                    </sly>
+                                </sly>
+
+                            </sly>
+                        </sly>
+  <div class="resort-destinations-cards-cmp"
+       data-mod="resort-destination-details-card">
+
+    <div class="sr-announcer sr-only"
+         role="status"
+         aria-live="polite"
+         aria-atomic="true"></div>
+
+    <div class="grid-container">
+      <div class="content-area">
+
+
+        <!-- Results Count -->
+        <div class="results-count-row">
+          <div class="results-count" aria-live="polite">
+            <sly data-sly-list.destination="${destinationDetails.propertiesList}">
+              
+              ${destination.resortCount > 4  ? '4' : destination.resortCount} of ${destination.resortCount} Resorts
+            </sly>
+          </div>
+        </div>
+
+        <!-- Resort Grid -->
+        <div class="resort-grid">
+
+          <!-- First 4 Resorts -->
+          <sly data-sly-list.destination="${destinationDetails.propertiesList}">
+            <sly data-sly-test="${destination.referenceProperty}">
+              <sly data-sly-list.resort="${destination.referenceProperty}">
+                <sly data-sly-test="${resortList.index < 4}">
+
+                  <article class="resort-card"
+                           aria-labelledby="title-resort-${resortList.index}"
+                           data-href="/content/tmvcs/us/en/experiences/resorts/${resort.slug}.html">
+
+                    <div class="resort-image">
+                      <img src="${resort.mainPropertyPhotoPath}"
+                           alt="${resort.imageAltText}"
+                           role="presentation"
+                           />
+                    </div>
+
+                    <div class="resort-content">
+                      <div class="resort-info">
+                        <h3 class="resort-title"
+                            id="title-resort-${resortList.index}">
+                          ${resort.name}
+                        </h3>
+                        <p class="resort-location">
+                          ${resort.city}, ${resort.state}, ${resort.country}
+                        </p>
+                      </div>
+
+                      <div class="resort-actions">
+                        <a href="/content/tmvcs/us/en/experiences/resorts/${resort.slug}.html"
+                           class="view-resort"
+                           aria-label="View details for ${resort.name}">
+                          ${view}
+                        </a>
+
+                        <a data-sly-test="${resort.tripadvisorId}"
+                           href="${resort.webUrl}"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="tripadvisor-rating third-party-link"
+                           aria-label="View reviews on TripAdvisor">
+                          <img src="${resort.ratingImage}"
+                               alt="${resort.rating} rating"
+                               class="rating-image">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                </sly>
+              </sly>
+            </sly>
+          </sly>
+
+          <!-- Offer Card (Injected Component) -->
+          <sly data-sly-resource="${'destinationPromotion'
+            @ resourceType='mvw/components/tmvc/components/destinationDefaultPromotion'}"></sly>
+
+          <!-- Remaining Resorts (Hidden) -->
+          <sly data-sly-list.destination="${destinationDetails.propertiesList}">
+            <sly data-sly-test="${destination.referenceProperty}">
+              <sly data-sly-list.resort="${destination.referenceProperty}">
+                <sly data-sly-test="${resortList.index >= 4}">
+
+                  <article class="resort-card hidden-card"
+                           aria-labelledby="title-resort-${resortList.index}"
+                           data-href="${resort.detailsPagePath}"
+                           style="display: none;">
+
+                    <div class="resort-image">
+                      <img src="${resort.mainPropertyPhotoPath}"
+                           alt="${resort.imageAltText}"
+                           role="presentation"
+                           loading="lazy">
+                    </div>
+
+                    <div class="resort-content">
+                      <div class="resort-info">
+                        <h3 class="resort-title"
+                            id="title-resort-${resortList.index}">
+                          ${resort.name}
+                        </h3>
+                        <p class="resort-location">
+                          ${resort.city}, ${resort.state}, ${resort.country}
+                        </p>
+                      </div>
+
+                      <div class="resort-actions">
+                        <a href="${resort.detailsPagePath}"
+                           class="view-resort"
+                           aria-label="View details for ${resort.name}">
+                          ${view}
+                        </a>
+
+                        <a data-sly-test="${resort.tripAdvisorUrl}"
+                           href="${resort.tripAdvisorUrl}"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="tripadvisor-rating third-party-link"
+                           aria-label="View reviews on TripAdvisor">
+                          <img src="${resort.tripAdvisorRatingImage}"
+                               alt="${resort.tripAdvisorRating} rating"
+                               class="rating-image">
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+
+                </sly>
+              </sly>
+            </sly>
+          </sly>
+
+        </div>
+
+        <!-- Load More Button -->
+        <sly data-sly-list.destination="${destinationDetails.propertiesList}">
+        <sly data-sly-test="${destination.resortCount > 4}">
+        <div class="load-more-container">
+          <button class="load-more-btn"
+                  type="button"
+                  aria-label="View all resorts">
+                  
+            ${allResorts}
+          </button>
+        </div>
+        </sly>
+        </sly>
+      </div>
+    </div>
+  </div>
+</sly>

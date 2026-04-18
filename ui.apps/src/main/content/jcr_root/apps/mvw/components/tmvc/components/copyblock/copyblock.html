@@ -1,0 +1,70 @@
+<sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+<sly data-sly-use.model="com.mvw.core.models.CopyBlockModel" />
+<sly data-sly-test="${!model.copyText && wcmmode.edit}">
+    <sly data-sly-call="${tpl.placeHolderBlock @
+      title='Configure Component',
+      content='Please open the dialog and configure the settings.'
+      }" />
+</sly>
+<div class="copy-block-cmp bg-theme-${model.copySectionBgColor}" data-parent-component="CopyBlock">
+    <div class="copy-block-wrapper grid-container">
+        <div class="copy-block-wrapper rte-content align-${model.copyAlignment} m-align-${model.mobileCopyAlignment}">
+            ${model.copyText @ context='html'}
+            <sly data-sly-test="${model.ctas}">
+                <sly data-sly-list.cta="${model.ctas}">
+                    <sly data-sly-test="${cta.phoneNumber}">
+                        <a href="tel:{{phoneNumber}}"
+                           data-cta-type="phone"
+                           class="cmp-button cmp-button--${cta.ctaStyle}${cta.thirdPartyLink ? ' third-party-link' : ''}${cta.ctaPlacement == 'icon-only' || cta.ctaPlacement == 'alt-icon-only' ? ' cmp-button--icon-only' : ''} cmp-button--large copy-block--cta-phone"
+                           data-phone="${cta.phoneNumber}"
+                           target="${cta.ctaTab == 'newTab' ? '_blank' : '_self'}"
+                           role="button"
+                           aria-label="Call: ${cta.phoneNumber}"
+                           data-sly-set.appendTextWithNumber="${cta.appendPhoneNumber}"
+                           data-append-with-text="${appendTextWithNumber}">
+                            <sly data-sly-test="${cta.ctaPlacement != 'icon-only' && cta.ctaPlacement != 'alt-icon-only'}">
+                                <sly data-sly-test="${cta.ctaPlacement == 'left-icon' && cta.fontAwesomeIcon}">
+                                    <span class="cmp-button__icon cmp-button__icon--left fa ${cta.fontAwesomeIcon}"></span>
+                                </sly>
+                                <span data-sly-test.isCtaText="${cta.ctaText}"
+                                      class="cmp-button__text copy-block--cta-phone">${cta.ctaText @ context='html'}</span>
+                                <sly data-sly-test="${appendTextWithNumber && cta.phoneNumber}">
+                                    <sly data-sly-test="${isCtaText}">&nbsp;</sly>
+                                    <span class="cmp-button__text copy-block--cta-phone copy-block--cta-phone__number">${cta.phoneNumber}</span>
+                                </sly>
+                                <sly data-sly-test="${cta.ctaPlacement == 'right-icon' && cta.fontAwesomeIcon}">
+                                    <span class="cmp-button__icon cmp-button__icon--right fa ${cta.fontAwesomeIcon}"></span>
+                                </sly>
+                            </sly>
+                            <sly data-sly-test="${cta.ctaPlacement == 'icon-only' || cta.ctaPlacement == 'alt-icon-only'}">
+                                <span class="cmp-button__icon fa ${cta.fontAwesomeIcon}"></span>
+                            </sly>
+                        </a>
+                    </sly>
+                    <sly data-sly-test="${!cta.phoneNumber}">
+                        <a href="${cta.ctaDestination}"
+                           class="cmp-button cmp-button--${cta.ctaStyle}${cta.thirdPartyLink ? ' third-party-link' : ''}${cta.ctaPlacement == 'icon-only' || cta.ctaPlacement == 'alt-icon-only' ? ' cmp-button--icon-only' : ''} cmp-button--large"
+                           target="${cta.ctaTab == 'newTab' ? '_blank' : '_self'}"
+                           aria-label="${cta.ctaText}">
+                            <sly data-sly-test="${cta.ctaPlacement != 'icon-only' && cta.ctaPlacement != 'alt-icon-only'}">
+                                <sly data-sly-test="${cta.ctaPlacement == 'left-icon' && cta.fontAwesomeIcon}">
+                                    <span class="cmp-button__icon cmp-button__icon--left fa ${cta.fontAwesomeIcon}"></span>
+                                </sly>
+                                <span data-sly-test="${cta.ctaText}"
+                                      class="cmp-button__text">
+                        ${cta.ctaText @ context='html'}
+                        </span>
+                                <sly data-sly-test="${cta.ctaPlacement == 'right-icon' && cta.fontAwesomeIcon}">
+                                    <span class="cmp-button__icon cmp-button__icon--right fa ${cta.fontAwesomeIcon}"></span>
+                                </sly>
+                            </sly>
+                            <sly data-sly-test="${cta.ctaPlacement == 'icon-only' || cta.ctaPlacement == 'alt-icon-only'}">
+                                <span class="cmp-button__icon fa ${cta.fontAwesomeIcon}"></span>
+                            </sly>
+                        </a>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+    </div>
+</div>

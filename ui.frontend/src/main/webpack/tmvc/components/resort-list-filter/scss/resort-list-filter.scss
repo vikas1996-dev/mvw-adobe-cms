@@ -1,0 +1,140 @@
+.resort-list-filter-cmp {
+  .grid-container {
+    .filters {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      grid-column: 1 / -1;
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 300px;
+        padding: 16px;
+
+        label {
+          font-size: 14px;
+          text-transform: uppercase;
+          font-family: 'roboto-medium';
+        }
+
+        select {
+          font-family: 'roboto';
+          border-radius: 8px;
+          border: 1px solid #757575;
+          background: #FFFFFF;
+          display: flex;
+          height: 56px;
+          padding: 14px;
+          align-items: center;
+          gap: 10px;
+          align-self: stretch;
+          color:  #757575;
+          font-size: 16px;
+          font-style: normal;
+          line-height: 24px; /* 150% */
+          optgroup option {
+            padding-left: 12px; // indent child options
+          }
+        }
+      }
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 48px;
+      align-items: start;
+      grid-column: 1 / -1;
+
+      .leftColumn,
+      .rightColumn {
+        padding: 16px;
+      }
+
+      .section {
+        margin-bottom: 28px;
+
+        .main-header {
+          margin: 0 0 12px;
+          text-transform: uppercase;
+        }
+
+        .sub-header {
+          color: $indigo;
+          margin: 16px 0 8px;
+        }
+
+        .resort {
+          font-size: 18px;
+          font-weight: 500;
+          margin: 6px 0;
+          color: $indigo;
+          line-height: 1.35;
+
+          a,
+          a:hover,
+          a:focus-visible,
+          a:visited {
+            color: $indigo;
+            text-decoration: none; // remove native underline
+            position: relative;
+            font-family: 'roboto';
+
+            &::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: -2px;
+              width: 0%;
+              height: 2px;
+              background: $indigo ;
+              transition: width 0.8s ease;
+            }
+
+            &:hover::after,
+            &:focus-visible::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .empty {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .grid-container {
+      .filters {
+        flex-direction: column;
+        gap: 0px;
+
+        .filter-group {
+          min-width: auto;
+          padding: 16px 0px;
+        }
+      }
+
+      .columns {
+        grid-template-columns: 1fr;
+        
+        .section .resort {
+          font-size: 16px;
+          line-height: 24px;
+          margin: 12px 0;
+        }
+        .leftColumn,
+        .rightColumn {
+          padding: 16px 0px;
+        }
+
+      }
+    }
+  }
+}

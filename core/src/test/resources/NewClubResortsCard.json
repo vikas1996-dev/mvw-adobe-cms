@@ -1,0 +1,61 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Wed Dec 10 2025 10:29:42 GMT+0530",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Jade-4",
+    "cq:template": "/conf/newclub/settings/wcm/templates/home-page-template",
+    "jcr:created": "Wed Dec 10 2025 10:29:42 GMT+0530",
+    "cq:lastModified": "Wed Dec 10 2025 10:40:45 GMT+0530",
+    "sling:resourceType": "mvw/components/newclub/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "mvw/components/container",
+        "resorts_card": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "resortCardHeading": "One Happiness-Inducing Destination After Another",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Wed Dec 10 2025 10:29:55 GMT+0530",
+          "resortCardDescription": "Whether you’re staying for a family vacation or romantic getaway, each all-in resort is completely distinctive. Because like you, we believe that paradise isn’t limited to a single destination.",
+          "jcr:lastModified": "Wed Dec 10 2025 10:40:45 GMT+0530",
+          "sling:resourceType": "mvw/components/newclub/resorts-card",
+          "cardsCount": "2",
+          "cardsItem": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+              "jcr:primaryType": "nt:unstructured",
+              "altText": "Family Vacation",
+              "overlayText": "Family Vacation",
+              "image": "/content/dam/new-club-brand-awareness/brand-awareness/resortcard-1.jpg",
+              "disableLazyLoading": "false"
+            },
+            "item1": {
+              "jcr:primaryType": "nt:unstructured",
+              "altText": "Solo Adventure",
+              "overlayText": "Solo Adventure",
+              "image": "/content/dam/new-club-brand-awareness/brand-awareness/resort-details-2.png"
+            },
+            "item2": {
+              "jcr:primaryType": "nt:unstructured",
+              "altText": "Adult Only Expereienc",
+              "overlayText": "Adults Only Experience",
+              "image": "/content/dam/new-club-brand-awareness/brand-awareness/resortcard-3.png"
+            },
+            "item3": {
+              "jcr:primaryType": "nt:unstructured",
+              "altText": "Romantic Gateways",
+              "overlayText": "Romantic Gateways",
+              "image": "/content/dam/new-club-brand-awareness/brand-awareness/resortcard-4.png"
+            }
+          }
+        }
+      }
+    }
+  }
+}

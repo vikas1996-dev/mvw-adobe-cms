@@ -1,0 +1,81 @@
+<sly
+    data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Multi Cards Component' }"
+/>
+<sly data-sly-use.resortsCardModel="${'com.mvw.core.models.ResortsCardModel'}">
+    <div class="multi-cards-container resort-cards-container">
+        <div class="resort-cards_content">
+            <h1 
+                data-sly-test="${resortsCardModel.resortCardHeading}" 
+                class="resort-cards_content__title"
+                id="resort-cards-heading" tabindex="0">
+                ${resortsCardModel.resortCardHeading @context = 'text'}
+            </h1>
+
+            <div 
+                data-sly-test="${resortsCardModel.resortCardDescription}" 
+                class="resort-cards_content__description"
+                id="resort-cards-description" tabindex="0">
+                ${resortsCardModel.resortCardDescription @context = 'html'}
+            </div>
+        </div>
+
+        <div class="resort-cards" role="list" aria-labelledby="resort-cards-heading">
+
+            <sly data-sly-test="${resortsCardModel.cardsItem}">
+            <sly data-sly-list.destinationCardTems="${resortsCardModel.cardsItem}">
+
+                <div class="featuredcard teaser" role="listitem">
+
+                    <!-- Make entire card focusable -->
+                    <div
+                        id="featuredcard-${destinationCardTemsList.index}"
+                        class="cmp-teaser cmp-teaser--no-separator"
+                        role="group"
+                        tabindex="0"
+                        aria-labelledby="card-title-${destinationCardTemsList.index}"
+                        aria-describedby="card-desc-${destinationCardTemsList.index}"
+                        aria-label="${destinationCardTems.overlayText @context='text'}"
+                    >
+
+                        <div class="cmp-teaser__image">
+                            <div
+                                data-cmp-is="image"
+                                data-cmp-src="${destinationCardTems.image @context = 'uri'}"
+                                data-cmp-filereference="${destinationCardTems.image @context = 'uri'}"
+                                class="cmp-image"
+                            itemscope=""
+                                itemtype="http://schema.org/ImageObject"
+                                tabindex="0"
+                            >
+                                <img
+                                    src="${destinationCardTems.image @context = 'uri'}"
+                                    class="cmp-image__image"
+                                    itemprop="contentUrl"
+                                    alt="${destinationCardTems.altText @context = 'text'}"
+                                    loading="${!destinationCardTems.disableLazyLoading ? 'lazy' : ''}"
+                                    tabindex="0"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="cmp-teaser__content">
+                            <h2 
+                                class="cmp-teaser__title"
+                                id="card-title-${destinationCardTemsList.index}" tabindex="0">
+                                ${destinationCardTems.overlayText @context = 'text'}
+                                
+                            </h2>
+                        </div>
+
+                    </div>
+                </div>
+
+            </sly>
+            </sly>
+
+        </div>
+        
+    </div>
+</sly>
+ 

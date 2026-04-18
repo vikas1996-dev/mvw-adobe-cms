@@ -1,0 +1,26 @@
+<sly data-sly-use.model="com.mvw.core.models.NewClubThirdPartyLinkModel" />
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+     data-sly-call="${ templates.placeholder @ component_name= 'Third Party Modal' }"
+/>
+<div id="tpm-modal" class="tpm-overlay" aria-hidden="true">
+    <div class="tpm-wrapper" role="alertdialog" aria-modal="true" aria-labelledby="tpm-title-id"
+         aria-describedby="tpm-body-id" tabindex="-1">
+        <button id="tpm-close-btn" class="tpm-close-btn" aria-label="Close modal"></button>
+        <div class="tpm-content">
+            <div class="tpm-header">
+                <h2 id="tpm-title-id" class="tpm-title">${model.modalTitle @ context='text'}</h2>
+            </div>
+
+            <div id="tpm-body-id" class="tpm-body">
+                ${model.modalDescription @ context='html'}
+            </div>
+
+            <div class="tpm-footer">
+                <button id="tpm-acknowledge-btn"  class="cmp-button cmp-button--${model.newClubButtonModel.buttonVariation} tpm-ack-btn" aria-label="${model.newClubButtonModel.buttonText @ context='text'} ">
+                    ${model.newClubButtonModel.buttonText @ context='text'}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'roboto', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+body.newclub {
+  padding-top: 75px; 
+
+  @media (min-width: 768px) {
+    padding-top: 138px;
+  }
+}
+
+body.newclub:has(#maintenance) {
+  padding-top: 0;
+ 
+  @media (min-width: 768px) {
+    padding-top: 0;
+  }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+}
+
+b {
+  font-weight: bold;
+}
+
+.cmp-link__screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.button {
+  &--desktop {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &--mobile {
+    display: block;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+ 

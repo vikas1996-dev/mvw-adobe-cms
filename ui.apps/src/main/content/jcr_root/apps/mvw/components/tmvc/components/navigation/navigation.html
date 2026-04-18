@@ -1,0 +1,148 @@
+<sly data-sly-use.nav="com.adobe.cq.wcm.core.components.models.Navigation"
+    class="cmp-header__navigation navigation-left col-8" />
+<sly data-sly-use.custNav="com.mvw.core.models.CustomNavigationModel" />
+<sly data-sly-template.render="${heading}">
+    <p class="navigation-heading">${heading @ context='html'}</p>
+    <!-- your navigation loop here -->
+</sly>
+
+<div class="navigation-left col-8">
+    <div class="nav-items">
+        <sly data-sly-list.navItem="${nav.items}">
+            <div class="nav-item">
+                <sly data-sly-set.page="${navItem.page}" />
+                <a data-link-type="Main Level Navigation"
+                   data-sly-attribute="${navItem.link.htmlAttributes}"
+                   class="link ${navItem.children ? 'has-sub-nav' : 'arsenal-regular'}"
+                   aria-current="${navItem.active ? 'page' : null}"
+                   data-sly-attribute.href="${navItem.link.htmlAttributes.href}"
+                   target="${page.properties.thirdPartyLink ? '_blank' : '_self'}"
+                   tabindex="0"
+                   role="link"
+                   aria-haspopup="${navItem.children ? 'true' : null}"
+                   aria-expanded="${navItem.children ? 'false' : null}">${navItem.title}</a>
+                <div class="promo" data-sly-test="${navItem.children}">
+                    <ul class="sub-nav">
+                        <li class="parent-link">
+                            <a href="${navItem.link.htmlAttributes.href}"
+                               class="child-link parent"
+                               target="${page.properties.thirdPartyLink ? '_blank' : '_self'}">
+                                ${navItem.title}
+                            </a>
+                        </li>
+                        <sly data-sly-list.subNavItem="${navItem.children}">
+                            <li>
+                                <a data-sly-attribute="${subNavItem.link.htmlAttributes}"
+                                   class="child-link">
+                                    ${subNavItem.title @ context='html'}
+                                </a>
+                            </li>
+                        </sly>
+
+                    </ul>
+                    <sly data-sly-test="${navItemList.index == 0 && custNav.promo1BgImage}">
+                        <div class="promo-image-container">
+                            <a data-link-type="Sub Level Navigation"
+                               href="${custNav.promo1Url}"
+                               target="${custNav.promo1Tab == 'newTab' ? '_blank' : '_self'}"
+                               rel="${custNav.promo1Tab == 'newTab' ? 'noopener noreferrer' : ''}">
+                                <img src="${custNav.promo1BgImage}" loading="lazy" alt="${custNav.promo1BgImageAlt}"
+                                    class="promo-image" />
+                            </a>
+                            <div class="promo-content">
+                                <p class="promo-text">${custNav.promo1ShortDescription @context='html'}</p>
+								<div class="cta-group" data-mod="ctacontainer">
+									<div class="cta-button-item">	
+                                <a href="${custNav.promo1Url}"
+                                    class="cmp-button cmp-button--${custNav.ctaStyle1} cmp-button--${custNav.ctaSize1} ${custNav.ctaPlacement1 == 'icon-only' ? ' cmp-button--icon-only' : ''}"
+                                    data-url="${custNav.promo1Url}" data-tab="${custNav.promo1Tab}"
+                                    target="${custNav.promo1Tab == 'newTab' ? '_blank' : '_self'}">
+                                    <sly data-sly-test="${custNav.ctaPlacement1 != 'icon-only'}">
+                                        <sly
+                                            data-sly-test="${custNav.ctaPlacement1 == 'left-icon' && custNav.fontAwesomeIcon1}">
+                                            <span
+                                                class="cmp-button__icon cmp-button__icon--left ${custNav.fontAwesomeIcon1}"></span>
+                                        </sly>
+                                        <span data-sly-test="${custNav.promo1LinkText}"
+                                            class="cmp-button__text">${custNav.promo1LinkText @ context='html'}</span>
+
+                                        <sly
+                                            data-sly-test="${custNav.ctaPlacement1 == 'right-icon' && custNav.fontAwesomeIcon1}">
+                                            <span
+                                                class="cmp-button__icon cmp-button__icon--right ${custNav.fontAwesomeIcon1}"></span>
+                                        </sly>
+                                    </sly>
+                                    <sly data-sly-test="${custNav.ctaPlacement1 == 'icon-only'}">
+                                        <span
+                                            class="cmp-button__icon cmp-button__icon ${custNav.fontAwesomeIcon1}"></span>
+                                    </sly>
+                                </a>
+								</div>
+							 </div>
+                            </div>
+
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${navItemList.index == 1 && custNav.promo2BgImage}">
+                        <div class="promo-image-container">
+                            <a href="${custNav.promo2Url}"
+                               target="${custNav.promo2Tab == 'newTab' ? '_blank' : '_self'}"
+                               rel="${custNav.promo2Tab == 'newTab' ? 'noopener noreferrer' : ''}">
+                                <img src="${custNav.promo2BgImage}" loading="lazy" alt="${custNav.promo2BgImageAlt}"
+                                    class="promo-image" />
+                            </a>
+                            <div class="promo-content">
+                                <p class="promo-text">${custNav.promo2ShortDescription @context='html'}</p>
+								<div class="cta-group" data-mod="ctacontainer">
+								<div class="cta-button-item">	
+                                <a href="${custNav.promo2Url}"
+                                    class="cmp-button cmp-button--${custNav.ctaStyle2} cmp-button--${custNav.ctaSize2} ${custNav.ctaPlacement2 == 'icon-only' ? ' cmp-button--icon-only' : ''}"
+                                    data-url="${custNav.promo2Url}" data-tab="${custNav.promo2Tab}"
+                                    target="${custNav.promo2Tab == 'newTab' ? '_blank' : '_self'}">
+                                    <sly data-sly-test="${custNav.ctaPlacement2 != 'icon-only'}">
+                                        <sly
+                                            data-sly-test="${custNav.ctaPlacement2 == 'left-icon' && custNav.fontAwesomeIcon2}">
+                                            <span
+                                                class="cmp-button__icon cmp-button__icon--left ${custNav.fontAwesomeIcon2}"></span>
+                                        </sly>
+                                        <span data-sly-test="${custNav.promo2LinkText}"
+                                            class="cmp-button__text">${custNav.promo2LinkText @ context='html'}</span>
+
+                                        <sly
+                                            data-sly-test="${custNav.ctaPlacement2 == 'right-icon' && custNav.fontAwesomeIcon2}">
+                                            <span
+                                                class="cmp-button__icon cmp-button__icon--right ${custNav.fontAwesomeIcon2}"></span>
+                                        </sly>
+                                    </sly>
+                                    <sly data-sly-test="${custNav.ctaPlacement2 == 'icon-only'}">
+                                        <span
+                                            class="cmp-button__icon cmp-button__icon ${custNav.fontAwesomeIcon2}"></span>
+                                    </sly>
+                                </a>
+								</div>
+								</div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+        </sly>
+        <sly data-sly-test.contactUrl="${custNav.contactUsUrl}">
+            <div class="nav-item left-nav-mobile">
+                <a class="link contact-us-link arsenal-regular"
+                   data-link-type="Main Level Navigation"
+                   aria-label="${custNav.contactUsCopy}"
+                   href="${contactUrl}"
+                   target="${custNav.contactUsTab}"
+                   rel="${custNav.contactUsTab == '_blank' ? 'noopener noreferrer' : ''}">
+
+                    <i class="${custNav.contactUsIcon}" data-sly-test="${custNav.contactUsIcon}"></i>
+                    ${custNav.contactUsCopy @ context='html'}
+                </a>
+            </div>
+        </sly>
+    </div>
+    <div class="cta-container left-nav-mobile">
+        <sly data-sly-resource="${'cta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"></sly>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+@import '../../variables';
+
+.breadcrumb {
+    background: $black;
+    color: inherit;
+    min-height: 47px;
+    width: 100%;
+    padding-right: 16px !important;
+    padding-left: 40px !important;
+
+    @media (max-width: 768px) {
+        padding-left: 12px !important;
+    }
+
+    .cmp-breadcrumb {
+        max-width: 1280px;
+        width: 100%;
+        display: flex;
+        margin: 0 auto;
+    }
+
+    // DESKTOP View — FULL BREADCRUMB
+    .cmp-breadcrumb__list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0;
+
+        .cmp-breadcrumb__item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 300;
+            font-family: 'roboto-light';
+            font-size: 16px;
+            line-height: 125%;
+
+            a {
+                color: var(--button-background-disabled);
+                text-decoration: none;
+            }
+
+
+            // Active breadcrumb item
+            &.cmp-breadcrumb__item--active {
+                span[itemprop="name"] {
+                    color: $white;
+                    font-family: 'roboto-light';
+                }
+            }
+
+            // Inject "<" before each item
+            &::before {
+                content: "<";
+                color: $white;
+                display: inline-block;
+                transform: translateY(-1px);
+            }
+        }
+
+        // Hover state for all breadcrumb links except the active item
+        .cmp-breadcrumb__item:not(.cmp-breadcrumb__item--active):hover a {
+            color: $white;
+        }
+    }
+
+    // MOBILE VERSION
+    @media (max-width: 768px) {
+        .cmp-breadcrumb__list {
+            .cmp-breadcrumb__item {
+                font-size: 12px;
+                line-height: 125%;
+                font-weight: 300;
+
+                a {
+                    color: #FFF;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<sly data-sly-use.model="com.mvw.core.models.BonvoyBlockContainerModel">
+  <sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+  <sly data-sly-call="${tpl.placeHolderBlock @
+    title='Bonvoy Block Container',
+    content='Please open the dialog and configure the settings.'
+  }" />
+
+  <section class="bonvoy-block" aria-labelledby="bonvoy-brands-title">
+    <div class="grid-container">
+      <div class="bonvoy-block__container">
+        
+        <div class="bonvoy-block__header align-${model.copyAlignment || 'center'} m-align-${model.mobileCopyAlignment || 'center'}">
+          <sly data-sly-test="${model.logo}">
+            <div class="bonvoy-block__logo">
+              <img 
+                src="${model.logo}" 
+                alt="${model.logoAltText @ context='text'}" 
+                class="bonvoy-block__logo-img"
+              />
+            </div>
+          </sly>
+          <h2 data-sly-element="${model.headlineSize || 'h2'}"
+              class="bonvoy-block__headline"
+              id="bonvoy-brands-title">
+            ${model.headline @ context='html'}
+          </h2>
+        </div>
+
+        <div class="bonvoy-block__categories">
+          <div class="bonvoy-block__card-wrapper" data-sly-resource="${'card1' @ resourceType='mvw/components/tmvc/components/bonvoyBlockCard'}"></div>
+          <div class="bonvoy-block__card-wrapper" data-sly-resource="${'card2' @ resourceType='mvw/components/tmvc/components/bonvoyBlockCard'}"></div>
+          <div class="bonvoy-block__card-wrapper" data-sly-resource="${'card3' @ resourceType='mvw/components/tmvc/components/bonvoyBlockCard'}"></div>
+          <div class="bonvoy-block__card-wrapper" data-sly-resource="${'card4' @ resourceType='mvw/components/tmvc/components/bonvoyBlockCard'}"></div>
+          <div class="bonvoy-block__card-wrapper" data-sly-resource="${'card5' @ resourceType='mvw/components/tmvc/components/bonvoyBlockCard'}"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</sly>

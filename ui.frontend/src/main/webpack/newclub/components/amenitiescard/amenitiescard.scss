@@ -1,0 +1,201 @@
+.amenitiescard.teaser {
+    border-radius: 10px;
+
+    .teaser.cmp-teaser-amenities {
+        .cmp-teaser {
+            display: flex;
+            flex-direction: column-reverse;
+
+            @media (min-width: 768px) {
+                flex-direction: row-reverse;
+                align-items: stretch;
+            }
+
+            &__image {
+                @media (min-width: 768px) {
+                    max-width: 480px;
+                    aspect-ratio: 5/3;
+                }
+
+                .cmp-image {
+                    height: 100%;
+                    border-top-left-radius: 10px;
+
+                    @media (min-width: 768px) {
+                        border-bottom-left-radius: 10px;
+                    }
+
+                    @media (max-width: 768px) {
+                        border-top-right-radius: 10px;
+
+                    }
+
+
+                }
+            }
+
+            &__content {
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                font-family: 'roboto';
+                padding: 40px 32px;
+
+                @media (min-width: 768px) {
+                    flex: 1;
+                    gap: 8px;
+                }
+            }
+
+            &__pretitle {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 125%;
+                letter-spacing: 15%;
+                text-transform: uppercase;
+            }
+
+            &__title {
+                font-family: 'roboto';
+                font-size: 32px;
+                line-height: 125%;
+                margin-bottom: 8px !important;
+                margin-top: 8px !important;
+                font-weight: 600;
+
+                &::after {
+                    content: none;
+                    display: none;
+
+                }
+            }
+
+            &__description {
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 125%;
+            }
+
+            &__action-container {
+                margin-top: 24px;
+            }
+
+            &__action-link {
+                background: transparent;
+                padding: 0;
+                min-height: 0;
+                height: auto;
+                border-radius: 0;
+                display: inline-block;
+
+                font-family: 'roboto', sans-serif;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 125%;
+                text-decoration: none;
+                position: relative;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    background: transparent;
+                    outline: none;
+                    opacity: 0.8;
+                }
+
+                &::after {
+                    content: "\2192";
+                    display: inline-block;
+                    margin-left: 2px;
+                    font-size: 12px;
+                    line-height: 1;
+                    vertical-align: middle;
+                    color: inherit;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    &.bg-secondary-blue-40 {
+        background-color: #D4E1E4;
+
+        .teaser.cmp-teaser-amenities {
+            .cmp-teaser {
+
+                &__pretitle,
+                &__title,
+                &__description,
+                &__action-link {
+                    color: #1C1C1C !important;
+                }
+            }
+        }
+    }
+
+    &.bg-primary-black {
+        background-color: #000;
+
+        .teaser.cmp-teaser-amenities {
+            .cmp-teaser {
+
+                &__pretitle,
+                &__title,
+                &__description,
+                &__action-link {
+                    color: #FFF !important;
+
+                }
+            }
+        }
+    }
+
+    &.bg-secondary-teal {
+        background-color: #19A0A5;
+
+        .teaser.cmp-teaser-amenities {
+            .cmp-teaser {
+
+                &__pretitle,
+                &__title,
+                &__description,
+                &__action-link {
+                    color: #FFF !important;
+                }
+            }
+        }
+
+    }
+
+    &.bg-white {
+        background-color: #FFF;
+
+        .teaser.cmp-teaser-amenities {
+            .cmp-teaser {
+
+                &__pretitle,
+                &__title,
+                &__description,
+                &__action-link {
+                    color: #3C3C4D !important;
+                }
+            }
+        }
+    }
+
+    &.bg-coral-04 {
+        background-color: #FFF1EA;
+
+        .teaser.cmp-teaser-amenities {
+            .cmp-teaser {
+
+                &__pretitle,
+                &__title,
+                &__description,
+                &__action-link {
+                    color: #3C3C4D !important;
+                }
+            }
+        }
+    }
+}

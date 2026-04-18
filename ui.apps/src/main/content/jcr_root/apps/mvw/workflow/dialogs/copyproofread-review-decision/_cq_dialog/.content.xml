@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Copy/Proofread Review Decision"
+    sling:resourceType="cq/workflow/components/dialogs/workflowdialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <form
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form"
+                maximized="{Boolean}true"
+                style="vertical">
+                <items jcr:primaryType="nt:unstructured">
+                    <decision
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        emptyText="Select a decision"
+                        fieldDescription="Select whether to approve the content or provide feedback"
+                        fieldLabel="Review Decision"
+                        name="copyProofreadDecision"
+                        required="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <approve
+                                jcr:primaryType="nt:unstructured"
+                                selected="{Boolean}true"
+                                text="Approve Content"
+                                value="approve"/>
+                            <feedback
+                                jcr:primaryType="nt:unstructured"
+                                text="Provide Feedback"
+                                value="feedback"/>
+                        </items>
+                    </decision>
+                    <comments
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                        fieldDescription="Provide comments or feedback for the content author"
+                        fieldLabel="Comments"
+                        name="copyProofreadComments"
+                        rows="5"/>
+                </items>
+            </form>
+        </items>
+    </content>
+</jcr:root>

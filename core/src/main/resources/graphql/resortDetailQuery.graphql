@@ -1,0 +1,431 @@
+query (
+  $query1: String!,
+  $query2: String!, 
+  $query3: String!, 
+  $query4: String!, 
+  $query5: String!, 
+  $query6: String!,
+  $query7: String!,
+  $query8: String!,
+  $query9: String!,
+  $query10: String!,
+  $defaultSmokingPolicyPath:String!
+  $nearbyDiningPath: String!,
+  $resortDetailPage: String!,
+  $specificResortInfo: String!){
+  jcr(workspace: LIVE) {
+    mvcsLabels: nodeByPath(path: "/sites/mvcs/contents/labels") {
+            copy: descendants (typesFilter: {types: ["sc:Input", "sc:Text", "sc:Richtext"]}) {
+                        textFields: nodes {
+                            nodename: name
+                            name: value(name: "name", language:"en")
+                            path
+                            description: value(name:"value")
+                        }
+                    }  
+        }
+    mvcsResortDetailPage: nodeByPath(path: $resortDetailPage) {
+            copy: descendants (typesFilter: {types: ["sc:Input", "sc:Text", "sc:Richtext"]}) {
+                        textFields: nodes {
+                            nodename: name
+                            name: value(name: "name", language:"en")
+                            path
+                            description: value(name:"value")
+                        }
+                    }  
+        }
+  specificResortInfo: nodeByPath(path: $specificResortInfo) {
+            copy: descendants (typesFilter: {types: ["sc:Input", "sc:Text", "sc:Richtext"]}) {
+                        textFields: nodes {
+                            nodename: name
+                            name: value(name: "name", language:"en")
+                            path
+                            description: value(name:"value")
+                        }
+                    }
+            }
+  
+    defaultSmokingPolicy: nodeByPath(path: $defaultSmokingPolicyPath) {
+            copy: descendants (typesFilter: {types: ["sc:Input", "sc:Text", "sc:Richtext"]}) {
+                        textFields: nodes {
+                            nodename: name
+                            name: value(name: "name", language:"en")
+                            path
+                            description: value(name:"value")
+                        }
+                    }
+        }
+nearbyDining: nodeByPath(path: $nearbyDiningPath)  {
+            copy: descendants (typesFilter: {types: ["sc:Input", "sc:Text", "sc:Richtext"]}) {
+                        textFields: nodes {
+                            nodename: name
+                            name: value(name: "name", language:"en")
+                            path
+                            description: value(name:"value")
+                        }
+                    }
+            }
+promotions: nodesByQuery(query: $query1) {
+      nodes {
+        nodename: value(name: "j:nodename")
+        name: value(name: "name", language: "en")
+        structuredContent: values(name: "structuredContent")
+         priority: value(name: "priority")
+         path
+        persona: values(name: "persona")
+        placementId: refNodes(name:"placementId") {
+            nodename: name
+          }
+shortDescriptionAd: value(
+          name: "shortDescriptionAd"
+          language: "en"
+        )
+        buttonOfferTextAd: value(
+          name: "buttonOfferTextAd"
+          language: "en"
+        )
+        buttonOfferUrlAd: value(
+          name: "buttonOfferUrlAd"
+          language: "en"
+        )
+        buttonOfferTextAd1: value(name:"buttonOfferTextAd1" language:"en")
+        buttonOfferUrlAd1: value(name:"buttonOfferUrlAd1" language:"en")
+        descriptionAd: value(
+          name: "descriptionAd"
+          language: "en"
+        )
+        imagesAd: refNodes(name: "imagesAd") {
+          name: value(name: "jcr:title", language: "en")
+          nodename: value(name: "name")
+          altText: value(name: "altText", language: "en")
+
+          referenceId: refNode(name: "referenceID") {
+            name
+          }
+photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+        }
+      }
+      defaultPromotions: nodesByQuery(query: $query10) {
+      nodes {
+        nodename: value(name: "j:nodename")
+        name: value(name: "name", language: "en")
+        structuredContent: values(name: "structuredContent")
+         priority: value(name: "priority")
+         path
+        persona: values(name: "persona")
+        placementId: refNodes(name:"placementId") {
+            nodename: name
+          }
+        shortDescriptionAd: value(
+          name: "shortDescriptionAd"
+          language: "en"
+        )
+        buttonOfferTextAd: value(
+          name: "buttonOfferTextAd"
+          language: "en"
+        )
+        buttonOfferUrlAd: value(
+          name: "buttonOfferUrlAd"
+          language: "en"
+        )
+        buttonOfferTextAd1: value(name:"buttonOfferTextAd1" language:"en")
+        buttonOfferUrlAd1: value(name:"buttonOfferUrlAd1" language:"en")
+        descriptionAd: value(
+          name: "descriptionAd"
+          language: "en"
+        )
+        imagesAd: refNodes(name: "imagesAd") {
+          name: value(name: "jcr:title", language: "en")
+          nodename: value(name: "name")
+          altText: value(name: "altText", language: "en")
+
+          referenceId: refNode(name: "referenceID") {
+            name
+          }
+photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+        }
+      }
+dining: nodesByQuery(query: $query6) {
+      nodes {
+        name: value(name: "name", language:"en")
+        nodename:value(name:"j:nodename")
+        images: refNodes(name: "images") {
+          name: value(name: "name", language:"en")
+          nodename: value(name: "j:nodename")
+          altText: value(name: "altText", language:"en")
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+        description:value(name:"description", language:"en")
+        typeOnOffSite: value(name: "typeOnOffSite")
+        typeCuisine: value(name: "typeCuisine")
+        typeAtmosphere: value(name: "typeAtmosphere")
+mobileOrdering: value(name: "mobileOrdering")
+        hours: value(name: "hours", language:"en")
+        phone: value(name: "phone")
+        priority: value(name: "priority")
+        urlMenu: value(name: "urlMenu")
+      }
+    }
+    activities: nodesByQuery(query: $query5) {
+      nodes {
+        name: value(name: "name", language:"en")
+        nodename:value(name:"j:nodename")
+        images: refNodes(name: "images") {
+          name: value(name: "name", language:"en")
+          nodename: value(name: "j:nodename")
+          altText: value(name: "altText", language:"en")
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+        description: value(name:"description", language:"en")
+        longDescription: value(name:"longDescription", language:"en")
+        shortDescription: value(name:"shortDescription", language:"en")
+        icon: value(name:"icon", language:"en")
+        priority: value(name:"priority")
+        activityType: value(name:"activityType")
+        activityCategories: refNode(name: "activityCategories") {
+          name: value(name: "jcr:title", language:"en")
+        }
+        phone:value(name:"phone")
+        hours: value(name: "hours", language:"en")
+      }
+    }
+    amenities: nodesByQuery(query: $query3) {
+      nodes {
+        name: value(name: "name", language:"en")
+        nodename:value(name:"j:nodename")
+        shortTitle:value(name:"shortTitle", language:"en")
+        description:value(name:"description", language:"en")
+        priority: value(name:"priority")
+        icon: value(name:"icon")
+        mvcsIcon: value(name:"mvcsIcon")
+        featured: value(name:"featured")
+        images: refNodes(name: "images") {
+          name: value(name: "name", language:"en")
+          nodename: value(name: "j:nodename")
+          altText: value(name: "altText", language:"en")
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+      }
+    }
+    villas: nodesByQuery(query: $query4) {
+      nodes {
+        name: value(name: "name" language:"en")
+        nodename:value(name:"j:nodename")
+        sleeps:value(name:"sleepingCapacity")
+        squareFootage:value(name:"squareFootage")
+        view:value(name:"availableViews" language:"en")
+        gallery: refNodes(name:"gallery") {
+          images: refNodes(name: "images") {
+            name: value(name: "name" language:"en")
+            nodename: value(name: "j:nodename")
+            altText: value(name: "altText", language:"en")
+            priority: value(name:"priority")
+              photo: refNodes(name: "photo") {
+                name
+                path
+                width: value(name: "j:width")
+                ratio: value(name: "ratio")
+                height: value(name: "j:height")
+            }
+          }
+        }
+        images: refNodes(name: "images") {
+          name: value(name: "jcr:title", language:"en")
+          nodename: value(name: "j:nodename")
+          altText: value(name: "altText", language:"en")
+            photo: refNodes(name: "photo") {
+              name
+              path
+              width: value(name: "j:width")
+              ratio: value(name: "ratio")
+              height: value(name: "j:height")
+            }
+          referenceId:value(name:"referenceID")
+        }
+        description: value(name: "description", language: "en")
+      }
+    }
+    properties: nodesByQuery(query: $query2) {
+      nodes {
+        structuredContent: values(name: "structuredContent")
+        zip:value(name:"zip")
+        coordinateLatitude: value(name: "coordinateLatitude")
+        coordinateLongitude: value(name: "coordinateLongitude")
+        checkIn: value(name: "checkIn", language:"en")
+        checkOut: value(name: "checkOut", language:"en")
+        club: refNodes(name: "club") {
+            name: value(name: "jcr:title",language:"en")
+            clubDescription: value(name: "clubDescription",language:"en")
+            code: value(name: "code", language:"en")
+}
+        name: value(name: "name" language:"en")
+        nodename:value(name:"j:nodename")
+        description: value(name: "description", language:"en")
+        longDescription: value(name: "longDescription", language:"en")
+        slug: value(name: "slug")
+        universalPropertyCode: value(name: "universalPropertyCode")
+        flags: refNodes(name: "flags") {
+          name: value(name: "name")
+          nodename:value(name:"j:nodename")
+          }
+        dcmBrand: refNode(name: "dcmBrand") {
+          name: value(name: "name")
+          nodename:value(name:"j:nodename")
+          images: refNodes(name: "images") {
+            name: value(name: "jcr:title", language:"en")
+            nodename: value(name: "j:nodename")
+
+            altText: value(name: "altText", language:"en")
+            photo: refNodes(name: "photo") {
+              name
+              path
+              width: value(name: "j:width")
+              ratio: value(name: "ratio")
+              height: value(name: "j:height")
+            }
+          }
+        }
+        path
+        address1 :value(name:"address1", language:"en")
+        address2 :value(name:"address2", language:"en")
+        city: value(name:"city", language:"en")
+        state:value(name:"state", language:"en")
+        country:value(name:"country", language:"en")
+        continent:value(name:"continent", language:"en")
+        region:value(name:"region", language:"en")
+        phoneMain:value(name:"phoneMain")
+        accessibility: values(name:"accessibility")
+        accessibilityOverride: value(name:"accessibilityOverride", language:"en")
+        announcements:values(name:"announcements")
+        policies:refNode(name: "policies") {
+          path
+        }
+        twitter:value(name:"twitter")
+        facebook:value(name:"facebook")
+        instagram:value(name:"instagram")
+        pinterest:value(name:"pinterest")
+        youtube:value(name:"youtube")
+        tripadvisor:value(name:"tripadvisor")
+        tripAdvisorId:value(name:"tripAdvisorId")
+       videos: refNodes(name: "videos") {
+          name: value(name: "name" language:"en")
+          nodename: value(name: "j:nodename")
+          altText: value(name: "altText" )
+          externalRefId: value(name: "externalRefId")
+          referenceId: value(name: "referenceID")
+          thumbnail: refNode(name: "thumbnail") {
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+        images: refNodes(name: "images") {
+          name: value(name: "name" language:"en")
+          nodename: value(name: "j:nodename")
+          referenceID: refNode(name: "referenceID") {
+                            name
+                            path
+                        }
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+        documents: refNodes(name:"documents") {
+          document: refNode(name: "document") {
+            name: value(name: "name" language:"en")
+            nodename: value(name: "j:nodename")
+            path
+          }
+        }
+        gallery: refNodes(name:"gallery") {
+          images: refNodes(name: "images") {
+            name: value(name: "name" language:"en")
+            nodename: value(name: "j:nodename")
+            altText: value(name: "altText")
+            priority: value(name: "priority")
+              photo: refNodes(name: "photo") {
+              name
+              path
+              width: value(name: "j:width")
+              ratio: value(name: "ratio")
+              height: value(name: "j:height")
+            }
+          }
+        }
+      }
+    }
+    awards: nodesByQuery(query: $query7) {
+      nodes {
+        name: value(name: "name", language:"en")
+        nodename: value(name:"j:nodename")
+        awardLink: value(name:"awardLink", language:"en")
+        description: value(name: "description", language:"en")
+        priority: value(name:"priority")
+        images: refNodes(name: "images") {
+          name: value(name: "jcr:title", language:"en")
+          nodename: value(name: "j:nodename")
+          altText: value(name: "altText", language:"en")
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+      }
+    }
+    places: nodesByQuery(query: $query8) {
+      nodes {
+        name: value(name: "name", language:"en")
+        nodename: value(name:"j:nodename")
+        description: value(name: "description", language:"en")
+      }
+    }
+    alerts: nodesByQuery(query: $query9) {
+      nodes {
+        name: value(name: "name", language:"en")
+        nodename: value(name:"j:nodename")
+        description: value(name: "description", language:"en")
+        priority: value(name:"priority")
+      }
+    }
+  }
+}

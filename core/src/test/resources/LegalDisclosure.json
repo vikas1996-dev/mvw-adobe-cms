@@ -1,0 +1,50 @@
+{
+  "legal": {
+    "mvw": {
+      "us": {
+        "en": {
+          "jcr:content": {
+            "root": {
+              "disclosureTable": {
+                "jcr:primaryType": "nt:unstructured",
+                "folderPath": "/content/dam/legal/documents"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "dam": {
+    "legal": {
+      "documents": {
+        "pdf-active": {
+          "jcr:primaryType": "dam:Asset",
+          "jcr:content": {
+            "jcr:primaryType": "dam:AssetContent",
+            "metadata": {
+              "jcr:primaryType": "nt:unstructured",
+              "dc:format": "application/pdf",
+              "jcr:title": "Active PDF"
+            }
+          }
+        },
+        "pdf-archive": {
+          "jcr:primaryType": "dam:Asset",
+          "jcr:content": {
+            "jcr:primaryType": "dam:AssetContent",
+            "metadata": {
+              "jcr:primaryType": "nt:unstructured",
+              "dc:format": "application/pdf",
+              "jcr:title": "Archived PDF",
+              "cq:tags": [
+                "legal:archive"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

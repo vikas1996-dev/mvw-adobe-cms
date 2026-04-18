@@ -1,0 +1,158 @@
+<sly data-sly-use.story="com.mvw.core.models.StoryBlockModel">
+    <div data-wcm-mode="${wcmmode.toString}" class="story-block ${story.wrapperClass}"
+        data-timercheckbox="${story.timerCheckbox @ context='attribute'}" data-mod="story-block"
+        data-parent-component="StoryBlock" data-duration="30"
+        data-redirect-url="${story.redirectUrl @ context='attribute'}">
+        <section class="grid-container" role="region" aria-label="${story.headlineText @ context='attribute'}">
+            <div
+                class="copy-section-wrapper ${story.containerClass} ${story.contentFlipClass} ${story.stackingOrderClass} ${story.hasVideo ? 'type-video' : ''}">
+                <div class="content-block ${story.alignClass} ${story.mobileAlignClass}">
+                    <sly data-sly-test="${story.hasLogo}">
+                        <div class="story-logo" role="img" aria-label="${story.logoAltText @ context='attribute'}">
+                            <img src="${story.logoUrl @ context='uri'}" alt="${story.logoAltText @ context='attribute'}"
+                                loading="${story.viewport ? 'eager' : 'lazy'}" fetchpriority="${story.viewport ? 'high' : 'auto'}" />
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${story.subHeadlineText}">
+                        <p class="subheading ${story.headlineAlignmentClass} ${story.mobileHeadlineAlignmentClass}">
+                            ${story.subHeadlineText @ context='html'}
+                        </p>
+                    </sly>
+                    <sly data-sly-test="${story.headlineText}">
+                        <h3
+                            class="${story.headlineStyledBorder ? 'cmp-title' : ''} ${story.headlineSizeClass} ${story.headlineAlignmentClass} ${story.mobileHeadlineAlignmentClass}">
+                            ${story.resolvedHeadlineText @ context='html'}
+                        </h3>
+                    </sly>
+
+                    <sly data-sly-test="${story.subTitle1 || story.shortDescription1}">
+                        <div class="content-block__section rte-content">
+                            <sly data-sly-test="${story.subTitle1}">
+                                <h5 class="content-block__subheading">
+                                    ${story.subTitle1 @ context='html'}
+                                </h5>
+                            </sly>
+                            <sly data-sly-test="${story.shortDescription1}">
+                                <p class="heading5">
+                                    ${story.shortDescription1 @ context='html'}
+                                </p>
+                            </sly>
+                        </div>
+                    </sly>
+
+                    <sly data-sly-test="${story.timerCheckbox == 'true'}">
+                        <div class="redirect-timer">
+                            <div class="timer-sec">
+                                <div class="timer-count">30</div>
+                                <div class="timer-text"><strong>${story.timerText}</strong></div>
+                                <sly
+                                    data-sly-resource="${'cta-timer' @ resourceType='mvw/components/tmvc/components/ctacontainer'}">
+                                </sly>
+                            </div>
+                        </div>
+                    </sly>
+
+                    <sly data-sly-test="${story.subTitle2 || story.shortDescription2}">
+                        <div class="content-block__section rte-content">
+                            <sly data-sly-test="${story.subTitle2}">
+                                <h5 class="content-block__subheading">
+                                    ${story.subTitle2 @ context='html'}
+                                </h5>
+                            </sly>
+                            <sly data-sly-test="${story.shortDescription2}">
+                                <p class="content-block__description">
+                                    ${story.shortDescription2 @ context='html'}
+                                </p>
+                            </sly>
+                        </div>
+                    </sly>
+
+                    <div>
+                        <sly data-sly-resource="${'cta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}">
+                        </sly>
+                    </div>
+                </div>
+
+                <sly data-sly-test="${story.hasVideo}">
+                    <div class="split__col split__image">
+                        <sly data-sly-test="${story.hasOverlay}">
+                            <div class="curve-overlay ${story.overlayClass} ${story.mobileOverlayClass}"
+                                svg-color="${story.svgColor @ context='attribute'}"
+                                svg-bg-color="${story.svgBgColor @ context='attribute'}" aria-hidden="true"></div>
+                        </sly>
+                        <video-js class="storyBlock__video-player video-js" data-cmp-hook-hero="storyBlockVideoPlayer"
+                            data-account="1441355349001" data-player="jFCpKQt1X" data-embed="default"
+                            data-video-id="${story.bgVideo}" playsinline preload="auto">
+                        </video-js>
+                        <sly data-sly-test="${story.caption}">
+                            <p class="image__caption">${story.caption @ context='text'}</p>
+                        </sly>
+                    </div>
+                </sly>
+
+                <sly
+                    data-sly-test="${!story.hasVideo && (story.hasBigImage || story.hasMobileBigImage || story.hasSmallImage || story.hasMobileSmallImage)}">
+                    <div
+                        class="split__col split__image ${story.smallImgPosClassDesktop} ${story.smallImgPosClassMobile}">
+                        <sly data-sly-test="${story.hasOverlay}">
+                            <div class="curve-overlay ${story.overlayClass} ${story.mobileOverlayClass}"
+                                svg-color="${story.svgColor @ context='attribute'}"
+                                svg-bg-color="${story.svgBgColor @ context='attribute'}" aria-hidden="true"></div>
+                        </sly>
+
+                        <sly data-sly-test="${story.hasBigImage}">
+                            <div class="image__large ${story.bigImgStyleClass} desktop-only">
+                                <img src="${story.bigImageUrl @ context='uri'}"
+                                    alt="${story.bigImageAlt ? story.bigImageAlt : story.mobileBigImageAltText @ context='attribute'}"
+                                    loading="${story.viewport ? 'eager' : 'lazy'}" fetchpriority="${story.viewport ? 'high' : 'auto'}" />
+                                <sly data-sly-test="${(story.numberOfImages == 'two') && story.hasSmallImage}">
+                                    <div class="image__small ${story.smallImgPosClassDesktop} ${story.smallImgStyleClass} desktop-only"
+                                        svg-bg-color="${story.svgBgColor || 'white' @ context='attribute'}"
+                                        svg-color="${story.svgColor @ context='attribute'}" aria-hidden="true">
+                                        <img src="${story.smallImageUrl @ context='uri'}"
+                                            alt="${story.smallImageAlt ? story.smallImageAlt : story.mobileSmallImageAltText @ context='attribute'}"
+                                            loading="${story.viewport ? 'eager' : 'lazy'}" fetchpriority="${story.viewport ? 'high' : 'auto'}" />
+                                    </div>
+                                </sly>
+                            </div>
+                        </sly>
+
+                        <sly data-sly-test="${story.hasMobileBigImage}">
+                            <div class="image__large ${story.bigImgStyleClass} mobile-only">
+                                <img src="${story.mobileBigImageUrl @ context='uri'}"
+                                    alt="${story.mobileBigImageAltText @ context='attribute'}" loading="lazy" />
+                                <sly data-sly-test="${(story.numberOfImages == 'two') && story.hasMobileSmallImage}">
+                                    <div class="image__small ${story.smallImgPosClassMobile} ${story.smallImgStyleClass} mobile-only"
+                                        aria-hidden="true"
+                                        svg-bg-color="${story.svgBgColor || 'white' @ context='attribute'}"
+                                        svg-color="${story.svgColor @ context='attribute'}">
+                                        <img src="${story.mobileSmallImageUrl @ context='uri'}"
+                                            alt="${story.mobileSmallImageAltText @ context='attribute'}"
+                                            loading="lazy" />
+                                    </div>
+                                </sly>
+                            </div>
+                        </sly>
+
+                        <sly data-sly-test="${story.caption}">
+                            <p class="image__caption">${story.caption @ context='text'}</p>
+                        </sly>
+                    </div>
+                </sly>
+            </div>
+        </section>
+    </div>
+</sly>
+
+<script>
+    (function () {
+        function updateHeadlineCountry(country) {
+            if (!country) country = "your country";
+            document.querySelectorAll(".story-block h3").forEach(function (el) {
+                if (el.innerHTML.includes("{country}")) {
+                    el.innerHTML = el.innerHTML.replace("{country}", country);
+                }
+            });
+        }
+    })();
+</script>

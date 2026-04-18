@@ -1,0 +1,31 @@
+{
+  "mainImage": {
+    "fileReference": "/content/dam/usb-legal/images/legal-error/main.png"
+  },
+  "mainImageAltText": "Main legal error image alt text",
+
+  "overlay": {
+    "fileReference": "/content/dam/usb-legal/images/legal-error/overlay.png"
+  },
+
+  "mboverlay": {
+    "fileReference": "Mobile overlay alt text (as per current model mapping)"
+  },
+
+  "copyText": "<p>We’re unable to display this page right now. Please contact support.</p>",
+
+  "cardList": {
+    "item0": {
+      "iconClass":"fa-sharp fa-regular fa-envelope",
+      "label": "Call Us",
+      "linkText": "Available 24/7",
+      "buttonLink": "+1-800-123-4567"
+    },
+    "item1": {
+      "iconClass":"fa-sharp fa-light fa-clock",
+      "label": "Email Us",
+      "linkText": "Response within 1 business day",
+      "buttonLink": "support@example.com"
+    }
+  }
+}

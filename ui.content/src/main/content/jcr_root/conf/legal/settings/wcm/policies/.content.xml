@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <rep:policy />
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured" />
+                <page jcr:primaryType="nt:unstructured">
+                    <jcr:content
+                        jcr:primaryType="nt:unstructured"
+                        mergeList="{Boolean}true" />
+                    <default
+                        jcr:description="Policy of the default page"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Default Page"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[wcm.foundation.components.page.responsive]">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true" />
+                    </default>
+                </page>
+            </components>
+        </foundation>
+    </wcm>
+    <mvw jcr:primaryType="nt:unstructured">
+        <components jcr:primaryType="nt:unstructured">
+            <container jcr:primaryType="nt:unstructured">
+                <policy_1762377649312
+                    jcr:description="USB Legal template Policy"
+                    jcr:lastModified="{Date}2025-11-16T13:31:15.836-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="USB Legal template Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,group:Legal Documents Webpages – Content ]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_1762377649312>
+                <policy_29289611651958
+                    jcr:description="XF Policy USB Legal"
+                    jcr:lastModified="{Date}2025-11-16T20:33:11.144-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="XF Policy USB Legal"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,group:Legal Documents Webpages – Content ]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_29289611651958>
+            </container>
+            <xfpage jcr:primaryType="nt:unstructured">
+                <policy_1762379680815
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="legal XF Site Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="legal.site">
+                    <jcr:content jcr:primaryType="nt:unstructured" />
+                </policy_1762379680815>
+            </xfpage>
+            <legal jcr:primaryType="nt:unstructured">
+                <page jcr:primaryType="nt:unstructured">
+                    <policy_1763318386033
+                        jcr:description="Legal page policy"
+                        jcr:lastModified="{Date}2025-11-16T13:40:24.268-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Legal page policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[wcm.foundation.components.page.responsive,legal.site]"
+                        clientlibsAsync="false">
+                        <jcr:content jcr:primaryType="nt:unstructured" />
+                    </policy_1763318386033>
+                </page>
+            </legal>
+        </components>
+    </mvw>
+</jcr:root>

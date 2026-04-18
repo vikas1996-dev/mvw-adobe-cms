@@ -1,0 +1,7 @@
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Rich Text' }" />
+<div data-sly-test.text="${properties.richText}"
+     class="cmp-text">
+    <p class="cmp-text__paragraph"
+       data-sly-unwrap="${properties.textIsRich}">${text @ context = properties.textIsRich ? 'html' : 'text'}</p>
+</div>

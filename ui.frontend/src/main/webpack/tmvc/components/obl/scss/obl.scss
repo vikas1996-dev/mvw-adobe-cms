@@ -1,0 +1,217 @@
+:root {
+  --border-color: transparent;
+}
+
+$obl-owner: #c7d1d9;
+$obl-select: #c79f79;
+$obl-executive: #666673;
+$obl-presidential: #082940;
+$obl-chairman: #000000;
+$obl-connector-bg: #F2F2F2;
+$obl-border-width: 0.5rem;
+
+@include border-color-variant($obl-select, "obl-select");
+@include border-color-variant($obl-executive, "obl-executive");
+@include border-color-variant($obl-presidential, "obl-presidential");
+@include border-color-variant($obl-chairman, "obl-chairman");
+@include border-color-variant($obl-owner, "obl-owner");
+
+.obl {
+  background-color: $white;
+  padding: 64px 0;
+
+  @media (max-width: 768px) {
+    padding: 48px 0;
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__description {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #3c3c4d;
+    margin-top: 1rem;
+    font-family: "Arsenal", serif;
+    padding-bottom: 4rem;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      padding-bottom: 0rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.6;
+    }
+  }
+
+
+  &__levels {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 180px;
+
+    @media (max-width: 1024px) {
+      max-width: 150px;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+
+    &:last-child {
+      .obl__level-circle::after {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__level-circle {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: $obl-border-width solid var(--border-color);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: calc(113%);
+      width: 2rem;
+      height: 2rem;
+      background-color: $obl-connector-bg;
+      border-radius: 50%;
+
+      @media (max-width: 1440px) {
+        width: 1.5rem;
+        height: 1.5rem;
+        left: calc(102% + 3vw);
+      }
+
+      @media (max-width: 1200px) {
+        width: 1.25rem;
+        height: 1.25rem;
+        left: calc(100% + 2vw);
+      }
+
+      @media (max-width: 996px) {
+        width: 0.75rem;
+        height: 0.75rem;
+        left: calc(100% + 4vw);
+      }
+
+      @media (max-width: 768px) {
+        left: 43%;
+        bottom: -50%;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    
+
+    @media (max-width: 1440px) {
+      width: 10rem;
+      height: 10rem;
+    }
+
+    @media (max-width: 1200px) {
+      width: 9rem;
+      height: 9rem;
+    }
+
+    @media (max-width: 996px) {
+      width: 7rem;
+      height: 7rem;
+    }
+
+    @media (max-width: 768px) {
+      width: 12rem;
+      height: 12rem;
+    }
+  }
+
+  &__level-name {
+    font-size: 1.5rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #3c3c4d;
+
+    @media (max-width: 1440px) {
+      font-size: 1.25rem;
+      list-style: 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 1rem;
+      line-height: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      line-height: 0.75rem;
+    }
+  }
+
+  &__level-points {
+    font-family: "roboto-bold";
+    font-size: 0.72rem;
+    letter-spacing: 0.105rem;
+    font-weight: bold;
+    margin-top: 1.25rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #3c3c4d;
+    line-height: 1.4;
+
+    @media (max-width: 768px) {
+      margin-top: 1.25rem;
+      margin-bottom: 0;
+    }
+  }
+  
+}

@@ -1,0 +1,7 @@
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+     data-sly-call="${ templates.placeholder @ component_name='Spacer' }" />
+<sly data-sly-use.spacerModel="com.mvw.core.models.NewClubSpacer" />
+
+<div class="cmp-spacer"
+     style="${spacerModel.desktopSpacing ? spacerModel.desktopSpacingText : '' @ context = 'styleString'}${spacerModel.mobileSpacing ? spacerModel.mobileSpacingText : '' @ context = 'styleString'}" aria-hidden="true">
+</div>

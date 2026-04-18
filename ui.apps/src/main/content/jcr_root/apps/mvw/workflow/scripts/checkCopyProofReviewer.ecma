@@ -1,0 +1,13 @@
+function check() {
+    var metadataMap = workflowData.getMetaDataMap();
+    var reviewer = metadataMap.get("copyProofreadReviewer", "");
+    log.info("Workflow Debug: copyProofreadReviewer value is: " + reviewer);
+
+    // Only proceed if reviewer is not empty
+    if (reviewer != null && reviewer != "") {
+        metadataMap.put("currentFlowReviewStatus", "copyProof");
+        return true;
+    }
+
+    return false;
+}

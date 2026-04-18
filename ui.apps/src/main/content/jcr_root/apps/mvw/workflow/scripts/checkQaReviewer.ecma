@@ -1,0 +1,13 @@
+function check() {
+    var metadataMap = workflowData.getMetaDataMap();
+    var reviewer = metadataMap.get("qaReviewer", "");
+    log.info("Workflow Debug: qaReviewer value is: " + reviewer);
+
+    // Only proceed if reviewer is not empty
+    if (reviewer != null && reviewer != "") {
+        metadataMap.put("currentFlowReviewStatus", "qa");
+        return true;
+    }
+
+    return false;
+}

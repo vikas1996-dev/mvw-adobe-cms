@@ -1,0 +1,647 @@
+.multicard-cmp {
+  .vacation-cards-container {
+    @media (max-width: 767px) {
+      padding: 0 !important;
+    }
+  }
+
+  padding: 80px 0px;
+
+  @media (max-width: 768px) {
+    padding: 40px 0px;
+  }
+
+  .subheader {
+    grid-column: 1 / -1;
+    font-family: "roboto";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 16px;
+    }
+  }
+  .description{
+    margin-top: 24px;
+  }
+
+  .subtitle__container {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .title {
+      // display: inline-block;
+      // margin-bottom: 24px;
+
+      @media (max-width: 768px) {
+        grid-column: 1 / 5;
+      }
+
+      &.no-styled-border {
+        &::after {
+          display: none;
+        }
+        padding-bottom: 0;
+      }
+    }
+
+    .nav-icons {
+      display: none;
+    }
+
+    &.align-center {
+      justify-content: center;
+    }
+    &.align-left {
+      justify-content: flex-start;
+    }
+    &.align-right {
+      justify-content: flex-end;
+    }
+  }
+
+  .subtitle {
+    font-family: "roboto";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    grid-column: 1 / 13;
+
+    @media (max-width: 768px) {
+      grid-column: 1 / 5;
+    }
+  }
+
+  .divider {
+    width: 80px;
+    height: 0;
+    border: 2px solid var(--Colors-Copper-100, #ac6523);
+    opacity: 1;
+    margin: 16px auto;
+    grid-column: 1 / 13;
+
+    @media (max-width: 768px) {
+      grid-column: 1 / 5;
+    }
+  }
+  .vacation-card-cmp {
+    @media (max-width: 768px) {
+      padding: 0 !important;
+    }
+  }
+  .vacation-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    grid-column: 1 / 13;
+    margin: 48px 0px;
+
+    @media (min-width: 767) {
+      gap: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      grid-column: 1 / 5;
+      margin: 40px 0 0;
+      gap: 0;
+      padding: 0 5%;
+      scroll-padding: 0 5%;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .card {
+        flex: 0 0 90%;
+        scroll-snap-align: center;
+        margin: 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .card {
+      border-radius: 8px;
+      text-align: left;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      .card-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+      }
+
+      .cmp-button {
+        position: relative;
+        z-index: 10;
+        pointer-events: auto;
+      }
+
+      .location {
+        position: absolute;
+        top: 16px;
+        left: 14px;
+        z-index: 10;
+        border-radius: 2px;
+        padding: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 2px; 
+        pointer-events: none;
+      
+        i {
+          font-size: 15px;
+          font-weight: 300; 
+          width: 15px;
+          text-align: center;
+        }
+      
+        span {
+          font-family: 'roboto';
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 1;
+          text-transform: none;
+          
+          p {
+              margin: 0;
+              display: inline;
+          }
+        }
+      
+        @media (max-width: 768px) {
+          top: 12px;
+          left: 12px;
+          padding: 6px 8px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        margin-bottom: 0;
+
+        &:hover {
+          transform: none;
+          /* Remove hover effect on mobile for better touch */
+        }
+      }
+
+      @media (min-width: 769px) {
+        &:hover {
+          transform: translateY(-4px);
+        }
+      }
+
+      .card-content {
+        min-height: 223px;
+        padding: 24px 24px 32px 24px;
+
+        @media (max-width: 768px) {
+          min-height: 215px;
+        }
+      }
+
+      .title {
+        font-size: 32px;
+        font-family: arsenal;
+        font-weight: 400;
+        line-height: 38px;
+        word-wrap: break-word;
+        margin-bottom: 8px;
+        padding-bottom: 0;
+        grid-column: 1 / -1;
+
+        @media (max-width: 768px) {
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
+
+      .description {
+        font-size: 16px;
+        font-family: Roboto;
+        font-weight: 400;
+        line-height: 24px;
+        margin-bottom: 24px;
+      }
+
+      .image-container {
+        position: relative;
+        width: 100%;
+        padding-top: 65%;
+        /* Aspect ratio for images */
+        overflow: hidden;
+
+        picture {
+          display: contents;
+        }
+      }
+
+      .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .location {
+        position: absolute;
+        top: 16px;
+        left: 14px;
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-family: Roboto;
+        font-weight: 500;
+
+        img {
+          width: 12px;
+          height: 16px;
+          margin-right: 6px;
+        }
+      }
+      .btn-link {
+        font-size: 18px;
+        font-family: Roboto;
+        font-weight: 700;
+        word-wrap: break-word;
+        color: $indigo;
+        text-decoration: none;
+        padding-bottom: 5px;
+        position: relative;
+      }
+
+      .btn-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgb(172, 101, 35);
+        border-radius: 2px;
+        transition: opacity 0.3s ease;
+      }
+
+      .btn-link:hover::after {
+        opacity: 0;
+      }
+
+      .btn-link:active::after {
+        opacity: 1;
+      }
+    }
+
+    &.more-cards {
+      .card {
+        .title {
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    &.single-card {
+      .card {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        @media (max-width: 768px) {
+          display: block;
+        }
+
+        .image-container {
+          grid-column: 1 / 9;
+
+          @media (max-width: 768px) {
+            grid-column: 1 / -1;
+          }
+        }
+
+        .card-content {
+          grid-column: 9 / 13;
+          align-self: center;
+          display: block;
+
+          @media (max-width: 768px) {
+            grid-column: 1 / -1;
+          }
+
+          .title {
+            padding-bottom: 0px;
+          }
+
+          .description {
+            padding-bottom: 24px;
+          }
+
+          .btn-link {
+            position: relative;
+            bottom: auto;
+          }
+        }
+      }
+    }
+  }
+
+  /* Carousel bullets container - MOVED OUTSIDE vacation-cards */
+  #carouselBullets {
+    display: none;
+    /* Hidden by default on desktop */
+
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 24px 0;
+      grid-column: 1 / 5;
+    }
+
+    .bullet {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #082940;
+      background: #ccc;
+      cursor: pointer;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+      padding: 0;
+      line-height: 0;
+      aspect-ratio: 1 / 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: #999;
+        transform: scale(1.1);
+      }
+
+      &.active {
+        background: #082940;
+        transform: scale(1.2);
+      }
+
+      &:focus {
+        outline: 2px solid #ac6523;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  .grid.imgs {
+    margin-top: 1rem;
+  }
+
+  .benefits-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    grid-column: 2/12;
+
+    @media (max-width: 768px) {
+      grid-column: 1 / 5;
+      padding: 0px 24px;
+    }
+
+    p {
+      font-family: roboto;
+      font-weight: 400;
+      line-height: 28px;
+      word-wrap: break-word;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .benefits-btn {
+      color: $indigo;
+      border: 1px solid $indigo;
+      padding: 15px 25px;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+      font-size: 16px;
+      font-family: Roboto;
+      font-weight: 600;
+      line-height: 18px;
+      word-wrap: break-word;
+    }
+
+    .benefits-btn:hover {
+      background-color: $indigo;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      &.m-align-left {
+        justify-content: flex-start;
+        p {
+          text-align: left !important;
+        }
+      }
+      &.m-align-center {
+        justify-content: center;
+        p {
+          text-align: center !important;
+        }
+      }
+      &.m-align-right {
+        justify-content: flex-end;
+        p {
+          text-align: right !important;
+        }
+      }
+    }
+  }
+
+  // .align-left {
+  //   .title,
+  //   .subtitle {
+  //     text-align: left !important;
+  //   }
+  // }
+
+  // .align-left {
+  //   .title::after {
+  //     left: 0;
+  //     transform: translateX(0);
+  //   }
+  // }
+
+  // .align-right {
+  //   .title,
+  //   .subtitle {
+  //     text-align: right !important;
+  //   }
+  // }
+
+  // .align-right {
+  //   .title::after {
+  //     left: 100%;
+  //     transform: translateX(-100%);
+  //   }
+  // }
+
+  // .align-center {
+  //   .title,
+  //   .subtitle {
+  //     text-align: center !important;
+  //   }
+  // }
+
+  // .align-center {
+  //   .title::after {
+  //     left: 50%;
+  //     transform: translateX(-50%);
+  //   }
+  // }
+
+  .vacation-card-cmp:has(> .single-card-container) {
+    .carousel-bullets {
+      display: none !important;
+    }
+  }
+
+  // Four Card Carousel Variation
+  &.four-card-carousel {
+    .carousel-header-row {
+      grid-column: 1 / 13;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      position: relative;
+
+      @media (max-width: 768px) {
+        grid-column: 1 / 5;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .header-content {
+        flex: 1;
+
+        .title {
+          margin-bottom: 16px;
+          grid-column: unset;
+
+          @media (max-width: 768px) {
+            grid-column: unset;
+          }
+        }
+      }
+    }
+
+    .subtitle__container {
+      display: flex;
+      align-items: center;
+      grid-column: 1 / -1;
+
+      .title {
+        display: inline-block;
+      }
+
+      .nav-icons {
+        margin-left: auto;
+        position: absolute;
+        display: inline-block;
+        gap: 8px;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: auto;
+        right: 0;
+
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
+
+    .nav-icons-mobile {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        grid-column: 1 / 5;
+        padding: 0 5%;
+      }
+    }
+
+    .nav-icon-left,
+    .nav-icon-right {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      img {
+        width: 38px;
+        height: 38px;
+        display: block;
+      }
+    }
+
+    .carousel-bullets {
+      display: none !important;
+    }
+
+    .benefits-box {
+      margin-top: 48px;
+
+      @media (max-width: 768px) {
+        margin-top: 0;
+      }
+    }
+  }
+}

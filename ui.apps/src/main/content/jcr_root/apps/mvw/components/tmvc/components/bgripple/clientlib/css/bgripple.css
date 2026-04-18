@@ -1,0 +1,22 @@
+/* Wrapper should behave like a row */
+.cmp-background-ripple .aem-Grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Make each column take 50% width */
+.cmp-background-ripple .aem-GridColumn--default--6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* Optional: spacing between columns */
+.cmp-background-ripple .aem-GridColumn {
+    padding: 10px;
+}
+
+/* Ensure child components display properly */
+.cmp-background-ripple .aem-GridColumn > .responsivegrid {
+    width: 100%;
+}

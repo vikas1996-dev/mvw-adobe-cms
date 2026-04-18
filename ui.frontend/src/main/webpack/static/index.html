@@ -1,0 +1,309 @@
+    <!DOCTYPE HTML>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Static Frontend file</title>
+        <meta name="template" content="page-content" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-base.css" type="text/css">
+        <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.js"></script>
+        <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.css" type="text/css">
+        <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.css" type="text/css">
+    </head>
+    <body>
+    </head>
+    <body>
+    <div class="resort-list-filter-cmp">
+        <div class="grid-container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="regionFilter">By Location</label>
+                    <select id="regionFilter"></select>
+                </div>
+                <div class="filter-group">
+                    <label for="brandFilter">By Brand</label>
+                    <select id="brandFilter"></select>
+                </div>
+            </div>
+            <div class="columns">
+                <div id="leftColumn" class="leftColumn"></div>
+                <div id="rightColumn" class="rightColumn"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <style>
+        :root {
+            --bg: #f2f2f2;
+            --text: #2c3342;
+            --muted: #7a7f8a;
+            --accent: #c2762b;
+            --heading: #0f3046;
+            --border: #dcdfe5;
+            --font: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            padding: 32px 24px 64px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            grid-column: 1/-1;
+            padding: ;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 300px;
+            padding: 16px;
+        }
+
+        label {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-family: 'roboto-medium';
+        }
+
+        select {
+            padding: 12px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: white;
+            font-size: 18px;
+            color: var(--text);
+            min-height: 48px;
+            font-family: roboto;
+        }
+
+        select optgroup option {
+            padding-left: 12px; /* indent child options */
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 48px;
+            align-items: start;
+            grid-column: 1/-1;
+        }
+        .leftColumn, .rightColumn {
+            padding: 16px;
+        }
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .main-header {
+            margin: 0 0 12px;
+            text-transform: uppercase;
+        }
+
+        .sub-header {
+            color: $indigo;
+            margin: 16px 0 8px;
+        }
+
+        .resort {
+            font-size: 22px;
+            font-weight: 500;
+            margin: 6px 0;
+            color: $indigo;
+            line-height: 1.35;
+        }
+
+        .resort a,
+        .resort a:hover,
+        .resort a:focus-visible,
+        .resort a:visited {
+            color: var(--text);
+            text-decoration: none;   /* kill native underline */
+            position: relative;
+            font-family: 'roboto';
+        }
+
+        .resort a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0%;
+            height: 2px;
+            background: var(--text);
+            transition: width 0.8s ease;
+        }
+
+        .resort a:hover::after,
+        .resort a:focus-visible::after {
+            width: 100%;
+        }
+        .empty {
+            font-size: 16px;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+    </style>
+
+    <!-- ...existing markup... -->
+
+    <script>
+        // Inline your JSON or rely on fetch below
+        const resortListData = /* paste your JSON here */ null;
+
+        const by = (id) => document.getElementById(id);
+        const norm = (v) => (v || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+        function buildFilters(data) {
+            const regionSelect = by('regionFilter');
+            const brandSelect = by('brandFilter');
+
+            regionSelect.innerHTML = '';
+            regionSelect.appendChild(new Option('All Locations', ''));
+            data.regionFilter.forEach(region => {
+                const og = document.createElement('optgroup');
+                og.label = region.header;
+                region.subHeader.forEach(sub => og.appendChild(new Option(sub, sub)));
+                regionSelect.appendChild(og);
+            });
+
+            brandSelect.innerHTML = '';
+            brandSelect.appendChild(new Option('All Brands', ''));
+            data.brandsFilter.forEach(brand => {
+                brandSelect.appendChild(new Option(brand.name, brand.name));
+            });
+        }
+
+        function filterResorts(resorts, selectedRegion, selectedBrand) {
+            const wantedRegion = norm(selectedRegion);
+            return resorts.filter(r => {
+                const regionCandidates = [r.state, r.subLocale?.name, r.locale?.name, r.region].map(norm);
+                const regionMatch = !wantedRegion || regionCandidates.includes(wantedRegion);
+                const brandMatch = !selectedBrand || r.dcmBrand?.name === selectedBrand;
+                return regionMatch && brandMatch;
+            });
+        }
+
+        // Render a column and return how many resorts were rendered
+        function renderColumn(container, columnData, selectedRegion, selectedBrand) {
+            container.innerHTML = '';
+            let count = 0;
+
+            const groups = [];
+            const groupIndex = new Map();
+
+            columnData.forEach(section => {
+                const filteredResorts = filterResorts(section.resorts, selectedRegion, selectedBrand);
+                if (!filteredResorts.length) return;
+                count += filteredResorts.length;
+
+                let group = groupIndex.get(section.mainHeader);
+                if (!group) {
+                    group = { mainHeader: section.mainHeader, subs: [] };
+                    groupIndex.set(section.mainHeader, group);
+                    groups.push(group);
+                }
+
+                const subMap = new Map();
+                filteredResorts.forEach(r => {
+                    const key = r.state || r.subLocale?.name || section.subHeader;
+                    if (!subMap.has(key)) subMap.set(key, []);
+                    subMap.get(key).push(r);
+                });
+
+                // push subs (we'll sort later)
+                subMap.forEach((list, key) => {
+                    group.subs.push({ sub: key, resorts: list });
+                });
+            });
+
+            // Sort subs ascending within each main header
+            groups.forEach(group => {
+                group.subs.sort((a, b) => a.sub.localeCompare(b.sub, 'en', { sensitivity: 'base' }));
+            });
+
+            // Render groups
+            groups.forEach(group => {
+                const sectionEl = document.createElement('div');
+                sectionEl.className = 'section';
+
+                const mainHeader = document.createElement('h3');
+                mainHeader.className = 'main-header heading3';
+                mainHeader.textContent = group.mainHeader;
+                sectionEl.appendChild(mainHeader);
+
+                group.subs.forEach(({ sub, resorts }) => {
+                    const subH = document.createElement('div');
+                    subH.className = 'sub-header heading4';
+                    subH.textContent = sub;
+                    sectionEl.appendChild(subH);
+
+                    resorts.forEach(resort => {
+                        const item = document.createElement('div');
+                        item.className = 'resort';
+                        const a = document.createElement('a');
+                        a.textContent = resort.name;
+                        a.href = resort.url || resort.slug || '#';
+                        a.setAttribute('aria-label', resort.name);
+                        item.appendChild(a);
+                        sectionEl.appendChild(item);
+                    });
+                });
+
+                container.appendChild(sectionEl);
+            });
+
+            return count;
+        }
+
+        function render(data) {
+            const selectedRegion = by('regionFilter').value;
+            const selectedBrand = by('brandFilter').value;
+
+            const leftCount = renderColumn(by('leftColumn'), data.leftColumn, selectedRegion, selectedBrand);
+            const rightCount = renderColumn(by('rightColumn'), data.rightColumn, selectedRegion, selectedBrand);
+
+            // If left is empty and right has content, move right to left to avoid blank space
+            if (leftCount === 0 && rightCount > 0) {
+                by('leftColumn').innerHTML = by('rightColumn').innerHTML;
+                by('rightColumn').innerHTML = '';
+            }
+
+            if (leftCount + rightCount === 0) {
+                by('leftColumn').innerHTML = '<div class="empty">No resorts match this filter.</div>';
+                by('rightColumn').innerHTML = '';
+            }
+        }
+
+        function init(data) {
+            buildFilters(data);
+            by('regionFilter').addEventListener('change', () => render(data));
+            by('brandFilter').addEventListener('change', () => render(data));
+            render(data);
+        }
+
+        if (resortListData) {
+            init(resortListData);
+        } else {
+            fetch('/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/resortList.json')
+                .then(r => r.json())
+                .then(init)
+                .catch(err => console.error('Failed to load resortList.json', err));
+        }
+    </script>
+    </body>
+    </html>

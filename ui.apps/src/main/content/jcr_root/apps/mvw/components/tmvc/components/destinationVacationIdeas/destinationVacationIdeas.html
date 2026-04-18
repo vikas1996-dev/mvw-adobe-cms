@@ -1,0 +1,119 @@
+<sly data-sly-use.destinationDetailArticle="com.mvw.core.models.DestinationVacationIdeas"
+     data-sly-test="${destinationDetailArticle.propertiesList}">
+     <sly data-sly-use.destinationDetails="com.mvw.core.models.DestinationDetails"
+     data-sly-test="${destinationDetails.propertiesList}">
+     
+    <sly data-sly-set.destinationTitle="${destinationDetails.propertiesList[0].destination}" />
+</sly>
+
+<div class="editorial-carousel bg-white"
+     data-mod="editorial-carousel-details"
+     data-loop="true">
+
+    <div class="carousel-container">
+
+        <!-- Carousel Header -->
+        <div class="carousel-header">
+            <h2 class="carousel-title with-border align-center">
+                <sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+               <sly data-sly-test="${contents.propertiesList}">
+        <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.nodename == 'explore-header'}">
+               ${content.properties} ${destinationTitle}
+            </sly>
+
+        </sly>
+    </sly>
+</sly></h2>
+        </div>
+
+        <!-- Slides -->
+        <div class="editorial-slides"
+             role="region"
+             aria-live="polite"
+             aria-label="Editorial carousel">
+
+            <sly data-sly-list.article="${destinationDetailArticle.propertiesList}">
+
+                <div class="editorial-card slide-bg-pearl"
+                     role="group"
+                     aria-roledescription="slide"
+                     aria-label="Slide ${articleList.count} of ${articleList.size}: ${article.name}">
+
+                    <!-- Image -->
+                    <div class="card-image-container"
+                         data-sly-test="${article.images && article.images.photo}">
+                        <img src="${article.images.photo[0].path}"
+                             alt="${article.images.altText}" />
+                    </div>
+
+                    <!-- Content -->
+                    <div class="card-content">
+                        <div class="card-main-content">
+
+                            <!-- Tags -->
+                            <div class="card-tags"
+                                 data-sly-test="${article.vacationIdeas}">
+                                <sly data-sly-list.tag="${article.vacationIdeas}">
+                                    <div class="card-tag">
+                                        <div class="tag-content">
+                                            <span>${tag}</span>
+                                        </div>
+                                    </div>
+                                </sly>
+                            </div>
+
+                            <!-- Title -->
+                            <h3 class="card-title">
+                                ${article.name}
+                            </h3>
+
+                            <!-- Description -->
+                            <p class="card-description">
+                                ${article.shortDescription}
+                            </p>
+                        </div>
+
+                        <!-- CTA -->
+                        <a href="${article.url}"
+                           class="card-link"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Read the article about ${article.name}">
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+            </sly>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-icons" role="group" aria-label="Carousel navigation">
+            <button class="nav-icon-left"
+                    type="button"
+                    aria-label="Previous slide">
+                <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/prev.svg"
+                     alt=""
+                     aria-hidden="true" />
+            </button>
+
+            <div class="current-slide"
+                 aria-live="polite"
+                 aria-atomic="true">
+                1 / ${destinationDetailArticle.propertiesList.size}
+            </div>
+
+            <button class="nav-icon-right"
+                    type="button"
+                    aria-label="Next slide">
+                <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/next.svg"
+                     alt=""
+                     aria-hidden="true" />
+            </button>
+        </div>
+
+    </div>
+</div>
+
+</sly>

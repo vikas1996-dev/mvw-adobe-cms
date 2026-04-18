@@ -1,0 +1,7 @@
+{
+  "max.age":"300",
+  "filter.pattern":[
+    "/content/tmvcs/(.*)",
+    "/content/legal/(.*)"
+  ]
+}

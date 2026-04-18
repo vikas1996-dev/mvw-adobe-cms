@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Form Page Hero Design"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <Copy_x0020_of_x0020_items jcr:primaryType="nt:unstructured">
+                    <backgroundImage
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Background Image"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <bgImage
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    fieldLabel="Background Image"
+                                    fileNameParameter="./bg-image/fileName"
+                                    fileReferenceParameter="./bg-image/fileReference"
+                                    mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/svg+xml]"
+                                    name="./bg-image"/>
+                            <bgImageAlignmentLeftRight
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                    fieldDescription="% Percentage"
+                                    fieldLabel="Background Position Left and Right"
+                                    name="./bg-image-alignment-left-right"/>
+                            <bgImageAlignmentTopBottom
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                    fieldDescription="% Percentage"
+                                    fieldLabel="Background Position Top and Bottom"
+                                    name="./bg-image-alignment-top-bottom"/>
+                        </items>
+                    </backgroundImage>
+                    <copySection
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Copy Section"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <formPosition
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldLabel="Form position"
+                                    name="./form-position">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="Left"
+                                            value="left"/>
+                                    <right
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Right"
+                                            value="right"/>
+                                </items>
+                            </formPosition>
+                            <headlineText
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Headline Text"
+                                    name="./headline-text"/>
+                            <headlineType
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldLabel="Headline Type"
+                                    name="./headline-type">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <h2
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="H2"
+                                            value="h2"/>
+                                    <h3
+                                            jcr:primaryType="nt:unstructured"
+                                            text="H3"
+                                            value="h3"/>
+                                    <h4
+                                            jcr:primaryType="nt:unstructured"
+                                            text="H4"
+                                            value="h4"/>
+                                    <h5
+                                            jcr:primaryType="nt:unstructured"
+                                            text="H5"
+                                            value="h5"/>
+                                    <h6
+                                            jcr:primaryType="nt:unstructured"
+                                            text="H6"
+                                            value="h6"/>
+                                </items>
+                            </headlineType>
+                            <headlineAlignment
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldLabel="Headline Alignment"
+                                    name="./headline-alignment">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="Left"
+                                            value="left"/>
+                                    <right
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Right"
+                                            value="right"/>
+                                    <center
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Center"
+                                            value="center"/>
+                                </items>
+                            </headlineAlignment>
+                            <shortDescription
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                    fieldLabel="Short Description"
+                                    name="./short-description"
+                                    useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <format
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <justify
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <links
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <lists
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                </rtePlugins>
+                            </shortDescription>
+                            <copySectionAlignment
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldLabel="Copy Section Alignment"
+                                    name="./copy-section-alignment">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="Left"
+                                            value="left"/>
+                                    <right
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Right"
+                                            value="right"/>
+                                </items>
+                            </copySectionAlignment>
+                            <backgroundColor
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldLabel="Background Color"
+                                    name="./copy-section-bg-color">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <none
+                                            jcr:primaryType="nt:unstructured"
+                                            selected="{Boolean}true"
+                                            text="None"
+                                            value="none"/>
+                                    <indigo
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Indigo"
+                                            value="indigo"/>
+                                    <pearl
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Pearl"
+                                            value="pearl"/>
+                                    <teal
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Teal"
+                                            value="teal"/>
+                                    <linen
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Linen"
+                                            value="linen"/>
+                                </items>
+                            </backgroundColor>
+                            <specialOfferPoints
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                    fieldLabel="Special Offer Points"
+                                    name="./special-offer-points"
+                                    useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <format
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <lists
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                </rtePlugins>
+                            </specialOfferPoints>
+                            <specialOfferCopy
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                    fieldLabel="Special Offer Copy"
+                                    name="./special-offer-copy"
+                                    useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <format
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <lists
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                </rtePlugins>
+                            </specialOfferCopy>
+                        </items>
+                    </copySection>
+                    <secondaryCopySection
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Secondary Copy Section"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <description
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                    fieldLabel="Description"
+                                    name="./secondary-copy-text"
+                                    useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <format
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <justify
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <links
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                    <lists
+                                            jcr:primaryType="nt:unstructured"
+                                            features="*"/>
+                                </rtePlugins>
+                            </description>
+                        </items>
+                    </secondaryCopySection>
+                    <formType
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Form Type"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <formTypeRadio
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                    fieldLabel="Form Type"
+                                    name="./form-type">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <requestInfo
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Request Information"
+                                            value="request-information"/>
+                                    <specialOffers
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Special Offers"
+                                            value="special-offers"/>
+                                    <contactUs
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Contact Us"
+                                            value="contact-us"/>
+                                </items>
+                            </formTypeRadio>
+                        </items>
+                    </formType>
+                    <copyBlockType
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Copy Block Type"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <copyBlockTypeRadio
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                    fieldLabel="Copy Block Type"
+                                    name="./copy-block-type">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <copyBlock
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Copy Block"
+                                            value="copy-block"/>
+                                    <stepped
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Stepped"
+                                            value="stepped"/>
+                                </items>
+                            </copyBlockTypeRadio>
+                        </items>
+                    </copyBlockType>
+                </Copy_x0020_of_x0020_items>
+            </tabs>
+            <defaultFormPosition
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                    fieldLabel="Default Form Position"
+                    name="./defaultFormPosition"
+                    value="left">
+                <items jcr:primaryType="nt:unstructured">
+                    <left
+                            jcr:primaryType="nt:unstructured"
+                            text="Left"
+                            value="left"/>
+                    <right
+                            jcr:primaryType="nt:unstructured"
+                            text="Right"
+                            value="right"/>
+                </items>
+            </defaultFormPosition>
+            <defaultHeadlineType
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                    fieldLabel="Default Headline Type"
+                    name="./defaultHeadlineType"
+                    value="h2">
+                <items jcr:primaryType="nt:unstructured">
+                    <h2
+                            jcr:primaryType="nt:unstructured"
+                            text="H2"
+                            value="h2"/>
+                    <h3
+                            jcr:primaryType="nt:unstructured"
+                            text="H3"
+                            value="h3"/>
+                    <h4
+                            jcr:primaryType="nt:unstructured"
+                            text="H4"
+                            value="h4"/>
+                </items>
+            </defaultHeadlineType>
+            <defaultBackgroundColor
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                    fieldLabel="Default Background Color"
+                    name="./defaultBackgroundColor"
+                    value="none">
+                <items jcr:primaryType="nt:unstructured">
+                    <none
+                            jcr:primaryType="nt:unstructured"
+                            text="None"
+                            value="none"/>
+                    <indigo
+                            jcr:primaryType="nt:unstructured"
+                            text="Indigo"
+                            value="indigo"/>
+                    <pearl
+                            jcr:primaryType="nt:unstructured"
+                            text="Pearl"
+                            value="pearl"/>
+                    <teal
+                            jcr:primaryType="nt:unstructured"
+                            text="Teal"
+                            value="teal"/>
+                    <linen
+                            jcr:primaryType="nt:unstructured"
+                            text="Linen"
+                            value="linen"/>
+                </items>
+            </defaultBackgroundColor>
+            <defaultFormType
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                    fieldLabel="Default Form Type"
+                    name="./defaultFormType"
+                    value="request-information">
+                <items jcr:primaryType="nt:unstructured">
+                    <requestInfo
+                            jcr:primaryType="nt:unstructured"
+                            text="Request Information"
+                            value="request-information"/>
+                    <specialOffers
+                            jcr:primaryType="nt:unstructured"
+                            text="Special Offers"
+                            value="special-offers"/>
+                    <contactUs
+                            jcr:primaryType="nt:unstructured"
+                            text="Contact Us"
+                            value="contact-us"/>
+                </items>
+            </defaultFormType>
+            <defaultCopyBlockType
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                    fieldLabel="Default Copy Block Type"
+                    name="./defaultCopyBlockType"
+                    value="copy-block">
+                <items jcr:primaryType="nt:unstructured">
+                    <copyBlock
+                            jcr:primaryType="nt:unstructured"
+                            text="Copy Block"
+                            value="copy-block"/>
+                    <stepped
+                            jcr:primaryType="nt:unstructured"
+                            text="Stepped"
+                            value="stepped"/>
+                </items>
+            </defaultCopyBlockType>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,61 @@
+<div class="destination-details__story-block">
+    <sly data-sly-use.destinationEditorialPromotions="com.mvw.core.models.DestinationEditorialPromotions"
+         data-sly-list.promo="${destinationEditorialPromotions.propertiesList}">
+
+        <section class="content-flip grid-container">
+            <div class="copy-section-wrapper">
+                <div class="content-block">
+
+                    <!-- Title -->
+                    <h3 class="cmp-title heading3 align-left">
+                        ${promo.name}
+                    </h3>
+
+                    <!-- Mobile Image -->
+                    <div class="split__col split__image small--bottom-right mobile-only">
+                        <div class="image__large img--rounded"
+                             data-sly-test="${promo.imagesAd && promo.imagesAd.size > 0}">
+                            
+                            <img src="${promo.imagesAd[0].photo[0].path}"
+                                 alt="${promo.imagesAd[0].altText}" />
+
+                            <div class="image__small small--bottom-left img--rounded"
+                                 aria-hidden="true"
+                                 svg-color="teal"
+                                 data-sly-test="${promo.imagesAd.size > 1}">
+                                
+                                <img src="${promo.imagesAd[1].photo[0].path}"
+                                     alt="${promo.imagesAd[1].altText}" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="content-block__section">
+                        ${promo.descriptionAd @ context='html'}
+                    </div>
+                </div>
+
+                <!-- Desktop Image -->
+                <div class="split__col split__image small--bottom-right desktop-only">
+                    <div class="image__large img--rounded"
+                         data-sly-test="${promo.imagesAd && promo.imagesAd.size > 0}">
+                        
+                        <img src="${promo.imagesAd[1].photo[0].path}"
+                             alt="${promo.imagesAd[0].altText}" />
+
+                        <div class="image__small small--bottom-left img--rounded"
+                             aria-hidden="true"
+                             svg-color="teal"
+                             data-sly-test="${promo.imagesAd.size > 1}">
+                            
+                            <img src="${promo.imagesAd[0].photo[0].path}"
+                                 alt="${promo.imagesAd[1].altText}" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </sly>
+</div>

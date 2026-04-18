@@ -1,0 +1,6 @@
+<sly data-sly-use.schema="com.mvw.core.models.ResortSchemaModel">
+    <!-- Renders the perfectly formatted JSON-LD from the Sling Model -->
+    <script type="application/ld+json">
+        ${schema.jsonLD @ context='unsafe'}
+    </script>
+</sly>

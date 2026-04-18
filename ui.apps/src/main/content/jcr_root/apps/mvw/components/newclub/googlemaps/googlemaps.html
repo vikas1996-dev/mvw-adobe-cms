@@ -1,0 +1,43 @@
+<div style="width:100%;">
+  <sly data-sly-use.configModel="com.mvw.core.models.GlobalConfigModel"/>
+
+  <!-- give the map a width and let aspect-ratio compute the height -->
+  <div id="map" style="width:100%; aspect-ratio: 5 / 3; display:block;"></div>
+</div>
+
+<script>
+  function initMap() {
+    var DEFAULT_LAT = 28.3967;
+    var DEFAULT_LNG = -81.4890;
+    var DEFAULT_ZOOM = 14;
+
+    var rawLat = "${properties.latitude @ context='scriptString'}";
+    var rawLng = "${properties.longitude @ context='scriptString'}";
+
+    var lat = parseFloat(rawLat);
+    var lng = parseFloat(rawLng);
+    console.log("Parsed lat:", lat, "Parsed lng:", lng);
+
+    if (isNaN(lat)) lat = DEFAULT_LAT;
+    if (isNaN(lng)) lng = DEFAULT_LNG;
+
+    var loc = { lat: lat, lng: lng };
+    console.log(loc)
+
+    var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: DEFAULT_ZOOM,
+      center: loc
+    });
+
+    new google.maps.Marker({
+      position: loc,
+      map: map,
+      title: "Location"
+    });
+  }
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=${configModel.googleMapKey @ context='uri'}&callback=initMap"
+  async defer>
+</script>

@@ -1,0 +1,6 @@
+{
+  "resource.resolver.map.location": "$[env:SLING_ETC_MAP_PUBLISH_PATH;default=/etc/map.publish.dev]",
+   "resource.resolver.mapping": [
+     "/:/"
+   ]
+}

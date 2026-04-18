@@ -1,0 +1,117 @@
+<sly data-sly-use.model="com.mvw.core.models.HeroBannerModel">
+  <sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+  <sly data-sly-call="${tpl.placeHolderBlock @
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+   <div class="hero hero--type-${model.bgType} ${model.mobileBackgroundImage ? 'has-mobile-image' : ''}" data-mod="hero-cmp" data-parent-component="Hero" data-bg-type="${model.bgType}" svg-hero-color="${model.copySectionBgColor}"
+       m-svg-hero-color="${model.mobileBgColorAlignment}"
+       style="--desktop-opacity: ${model.copySectionBgColorTransparency || '90' @ context='styleToken'};">
+    <div 
+       class="hero__container  m-${model.mobileBgColorBorderControl == 'none' ? 'none' : model.mobileBgColorBorderControl}  ${model.copySectionBorderControl == 'none' ? '' : model.copySectionBorderControl} ${model.copySectionAlignment} ${model.mobileBackgroundImage ? 'mobile-image': ''}">
+      
+      <div class="grid-container hero-wrap">
+         <div class="hero__variant  hero__container__grid hero__container__grid">
+          <div class="hero__content">
+            <sly data-sly-test="${model.taglineText}">
+              <div class="location-badge bg-theme-${model.taglineColor}">${model.taglineText @ context='html'}</div>
+            </sly>
+            <h1 class="hero__title align-${model.headlineAlignment} m-align-${model.mobileHeadlineAlignment}">
+              ${model.headlineText @ context='html'}</h1>
+            <div class="hero__buttons ${model.ctaAlignmentControl}">
+              <sly data-sly-resource="${'primaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}" />
+            </div>
+            <div class="hero__logos">
+              <sly data-sly-list.logo="${model.logos}">
+                <a href="${logo.logoCtaUrl}" aria-label="${logo.ariaLabel}"  target="${logo.logoCtaTab == 'newTab' ? '_blank' : '_self'}">
+                  <img class="hero__logo" src="${logo.logoImage}" loading="eager" fetchpriority="high" alt="${logo.logoAltText}" />
+                </a>
+              </sly>
+            </div>
+
+            <!-- convex SVG removed from inside content to avoid padding constraints -->
+          </div>
+        </div>
+      </div>
+      <sly data-sly-test="${model.bgType == 'image'}">
+        <div class="hero__image hero__bg--image" data-cmp-hook-hero="bgImage" style="background-image: url('${model.bgImage @ context='uri'}');
+        background-position: ${model.bgImageAlignmentLeftRight || 0 @ context='styleToken'}% ${model.bgImageAlignmentTopBottom || 50 @ context='styleToken'}%;
+        background-size: cover;">
+        <!-- keep an img for accessibility/seo/preload but visually hidden --> 
+          <img src="${model.bgImage @ context='uri'}" 
+               loading="eager" 
+               fetchpriority="high"
+               alt="${model.headlineText @ context='text'}"
+               data-cmp-hook-hero="bgImageElement" 
+               aria-hidden="true"
+               style="object-fit: cover; 
+               object-position: ${model.bgImageAlignmentLeftRight || 0 @ context='styleToken'}% ${model.bgImageAlignmentTopBottom || 50 @ context='styleToken'}%; 
+               width: 100%; 
+               height: 100%;">
+        </div>
+
+        <sly data-sly-test="${model.mobileBackgroundImage}">
+          <div  class="hero__image-mobile hero__bg--image" data-cmp-hook-hero="bgImage"
+             style="background-image: url('${model.mobileBackgroundImage @ context='uri'}');
+                    background-position: ${model.mobileBgImageAlignmentLeftRight || 0 @ context='styleToken'}% ${model.mobileBgImageAlignmentTopBottom || 50 @ context='styleToken'}%;
+                    background-size: cover;">
+            
+            <img src="${model.mobileBackgroundImage @ context='uri'}" 
+                 loading="eager" 
+                 fetchpriority="high"
+                 alt="${model.headlineText @ context='text'}"
+                 data-cmp-hook-hero="bgImageElement" 
+                 aria-hidden="true"
+                 style="object-fit: cover; 
+                        object-position: ${model.mobileBgImageAlignmentLeftRight || 0 @ context='styleToken'}% ${model.mobileBgImageAlignmentTopBottom || 50 @ context='styleToken'}%; 
+                        width: 100%; 
+                        height: 100%;">
+          </div>
+        </sly>
+
+
+      </sly>
+
+      <sly data-sly-test="${model.bgType == 'video'}">
+        <div class="hero__video hero__bg--video" data-cmp-hook-hero="bgVideo" aria-hidden="true">
+          <video-js class="hero__video-player video-js"
+            data-cmp-hook-hero="bgVideoPlayer"
+            data-account="1441355349001"
+            data-player="jFCpKQt1X"
+            data-embed="default"
+            data-video-id="${model.bgVideoID}"
+            muted
+            loop
+            playsinline
+            preload="auto">
+          </video-js>
+        </div>
+      </sly>
+
+      <!-- convex SVG placed as sibling and sized to fill the hero area -->
+      <svg class="hero__bg-shape_convex" viewBox="0 0 1440 516" preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <clipPath id="clip-convex" clipPathUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="1440" height="516" />
+        </clipPath>
+        <g clip-path="url(#clip-convex)">
+          <path d="M635,259c-0.14-91.84,27.04-181.65,78.09-258H0v516h713.09C662.04,440.65,634.86,350.84,635,259z"
+             />
+        </g>
+      </svg>
+      <svg class="hero__bg-shape_concave" viewBox="0 0 1440 516" preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+        <clipPath id="clip-concave" clipPathUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="1440" height="516" />
+        </clipPath>
+        <g clip-path="url(#clip-concave)">
+          <path d="M1440,517H805.09C755.77,443.18,727,354.45,727,259s28.77-184.18,78.09-258H1440V517z"
+             />
+        </g>
+      </svg>
+
+    </div>
+  </div>
+</sly>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Background Ripple"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <background
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Background Image"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                         <hideSpacing
+                                 jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                  fieldLabel="Hide Mobile Spacing"
+                                  name="./hideSpacing"
+                                   text="Hide Mobile Spacing"
+                                    uncheckedValue="false"
+                                     value="true"/>
+                            <bgImg
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    allowUpload="true"
+                                    fieldLabel="Background Image"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./bgImg"
+                                    name="./bgImgPath"
+                                    required="true"
+                                    useHTML5="true"/>
+                            <bgAlt
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Alt Text (Background Image)"
+                                    name="./bgAlt"
+                                    required="false"/>
+                        </items>
+                    </background>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

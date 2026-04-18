@@ -1,0 +1,7 @@
+{
+  "prop.replication-action-type": "INHERIT",
+  "prop.rules.hierarchical": [
+    "/content/dam/(legal/[^/]+/[^/]+)/.*=/content/$1"
+
+  ]
+}

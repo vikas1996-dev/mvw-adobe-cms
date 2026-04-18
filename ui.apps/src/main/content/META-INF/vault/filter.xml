@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/mvw/clientlibs"/>
+    <filter root="/apps/mvw/components"/>
+    <filter root="/apps/mvw/i18n"/>
+    <filter root="/apps/cq/xssprotection"/>
+    <filter root="/apps/sling"/>
+    <filter root="/apps/mvw/workflow"/>
+</workspaceFilter>

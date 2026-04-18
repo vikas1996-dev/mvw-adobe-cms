@@ -1,0 +1,7 @@
+{
+    "site.id" : "legal_hvc",
+    "adobe.launch.url": "$[env:LEGAL_HVC_LAUNCH_SCRIPT;default=]",
+    "cookie.consent.script" :"$[env:LEGAL_HVC_COOKIE_CONSENT_SCRIPT;default=]",
+    "privacy.notice" :"$[env:LEGAL_HVC_PRIVACY_NOTICE_SCRIPT;default=]"
+
+}

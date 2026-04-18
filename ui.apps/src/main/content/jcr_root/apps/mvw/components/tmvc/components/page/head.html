@@ -1,0 +1,106 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2021 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<template data-sly-template.head="${ @ page, pwa }" data-sly-use.headlibRenderer="headlibs.html" data-sly-use.headResources="head.resources.html">
+  <meta charset="UTF-8">
+  <title>${currentPage.pageTitle ? currentPage.pageTitle : page.title}${page.brandSlug ? ' | ' : ''}${page.brandSlug}</title>
+  <meta data-sly-test.keywords="${page.keywords}" name="keywords" content="${keywords}" />
+  <meta data-sly-test.description="${page.description || properties['jcr:description']}" name="description" content="${description}" />
+  <meta data-sly-test.templateName="${page.templateName}" name="template" content="${templateName}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta data-sly-test="${page.robotsTags}" name="robots" content="${page.robotsTags @ join=', '}">
+  
+<meta name="twitter:site" content="@MarriottVacClub" />
+<meta data-sly-test.twitterTitle="${currentPage.pageTitle}" name="twitter:title" content="${twitterTitle}" />
+<meta data-sly-test.twitterDescription="${page.description || properties['jcr:description']}" name="twitter:description" content="${twitterDescription}" />
+<sly data-sly-use.pageMetadata="com.mvw.core.models.PageMetadata">
+<meta data-sly-test.twitterCard="${currentPage.properties['cq:twitterimage/fileReference']}" name="twitter:card" content="${pageMetadata.twitterImageAbsolutePath}">
+<meta data-sly-test="${currentPage.properties['cq:featuredimage/fileReference']}" property="twitter:image" content="${pageMetadata.ogImageAbsolutePath}">
+<meta data-sly-test="${currentPage.path}"  property="og:url" content="${pageMetadata.currentPageAbsolutePath}">
+<meta data-sly-test="${currentPage.properties['cq:featuredimage/fileReference']}" property="og:image" content="${pageMetadata.ogImageAbsolutePath}">
+</sly>
+<meta property="og:type" content="website" />
+<meta data-sly-test.ogTitle="${currentPage.pageTitle}" property="og:title" content="${ogTitle}"  />
+<meta data-sly-test.ogDescription="${page.description || properties['jcr:description']}" property="og:description" content="${ogDescription}" /> 
+
+  <!-- Third-party connections -->
+<link rel="preconnect" href="https://cdn.cookielaw.org">
+<link rel="preconnect" href="https://geolocation.onetrust.com">
+
+<link rel="preconnect" href="https://assets.adobedtm.com">
+<link rel="preconnect" href="https://smetrics.marriottvacationclub.com">
+<link rel="preconnect" href="https://dpm.demdex.net">
+
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+
+<link rel="preload" href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/fonts/roboto/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/fonts/roboto/Roboto-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/fonts/arsenal/Arsenal-Regular.ttf
+" as="font" type="font/ttf" crossorigin>
+  
+  <sly data-sly-use.configModel="com.mvw.core.models.GlobalConfigModel"/>
+
+  <!-- OneTrust Cookies Consent Notice start for marriottvacationclubs.com New-->
+  
+  ${configModel.cookieConsentScript @ context='unsafe'}
+
+    
+  <!-- OneTrust Cookies Consent Notice end for marriottvacationclubs.com -->
+  <!-- Adobe Analytics -->
+  <script src="${configModel.adobeLaunchScript @ context='unsafe'}" async></script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', '${configModel.gtmContainerId @ context="unsafe"}');
+  </script>
+  <!-- End Google Tag Manager -->
+  <sly data-sly-test="${pwa.enabled}">
+    <link rel="manifest" href="${pwa.manifestPath}" crossorigin="use-credentials" />
+    <meta name="theme-color" content="${pwa.themeColor}" />
+    <link rel="apple-touch-icon" href="${pwa.iconPath}" />
+    <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html" data-sly-call="${clientlib.css @ categories='core.wcm.components.page.v2.pwa'}"></sly>
+    <meta name="cq:sw_path" content="${pwa.serviceWorkerPath @ context ='text'}" />
+  </sly>
+  <sly data-sly-test="${pageProperties.jsonSchema}">
+    <script type="application/ld+json">
+      ${pageProperties.jsonSchema @ context = 'unsafe'}
+    </script>
+</sly>
+  <sly data-sly-include="head.links.html"></sly>
+  <sly data-sly-include="customheaderlibs.html"></sly>
+  <sly data-sly-call="${headlibRenderer.headlibs @
+                                page                      = page,
+                                designPath                = page.designPath,
+                                staticDesignPath          = page.staticDesignPath,
+                                clientLibCategories       = page.clientLibCategories,
+                                clientLibCategoriesJsHead = page.clientLibCategoriesJsHead,
+                                hasCloudconfigSupport     = page.hasCloudconfigSupport}"></sly>
+  <sly data-sly-test.appResourcesPath=${page.appResourcesPath} data-sly-call="${headResources.favicons @ path = appResourcesPath}"></sly>
+  <sly data-sly-list="${page.htmlPageItems}">
+    <script data-sly-test="${item.location.name == 'header'}" data-sly-element="${item.element.name @ context='unsafe'}" data-sly-attribute="${item.attributes}"></script>
+  </sly>
+</template>

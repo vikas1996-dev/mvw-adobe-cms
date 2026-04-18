@@ -1,0 +1,160 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ~ Copyright 2021 Adobe
+   ~
+   ~ Licensed under the Apache License, Version 2.0 (the "License");
+   ~ you may not use this file except in compliance with the License.
+   ~ You may obtain a copy of the License at
+   ~
+   ~     http://www.apache.org/licenses/LICENSE-2.0
+   ~
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<!DOCTYPE HTML>
+<html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page" lang="${page.language}"
+      data-sly-use.pwa="com.adobe.cq.wcm.core.components.models.PWA" data-sly-use.head="head.html"
+      data-sly-use.footer="footer.html" data-sly-use.redirect="redirect.html">
+<head data-sly-call="${head.head @ page = page, pwa = pwa}"></head>
+<body class="${page.cssClassNames}" id="${page.id}" data-cmp-link-accessibility-enabled
+      data-cmp-link-accessibility-text="${'opens in a new tab' @ i18n}"
+      data-cmp-data-layer-name="${page.dataLayerName @ context='scriptToken'}">
+<script>
+    (function() {
+
+        var dataLayerName = '${page.dataLayerName @ context="scriptToken"}' || 'adobeDataLayer';
+        window[dataLayerName] = window[dataLayerName] || [];
+
+        if (!window[dataLayerName].__patched) {
+
+            window[dataLayerName].__patched = true;
+            var originalPush = window[dataLayerName].push;
+
+            window[dataLayerName].push = function(obj) {
+
+                if (obj && obj.event === 'page-load') {
+
+                    var alreadyPushed = window[dataLayerName].some(function(item) {
+                        return item && item.event === 'page-load';
+                    });
+
+                    if (alreadyPushed) {
+                        console.warn('[Analytics] Blocked duplicate page-load push.');
+                        return;
+                    }
+                }
+
+                if (obj && obj.event === 'cmp:loaded') {
+                    return originalPush.apply(window[dataLayerName], arguments);
+                }
+
+                var result = originalPush.apply(window[dataLayerName], arguments);
+
+                if (obj && obj.event) {
+                    console.log('[Analytics Event: ' + obj.event + ']', obj);
+                }
+
+                return result;
+            };
+
+            console.log('Analytics tracking initialized');
+        }
+
+        var pageLoadExists = window[dataLayerName].some(function(item) {
+            return item && item.event === 'page-load';
+        });
+
+        if (!pageLoadExists && !window.__pageLoadFired && !window.__mvwPageLoadFired) {
+
+            window.__pageLoadFired = true;
+            window.__mvwPageLoadFired = true;
+
+            function derivePageType(path) {
+
+                if (!path) return "";
+
+                if (path === "/conf/tmvc/settings/wcm/templates/home-page-template") return "homepage-template";
+                if (path === "/conf/tmvc/settings/wcm/templates/resort-details-page-template") return "resort-page-template";
+                if (path === "/conf/tmvc/settings/wcm/templates/standard-page-template") return "standard-template";
+                if (path === "/conf/tmvc/settings/wcm/templates/forms-page-template") return "forms-page-template";
+                if (path === "/conf/tmvc/settings/wcm/templates/resort-listing-page-template") return "resort-lp-template";
+                if (path === "/conf/tmvc/settings/wcm/templates/destination-detail-page-template") return "destination-dp-template";
+                if (path === "/conf/tmvc/settings/wcm/templates/destination-listing-page-template") return "destination-lp-template";
+
+                return "";
+            }
+
+            function deriveBrand(path) {
+                if (!path) return "";
+                if (path.includes("/content/tmvcs")) return "tmvcs";
+                return "";
+            }
+
+            var templatePath = '${currentPage.template.path @ context="scriptString"}';
+            var contentPath  = '${currentPage.path @ context="scriptString"}';
+
+            var pageType = derivePageType(templatePath);
+            var brand = deriveBrand(contentPath);
+
+            var siteSection = '${properties.siteSection ? properties.siteSection : currentPage.title @ context="text"}';
+
+            if (window.location.pathname.includes("/experiences/")) siteSection = "experiences";
+            if (window.location.pathname.includes("/legal/")) siteSection = "legal";
+            if (window.location.pathname.includes("/ownership/")) siteSection = "ownership";
+
+            var subSection = "";
+
+            var previousPageName = sessionStorage.getItem("previousPageName") || "";
+
+            /* FIX → remove spaces only for pageName */
+            var normalizedSiteSection = (siteSection || "").replace(/\s+/g, "");
+
+            var pathParts = window.location.pathname.split("/");
+            var page = pathParts[pathParts.length - 1] || "";
+            page = page.replace(".html","");
+
+            var pageName = [brand, normalizedSiteSection, page]
+                .filter(Boolean)
+                .join(":");
+
+            sessionStorage.setItem("previousPageName", pageName);
+
+            var params  = new URLSearchParams(window.location.search);
+            var locCode = params.get("loc");
+
+            window[dataLayerName].push({
+                event: 'page-load',
+                pageInfo: {
+                    pageName: pageName,
+                    pageUrl: document.location.href,
+                    pageTitle: document.title,
+                    pageType: pageType,
+                    siteSection: siteSection,
+                    subSection: subSection,
+                    formLoc: locCode,
+                    previousPageName: previousPageName,
+                    referrer: document.referrer
+                }
+            });
+
+            window.pageName = pageName;
+            window.pageType = pageType;
+            window.siteSection = siteSection;
+            window.subSection = subSection;
+            window.locCode = locCode;
+            window.previousPageName = previousPageName;
+        }
+
+    })();
+</script>
+<sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
+     data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
+<sly data-sly-test="${!isRedirectPage}">
+    <sly data-sly-include="body.skiptomaincontent.html"></sly>
+    <sly data-sly-include="body.html"></sly>
+    <sly data-sly-call="${footer.footer @ page = page, pwa = pwa}"></sly>
+</sly>
+</body>
+</html>

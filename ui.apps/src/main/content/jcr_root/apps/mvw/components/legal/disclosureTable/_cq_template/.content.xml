@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="nt:unstructured"
+    active_tab="Current Versions"
+    column2="View PDF"
+    copyText="For your convenience, you can view all the general disclosures related to your timeshare purchase. Please refer to your personal purchase agreement for additional details."
+    download="DOWNLOAD ALL"
+    first_column="Document Title"
+    previous_tab="Previous Versions"
+    welcomeText="Welcome to your timeshare product disclosure center"/>

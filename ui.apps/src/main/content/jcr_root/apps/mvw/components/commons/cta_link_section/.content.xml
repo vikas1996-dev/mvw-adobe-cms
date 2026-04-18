@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured">
+    <linkDetails
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <navlinktext
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldDescription="The text or icon class for the link"
+                fieldLabel="Link Text/Icon Class"
+                name="./navLinkText"
+                required="{Boolean}true" />
+            <linkurl
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                fieldDescription="Select/Enter the URL for the link"
+                fieldLabel="Link Url"
+                name="./navLinkUrl"
+                required="{Boolean}true"
+                rootPath="/content" />
+            <opensin
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                fieldLabel="URL Opens In"
+                fieldDescription="Select whether the link opens in the same tab or a new tab."
+                name="./navLinkTab">
+                <items jcr:primaryType="nt:unstructured">
+                    <sametab
+                        jcr:primaryType="nt:unstructured"
+                        text="Same Tab"
+                        value="_self" />
+                    <newtab
+                        jcr:primaryType="nt:unstructured"
+                        text="New Tab"
+                        value="_blank" />
+                </items>
+            </opensin>
+            <thirdParty
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                name="./thirdParty"
+                fieldDescription="Check if the link is to a third party website."
+                text="Is Third Party?"
+                uncheckedValue="false"
+                value="{Boolean}true" />
+            <hidelink
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                fieldDescription="Check to hide the link."
+                checked="false"
+                name="./navHideLink"
+                text="Hide Link"
+                value="Hide Link" />
+        </items>
+    </linkDetails>
+</jcr:root>

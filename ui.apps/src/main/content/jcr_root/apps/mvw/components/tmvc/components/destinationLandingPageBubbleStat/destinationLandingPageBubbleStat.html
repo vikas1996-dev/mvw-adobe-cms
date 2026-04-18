@@ -1,0 +1,98 @@
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+  <sly data-sly-test="${contents.propertiesList}">
+    <sly data-sly-list.content="${contents.propertiesList}">
+      <sly data-sly-test="${content.nodename == 'top-section-vacation-realized-header'}">
+        <sly data-sly-set.header="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'top-section-vacation-realized-description'}">
+        <sly data-sly-set.description="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'resort-properties-bubble-number'}">
+        <sly data-sly-set.ninty="${content.properties}" />
+      </sly>
+
+      <sly data-sly-test="${content.nodename == 'resort-properties-bubble-label'}">
+        <sly data-sly-set.worldClass="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'destinations-bubble-number'}">
+        <sly data-sly-set.fiftyfive="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'destinations-bubble-label'}">
+        <sly data-sly-set.destinationsBubbleLabel="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'experiences-bubble-number'}">
+        <sly data-sly-set.experiences="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'experiences-bubble-label'}">
+        <sly data-sly-set.experiencesLabel="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'iiresorts-bubble-number'}">
+        <sly data-sly-set.iiresorts="${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'iiresorts-bubble-label'}">
+        <sly data-sly-set.iiresortsLabel="${content.properties}" />
+      </sly>
+
+
+    </sly>
+  </sly>
+</sly>
+
+<section class="multi-stats-bubble bg-theme-teal" aria-label="Vacation Statistics">
+  <div class="grid-container">
+    <div class="multi-stats-bubble__container">
+      <div class="multi-stats-bubble__wrapper">
+        <div class="multi-stats-bubble__copy">
+          <h2 class="cmp-title multi-stats-bubble__title align-left m-align-left">
+            ${header}
+          </h2>
+          <p class="multi-stats-bubble__description align-left m-align-left">
+            ${description @context='html'}
+          </p>
+        </div>
+        <div class="multi-stats-bubble__bubbles" aria-label="Statistics bubbles">
+          <div class="multi-stats-bubble__dot multi-stats-bubble__dot--1" aria-hidden="true"></div>
+          <div class="multi-stats-bubble__dot multi-stats-bubble__dot--2" aria-hidden="true"></div>
+          <div class="multi-stats-bubble__dot multi-stats-bubble__dot--3" aria-hidden="true"></div>
+          <div class="multi-stats-bubble__dot multi-stats-bubble__dot--4" aria-hidden="true"></div>
+
+          <div class="multi-stats-bubble__item multi-stats-bubble__item--turquoise multi-stats-bubble__item--1">
+            <div class="multi-stats-bubble__circle">
+              <span class="multi-stats-bubble__number">${ninty}</span>
+            </div>
+            <p class="multi-stats-bubble__label">
+              ${worldClass}
+            </p>
+          </div>
+
+          <div class="multi-stats-bubble__item multi-stats-bubble__item--gray multi-stats-bubble__item--2">
+            <div class="multi-stats-bubble__circle">
+              <span class="multi-stats-bubble__number">${fiftyfive}</span>
+            </div>
+            <p class="multi-stats-bubble__label">${destinationsBubbleLabel}</p>
+          </div>
+
+          <div class="multi-stats-bubble__item multi-stats-bubble__item--indigo multi-stats-bubble__item--3">
+            <div class="multi-stats-bubble__circle">
+              <span class="multi-stats-bubble__number">${iiresorts}</span>
+            </div>
+            <p class="multi-stats-bubble__label">
+              ${iiresortsLabel}
+            </p>
+          </div>
+
+          <div class="multi-stats-bubble__item multi-stats-bubble__item--indigo multi-stats-bubble__item--4">
+            <div class="multi-stats-bubble__circle">
+              <span class="multi-stats-bubble__number">${experiences}</span>
+            </div>
+            <p class="multi-stats-bubble__label">${experiencesLabel}</p>
+          </div>
+
+          <div class="multi-stats-bubble__item multi-stats-bubble__item--turquoise multi-stats-bubble__item--5">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>

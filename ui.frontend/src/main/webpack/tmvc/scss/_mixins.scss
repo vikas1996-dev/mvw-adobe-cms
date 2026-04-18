@@ -1,0 +1,32 @@
+// Basic mixins that were previously from Bootstrap
+
+// Breakpoint mixin
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Clearfix
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+// Hover mixin
+@mixin hover() {
+  &:hover {
+    @content;
+  }
+}
+
+// Size mixin
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

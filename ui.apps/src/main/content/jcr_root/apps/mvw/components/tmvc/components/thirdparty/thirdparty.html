@@ -1,0 +1,82 @@
+<sly data-sly-use.model="com.mvw.core.models.ThirdPartyLinkModalModel" />
+<div data-sly-use.wcmInit="/libs/wcm/foundation/components/page/initwcm.js"
+     data-sly-test="${wcmInit.isTouchAuthoring}"
+     title="Configure component here"
+     class="cq-Overlay cq-Overlay--component cq-droptarget cq-Overlay--placeholder"
+     style="color: rgba(0,0,0,.3);
+        border-color: rgba(0,0,0,.3);
+        background-color: rgba(255,255,255,.25);
+        border-style: solid;
+        border-width: 0.125rem;
+        margin: -0.125rem;
+        height: 50px;
+        width: 100%;
+        line-height: 2.875rem;
+        font-size: 0.875rem;
+        text-align: center;">
+    Configure ${componentContext.component.title}
+</div>
+
+<div class="third-party-modal-tmvc" data-cmp-hook-third-party="modal" data-mod="third-party-modal-cmp">
+    <div class="third-party-modal-tmvc__overlay" data-cmp-hook-third-party="overlay"></div>
+    <div class="third-party-modal-tmvc__content">
+        <div class="third-party-modal-tmvc__header">
+            <button class="third-party-modal-tmvc__close" aria-label="Close modal" type="button" data-cmp-hook-third-party="closeBtn">
+                <svg width="18" height="24" viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.1875 19.3125L9 13.0781L2.76562 19.3125C2.48438 19.5938 2.01562 19.5938 1.6875 19.3125C1.40625 18.9844 1.40625 18.5156 1.6875 18.2344L7.92188 12L1.73438 5.8125C1.40625 5.53125 1.40625 5.0625 1.73438 4.73438C2.01562 4.45312 2.48438 4.45312 2.76562 4.73438L9 10.9688L15.1875 4.73438C15.4688 4.45312 15.9375 4.45312 16.2656 4.73438C16.5469 5.0625 16.5469 5.53125 16.2656 5.8125L10.0312 12L16.2656 18.2344C16.5469 18.5156 16.5469 18.9844 16.2656 19.3125C15.9375 19.5938 15.4688 19.5938 15.1875 19.3125Z" fill="#082940"/>
+                </svg>
+            </button>
+            <h3 data-sly-test="${model.modalTitle}" class="third-party-modal-tmvc__header-title heading3">${model.modalTitle @ context='html'}</h3>
+        </div>
+
+        <div data-sly-test="${model.modalDescription}" class="third-party-modal-tmvc__body">
+            ${model.modalDescription @ context='html'}
+        </div>
+
+        <div class="third-party-modal-tmvc__footer">
+            <sly data-sly-test="${model.leftCtaText}">
+                <a href="#"
+                   class="cmp-button cmp-button--${model.leftCtaStyle} cmp-button--${model.leftCtaSize} ${model.leftIsMainButton ? ' cmp-button--main' : ''}"
+                   target="${model.leftCtaTab == 'new window' ? '_blank' : '_self'}">
+                    ${model.leftCtaText @ context='text'}
+                </a>
+            </sly>
+
+            <sly data-sly-test="${model.rightCtaText}">
+                <a href="#"
+                   class="cmp-button cmp-button--${model.rightCtaStyle} cmp-button--${model.rightCtaSize} ${model.rightIsMainButton ? ' cmp-button--main' : ''}"
+                   target="${model.rightCtaTab == 'new window' ? '_blank' : '_self'}">
+                    ${model.rightCtaText @ context='text'}
+                </a>
+            </sly>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".third-party-modal-tmvc__footer a").forEach(btn => {
+        btn.addEventListener("click", function () {
+            window[dataLayerName].push({
+                event: 'navClick',
+                pageInfo: {
+                    "pageName": pageName,
+                    "pageUrl": document.location.href,
+                    "pageTitle": document.title,
+                    "pageType": "Home",
+                    "siteSection": siteSection,
+                    "subSection": subSection,
+                    "formLoc": locCode,
+                    "previouspageName": previousPageName,
+                    "referrer": document.referrer
+                },
+                linkInfo: {
+                    "linkName": this.innerText.trim(),
+                    "linkType": "Call To Action",
+                    "source": this.getAttribute("href")
+                }
+            });
+            console.log('Analytics on Third Party Modal click event :', window[dataLayerName]);
+        });
+    });
+
+</script>

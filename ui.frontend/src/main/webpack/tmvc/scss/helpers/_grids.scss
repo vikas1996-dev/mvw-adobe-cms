@@ -1,0 +1,72 @@
+/* ----------------------------------------
+   Grid System Helper
+   Desktop: 12 Columns
+   Mobile:  4 Columns
+   Max Width: 1200px (centered)
+   Margins: 120px (1440px) / 24px (mobile)
+   Gap:     24px
+----------------------------------------- */
+
+$grid-gap: 24px;
+$grid-margin-desktop: 120px;
+$grid-margin-mobile: 24px;
+$columns-desktop: 12;
+$columns-mobile: 4;
+$grid-max-width: 1200px;
+
+/* Main grid container */
+.grid-container {
+  display: grid;
+  column-gap: $grid-gap;
+  grid-template-columns: repeat($columns-desktop, 1fr);
+  padding-left: $grid-margin-desktop;
+  padding-right: $grid-margin-desktop;
+  width: 100%;
+  box-sizing: border-box;
+
+  // For 1920px and above - center content with max 1200px
+  @media (min-width: 1920px) {
+    max-width: calc($grid-max-width + ($grid-margin-desktop * 2));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // For 1440px to 1919px - content fits within viewport with 120px padding
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    // Content area = 1440 - 240 = 1200px (perfect fit)
+    max-width: 100%;
+  }
+
+  // For smaller screens, reduce padding
+  @media (max-width: 1439px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @media (max-width: 1023px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: $grid-margin-mobile;
+    padding-right: $grid-margin-mobile;
+    grid-template-columns: repeat($columns-mobile, 1fr);
+  }
+}
+
+/* Optional utility classes for column spans */
+@for $i from 1 through $columns-desktop {
+  .col-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+/* Responsive variants for mobile */
+@media (max-width: 768px) {
+  @for $i from 1 through $columns-mobile {
+    .col-m-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}

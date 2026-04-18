@@ -1,0 +1,103 @@
+query ($path: String!,
+$vacationsPath:String!) {
+    jcr(workspace: LIVE) {
+       
+        propertiesFolderNode: nodeByPath(path: $path) {
+            propertiesRoot: children (
+                fieldSorter: {fieldName:"order", sortType:ASC, ignoreCase:true}) {
+                nodes {
+                    name: value(name: "jcr:title" language:"en")
+                    nodename: value(name: "j:nodename")
+                    
+                    description: value(name: "description", language: "en")
+                    referenceProperty: refNodes(name: "referenceProperty") {
+                        dcmBrand: refNode(name: "dcmBrand") {
+          name: value(name: "name")
+          nodename:value(name:"j:nodename")
+          images: refNodes(name: "images") {
+            name: value(name: "jcr:title", language:"en")
+            nodename: value(name: "j:nodename")
+
+            altText: value(name: "altText", language:"en")
+            photo: refNodes(name: "photo") {
+              name
+              path
+              width: value(name: "j:width")
+              ratio: value(name: "ratio")
+              height: value(name: "j:height")
+            }
+          }
+        }
+                        slug: value(name: "slug")
+                        name: value(name: "name")
+                        featured: value(name:"featured")
+                        nodename: value(name: "j:nodename")
+                        marshaCode: value(name: "marshaCode")
+                        universalPropertyCode: value(name: "universalPropertyCode")
+                        city: value(name:"city", language:"en")
+        state:value(name:"state", language:"en")
+        flags: refNodes(name: "flags") {
+          name: value(name: "name")
+          nodename:value(name:"j:nodename")
+          }
+        images: refNodes(name: "images") {
+          name: value(name: "jcr:title" language:"en")
+          nodename: value(name: "name")
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+                        }
+                        region: refNode(name: "region") {
+                            name: value(name: "name")
+                            nodename: value(name: "j:nodename")
+                            order: value(name: "order")
+                            }
+                            order: value(name: "order")
+                            structuredContent: values(name: "structuredContent")
+                             altText: value(name: "altText", language:"en")
+                            images: refNodes(name: "images") {
+                                name: value(name: "name" language:"en")
+                                nodename: value(name: "name")
+                                photo: refNodes(name: "photo") {
+                                    name
+                                    path
+                                    width: value(name: "j:width")
+                                    ratio: value(name: "ratio")
+                                    height: value(name: "j:height")
+                                    }
+                                    altText: value(name: "altText", language:"en")
+                                   
+                                    }
+                                }
+                            }
+                        }
+                        
+        vacationTypes: nodeByPath(path: $vacationsPath) {
+                children {
+                    nodes {
+                         name: value(name: "jcr:title" language:"en")
+                        nodename: value(name: "j:nodename")
+                        path
+                        images: refNodes(name: "images") {
+                            name: value(name: "name", language:"en")
+                            nodename: value(name: "name")
+                            altText: value(name: "altText", language:"en")
+                            photo: refNodes(name: "photo") {
+                                name
+                                path
+                                width: value(name: "j:width")
+                                ratio: value(name: "ratio")
+                                height: value(name: "j:height")
+                                }
+                        }
+                    }
+                }
+        }
+                    }
+                }
+            

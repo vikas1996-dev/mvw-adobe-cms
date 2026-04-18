@@ -1,0 +1,725 @@
+<sly data-sly-use.model="com.mvw.core.models.ContactUsModel" />
+<div class="contact-us-form" data-mod="contact-us-form">
+    <section class="grid-container contact-us-form__section bg-theme-${model.bgColor @ context='attribute'}" svg-bg-color="gray">
+        <div class="contact-us-form__container">
+            <div class="contact-us-form__step contact-us-form__step--active" data-step="1">
+                <div class="contact-us-form__step-content">
+                    <div class="contact-us-form__question">
+                        <h2 class="${model.initialHeadlineSize @ context='attribute'} cmp-title align-${model.initialHeadlineAlignment @ context='attribute'} m-align-${model.mobileHeadlineAlignment @ context='attribute'}">
+                            ${model.initialHeadlineText}
+                        </h2>
+                        <div class="contact-us-form__separator"></div>
+                        <sly data-sly-test="${model.initialDescription}">
+                            <div class="contact-us-form__subtitle align-${model.descriptionAlignment} m-align-${model.mobileHeadlineAlignment}">
+                                ${model.initialDescription @ context='html'}
+                            </div>
+                        </sly>
+                        <div class="contact-us-form__options align-${model.initialHeadlineAlignment @ context='attribute'} m-align-${model.mobileHeadlineAlignment @ context='attribute'}">
+                            <button type="button"
+                                    class="contact-us-form__option-btn"
+                                    data-owner="no"
+                                    aria-label="${model.initialLeftButtonTitle}">
+                                ${model.initialLeftButtonTitle}
+                            </button>
+                            <button type="button"
+                                    class="contact-us-form__option-btn"
+                                    data-owner="yes"
+                                    aria-label="${model.initialRightButtonTitle}">
+                                ${model.initialRightButtonTitle}
+                            </button>
+                        </div>
+                    </div>
+                    <sly data-sly-test="${!model.hideImageOnMobile}">
+                        <div class="contact-us-form__images">
+                            <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                                <div data-sly-test="${model.numberOfImages == 'one' && model.bigImage}"
+                                     class="image__large img--rounded">
+                                    <img src="${model.bigImage @ context='uri'}"
+                                         alt="${model.bigImageAlt @ context='attribute'}"
+                                         loading="lazy" />
+                                </div>
+                                <div data-sly-test="${model.numberOfImages == 'two' && model.bigImage}"
+                                     class="image__large img--rounded">
+                                    <img src="${model.bigImage @ context='uri'}"
+                                         alt="${model.bigImageAlt @ context='attribute'}"
+                                         loading="lazy" />
+                                    <div data-sly-test="${model.smallImage}"
+                                         class="image__small ${model.smallImagePosition @ context='attribute'} m-small--bottom-left img--rounded"
+                                         aria-hidden="true">
+                                        <img src="${model.smallImage @ context='uri'}"
+                                             alt="${model.smallImageAlt @ context='attribute'}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+            <div class="contact-us-form__step" data-step="2">
+                <div class="contact-us-form__step-content contact-us-form__step-content--help">
+                    <div class="contact-us-form__main-content">
+                        <h2 class="${model.timeshareHeadlineSize @ context='attribute'}
+                     cmp-title
+                     align-${model.timeshareHeadlineAlignment @ context='attribute'}
+                     m-align-${model.mobileHeadlineAlignment @ context='attribute'}">
+                            ${model.timeshareHeadlineText}
+                        </h2>
+                        <div class="contact-us-form__separator"></div>
+                        <div class="contact-us-form__accordion-wrapper">
+                            <div class="contact-us-form__accordion-item" data-accordion="owner-service">
+                                <button type="button"
+                                        class="contact-us-form__accordion-header"
+                                        aria-expanded="false"
+                                        aria-controls="owner-service-panel">
+                                    <div class="contact-us-form__accordion-content m-align-left">
+                                        <h3 class="contact-us-form__card-title">
+                                            ${model.leftButtonText @ context='html'}
+                                        </h3>
+                                    </div>
+                                    <span class="contact-us-form__accordion-icon" aria-hidden="true">
+                              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                                 <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                           </span>
+                                </button>
+                                <div class="contact-us-form__accordion-panel"
+                                     id="owner-service-panel"
+                                     aria-hidden="true">
+                                    <div class="contact-us-form__panel-form">
+                                        <sly data-sly-test="${model.timeshareDescriptionAboveTheForm}">
+                                            <p class="contact-us-form__form-intro">
+                                                ${model.timeshareDescriptionAboveTheForm @ context='html'}
+                                            </p>
+                                        </sly>
+                                        <p class="form__required-note">All fields are required.</p>
+                                        <form novalidate data-form-type="owner-service">
+                                            <div class="form-group">
+                                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" />
+                                                <label for="firstName">First Name</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter your first name</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" />
+                                                <label for="lastName">Last Name</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter your last name</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <select id="country" name="country" autocomplete="country-name">
+                                                    <option value=""></option>
+                                                </select>
+                                                <label for="country">Country / Region of Residence</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please select your country</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="stateGroup">
+                                                <select id="state" name="state" autocomplete="address-level1">
+                                                    <option value=""></option>
+                                                </select>
+                                                <label for="state">State</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please select your state</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="postalCodeGroup">
+                                                <input type="text" id="postalCode" name="postalCode" maxlength="20" autocomplete="postal-code" />
+                                                <label for="postalCode">Zip/Postal Code</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter your zip/postal code</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                                <label for="phone">Phone Number</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter a valid phone number</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" id="email" name="email" autocomplete="email" />
+                                                <label for="email">Email Address</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter a valid email address</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="commentGroup">
+                                                <textarea id="comments" name="comments" rows="4"></textarea>
+                                                <label for="comments">Comments</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter your comments</span>
+                                                </div>
+                                            </div>
+                                            <div class="checkbox-group">
+                                                <div id="consentGroup" class="form-group">
+                                                    <div class="checkbox-wrapper">
+                                                        <input type="checkbox" id="consent" name="consent" class="form__checkbox" required />
+                                                        <label for="consent" class="checkbox-label">
+                                                            YES! I want to receive promotional materials and information with The Marriott Vacation Clubs
+                                                            timeshare by mail, email, phone and/or text (at the number provided with this consent), regardless
+                                                            of any prior preference to the contrary. Texts and calls may be sent via automated technology, and
+                                                            consent to receive them is not required to make a purchase. Messaging and data charges may apply.
+                                                        </label>
+                                                    </div>
+                                                    <div class="form__error-message" id="consentError">
+                                                        You must agree to receive communications to proceed.
+                                                    </div>
+                                                </div>
+                                                <div id="gdprPolicy">
+                                                    <p class="rte-content gdprPolicy__content">
+                                                        By clicking submit you agree that Marriott Vacation Club may use the personal information you provide to
+                                                        contact you about this offer and to process your request. For information on how we collect and use
+                                                        your data, please review our <a href="#" class="form__link">Privacy Policy</a>.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="contact-us-form__submit-btn">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-us-form__accordion-item" data-accordion="purchase-more">
+                                <button type="button"
+                                        class="contact-us-form__accordion-header"
+                                        aria-expanded="false"
+                                        aria-controls="purchase-more-panel">
+                                    <div class="contact-us-form__accordion-content m-align-left">
+                                        <h3 class="contact-us-form__card-title">
+                                            ${model.rightButtonText @ context='html'}
+                                        </h3>
+                                    </div>
+                                    <span class="contact-us-form__accordion-icon" aria-hidden="true">
+                              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                                 <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                           </span>
+                                </button>
+                                <div class="contact-us-form__accordion-panel"
+                                     id="purchase-more-panel"
+                                     aria-hidden="true">
+                                    <div class="contact-us-form__panel-form">
+                                        <sly data-sly-test="${model.timeshareDescriptionBelowTheForm}">
+                                            <p class="contact-us-form__form-intro">
+                                                ${model.timeshareDescriptionBelowTheForm @ context='html'}
+                                            </p>
+                                        </sly>
+                                        <p class="form__required-note">All fields are required.</p>
+                                        <form novalidate data-form-type="purchase-more">
+                                            <div class="form-group">
+                                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" />
+                                                <label for="firstName">First Name</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter your first name</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" />
+                                                <label for="lastName">Last Name</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter your last name</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <select id="country" name="country" autocomplete="country-name">
+                                                    <option value=""></option>
+                                                </select>
+                                                <label for="country">Country / Region of Residence</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please select your country</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="stateGroup">
+                                                <select id="state" name="state" autocomplete="address-level1">
+                                                    <option value=""></option>
+                                                </select>
+                                                <label for="state">State</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please select your state</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="postalCodeGroup">
+                                                <input type="text" id="postalCode" name="postalCode" maxlength="20" autocomplete="postal-code" />
+                                                <label for="postalCode">Zip/Postal Code</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter your zip/postal code</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                                <label for="phone">Phone Number</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter a valid phone number</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" id="email" name="email" autocomplete="email" />
+                                                <label for="email">Email Address</label>
+                                                <div class="error-message" style="display: none">
+                                                    <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                    </svg>
+                                                    <span>Please enter a valid email address</span>
+                                                </div>
+                                            </div>
+                                            <div class="checkbox-group">
+                                                <div id="consentGroup" class="form-group">
+                                                    <div class="checkbox-wrapper">
+                                                        <input type="checkbox" id="consent" name="consent" class="form__checkbox" required />
+                                                        <label for="consent" class="checkbox-label">
+                                                            YES! I want to receive promotional materials and information with The Marriott Vacation Clubs
+                                                            timeshare by mail, email, phone and/or text (at the number provided with this consent), regardless
+                                                            of any prior preference to the contrary. Texts and calls may be sent via automated technology, and
+                                                            consent to receive them is not required to make a purchase. Messaging and data charges may apply.
+                                                        </label>
+                                                    </div>
+                                                    <div class="form__error-message" id="consentError">
+                                                        You must agree to receive communications to proceed.
+                                                    </div>
+                                                </div>
+                                                <div id="gdprPolicy">
+                                                    <p class="rte-content gdprPolicy__content">
+                                                        By clicking submit you agree that Marriott Vacation Club may use the personal information you provide to
+                                                        contact you about this offer and to process your request. For information on how we collect and use
+                                                        your data, please review our <a href="#" class="form__link">Privacy Policy</a>.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="contact-us-form__submit-btn">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-us-form__desktop-form-container">
+                            <div class="contact-us-form__desktop-form" data-desktop-form="owner-service">
+                                <sly data-sly-test="${model.timeshareDescriptionAboveTheForm}">
+                                    <p class="contact-us-form__form-intro">
+                                        ${model.timeshareDescriptionAboveTheForm @ context='html'}
+                                    </p>
+                                </sly>
+                                <p class="form__required-note">All fields are required.</p>
+                                <form novalidate data-form-type="owner-service-desktop">
+                                    <div class="form-group">
+                                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" />
+                                        <label for="firstName">First Name</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your first name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="lastName" name="lastName" autocomplete="family-name" />
+                                        <label for="lastName">Last Name</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your last name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="country" name="country" autocomplete="country-name">
+                                            <option value=""></option>
+                                        </select>
+                                        <label for="country">Country / Region of Residence</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please select your country</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                        <label for="phone">Phone Number</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter a valid phone number</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="email" name="email" autocomplete="email" />
+                                        <label for="email">Email Address</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter a valid email address</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="commentGroup">
+                                        <textarea id="comments" name="comments" rows="4"></textarea>
+                                        <label for="comments">Comments</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your comments</span>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-group">
+                                        <div id="gdprPolicy">
+                                            <p class="rte-content gdprPolicy__content">
+                                                By clicking submit you agree that Marriott Vacation Club may use the personal information you provide to
+                                                contact you about this offer and to process your request. For information on how we collect and use
+                                                your data, please review our <a href="#" class="form__link">Privacy Policy</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="contact-us-form__submit-btn">Submit</button>
+                                </form>
+                            </div>
+                            <div class="contact-us-form__desktop-form" data-desktop-form="purchase-more">
+                                <sly data-sly-test="${model.timeshareDescriptionBelowTheForm}">
+                                    <p class="contact-us-form__form-intro">
+                                        ${model.timeshareDescriptionBelowTheForm @ context='html'}
+                                    </p>
+                                </sly>
+                                <p class="form__required-note">All fields are required.</p>
+                                <form novalidate data-form-type="purchase-more-desktop">
+                                    <div class="form-group">
+                                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" />
+                                        <label for="firstName">First Name</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your first name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="lastName" name="lastName" autocomplete="family-name" />
+                                        <label for="lastName">Last Name</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your last name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="country" name="country" autocomplete="country-name">
+                                            <option value=""></option>
+                                        </select>
+                                        <label for="country">Country / Region of Residence</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please select your country</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="stateGroup">
+                                        <select id="state" name="state" autocomplete="address-level1">
+                                            <option value=""></option>
+                                        </select>
+                                        <label for="state">State</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please select your state</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="postalCodeGroup">
+                                        <input type="text" id="postalCode" name="postalCode" maxlength="20" autocomplete="postal-code" />
+                                        <label for="postalCode">Zip/Postal Code</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your zip/postal code</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                        <label for="phone">Phone Number</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter a valid phone number</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="email" name="email" autocomplete="email" />
+                                        <label for="email">Email Address</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter a valid email address</span>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-group">
+                                        <div id="consentGroup" class="form-group">
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" id="consent" name="consent" class="form__checkbox" required />
+                                                <label for="consent" class="checkbox-label">
+                                                    YES! I want to receive promotional materials and information with The Marriott Vacation Clubs
+                                                    timeshare by mail, email, phone and/or text (at the number provided with this consent), regardless
+                                                    of any prior preference to the contrary. Texts and calls may be sent via automated technology, and
+                                                    consent to receive them is not required to make a purchase. Messaging and data charges may apply.
+                                                </label>
+                                            </div>
+                                            <div class="form__error-message" id="consentError">
+                                                You must agree to receive communications to proceed.
+                                            </div>
+                                        </div>
+                                        <div id="gdprPolicy">
+                                            <p class="rte-content gdprPolicy__content">
+                                                By clicking submit you agree that Marriott Vacation Club may use the personal information you provide to
+                                                contact you about this offer and to process your request. For information on how we collect and use
+                                                your data, please review our <a href="#" class="form__link">Privacy Policy</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="contact-us-form__submit-btn">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="button" class="contact-us-form__back-btn" data-back-to="1">
+                            <i class="fa-thin fa-angle-left"></i><span>Back</span>
+                        </button>
+                    </div>
+                    <div class="contact-us-form__sidebar">
+                        <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                            <div data-sly-test="${model.numberOfImages == 'one' && model.bigImage}"
+                                 class="image__large img--rounded">
+                                <img src="${model.bigImage @ context='uri'}"
+                                     alt="${model.bigImageAlt @ context='attribute'}"
+                                     loading="lazy" />
+                            </div>
+                            <div data-sly-test="${model.numberOfImages == 'two' && model.bigImage}"
+                                 class="image__large img--rounded">
+                                <img src="${model.bigImage @ context='uri'}"
+                                     alt="${model.bigImageAlt @ context='attribute'}"
+                                     loading="lazy" />
+                                <div data-sly-test="${model.smallImage}"
+                                     class="image__small ${model.smallImagePosition @ context='attribute'} m-small--bottom-left img--rounded"
+                                     aria-hidden="true">
+                                    <img src="${model.smallImage @ context='uri'}"
+                                         alt="${model.smallImageAlt @ context='attribute'}" />
+                                </div>
+                            </div>
+                        </div>
+                        <sly data-sly-resource="${'csd-prospect' @ resourceType='mvw/components/tmvc/components/contactUsCSD'}"
+                             data-sly-unwrap="${!wcmmode.edit}" />
+                    </div>
+                </div>
+            </div>
+            <div class="contact-us-form__step" data-step="3">
+                <div class="contact-us-form__step-content request-info">
+                    <div class="contact-us-form__form-wrapper">
+                        <h2 class="${model.noTimeshareHeadlineSize @ context='attribute'}
+                     cmp-title
+                     align-${model.noTimeshareHeadlineAlignment @ context='attribute'}
+                     m-align-${model.mobileHeadlineAlignment @ context='attribute'}">
+                            ${model.noTimeshareHeadlineText}
+                        </h2>
+                        <div class="contact-us-form__form">
+                            <div class="contact-us-form__separator"></div>
+                            <div class="form-main">
+                                <sly data-sly-test="${model.noTimeshareDescription}">
+                                    <p class="contact-us-form__form-intro align-${model.noTimeshareDescriptionAlignment @ context='attribute'}">
+                                        ${model.noTimeshareDescription @ context='html'}
+                                    </p>
+                                </sly>
+                                <p class="form__required-note">All fields are required.</p>
+                                <form id="bonvoyForm" novalidate data-form-type="request-information">
+                                    <div class="form-group" id="visitReasonGroup">
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please select a reason for your visit</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="firstName" name="firstName" autocomplete="given-name" />
+                                        <label for="firstName">First Name</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your first name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="lastName" name="lastName" autocomplete="family-name" />
+                                        <label for="lastName">Last Name</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your last name</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="country" name="country" autocomplete="country-name">
+                                            <option value=""></option>
+                                        </select>
+                                        <label for="country">Country / Region of Residence</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please select your country</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="stateGroup">
+                                        <select id="state" name="state" autocomplete="address-level1">
+                                            <option value=""></option>
+                                        </select>
+                                        <label for="state">State</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please select your state</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="postalCodeGroup">
+                                        <input type="text" id="postalCode" name="postalCode" maxlength="20" autocomplete="postal-code" />
+                                        <label for="postalCode">Zip/Postal Code</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter your zip/postal code</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                        <label for="phone">Phone Number</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter a valid phone number</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="email" name="email" autocomplete="email" />
+                                        <label for="email">Email Address</label>
+                                        <div class="error-message" style="display: none">
+                                            <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                            </svg>
+                                            <span>Please enter a valid email address</span>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-group">
+                                        <div id="consentGroup" class="form-group">
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" id="consent" name="consent" class="form__checkbox" required />
+                                                <label for="consent" class="checkbox-label">
+                                                    YES! I want to receive promotional materials and information with The Marriott Vacation Clubs
+                                                    timeshare by mail, email, phone and/or text (at the number provided with this consent), regardless
+                                                    of any prior preference to the contrary. Texts and calls may be sent via automated technology, and
+                                                    consent to receive them is not required to make a purchase. Messaging and data charges may apply.
+                                                </label>
+                                            </div>
+                                            <div class="form__error-message" id="consentError">
+                                                You must agree to receive communications to proceed.
+                                            </div>
+                                        </div>
+                                        <div id="gdprPolicy">
+                                            <p class="rte-content gdprPolicy__content">
+                                                By clicking submit you agree that Marriott Vacation Club may use the personal information you provide to
+                                                contact you about this offer and to process your request. For information on how we collect and use
+                                                your data, please review our <a href="#" class="form__link">Privacy Policy</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="contact-us-form__submit-btn">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="button" class="contact-us-form__back-btn" data-back-to="1">
+                            <i class="fa-thin fa-angle-left"></i><span>Back</span>
+                        </button>
+                    </div>
+                    <div class="contact-us-form__sidebar">
+                        <div class="contact-us-form__images contact-us-form__images--sidebar">
+                            <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                                <div data-sly-test="${model.numberOfImages == 'one' && model.bigImage}"
+                                     class="image__large img--rounded">
+                                    <img src="${model.bigImage @ context='uri'}"
+                                         alt="${model.bigImageAlt @ context='attribute'}"
+                                         loading="lazy" />
+                                </div>
+                                <div data-sly-test="${model.numberOfImages == 'two' && model.bigImage}"
+                                     class="image__large img--rounded">
+                                    <img src="${model.bigImage @ context='uri'}"
+                                         alt="${model.bigImageAlt @ context='attribute'}"
+                                         loading="lazy" />
+                                    <div data-sly-test="${model.smallImage}"
+                                         class="image__small ${model.smallImagePosition @ context='attribute'} m-small--bottom-left img--rounded"
+                                         aria-hidden="true">
+                                        <img src="${model.smallImage @ context='uri'}"
+                                             alt="${model.smallImageAlt @ context='attribute'}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <sly data-sly-resource="${'csd-owner' @ resourceType='mvw/components/tmvc/components/contactUsCSD'}"
+                             data-sly-unwrap="${!wcmmode.edit}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <!-- filter rules for /conf node -->
+    <filter root="/conf/mvw" mode="merge"/>
+    <filter root="/conf/legal" mode="replace"/>
+    <filter root="/conf/newclub/settings/wcm" mode="replace"/>
+    <filter root="/conf/tmvc/settings/wcm" mode="replace"/>
+    <filter root="/conf/newclub" mode="merge"/>
+    <filter root="/conf/tmvc/settings/dam/cfm" mode="replace"/>
+    <filter root="/conf/tmvc" mode="merge"/>
+    <filter root="/conf/global/settings/dam/adminui-extension/metadataschema/MVWLegalDocumentDetails" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/tmvc-publishing-workflow" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/legal-pdf-title-sync" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/launcher/config/legal-pdf-title-sync" mode="replace"/>
+
+
+    <!-- filter rules for /content node -->
+    <filter root="/content/mvw" mode="merge"/>
+    <filter root="/content/dam/legal/jcr:content" mode="update"/>
+    <filter root="/content/dam/legal" mode="merge"/>
+    <filter root="/content/cq:tags/legal" mode="merge"/>
+    <filter root="/content" mode="update"/>
+    <filter root="/content/experience-fragments/legal" mode="merge"/>
+    <filter root="/content/newclub" mode="merge"/>
+    <filter root="/content/tmvcs" mode="merge"/>
+    <filter root="/content/dam/mvw" mode="merge">
+        <exclude pattern="/content/dam/mvw(/.*)?"/>
+        <include pattern="/content/dam/mvw/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/mvw/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/newclub" mode="merge"/>
+    <filter root="/content/experience-fragments/mvw" mode="merge"/>
+    <filter root="/content/experience-fragments/tmvcs" mode="merge"/>
+    <filter root="/content/cq:graphql" mode="merge"/>
+    <filter root="/content/cq:tags/legal" mode="merge"/>
+
+    <!-- filter rules for /etc node -->
+    <filter root="/etc/notification/email/tmvc" mode="merge"/>
+        <filter root="/etc/notification/email/legal" mode="merge"/>
+    <filter root="/etc/map.publish.local"/>
+    <filter root="/etc/map.publish.dev"/>
+    <filter root="/etc/map.publish.qa"/>
+    <filter root="/etc/map.publish.stage"/>
+    <filter root="/etc/map.publish.prod"/>
+    <filter root="/etc/map.preview.dev"/>
+    <filter root="/etc/map.preview.qa"/>
+    <filter root="/etc/map.preview.stage"/>
+    <filter root="/etc/map.preview.prod"/>
+
+    <!-- filter rules for /var node -->
+    <filter root="/var/workflow/models/tmvc-publishing-workflow" mode="replace"/>
+    <filter root="/var/workflow/models/legal-pdf-title-sync" mode="replace"/>
+</workspaceFilter>

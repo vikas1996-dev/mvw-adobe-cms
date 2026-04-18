@@ -1,0 +1,5 @@
+{
+  "scheduler.expression":"$[env:SITEMAP_SCHEDULE_EXPRESSION;default=]",
+  "searchPath":"/content/tmvcs",
+  "scheduler.name":"Tmvc Sitemap Scheduler"
+}

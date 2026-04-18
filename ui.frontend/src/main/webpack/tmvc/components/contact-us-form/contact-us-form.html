@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Static Frontend file</title>
+    <meta name="template" content="page-content" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-base.css" type="text/css" />
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.js"></script>
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.css" type="text/css" />
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="contact-us-form" data-mod="contact-us-form">
+        <!-- Hero Section to be replaced by hero component -->
+        <section class="grid-container contact-us-form__hero bg-theme-indigo">
+            <div class="contact-us-form__hero-content">
+                <h1 class="heading1 cmp-title align-left">Contact Us</h1>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="grid-container contact-us-form__section bg-theme-gray" svg-bg-color="gray">
+            <div class="contact-us-form__container">
+                <!-- Step 1: Owner Question -->
+                <div class="contact-us-form__step contact-us-form__step--active" data-step="1">
+                    <div class="contact-us-form__step-content">
+                        <div class="contact-us-form__question">
+                            <h3 class="cmp-title align-center m-align-center">
+                                Select One Of The Below Options So We May Better Assist You.
+                            </h3>
+                            <div class="contact-us-form__separator"></div>
+                            <p class="contact-us-form__subtitle align-center m-align-center">
+                                Do you own timeshare with us?
+                            </p>
+                            <div class="contact-us-form__options align-center m-align-center">
+                                <button type="button" class="contact-us-form__option-btn" data-owner="no"
+                                    aria-label="No, I don't own timeshare">
+                                    NO
+                                </button>
+                                <button type="button" class="contact-us-form__option-btn" data-owner="yes"
+                                    aria-label="Yes, I own timeshare">
+                                    YES
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Rounded Images Section -->
+                        <div class="contact-us-form__images">
+                            <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                                <div class="image__large img--rounded">
+                                    <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=900"
+                                        alt="Featured image" />
+                                    <div class="image__small small--bottom-left m-small--bottom-left img--rounded"
+                                        aria-hidden="true">
+                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400"
+                                            alt="Decorative image" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Owner Help Options with Accordion/Inline Forms -->
+                <div class="contact-us-form__step" data-step="2">
+                    <div class="contact-us-form__step-content contact-us-form__step-content--help">
+                        <!-- Left Content: Cards and Forms -->
+                        <div class="contact-us-form__main-content">
+                            <h3 class="heading2 cmp-title contact-us-form__help-title">
+                                How can we help you today?
+                            </h3>
+                            <div class="contact-us-form__separator"></div>
+
+                            <!-- Cards Container -->
+                            <div class="contact-us-form__accordion-wrapper">
+                                <!-- Owner Customer Service Card -->
+                                <div class="contact-us-form__accordion-item " data-accordion="owner-service">
+                                    <button type="button" class="contact-us-form__accordion-header"
+                                        aria-expanded="false" aria-controls="owner-service-panel">
+                                        <div class="contact-us-form__accordion-content">
+                                            <h3 class="contact-us-form__card-title">Owner Customer Service</h3>
+                                            <p class="contact-us-form__card-desc">
+                                                Get in touch with an Owner Services representative for questions about
+                                                your ownership.
+                                            </p>
+                                        </div>
+                                        <span class="contact-us-form__accordion-icon" aria-hidden="true">
+                                            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <!-- Mobile Form Panel -->
+                                    <div class="contact-us-form__accordion-panel" id="owner-service-panel"
+                                        aria-hidden="true">
+                                        <div class="contact-us-form__panel-form">
+                                            <p class="contact-us-form__form-intro">
+                                                Complete the form below and an Owner Services representative
+                                                will contact you shortly.
+                                            </p>
+                                            <p class="form__required-note">All fields are required.</p>
+                                            <form novalidate data-form-type="owner-service">
+                                                <div class="form-group">
+                                                    <input type="text" id="firstName" name="firstName"
+                                                        autocomplete="given-name" />
+                                                    <label for="firstName">First Name</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter your first name</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" id="lastName" name="lastName"
+                                                        autocomplete="family-name" />
+                                                    <label for="lastName">Last Name</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter your last name</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <select id="country" name="country" autocomplete="country-name">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <label for="country">Country / Region of
+                                                        Residence</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please select your country</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="stateGroup">
+                                                    <select id="state" name="state" autocomplete="address-level1">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <label for="state">State</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please select your state</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" id="postalCodeGroup">
+                                                    <input type="text" id="postalCode" name="postalCode" maxlength="20"
+                                                        autocomplete="postal-code" />
+                                                    <label for="postalCode">Zip/Postal Code</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter your zip/postal code</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="tel" id="ownerServicePhone" name="phone"
+                                                        autocomplete="tel" />
+                                                    <label for="ownerServicePhone">Phone Number</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter a valid phone number</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" id="email" name="email" autocomplete="email" />
+                                                    <label for="email">Email Address</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter a valid email address</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="commentGroup">
+                                                    <textarea id="comments" name="comments" rows="4"></textarea>
+                                                    <label for="comments">Comments</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter a valid email address</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <div id="consentGroup" class="form-group">
+                                                        <div class="checkbox-wrapper">
+                                                            <input type="checkbox" id="consent" name="consent"
+                                                                class="form__checkbox" required />
+                                                            <label for="consent" class="checkbox-label">
+                                                                YES! I want to receive promotional materials and
+                                                                information with The Marriott Vacation Clubs
+                                                                timeshare by mail, email, phone and/or text (at
+                                                                the number provided with this consent), regardless
+                                                                of any prior preference to the contrary. Texts and
+                                                                calls may be sent via automated technology, and
+                                                                consent to receive them is not required to make a
+                                                                purchase. Messaging and data charges may apply.
+                                                            </label>
+                                                        </div>
+                                                        <div class="form__error-message" id="consentError">
+                                                            You must agree to receive communications to proceed.
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="gdprPolicy">
+                                                        <p class="rte-content gdprPolicy__content">
+                                                            By clicking submit you agree that Marriott Vacation
+                                                            Club may use the personal information you provide to
+                                                            contact you about this offer and to process your
+                                                            request. For information on how we collect and use
+                                                            your data, please review our
+                                                            <a href="#" class="form__link">Privacy Policy</a>.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <button type="submit"
+                                                    class="contact-us-form__submit-btn">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="contact-us-form__sidebar-login">
+                                        <!-- Want to speak with us? Section -->
+                                        <div class="contact-us-form__speak-images">
+                                            <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                                                <div class="image__large img--rounded">
+                                                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Resort property" />
+                                                    <div class="image__small small--bottom-left m-small--bottom-left img--rounded">
+                                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" alt="Happy couple" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="cmp-title align-left">Want to speak with us?</h3>
+                                        <div class="contact-us-form__separator"></div>
+                                        <p class="contact-us-form__speak-desc">
+                                            Log in to your ownership account to find more specified contact information and to speak to an Owner Services representative.
+                                        </p>
+                                        <div class="contact-us-form__speak-buttons">
+                                            <a href="#" class="contact-us-form__speak-btn">Marriott Vacation Club</a>
+                                            <a href="#" class="contact-us-form__speak-btn">Asia-Pacific Members</a>
+                                            <a href="#" class="contact-us-form__speak-btn">Sheraton Vacation Club & Westin Vacation Club*</a>
+                                        </div>
+                                        <p class="contact-us-form__speak-footnote">*Formerly Vistana</p>
+                                    </div>
+                                </div>
+
+                                <!-- Purchase More Timeshare Card -->
+                                <div class="contact-us-form__accordion-item " data-accordion="purchase-more">
+                                    <button type="button" class="contact-us-form__accordion-header"
+                                        aria-expanded="false" aria-controls="purchase-more-panel">
+                                        <div class="contact-us-form__accordion-content">
+                                            <h3 class="contact-us-form__card-title">Purchase More Timeshare</h3>
+                                            <p class="contact-us-form__card-desc">
+                                                Get in touch with a service team member to learn more about adding to
+                                                your portfolio.
+                                            </p>
+                                        </div>
+                                        <span class="contact-us-form__accordion-icon" aria-hidden="true">
+                                            <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <!-- Mobile Form Panel -->
+                                    <div class="contact-us-form__accordion-panel" id="purchase-more-panel"
+                                        aria-hidden="true">
+                                        <div class="contact-us-form__panel-form">
+                                            <p class="contact-us-form__form-intro">
+                                                Complete the form below and a Vacation Specialist will contact
+                                                you shortly.
+                                            </p>
+                                            <p class="form__required-note">All fields are required.</p>
+                                            <form novalidate data-form-type="purchase-more">
+                                                <div class="form-group">
+                                                    <input type="text" id="firstName" name="firstName"
+                                                        autocomplete="given-name" />
+                                                    <label for="firstName">First Name</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter your first name</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" id="lastName" name="lastName"
+                                                        autocomplete="family-name" />
+                                                    <label for="lastName">Last Name</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter your last name</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <select id="country" name="country" autocomplete="country-name">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <label for="country">Country / Region of
+                                                        Residence</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please select your country</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" id="stateGroup">
+                                                    <select id="state" name="state" autocomplete="address-level1">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <label for="state">State</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please select your state</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" id="postalCodeGroup">
+                                                    <input type="text" id="postalCode" name="postalCode" maxlength="20"
+                                                        autocomplete="postal-code" />
+                                                    <label for="postalCode">Zip/Postal Code</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter your zip/postal code</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                                    <label for="phone">Phone Number</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter a valid phone number</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" id="email" name="email" autocomplete="email" />
+                                                    <label for="email">Email Address</label>
+                                                    <div class="error-message" style="display: none">
+                                                        <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path
+                                                                d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                        </svg>
+                                                        <span>Please enter a valid email address</span>
+                                                    </div>
+                                                </div>
+                                                <div class="checkbox-group">
+                                                    <div id="consentGroup" class="form-group">
+                                                        <div class="checkbox-wrapper">
+                                                            <input type="checkbox" id="consent" name="consent"
+                                                                class="form__checkbox" required />
+                                                            <label for="consent" class="checkbox-label">
+                                                                YES! I want to receive promotional materials and
+                                                                information with The Marriott Vacation Clubs
+                                                                timeshare by mail, email, phone and/or text (at
+                                                                the number provided with this consent), regardless
+                                                                of any prior preference to the contrary. Texts and
+                                                                calls may be sent via automated technology, and
+                                                                consent to receive them is not required to make a
+                                                                purchase. Messaging and data charges may apply.
+                                                            </label>
+                                                        </div>
+                                                        <div class="form__error-message" id="consentError">
+                                                            You must agree to receive communications to proceed.
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="gdprPolicy">
+                                                        <p class="rte-content gdprPolicy__content">
+                                                            By clicking submit you agree that Marriott Vacation
+                                                            Club may use the personal information you provide to
+                                                            contact you about this offer and to process your
+                                                            request. For information on how we collect and use
+                                                            your data, please review our
+                                                            <a href="#" class="form__link">Privacy Policy</a>.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <button type="submit"
+                                                    class="contact-us-form__submit-btn">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="contact-us-form__sidebar-login">
+                                        <!-- Want to speak with us? Section -->
+                                        <div class="contact-us-form__speak-images">
+                                            <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                                                <div class="image__large img--rounded">
+                                                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Resort property" />
+                                                    <div class="image__small small--bottom-left m-small--bottom-left img--rounded">
+                                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" alt="Happy couple" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="cmp-title align-left">Want to speak with us?</h4>
+                                        <div class="contact-us-form__separator"></div>
+                                        <p class="contact-us-form__speak-desc">
+                                            Log in to your ownership account to find more specified contact information and to speak to an Owner Services representative.
+                                        </p>
+                                        <div class="contact-us-form__speak-buttons">
+                                            <a href="#" class="contact-us-form__speak-btn">Marriott Vacation Club</a>
+                                            <a href="#" class="contact-us-form__speak-btn">Asia-Pacific Members</a>
+                                            <a href="#" class="contact-us-form__speak-btn">Sheraton Vacation Club & Westin Vacation Club*</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Desktop Form Container (shows below cards) -->
+                            <div class="contact-us-form__desktop-form-container">
+                                <!-- Owner Service Form -->
+                                <div class="contact-us-form__desktop-form" data-desktop-form="owner-service">
+                                    <p class="contact-us-form__form-intro">
+                                        Complete the form below and an Owner Services representative will
+                                        contact you shortly.
+                                    </p>
+                                    <p class="form__required-note">All fields are required.</p>
+                                    <form novalidate data-form-type="owner-service-desktop">
+                                        <div class="form-group">
+                                            <input type="text" id="firstName" name="firstName"
+                                                autocomplete="given-name" />
+                                            <label for="firstName">First Name</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your first name</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="lastName" name="lastName"
+                                                autocomplete="family-name" />
+                                            <label for="lastName">Last Name</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your last name</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <select id="country" name="country" autocomplete="country-name">
+                                                <option value=""></option>
+                                            </select>
+                                            <label for="country">Country / Region of Residence</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please select your country</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" id="stateGroup">
+                                            <select id="state" name="state" autocomplete="address-level1">
+                                                <option value=""></option>
+                                            </select>
+                                            <label for="state">State</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please select your state</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" id="postalCodeGroup">
+                                            <input type="text" id="postalCode" name="postalCode" maxlength="20"
+                                                autocomplete="postal-code" />
+                                            <label for="postalCode">Zip/Postal Code</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your zip/postal code</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                            <label for="phone">Phone Number</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter a valid phone number</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" id="email" name="email" autocomplete="email" />
+                                            <label for="email">Email Address</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter a valid email address</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="commentGroup">
+                                            <textarea id="comments" name="comments" rows="4"></textarea>
+                                            <label for="comments">Comments</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter a valid email address</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="checkbox-group">
+                                            <div id="consentGroup" class="form-group">
+                                                <div class="checkbox-wrapper">
+                                                    <input type="checkbox" id="consent" name="consent"
+                                                        class="form__checkbox" required />
+                                                    <label for="consent" class="checkbox-label">
+                                                        YES! I want to receive promotional materials and
+                                                        information with The Marriott Vacation Clubs
+                                                        timeshare by mail, email, phone and/or text (at
+                                                        the number provided with this consent), regardless
+                                                        of any prior preference to the contrary. Texts and
+                                                        calls may be sent via automated technology, and
+                                                        consent to receive them is not required to make a
+                                                        purchase. Messaging and data charges may apply.
+                                                    </label>
+                                                </div>
+                                                <div class="form__error-message" id="consentError">
+                                                    You must agree to receive communications to proceed.
+                                                </div>
+                                            </div>
+
+                                            <div id="gdprPolicy">
+                                                <p class="rte-content gdprPolicy__content">
+                                                    By clicking submit you agree that Marriott Vacation
+                                                    Club may use the personal information you provide to
+                                                    contact you about this offer and to process your
+                                                    request. For information on how we collect and use
+                                                    your data, please review our
+                                                    <a href="#" class="form__link">Privacy Policy</a>.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="contact-us-form__submit-btn">Submit</button>
+                                    </form>
+                                </div>
+
+                                <!-- Purchase More Form -->
+                                <div class="contact-us-form__desktop-form" data-desktop-form="purchase-more">
+                                    <p class="contact-us-form__form-intro">
+                                        Complete the form below and a Vacation Specialist will contact you
+                                        shortly.
+                                    </p>
+                                    <p class="form__required-note">All fields are required.</p>
+                                    <form novalidate data-form-type="purchase-more-desktop">
+                                        <div class="form-group">
+                                            <input type="text" id="firstName" name="firstName"
+                                                autocomplete="given-name" />
+                                            <label for="firstName">First Name</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your first name</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="lastName" name="lastName"
+                                                autocomplete="family-name" />
+                                            <label for="lastName">Last Name</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your last name</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <select id="country" name="country" autocomplete="country-name">
+                                                <option value=""></option>
+                                            </select>
+                                            <label for="country">Country / Region of Residence</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please select your country</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="stateGroup">
+                                            <select id="state" name="state" autocomplete="address-level1">
+                                                <option value=""></option>
+                                            </select>
+                                            <label for="state">State</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please select your state</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" id="postalCodeGroup">
+                                            <input type="text" id="postalCode" name="postalCode" maxlength="20"
+                                                autocomplete="postal-code" />
+                                            <label for="postalCode">Zip/Postal Code</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your zip/postal code</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                            <label for="phone">Phone Number</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter a valid phone number</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" id="email" name="email" autocomplete="email" />
+                                            <label for="email">Email Address</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter a valid email address</span>
+                                            </div>
+                                        </div>
+                                        <div class="checkbox-group">
+                                            <div id="consentGroup" class="form-group">
+                                                <div class="checkbox-wrapper">
+                                                    <input type="checkbox" id="consent" name="consent"
+                                                        class="form__checkbox" required />
+                                                    <label for="consent" class="checkbox-label">
+                                                        YES! I want to receive promotional materials and
+                                                        information with The Marriott Vacation Clubs
+                                                        timeshare by mail, email, phone and/or text (at
+                                                        the number provided with this consent), regardless
+                                                        of any prior preference to the contrary. Texts and
+                                                        calls may be sent via automated technology, and
+                                                        consent to receive them is not required to make a
+                                                        purchase. Messaging and data charges may apply.
+                                                    </label>
+                                                </div>
+                                                <div class="form__error-message" id="consentError">
+                                                    You must agree to receive communications to proceed.
+                                                </div>
+                                            </div>
+
+                                            <div id="gdprPolicy">
+                                                <p class="rte-content gdprPolicy__content">
+                                                    By clicking submit you agree that Marriott Vacation
+                                                    Club may use the personal information you provide to
+                                                    contact you about this offer and to process your
+                                                    request. For information on how we collect and use
+                                                    your data, please review our
+                                                    <a href="#" class="form__link">Privacy Policy</a>.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="contact-us-form__submit-btn">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <button type="button" class="contact-us-form__back-btn" data-back-to="1">
+                                <i class="fa-thin fa-angle-left"></i><span>Back</span>
+                            </button>
+                        </div>
+
+                        <!-- Right Sidebar: Images and Login Buttons -->
+                        <div class="contact-us-form__sidebar">
+                            <!-- Circular Images -->
+                            <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                                <div class="image__large img--rounded">
+                                    <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=900"
+                                        alt="Featured image" />
+                                    <div class="image__small small--bottom-left m-small--bottom-left img--rounded"
+                                        aria-hidden="true">
+                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400"
+                                            alt="Decorative image" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Want to speak with us? Section (Desktop) -->
+                            <div class="contact-us-form__sidebar-login desktop-only">
+                                <h3 class="cmp-title align-left">Want to speak with us?</h3>
+                                <div class="contact-us-form__separator"></div>
+                                <p class="contact-us-form__speak-desc">
+                                    Log in to your ownership account to find more specified contact information and to speak to an Owner Services representative.
+                                </p>
+                                <div class="contact-us-form__speak-buttons">
+                                    <a href="#" class="contact-us-form__speak-btn">Marriott Vacation Club</a>
+                                    <a href="#" class="contact-us-form__speak-btn">Asia-Pacific Members</a>
+                                    <a href="#" class="contact-us-form__speak-btn">Sheraton Vacation Club & Westin Vacation Club*</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Step 3: Non-Owner Form (NO path) -->
+                <div class="contact-us-form__step" data-step="3">
+                    <div class="contact-us-form__step-content request-info">
+                        <div class="contact-us-form__form-wrapper">
+                            <h3 class="cmp-title contact-us-form__help-title align-left">
+                                Request Information
+                            </h3>
+                            <div class="contact-us-form__form">
+                                <div class="contact-us-form__separator"></div>
+                                <div class="form-main">
+                                    <p class="contact-us-form__form-intro">
+                                        Complete the Request Information form and a Vacation Specialist will contact you
+                                        shortly.
+                                    </p>
+                                    <p class="form__required-note">All fields are required.</p>
+                                    <form id="bonvoyForm" novalidate data-form-type="request-information">
+                                        <div class="form-group" id="visitReasonGroup">
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please select a reason for your visit</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" id="firstName" name="firstName"
+                                                autocomplete="given-name" />
+                                            <label for="firstName">First Name</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your first name</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" id="lastName" name="lastName"
+                                                autocomplete="family-name" />
+                                            <label for="lastName">Last Name</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your last name</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <select id="country" name="country" autocomplete="country-name">
+                                                <option value=""></option>
+                                            </select>
+                                            <label for="country">Country / Region of Residence</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please select your country</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" id="stateGroup">
+                                            <select id="state" name="state" autocomplete="address-level1">
+                                                <option value=""></option>
+                                            </select>
+                                            <label for="state">State</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please select your state</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" id="postalCodeGroup">
+                                            <input type="text" id="postalCode" name="postalCode" maxlength="20"
+                                                autocomplete="postal-code" />
+                                            <label for="postalCode">Zip/Postal Code</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter your zip/postal code</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="tel" id="phone" name="phone" autocomplete="tel" />
+                                            <label for="phone">Phone Number</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter a valid phone number</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="email" id="email" name="email" autocomplete="email" />
+                                            <label for="email">Email Address</label>
+                                            <div class="error-message" style="display: none">
+                                                <svg class="error-icon" viewBox="0 0 16 16" fill="currentColor"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z" />
+                                                </svg>
+                                                <span>Please enter a valid email address</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="checkbox-group">
+                                            <div id="consentGroup" class="form-group">
+                                                <div class="checkbox-wrapper">
+                                                    <input type="checkbox" id="consent" name="consent"
+                                                        class="form__checkbox" required />
+                                                    <label for="consent" class="checkbox-label">
+                                                        YES! I want to receive promotional materials and
+                                                        information with The Marriott Vacation Clubs
+                                                        timeshare by mail, email, phone and/or text (at
+                                                        the number provided with this consent), regardless
+                                                        of any prior preference to the contrary. Texts and
+                                                        calls may be sent via automated technology, and
+                                                        consent to receive them is not required to make a
+                                                        purchase. Messaging and data charges may apply.
+                                                    </label>
+                                                </div>
+                                                <div class="form__error-message" id="consentError">
+                                                    You must agree to receive communications to proceed.
+                                                </div>
+                                            </div>
+
+                                            <div id="gdprPolicy">
+                                                <p class="rte-content gdprPolicy__content">
+                                                    By clicking submit you agree that Marriott Vacation
+                                                    Club may use the personal information you provide to
+                                                    contact you about this offer and to process your
+                                                    request. For information on how we collect and use
+                                                    your data, please review our
+                                                    <a href="#" class="form__link">Privacy Policy</a>.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Detail popup button This is optional button it is for special offers page form -->
+                                        <button type="submit" class="contact-us-form__submit-btn">
+                                            Submit
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <button type="button" class="contact-us-form__back-btn" data-back-to="1">
+                                <i class="fa-thin fa-angle-left"></i><span>Back</span>
+                            </button>
+                        </div>
+
+                        <!-- Right side content -->
+                        <div class="contact-us-form__sidebar">
+                            <div class="contact-us-form__images contact-us-form__images--sidebar">
+                                <div class="split__col split__image small--bottom-left m-small--bottom-left">
+                                    <div class="image__large img--rounded">
+                                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Resort property" />
+                                        <div class="image__small small--bottom-left m-small--bottom-left img--rounded">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" alt="Happy couple" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-us-form__contact-info">
+                                <!-- Learn More About Timeshare Section -->
+                                <h3 class="contact-us-form__learn-title cmp-title align-left">Learn More About Timeshare</h3>
+                                <div class="contact-us-form__separator"></div>
+                                <h5 class="contact-us-form__learn-subtitle  align-left">Contact Our Vacation Specialists</h5>
+                                <p class="contact-us-form__learn-desc rte-content text-left ">
+                                    Ready to purchase? Call us to learn more about becoming an Owner.
+                                </p>
+                                <div class="contact-us-form__learn-cta-group align-left">
+                                    <a href="tel:888-204-0407" class="contact-us-form__learn-cta cmp-button cmp-button--secondary align-left">Call 888-204-0407</a>
+                                </div>
+                                <div class="contact-us-form__learn-hours text-left">
+                                    <strong>Hours:</strong>
+                                    <p>Monday through Friday</p>
+                                    <p>10 a.m. to 6 p.m. Eastern Time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-site.js"></script>
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-base.js"></script>
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.js"></script>
+</body>
+
+</html>

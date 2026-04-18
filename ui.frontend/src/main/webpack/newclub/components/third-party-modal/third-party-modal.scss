@@ -1,0 +1,193 @@
+@import '../../variables.scss';
+
+.tpm-no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+.tpm-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.is-open {
+    display: flex;
+    animation: tpmFadeIn 0.2s ease-out forwards;
+  }
+}
+
+.tpm-wrapper {
+  background: $white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+
+  position: relative;
+
+  outline: none;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  width: 100%;
+  max-width: 360px;
+  min-height: auto;
+
+  @media (min-width: 768px) {
+    width: 870px;
+    max-width: 870px;
+    min-height: 480px;
+    padding: 96px 48px 64px 48px;
+  }
+}
+
+.tpm-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.89);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 2;
+
+  background-image: url('../resources/images/crossIcon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+  transition: transform 0.2s;
+  padding: 8px !important;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px $white, 0 0 0 4px $black;
+    transform: scale(1.1);
+  }
+}
+
+.tpm-content {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    gap: 0;
+    max-width: 608px;
+    justify-content: flex-start;
+  }
+}
+
+.tpm-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+}
+
+.tpm-title {
+  font-family: "cormorantgaramond", serif;
+  color: $black;
+  font-weight: 400;
+  margin: 0;
+  font-size: 28px;
+  line-height: 35px;
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+    line-height: 45px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: $primary-coral;
+    margin-top: 16px;
+    width: 48px;
+
+    @media (min-width: 768px) {
+      margin-top: 24px;
+      width: 64px;
+    }
+  }
+}
+
+.tpm-body {
+  font-family: "roboto", sans-serif;
+  color: $black;
+  font-weight: 300;
+  margin: 0;
+  font-size: 14px;
+  line-height: 17.5px;
+  margin-bottom: 0;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 64px;
+  }
+}
+
+.tpm-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: auto;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+}
+
+.tpm-ack-btn {
+  height: 32px;
+  padding: 6px 16px; 
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+
+  @media (min-width: 768px) {
+    height: 47px;
+    padding: 8.5px 24px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+@keyframes tpmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

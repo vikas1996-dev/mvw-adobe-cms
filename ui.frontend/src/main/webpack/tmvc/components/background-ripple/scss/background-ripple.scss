@@ -1,0 +1,25 @@
+.cmp-background-ripple{
+    padding: 64px 0px;
+    
+    &.hide-mobile-spacing {
+        @media (max-width: 767px) {
+            padding: 0 !important;
+        }
+    }
+    @media (max-width: 767px) {
+        background: none !important;
+    }
+    .brand-family-cmp{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        @media (max-width: 767px) {
+            padding-bottom: 24px;
+        }
+    }
+    // .quote-cmp{
+    //      @media (max-width: 767px) {
+    //         padding-bottom: 0px;
+    //     }
+    // }
+
+}

@@ -1,0 +1,27 @@
+<template data-sly-template.placeholder="${ @ component_name }">
+  <div data-sly-use.wcmInit="/libs/wcm/foundation/components/page/initwcm.js"
+    data-sly-test="${wcmInit.isTouchAuthoring && wcmmode.edit }"
+    class="cq-Overlay cq-Overlay--component cq-droptarget cq-Overlay--placeholder" style="color: rgba(0,0,0,.3);
+               border-color: rgba(0,0,0,.3);
+               background-color: rgba(255,255,255,.25);
+               border-style: solid;
+               border-width: 0.125rem;
+               margin: -0.125rem;
+               height: 50px;
+               width: 100%;
+               line-height: 2.875rem;
+               font-size: 0.875rem;
+               text-align: center;">
+    <div>Please Configure ${ component_name @ context='text'} Component</div>
+  </div>
+</template>
+<template data-sly-template.button="${ @ iconOnly, label, href, target, ariaLabel, size, type,iconClass,external }">
+  <a class="cmp-button${type ? ' cmp-button--' : ''}${type} ${size @ context='attribute'}${iconOnly ? ' cmp-button--icon-only' : ''}${external=='true' ? ' third-party-link' : ''}"
+    role="button" href="${href @ context='uri'}" target="${target @ context='attribute'}"
+    aria-label="${ariaLabel @ context='attribute'}">
+    <span data-sly-test="${!iconOnly}" class="cmp-button__text">${label @ context='text'}</span>
+    <span data-sly-test="${iconOnly}" class="cmp-button__icon">
+      <i class="${iconClass}"></i>
+    </span>
+  </a>
+</template>

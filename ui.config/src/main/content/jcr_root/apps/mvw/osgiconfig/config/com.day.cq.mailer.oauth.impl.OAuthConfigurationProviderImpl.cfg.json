@@ -1,0 +1,16 @@
+{
+    "authUrl": "$[env:SMTP_AUTH_URL]",
+    "tokenUrl": "$[env:SMTP_TOKEN_URL]",
+    "clientId": "$[env:SMTP_CLIENT_ID]",
+    "clientSecret": "$[secret:SECRET_SMTP_OAUTH_CLIENT_SECRET]",
+    "scopes": [
+       "https://outlook.office.com/SMTP.Send",
+       "openid",
+       "offline_access",
+       "email",
+       "profile"
+    ],
+    "authCodeRedirectUrl": "http://localhost",
+    "refreshUrl": "$[env:SMTP_REFRESH_URL]",
+    "refreshToken": "$[secret:SECRET_SMTP_OAUTH_REFRESH_TOKEN]"
+}

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <rep:policy/>
+    <mvw jcr:primaryType="nt:unstructured">
+        <components jcr:primaryType="nt:unstructured">
+            <form jcr:primaryType="nt:unstructured">
+                <container jcr:primaryType="nt:unstructured">
+                    <form-container
+                        jcr:description="Allows the form components to be dropped into this core form container."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Content Form"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/mvw/components/form/button,/apps/mvw/components/form/hidden,/apps/mvw/components/form/options,/apps/mvw/components/form/text]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </form-container>
+                </container>
+            </form>
+            <languagenavigation jcr:primaryType="nt:unstructured">
+                <policy_xfm
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Marriott Vacations Worldwide Language Navigation - Experience Fragment"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    navigationRoot="/content/mvw"
+                    structureDepth="1">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_xfm>
+            </languagenavigation>
+            <image jcr:primaryType="nt:unstructured">
+                <policy_651483963895698
+                    jcr:description="- Enable lazy loading for faster page loading.&#xd;&#xa;- Define allowed image widths for automatic loading of the image in the most optimal resolution, given the size at which each image is displayed on the page, and the visitor's pixel density.&#xd;&#xa;- Disallow direct asset upload, to force authors to first upload the images to Assets."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Image"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
+                    allowUpload="{Boolean}false"
+                    altValueFromDAM="true"
+                    disableLazyLoading="false"
+                    displayPopupTitle="true"
+                    enableAssetDelivery="true"
+                    isDecorative="false"
+                    jpegQuality="{Long}85"
+                    titleValueFromDAM="true"
+                    uuidDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <plugins jcr:primaryType="nt:unstructured">
+                        <crop
+                            jcr:primaryType="nt:unstructured"
+                            features="*">
+                            <aspectRatios jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    name="Wide Landscape"
+                                    ratio="0.6180"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    name="Landscape"
+                                    ratio="0.8284"/>
+                                <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    name="Square"
+                                    ratio="1"/>
+                                <item3
+                                    jcr:primaryType="nt:unstructured"
+                                    name="Portrait"
+                                    ratio="1.6180"/>
+                            </aspectRatios>
+                        </crop>
+                        <rotate
+                            jcr:primaryType="nt:unstructured"
+                            features="right"/>
+                        <flip
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                    </plugins>
+                </policy_651483963895698>
+            </image>
+            <text jcr:primaryType="nt:unstructured">
+                <policy_641562756958017
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Text"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <rtePlugins jcr:primaryType="nt:unstructured">
+                        <paraformat
+                            jcr:primaryType="nt:unstructured"
+                            features="*">
+                            <formats
+                                jcr:primaryType="nt:unstructured"
+                                override="true">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Paragraph"
+                                    tag="p"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Quote"
+                                    tag="blockquote"/>
+                                <item2
+                                    jcr:primaryType="nt:unstructured"
+                                    description="Preformatted"
+                                    tag="pre"/>
+                            </formats>
+                        </paraformat>
+                        <misctools
+                            jcr:primaryType="nt:unstructured"
+                            features="-">
+                            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                <chars
+                                    jcr:primaryType="nt:unstructured"
+                                    override="true">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        entity="&amp;copy;"
+                                        name="copyright"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        entity="&amp;euro;"
+                                        name="euro"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        entity="&amp;reg;"
+                                        name="registered"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        entity="&amp;trade;"
+                                        name="trademark"/>
+                                </chars>
+                            </specialCharsConfig>
+                        </misctools>
+                        <edit
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                        <findreplace
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                        <undo
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                        <spellcheck
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                        <table
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                        <lists
+                            jcr:primaryType="nt:unstructured"
+                            features="*"/>
+                        <justify
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                        <format
+                            jcr:primaryType="nt:unstructured"
+                            features="bold,italic"/>
+                        <links
+                            jcr:primaryType="nt:unstructured"
+                            features="modifylink,unlink"/>
+                        <subsuperscript
+                            jcr:primaryType="nt:unstructured"
+                            features="-"/>
+                    </rtePlugins>
+                </policy_641562756958017>
+            </text>
+            <title jcr:primaryType="nt:unstructured">
+                <policy_641475696923109
+                    jcr:description="Allows only H1 and disallows links for the main page title."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Title"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedTypes="h1"
+                    linkDisabled="true"
+                    type="h1">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_641475696923109>
+                <policy_641528232375303
+                    jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Title"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedTypes="[h2,h3,h4,h5,h6]"
+                    linkDisabled="false"
+                    type="h2">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_641528232375303>
+            </title>
+            <experiencefragment jcr:primaryType="nt:unstructured">
+                <policy_header
+                    cq:styleDefaultElement="header"
+                    jcr:description="Sets a &lt;header> element on the page header experience fragment."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Header"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_header>
+                <policy_footer
+                    cq:styleDefaultElement="footer"
+                    jcr:description="Sets a &lt;footer> element on the page footer experience fragment."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Footer"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_footer>
+            </experiencefragment>
+            <container jcr:primaryType="nt:unstructured">
+                <policy_1574694950110
+                    jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Root"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/form/container,group:Marriott Vacations Worldwide - Structure]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:authoring jcr:primaryType="nt:unstructured">
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                            <mapping_1575024218483
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="image/*"
+                                droptarget="image"
+                                resourceType="mvw/components/image"/>
+                            <mapping_1575030843388
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="content"
+                                assetMimetype="text/html"
+                                droptarget="experiencefragment"
+                                resourceType="mvw/components/experiencefragment"/>
+                            <mapping_1575030853128
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                droptarget="contentfragment"
+                                resourceType="mvw/components/contentfragment"/>
+                        </assetToComponentMapping>
+                    </cq:authoring>
+                </policy_1574694950110>
+                <policy_1574695586800
+                    jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:lastModified="{Date}2025-11-06T15:58:28.890+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Home Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,group:Marriott Vacations Worldwide - Form,group:Marriott Vacations Worldwide - Structure]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:authoring jcr:primaryType="nt:unstructured">
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                            <mapping_1575030255082
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="image/*"
+                                droptarget="image"
+                                resourceType="mvw/components/image"/>
+                            <mapping_1575030260142
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="content"
+                                assetMimetype="text/html"
+                                droptarget="experiencefragment"
+                                resourceType="mvw/components/experiencefragment"/>
+                            <mapping_1575030269139
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                droptarget="contentfragment"
+                                resourceType="mvw/components/contentfragment"/>
+                        </assetToComponentMapping>
+                    </cq:authoring>
+                </policy_1574695586800>
+                <policy_649128221558427
+                    cq:styleDefaultElement="main"
+                    jcr:description="Sets a &lt;main> element on the page content area."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Page Main"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_649128221558427>
+                <policy_1575040440977
+                    jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:lastModified="{Date}2026-02-04T11:07:04.398+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="XF Root"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/form/container,group:Marriott Vacations Worldwide - Structure,group:TMVC - Content]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:authoring jcr:primaryType="nt:unstructured">
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                            <mapping_1575024218483
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="image/*"
+                                droptarget="image"
+                                resourceType="mvw/components/image"/>
+                            <mapping_1575030843388
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="content"
+                                assetMimetype="text/html"
+                                droptarget="experiencefragment"
+                                resourceType="mvw/components/experiencefragment"/>
+                            <mapping_1575030853128
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="media"
+                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                droptarget="contentfragment"
+                                resourceType="mvw/components/contentfragment"/>
+                        </assetToComponentMapping>
+                    </cq:authoring>
+                </policy_1575040440977>
+                <policy_13548140076750
+                    jcr:description="Layout Policy for TMVC "
+                    jcr:lastModified="{Date}2026-02-19T12:50:28.759+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Layout Policy for TMVC"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    backgroundColorEnabled="true"
+                    backgroundImageEnabled="true"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/tmvc/components/bgripple,/apps/mvw/components/tmvc/components/bonvoyBlockCard,/apps/mvw/components/tmvc/components/bonvoyBlockContainer,/apps/mvw/components/tmvc/components/brandfamily,/apps/mvw/components/tmvc/components/bubblestats,/apps/mvw/components/tmvc/components/cardlisting,/apps/mvw/components/tmvc/components/copyblock,/apps/mvw/components/tmvc/components/ctacontainer,/apps/mvw/components/tmvc/components/navigation,/apps/mvw/components/tmvc/components/faq,/apps/mvw/components/tmvc/components/fullwidthcarousel,/apps/mvw/components/tmvc/components/hero,/apps/mvw/components/tmvc/components/multibubble,/apps/mvw/components/tmvc/components/pageHero,/apps/mvw/components/tmvc/components/quote,/apps/mvw/components/tmvc/components/singleQandA,/apps/mvw/components/tmvc/components/stepped,/apps/mvw/components/tmvc/components/storyblock,/apps/mvw/components/tmvc/components/thirdparty,/apps/mvw/components/tmvc/components/universalcsd,/apps/mvw/components/tmvc/components/vacationcard]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_13548140076750>
+                <policy_3907213688460416
+                    jcr:description="Policy for Forms Pages"
+                    jcr:lastModified="{Date}2026-02-19T13:03:33.481+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Form Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/tmvc/components/contactUs,/apps/mvw/components/tmvc/components/contactUsCSD,/apps/mvw/components/tmvc/components/copyblock,/apps/mvw/components/tmvc/components/ctacontainer,/apps/mvw/components/tmvc/components/formPageHero,/apps/mvw/components/tmvc/components/pageHero,/apps/mvw/components/tmvc/components/request-info-form,/apps/mvw/components/tmvc/components/stepped,/apps/mvw/components/tmvc/components/storyblock,/apps/mvw/components/tmvc/components/thirdparty,/apps/mvw/components/tmvc/components/universalcsd]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_3907213688460416>
+                <policy_3907884926042916
+                    jcr:description="Policy for Standard Page Template"
+                    jcr:lastModified="{Date}2026-02-21T00:13:04.724+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Standard Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/tmvc/components/bgripple,/apps/mvw/components/tmvc/components/bonvoyBlockCard,/apps/mvw/components/tmvc/components/bonvoyBlockContainer,/apps/mvw/components/tmvc/components/brandfamily,/apps/mvw/components/tmvc/components/bubblestats,/apps/mvw/components/tmvc/components/cardlisting,/apps/mvw/components/tmvc/components/cityCollectionPage,/apps/mvw/components/tmvc/components/cityCollectionResorts,/apps/mvw/components/tmvc/components/copyblock,/apps/mvw/components/tmvc/components/ctacontainer,/apps/mvw/components/tmvc/components/navigation,/apps/mvw/components/tmvc/components/faq,/apps/mvw/components/tmvc/components/fullwidthcarousel,/apps/mvw/components/tmvc/components/hero,/apps/mvw/components/tmvc/components/multibubble,/apps/mvw/components/tmvc/components/obl,/apps/mvw/components/tmvc/components/pageHero,/apps/mvw/components/tmvc/components/quote,/apps/mvw/components/tmvc/components/resort-list,/apps/mvw/components/tmvc/components/singleQandA,/apps/mvw/components/tmvc/components/sitemapnavigation,/apps/mvw/components/tmvc/components/stepped,/apps/mvw/components/tmvc/components/storyblock,/apps/mvw/components/tmvc/components/thirdparty,/apps/mvw/components/tmvc/components/breadcrumb,/apps/mvw/components/tmvc/components/universalcsd,/apps/mvw/components/tmvc/components/vacationcard]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_3907884926042916>
+                <policy_4039681737786541
+                    jcr:description="Policy for Resort Listing Page"
+                    jcr:lastModified="{Date}2026-02-19T12:58:26.049+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Resort Listing Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/tmvc/components/pageHero,/apps/mvw/components/tmvc/components/resort-portfolio,/apps/mvw/components/tmvc/components/storyblock,/apps/mvw/components/tmvc/components/thirdparty,/apps/mvw/components/tmvc/components/breadcrumb,/apps/mvw/components/tmvc/components/universalcsd]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_4039681737786541>
+                <policy_4046479213672041
+                    jcr:lastModified="{Date}2026-02-20T23:49:42.958+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Destination Detail Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/tmvc/components/destinationVacationIdeas,/apps/mvw/components/tmvc/components/destinationsDetails,/apps/mvw/components/tmvc/components/destinationDefaultPromotion,/apps/mvw/components/tmvc/components/destinationsHero,/apps/mvw/components/tmvc/components/destinationPromotion,/apps/mvw/components/tmvc/components/destinationsResortsDetails,/apps/mvw/components/tmvc/components/destinationStoryBlock,/apps/mvw/components/tmvc/components/breadcrumb,/apps/mvw/components/tmvc/components/universalcsd]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_4046479213672041>
+                <policy_4046781775007249
+                    jcr:lastModified="{Date}2026-01-06T11:43:48.596+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Destination Listing Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,/apps/mvw/components/tmvc/components/pageHero,/apps/mvw/components/tmvc/components/stepped,/apps/mvw/components/tmvc/components/storyblock,/apps/mvw/components/tmvc/components/thirdparty,/apps/mvw/components/tmvc/components/breadcrumb,/apps/mvw/components/tmvc/components/universalcsd]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_4046781775007249>
+                <policy_4163267500032707
+                    jcr:description="Policy for Resort Details Page"
+                    jcr:lastModified="{Date}2026-01-20T21:10:52.541+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Resort Details Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[/apps/mvw/components/tmvc/components/resort-detail-page,/apps/mvw/components/tmvc/components/resort-details-schema]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_4163267500032707>
+            </container>
+            <teaser jcr:primaryType="nt:unstructured">
+                <policy_1575031387650
+                    jcr:description="Sets the title size to H3."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Teaser"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    titleType="h3">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1575031387650>
+            </teaser>
+            <download jcr:primaryType="nt:unstructured">
+                <policy_1575032193319
+                    jcr:description="Sets the title size to H3."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Download"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowUpload="false"
+                    displayFilename="true"
+                    displayFormat="true"
+                    displaySize="true"
+                    titleType="h3">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1575032193319>
+            </download>
+            <page jcr:primaryType="nt:unstructured">
+                <policy
+                    jcr:description="Includes the required client libraries."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Generic Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[mvw.dependencies,mvw.site]"
+                    clientlibsJsHead="mvw.dependencies">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy>
+            </page>
+            <tmvc jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <page jcr:primaryType="nt:unstructured">
+                        <policy_1763317314833
+                            appResourcesClientlib="tmvc.site"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="TMVC Home Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="wcm.foundation.components.page.responsive"
+                            clientlibsAsync="false">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1763317314833>
+                    </page>
+                    <destinationDetailPage jcr:primaryType="nt:unstructured">
+                        <policy_1763317358923
+                            appResourcesClientlib="tmvc.site"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="TMVC Destination Detail Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="wcm.foundation.components.page.responsive"
+                            clientlibsAsync="false">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1763317358923>
+                    </destinationDetailPage>
+                    <destinationListingPage jcr:primaryType="nt:unstructured">
+                        <policy_1763317326823
+                            appResourcesClientlib="tmvc.site"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="TMVC Destination List Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="wcm.foundation.components.page.responsive"
+                            clientlibsAsync="false">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1763317326823>
+                    </destinationListingPage>
+                    <resortpage jcr:primaryType="nt:unstructured">
+                        <policy_1763317325801
+                            appResourcesClientlib="tmvc.site"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="TMVC Resort Detail Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="wcm.foundation.components.page.responsive"
+                            clientlibsAsync="false">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1763317325801>
+                    </resortpage>
+                    <resortListingPage jcr:primaryType="nt:unstructured">
+                        <policy_1763317325912
+                            appResourcesClientlib="tmvc.site"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="TMVC Resort List Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="wcm.foundation.components.page.responsive"
+                            clientlibsAsync="false">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1763317325912>
+                    </resortListingPage>
+                    <standardPage jcr:primaryType="nt:unstructured">
+                        <policy_1763317327734
+                            appResourcesClientlib="tmvc.site"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="TMVC Standard Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="wcm.foundation.components.page.responsive"
+                            clientlibsAsync="false">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1763317327734>
+                    </standardPage>
+                    <formsPage jcr:primaryType="nt:unstructured">
+                        <policy_1763317328645
+                            appResourcesClientlib="tmvc.site"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="TMVC Form Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="wcm.foundation.components.page.responsive"
+                            clientlibsAsync="false">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1763317328645>
+                    </formsPage>
+                </components>
+            </tmvc>
+            <xfpage jcr:primaryType="nt:unstructured">
+                <policy_1767007555340
+                    jcr:lastModified="{Date}2026-02-19T13:13:00.501+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="XF policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[mvw.site,tmvc.site]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1767007555340>
+            </xfpage>
+        </components>
+    </mvw>
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured"/>
+                <page jcr:primaryType="nt:unstructured">
+                    <jcr:content
+                        jcr:primaryType="nt:unstructured"
+                        mergeList="{Boolean}true"/>
+                    <default
+                        jcr:description="Policy of the default page"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Default Page"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[wcm.foundation.components.page.responsive]">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </default>
+                </page>
+            </components>
+        </foundation>
+    </wcm>
+</jcr:root>

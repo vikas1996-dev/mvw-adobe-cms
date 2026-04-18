@@ -1,0 +1,6 @@
+{
+  "max.age":"86400",
+  "filter.pattern":[
+    "/content/legal/(.*)"
+  ]
+}

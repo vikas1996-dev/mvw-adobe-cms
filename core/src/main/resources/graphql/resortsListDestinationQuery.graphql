@@ -1,0 +1,34 @@
+query (
+  $propertiesFolderNode: String!
+) {
+  jcr(workspace: LIVE) {
+
+    propertiesFolderNode: nodeByPath(path: $propertiesFolderNode) {
+      propertiesRoot: children(typesFilter: {types: ["dcm:properties"]}) {
+        nodes {
+          name: value(name: "name" language:"en")
+          city: value(name:"city", language: "en")
+          state: value(name:"state", language: "en")
+          country: value(name:"country", language: "en")
+          continent: value(name:"continent", language: "en")
+          region: value(name:"region", language: "en")
+          ✅ dcmBrand: refNode(name: "dcmBrand") {
+            name: value(name: "name")
+            nodename: value(name: "j:nodename")
+          }
+          slug: value(name: "slug")
+          subLocale:refNode(name: "sublocale") {
+                        name: value(name: "jcr:title" language:"en")
+                        priority: value(name: "priority")
+                    }
+                    locale:refNode(name: "locale") {
+                        name: value(name: "jcr:title" language:"en")
+                        priority: value(name: "priority")
+                    }
+        }
+      }
+    }
+
+    
+  }
+}

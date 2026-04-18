@@ -1,0 +1,68 @@
+query (
+$editorialPath:String!,
+$query1:String!) {
+    jcr(workspace: LIVE) {
+        promotions: nodesByQuery(query: $query1) {
+            promoDestinations: nodes {
+                name: value(name: "name", language:"en")
+                path
+                nodename: value(name: "nodename")
+                structuredContent: values(name: "structuredContent")
+                destinations: refNodes(name:"destinations", language:"en") {
+                        nodename: name
+                    }
+                shortDescriptionAd: value(name:"shortDescriptionAd", language:"en")
+                buttonOfferTextAd: value(name:"buttonOfferTextAd", language:"en")
+                buttonOfferUrlAd: value(name:"buttonOfferUrlAd", language:"en")
+                buttonOfferTextAd1: value(name:"buttonOfferTextAd1", language:"en")
+                buttonOfferUrlAd1: value(name:"buttonOfferUrlAd1", language:"en")
+                placementId: refNodes(name:"placementId") {
+                    nodename: name
+                    }
+                descriptionAd: value(name:"descriptionAd" language:"en")
+                priority: value(name:"priority")
+                imagesAd: refNodes(name: "imagesAd") {
+                    name: value(name: "jcr:title", language:"en")
+                    nodename: value(name: "name")
+                    altText: value(name: "altText", language:"en")
+                    photo: refNodes(name: "photo") {
+                        name
+                        path
+                        width: value(name: "j:width")
+                        ratio: value(name: "ratio")
+                        height: value(name: "j:height")
+                        }
+                }
+            }
+        }
+        
+       
+                            editorial: nodeByPath(path: $editorialPath) {
+                          copy: descendants (typesFilter: {types: ["sc:Input", "sc:Text", "sc:Richtext"]}) {
+                          textFields: nodes {
+                            nodename: name
+                            name: value(name: "name", language:"en")
+                            path
+                            description: value(name:"value")
+                        }
+                      }
+                        }
+                         editorialImages: nodeByPath(path: "/sites/mvcs/contents/editorial") {
+images: descendants (typesFilter: {types: ["sc:Asset"]}) {
+                        nodes {
+                            name
+                            images: refNodes(name: "images") {
+                                name: value(name: "name")
+                                altText: value(name: "altText", language: "en")
+                                photo: refNodes(name: "photo") {
+                                    name
+                                    path
+                                    }
+                                }
+                            }
+                       } 
+        }
+      
+                    }
+                }
+            

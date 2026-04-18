@@ -1,0 +1,5 @@
+{
+  "endpoint": "$[env:JAHIA_API_ENDPOINT]",
+  "authToken": "$[secret:JAHIA_AUTH_TOKEN]",
+  "imagePath": "$[env:JAHIA_IMAGE_PATH]"
+}

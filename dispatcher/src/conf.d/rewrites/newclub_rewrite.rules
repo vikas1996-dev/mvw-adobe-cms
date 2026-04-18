@@ -1,0 +1,72 @@
+### START NEWCLUB RULES ###
+
+# Match ONLY these hosts (plus optional www for live)
+RewriteCond %{HTTP_HOST} ^(dev-publish\.uphoria\.com|qa-publish\.uphoria\.com|stage-publish\.uphoria\.com|www\.uphoria\.com|uphoria\.com)$ [NC]
+
+# 1) Redirect AEM homepage path to "/"
+RewriteCond %{REQUEST_URI} ^/content/newclub/us/en/?$ [NC]
+RewriteRule ^/content/newclub/us/en/?$ / [NE,L,R=302]
+RewriteCond %{REQUEST_URI} ^/content/newclub/us/en\.html$ [NC]
+RewriteRule ^/content/newclub/us/en\.html$ / [NE,L,R=302]
+
+# 2) Strip internal AEM content path -> pretty URL
+# /content/newclub/us/en/foo/bar.html -> /foo/bar.html
+RewriteCond %{HTTP_HOST} ^(dev-publish\.uphoria\.com|qa-publish\.uphoria\.com|stage-publish\.uphoria\.com|www\.uphoria\.com|uphoria\.com)$ [NC]
+RewriteCond %{REQUEST_URI} !jcr:content [NC]
+RewriteRule ^/content/newclub/us/en/(.*)$ /$1 [NE,L,R=302]
+
+# 3) robots.txt (adjust DAM path if different)
+RewriteCond %{HTTP_HOST} ^(dev-publish\.uphoria\.com|qa-publish\.uphoria\.com|stage-publish\.uphoria\.com|www\.uphoria\.com|uphoria\.com)$ [NC]
+RewriteRule ^/?robots\.txt$ /content/dam/newclub/seo/robots.txt [PT,L]
+
+
+############### STANDARD NEWCLUB RULES ###############
+
+# 4) Render English home page by default when user hits "/"
+RewriteCond %{HTTP_HOST} ^(dev-publish\.uphoria\.com|qa-publish\.uphoria\.com|stage-publish\.uphoria\.com|www\.uphoria\.com|uphoria\.com)$ [NC]
+RewriteRule ^/$ /content/newclub/us/en.html [PT,L]
+
+# 4a) Extensionless page URL -> .html (keeps pretty URL while allowing dispatcher caching)
+RewriteCond %{HTTP_HOST} ^(dev-publish\.uphoria\.com|qa-publish\.uphoria\.com|stage-publish\.uphoria\.com|www\.uphoria\.com|uphoria\.com)$ [NC]
+RewriteCond %{REQUEST_METHOD} =GET [OR]
+RewriteCond %{REQUEST_METHOD} =HEAD
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} !^/apps/ [NC]
+RewriteCond %{REQUEST_URI} !^/bin/ [NC]
+RewriteCond %{REQUEST_URI} !^/content/ [NC]
+RewriteCond %{REQUEST_URI} !^/conf/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc\.clientlibs/ [NC]
+RewriteCond %{REQUEST_URI} !^/home/ [NC]
+RewriteCond %{REQUEST_URI} !^/libs/ [NC]
+RewriteCond %{REQUEST_URI} !^/system/ [NC]
+RewriteCond %{REQUEST_URI} !^/tmp/ [NC]
+RewriteCond %{REQUEST_URI} !^/var/ [NC]
+RewriteCond %{REQUEST_URI} !^/dispatcher/ [NC]
+RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteCond %{REQUEST_URI} !^/cgi/ [NC]
+RewriteCond %{REQUEST_URI} !\.[^/]+$
+RewriteRule ^/(.+?)/?$ /content/newclub/us/en/$1.html [PT,QSA,L]
+
+# 7) Pretty URL -> AEM content mapping for all non-system paths
+# Example: /foo/bar.html -> /content/newclub/us/en/foo/bar.html
+RewriteCond %{HTTP_HOST} ^(dev-publish\.uphoria\.com|qa-publish\.uphoria\.com|stage-publish\.uphoria\.com|www\.uphoria\.com|uphoria\.com)$ [NC]
+RewriteCond %{REQUEST_URI} !^/apps/ [NC]
+RewriteCond %{REQUEST_URI} !^/bin/ [NC]
+RewriteCond %{REQUEST_URI} !^/content/ [NC]
+RewriteCond %{REQUEST_URI} !^/conf/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc\.clientlibs/ [NC]
+RewriteCond %{REQUEST_URI} !^/home/ [NC]
+RewriteCond %{REQUEST_URI} !^/libs/ [NC]
+RewriteCond %{REQUEST_URI} !^/system/ [NC]
+RewriteCond %{REQUEST_URI} !^/tmp/ [NC]
+RewriteCond %{REQUEST_URI} !^/var/ [NC]
+RewriteCond %{REQUEST_URI} !^/dispatcher/ [NC]
+RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteCond %{REQUEST_URI} !^/cgi/ [NC]
+RewriteRule ^/(.*)$ /content/newclub/us/en/$1 [PT,QSA,L]
+
+### END NEWCLUB RULES ###

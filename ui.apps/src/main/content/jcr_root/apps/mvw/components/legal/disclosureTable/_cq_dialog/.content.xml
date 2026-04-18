@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <welcome
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Welcome Text: (default Welcome to your timeshare product disclosure center)"
+                                fieldLabel="Welcome Text"
+                                value="Welcome to your timeshare product disclosure center"
+                                name="./welcomeText" />
+                            <disclosurecopy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="Disclosure Copy Text ( default: For your convenience, you can view all the general disclosures related to your timeshare purchase. Please refer to your personal purchase agreement for additional details.)"
+                                fieldLabel="Disclosure Copy Text"
+                                name="./copyText"
+                                useFixedInlineToolbar="{Boolean}true"
+                                value="For your convenience, you can view all the general disclosures related to your timeshare purchase. Please refer to your personal purchase agreement for additional details.">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/mvw/components/legal/richtext_block/cq:dialog/content/items/richtext/rtePlugins" />
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/mvw/components/legal/richtext_block/cq:dialog/content/items/richtext/uiSettings" />
+                            </disclosurecopy>
+                        </items>
+                    </general>
+                    <resort
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Resort Configuration"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Resort Name Details"
+                                fieldLabel="Resort Name"
+                                name="./resortName"/>
+                            <folderPath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="configure the assets path for timeshare to render active/archive paths"
+                                fieldLabel="Time share Path"
+                                multiple="false"
+                                name="./folderPath"
+                                required="{Boolean}true"
+                                rootPath="/content/dam/legal" />
+                        </items>
+                    </resort>
+                    <tabLabels
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tab Labels"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <activetab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Tab name for Active documents(default: Legal Documents)"
+                                fieldLabel="Tab name for Active documents"
+                                name="./active_tab"
+                                required="{Boolean}true"
+                                value="Legal Documents" />
+                            <archievetab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Tab name for Archieve documents(default:Previous Versions)"
+                                fieldLabel="Tab name for Archieve documents"
+                                name="./previous_tab"
+                                required="{Boolean}true"
+                                value="Previous Versions" />
+                        </items>
+                    </tabLabels>
+                    <tableConfigs
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Table Configurations"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column-1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Name for first column(default: Document Title)"
+                                fieldLabel="Column 1"
+                                name="./first_column"
+                                required="{Boolean}true"
+                                value="Document Title" />
+                            <column-2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Name for first column(default: View PDF)"
+                                fieldLabel="Column 2"
+                                name="./second_column"
+                                required="{Boolean}true"
+                                value="View PDF" />
+                            <download
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Label for Download button (default: DOWNLOAD ALL)"
+                                fieldLabel="Label for Download button"
+                                name="./download"
+                                required="{Boolean}true"
+                                value="DOWNLOAD ALL" />
+                            <showDownloadAll
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./showDownloadAll"
+                                fieldDescription="Check to show the 'Download All' button."
+                                text="Show Download All Button?"
+                                uncheckedValue="false"
+                                value="{Boolean}true" />
+                        </items>
+                    </tableConfigs>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

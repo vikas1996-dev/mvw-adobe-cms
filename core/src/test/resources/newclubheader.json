@@ -1,0 +1,44 @@
+{
+  "header": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "logoImage": "/content/dam/mvw/Logo.svg",
+    "jcr:lastModifiedBy": "admin",
+    "homeLink": "/content/newclub/us/en",
+    "jcr:created": "Mon Nov 03 2025 17:10:19 GMT-0500",
+    "jcr:lastModified": "Tue Nov 04 2025 12:10:45 GMT+0530",
+    "sling:resourceType": "mvw/components/newclub/header",
+    "logoImageAltText": "Uphoria All-Inclusive Club by Marriott Bonvoy",
+    "buttonLink": "/content/mvw/us/en",
+    "buttonHide" : "true",
+    "buttonText": "Login",
+    "buttonVariation": "primary",
+    "iconClass": "plus",
+    "navigationLink": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Explore Destination",
+        "navLinkTab": "_blank",
+        "navLinkUrl": "/content/mvw/us/en",
+        "navHideLink": "true"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "About Us ",
+        "navLinkTab": "_self",
+        "navLinkUrl": "/content/mvw/us/en",
+        "navHideLink": "true"
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Contact",
+        "navLinkTab": "_self",
+        "navLinkUrl": "/content/mvw/us/en",
+        "navHideLink": "Hide Link",
+        "navHideLink": "false"
+      }
+    }
+  }
+
+}

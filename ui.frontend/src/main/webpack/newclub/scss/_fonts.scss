@@ -1,0 +1,73 @@
+/* ---------------------------
+   Font Face Declarations
+--------------------------- */
+
+//$font-folder: '/etc.clientlibs/mvw/clientlibs/clientlib-site/resources/fonts';
+$font-folder: '../resources/fonts';
+
+
+/* REGULAR (400) */
+@font-face {
+  font-family: 'roboto'; 
+  src: url('#{$font-folder}/roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* MEDIUM (500) */
+@font-face {
+  font-family: 'roboto';
+  src: url('#{$font-folder}/roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SEMIBOLD (600) */
+@font-face {
+  font-family: 'roboto';
+  src: url('#{$font-folder}/roboto/Roboto-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* BOLD (700) */
+@font-face {
+  font-family: 'roboto';
+  src: url('#{$font-folder}/roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* LIGHT (300) */
+@font-face {
+  font-family: 'roboto';
+  src: url('#{$font-folder}/roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ---------------------------
+   Cormorant Garamond Family 
+--------------------------- */
+
+@font-face {
+  font-family: 'cormorantgaramond';
+  src: url('#{$font-folder}/cormorantGaramond/CormorantGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'cormorantgaramond';
+  src: url('#{$font-folder}/cormorantGaramond/CormorantGaramond-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic; 
+  font-display: swap;
+}

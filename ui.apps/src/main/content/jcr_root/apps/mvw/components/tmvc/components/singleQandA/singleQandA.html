@@ -1,0 +1,23 @@
+<sly data-sly-use.model="com.mvw.core.models.SingleQA"/>
+<sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+<sly data-sly-call="${tpl.placeHolderBlock @
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+
+<div class="faq-wrapper  bg-theme-${model.copySectionBgColor} m-bg-theme-${model.brandIconImageBgColor}" data-mod="single-qa" data-parent-component="SingleQA">
+    <div class="faq-section m-${model.copyAlignment} grid-container" aria-label="Frequently Asked Question">
+        <div data-sly-test="${model.logo}" class="qa-icon" aria-hidden="true">
+            <img src="${model.logo @ context='uri'}" loading="lazy" alt="${model.altText}" />
+        </div>
+        <div class="faq-content m-${model.copyAlignment}">
+            <sly data-sly-test="${model.headlineTag}">
+                <span data-sly-element="${model.headlineTag}" class="faq-question m-align-${model.copyAlignment} ${model.headlineType} align-${model.copyAlignmentDesktop}">${model.headlineText @ context ='html'}</span>
+            </sly>
+            <div class="faq-button-wrapper  align-${model.copyAlignmentDesktop}">
+                <sly data-sly-resource="${'primaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"></sly>
+            </div>
+        </div>
+    </div>
+</div>

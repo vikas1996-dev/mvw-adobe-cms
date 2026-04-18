@@ -1,0 +1,26 @@
+{
+  "count": 104,
+  "list": [
+    {
+      "tripadvisorId": "6440147",
+      "universalPropertyCode": "WSJSTTWJ",
+      "rating": null,
+      "reviews": null,
+      "ratingImage": null
+    },
+    {
+      "tripadvisorId": "1145564",
+      "universalPropertyCode": "WLORCUNWL",
+      "rating": "004.5",
+      "reviews": "7986",
+      "ratingImage": "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-11216-5.svg"
+    },
+    {
+      "tripadvisorId": "1023257",
+      "universalPropertyCode": "WPORLIHWP",
+      "rating": "98.2",
+      "reviews": "90101",
+      "ratingImage": "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.0-11216-5.svg"
+    }
+  ]
+}

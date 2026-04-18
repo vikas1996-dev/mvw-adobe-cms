@@ -1,0 +1,28 @@
+<sly data-sly-use.model="com.mvw.core.models.UniversalCSD">
+    <sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+    <sly data-sly-call="${tpl.placeHolderBlock @ 
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+
+    <div class="csd-cmp bg-theme-${model.copySectionBgColor} m-bg-theme-${model.brandIconImageBgColor}"
+        style="background-image: url('${model.bgImage @ context='uri'}'); background-size: cover; background-position: center;" data-parent-component="UniversalCSD">
+        <div class="grid-container">
+            <sly data-sly-test="${model.headlineTag}">
+                <span data-sly-element="${model.headlineTag}"
+                    class="cmp-title title ${model.headlineType} align-${model.copySectionAlignment} m-align-${model.copyAlignment}">${model.headlineText @ context='html'}</span>
+            </sly>
+
+
+            <div class="content align-${model.copySectionAlignment} m-align-${model.copyAlignment} rte-content">
+                ${model.shortDescription @ context='html'}
+            </div>
+
+            <div class="cmp-btn align-${model.copySectionAlignment} m-align-${model.copyAlignment}">
+                <sly data-sly-resource="${'cta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}">
+                </sly>
+            </div>
+        </div>
+    </div>
+</sly>

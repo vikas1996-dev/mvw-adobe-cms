@@ -1,0 +1,12 @@
+<sly data-sly-use.destinations="com.mvw.core.models.DestinationLandingPageModel" />
+<sly data-sly-use.content="com.mvw.core.models.StaticDetailModel" />
+<div class="destination-landing" 
+     data-component="destination-landing" 
+     data-api-endpoint="${currentPage.path}/_jcr_content.data.json"
+     data-image-base-url="https://content-stg.vistana.com/files/live">
+<sly data-sly-resource="${ 'hero' @ resourceType='mvw/components/tmvc/components/destinationLandingHero' }"></sly>
+<sly data-sly-resource="${ 'stat' @ resourceType='mvw/components/tmvc/components/destinationLandingPageBubbleStat' }"></sly> 
+<sly data-sly-resource="${ 'destinations' @ resourceType='mvw/components/tmvc/components/destinationLandingPageDestinations' }"></sly>
+<sly data-sly-resource="${ 'articles' @ resourceType='mvw/components/tmvc/components/destinationLandingPageArtices' }"></sly>
+<sly data-sly-resource="${ 'promos' @ resourceType='mvw/components/tmvc/components/destinationLandingPagePromotions' }"></sly>
+</div>

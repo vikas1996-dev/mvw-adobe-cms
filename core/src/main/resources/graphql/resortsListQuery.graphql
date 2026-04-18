@@ -1,0 +1,101 @@
+query (
+  $query1: String!,
+  $propertiesFolderNode: String!
+) {
+  jcr(workspace: LIVE) {
+
+    propertiesFolderNode: nodeByPath(path: $propertiesFolderNode) {
+      propertiesRoot: children(typesFilter: {types: ["dcm:properties"]}) {
+        nodes {
+
+          name: value(name: "name" language:"en")
+          marshaCode: value(name: "marshaCode")
+          universalPropertyCode: value(name: "universalPropertyCode")
+
+          city: value(name:"city", language: "en")
+          state: value(name:"state", language: "en")
+          country: value(name:"country", language: "en")
+          continent: value(name:"continent", language: "en")
+          region: value(name:"region", language: "en")
+
+          ✅ dcmBrand: refNode(name: "dcmBrand") {
+            name: value(name: "name")
+            nodename: value(name: "j:nodename")
+          }
+
+          images: refNodes(name: "images") {
+            name: value(name: "jcr:title" language:"en")
+            nodename: value(name: "name")
+            altText: value(name: "altText", language:"en")
+            photo: refNodes(name: "photo") {
+              name
+              path
+              width: value(name: "j:width")
+              ratio: value(name: "ratio")
+              height: value(name: "j:height")
+            }
+            referenceID: refNode(name: "referenceID") {
+                            name
+                            path
+                        }
+          }
+
+          tripadvisor: value(name:"tripadvisor")
+          tripadvisorId: value(name:"tripAdvisorId")
+
+          activityTags: refNodes(name: "activityTags") {
+            name: value(name: "jcr:title" language:"en")
+            nodename: value(name: "j:nodename")
+          }
+
+          vacationTypes: refNodes(name: "vacationTypes") {
+            name: value(name: "jcr:title" language:"en")
+            nodename: value(name: "j:nodename")
+          }
+slug: value(name: "slug")
+          flags: refNodes(name: "flags") {
+            name: value(name: "name", language:"en")
+            nodename: value(name: "j:nodename")
+          }
+          subLocale:refNode(name: "sublocale") {
+                        name: value(name: "jcr:title" language:"en")
+                        priority: value(name: "priority")
+                    }
+                    locale:refNode(name: "locale") {
+                        name: value(name: "jcr:title" language:"en")
+                        priority: value(name: "priority")
+                    }
+        }
+      }
+    }
+
+    promotions: nodesByQuery(query: $query1) {
+      nodes {
+        nodename: value(name: "j:nodename")
+        name: value(name: "name", language: "en")
+        priority: value(name: "priority")
+        path
+
+        shortDescriptionAd: value(name: "shortDescriptionAd", language: "en")
+        buttonOfferTextAd: value(name: "buttonOfferTextAd", language: "en")
+        buttonOfferUrlAd: value(name: "buttonOfferUrlAd", language: "en")
+        buttonOfferTextAd1: value(name:"buttonOfferTextAd1" language:"en")
+        buttonOfferUrlAd1: value(name:"buttonOfferUrlAd1" language:"en")
+        descriptionAd: value(name: "descriptionAd", language: "en")
+
+        imagesAd: refNodes(name: "imagesAd") {
+          name: value(name: "jcr:title", language: "en")
+          nodename: value(name: "name")
+          altText: value(name: "altText", language: "en")
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+      }
+    }
+  }
+}

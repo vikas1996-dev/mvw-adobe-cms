@@ -1,0 +1,222 @@
+<sly data-sly-use.model="com.mvw.core.models.ResortDiningModel" />
+<sly data-sly-use.nearbyModel="com.mvw.core.models.ResortNearByDiningModel" />
+
+
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+  <sly data-sly-test="${contents.propertiesList}">
+    <sly data-sly-list.content="${contents.propertiesList}">
+      <sly data-sly-test="${content.nodename == 'atmosphere-icon'}">
+        <sly data-sly-set.atmosphereIcon="${content.properties  @ context='html'}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'view-dining-details-label'}">
+        <sly data-sly-set.viewDiningDetails="${content.properties  @ context='html'}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'view-nearby-dining-label'}">
+        <sly data-sly-set.viewNearbyDining="${content.properties  @ context='html'}" />
+      </sly>
+
+    </sly>
+
+  </sly>
+</sly>
+<sly data-sly-test="${model.propertiesList}">
+
+  <div class="resort-dining-sec" id="dining">
+    <div class="grid-container">
+      <div class="resort-sec">
+
+        <div class="title-sec">
+          <h3 class="heading3">On-Site Dining</h3>
+          <sly data-sly-test="${model.propertiesList.size > 3}">
+            <div class="control-sec desktop-only">
+              <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+              <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+            </div>
+          </sly>
+        </div>
+        <div class="dining-cards">
+
+          <sly data-sly-list.dining="${model.propertiesList}">
+
+            <div class="dining-card">
+
+              <sly data-sly-set.foundImagePath="" />
+
+              <sly data-sly-test="${dining.images}">
+                <sly data-sly-list.image="${dining.images}">
+                  <sly data-sly-test="${!foundImagePath && image.photo}">
+                    <sly data-sly-list.photo="${image.photo}">
+                      <sly data-sly-test="${!foundImagePath && photo.path}">
+                        <sly data-sly-set.foundImagePath="${photo.path}" />
+                      </sly>
+                    </sly>
+                  </sly>
+                </sly>
+              </sly>
+
+              <sly data-sly-test="${foundImagePath}">
+                <div class="img-wrapper">
+                  <img src="${foundImagePath}"
+         alt="${dining.name}" />
+                </div>
+              </sly>
+
+              <sly data-sly-test="${!foundImagePath}">
+                <div class="img-wrapper">
+                  <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/placeholder-dining.jpg"
+         alt="${dining.name}" />
+                </div>
+              </sly>
+
+              <div class="text-sec">
+                <h4 class="card-title">${dining.name}</h4>
+
+                <div class="icons-text">
+                  <sly data-sly-test="${dining.typeCuisine}">
+                    <div class="category">
+                      <i class="fa-solid fa-soup"></i>
+                      ${dining.typeCuisine}
+                    </div>
+                  </sly>
+                  <sly data-sly-test="${dining.typeAtmosphere}">
+                    <div class="category">
+                      <i class="fa-solid ${atmosphereIcon}"></i>
+                      ${dining.typeAtmosphere}
+                    </div>
+                  </sly>
+                </div>
+
+                <button class="button-with-icon"
+                        type="button"
+                        data-media-lightbox="content"
+                        data-content-id="dining-modal-${diningList.index}"
+                         data-modal-class="experience-modal">
+                  ${viewDiningDetails}
+                </button>
+              </div>
+
+              <template id="dining-modal-${diningList.index}">
+                <div class="amenities-lightbox-wrapper">
+
+                  <h3 class="heading3 align-left">${dining.name}</h3>
+
+                  <div class="amenities-model-content">
+
+                   <div class="img">
+
+  <sly data-sly-set.modalImagePath="" />
+
+  <sly data-sly-test="${dining.images}">
+    <sly data-sly-list.image="${dining.images}">
+      <sly data-sly-test="${!modalImagePath && image.photo}">
+        <sly data-sly-list.photo="${image.photo}">
+          <sly data-sly-test="${!modalImagePath && photo.path}">
+            <sly data-sly-set.modalImagePath="${photo.path}" />
+          </sly>
+        </sly>
+      </sly>
+    </sly>
+  </sly>
+
+  <sly data-sly-test="${modalImagePath}">
+    <img src="${modalImagePath}"
+         alt="${dining.name}" />
+  </sly>
+
+  <sly data-sly-test="${!modalImagePath}">
+    <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/placeholder-dining.jpg"
+         alt="${dining.name}" />
+  </sly>
+
+</div>
+
+
+                    <!-- MODAL TEXT -->
+                    <div class="content">
+                      <div class="text">
+                        ${dining.description @context='html'}
+                      </div>
+
+                      <div class="floor-des">
+                        <div class="detail-list">
+
+                          <sly data-sly-test="${dining.typeCuisine}">
+                            <div class="detail">
+                              <i class="fa-light fa-bowl-hot"></i>
+                              <span>${dining.typeCuisine}</span>
+                            </div>
+                          </sly>
+
+                          <sly data-sly-test="${dining.typeAtmosphere}">
+                            <div class="detail">
+                              <i class="fa-light fa-clothes-hanger"></i>
+                              <span>${dining.typeAtmosphere}</span>
+                            </div>
+                          </sly>
+
+                          <sly data-sly-test="${dining.hours}">
+                            <div class="detail">
+                              <i class="fa-light fa-clock"></i>
+                              <span>${dining.hours}</span>
+                            </div>
+                          </sly>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- MODAL CTA -->
+                    <div class="cta">
+                      <sly data-sly-test="${dining.urlMenu}">
+                        <a href="${dining.urlMenu}" target="_blank"
+                          class="cmp-button cmp-button--primary-alt cmp-button--large">
+                          View Menu
+                        </a>
+                      </sly>
+                    </div>
+
+                  </div>
+                </div>
+              </template>
+
+            </div>
+
+          </sly>
+        </div>
+
+        <sly data-sly-test="${model.propertiesList.size > 1}">
+          <div class="control-sec mobile-only">
+            <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+            <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+          </div>
+        </sly>
+        <sly data-sly-test="${nearbyModel.propertiesList}">
+          <div class="explore-sec">
+            <div class="text">
+              Explore a variety of nearby dining options to suit every taste.
+              <button type="button"
+                      class="cmp-button cmp-button--tertiary cmp-button--large"
+                      data-media-lightbox="content"
+                      data-content-id="nearby-dining-options-template">
+                ${viewNearbyDining}
+              </button>
+
+              <template id="nearby-dining-options-template">
+                <div class="policy-lightbox">
+                  <h3 class="heading3 align-left cmp-title">Nearby Dining Options</h3>
+                  <div class="model-content rte-content">
+                    <sly data-sly-list.nearby="${nearbyModel.propertiesList}">
+                      ${nearby.description @ context='html'}
+                    </sly>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </sly>
+
+      </div>
+    </div>
+  </div>
+
+</sly>

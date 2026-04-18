@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2026-01-19T12:06:40.148-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/legal/settings/wcm/templates/unbranded-vacation-clubs"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="mvw/components/legal/page"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any"
+        cq:robotsTags="[noindex,nofollow]"
+        siteName="unbranded">
+        <cq:featuredimage
+            jcr:lastModified="{Date}2026-01-05T12:22:49.885-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+        <root jcr:primaryType="nt:unstructured">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/container">
+                <experiencefragment
+                    jcr:created="{Date}2026-01-19T12:06:40.140-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2026-01-19T12:06:40.140-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mvw/components/experiencefragment"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

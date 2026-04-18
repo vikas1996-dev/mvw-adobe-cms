@@ -1,0 +1,165 @@
+<sly data-sly-use.model="com.mvw.core.models.ResortActivitiesModel" />
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+    <sly data-sly-test="${contents.propertiesList}">
+        <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.nodename == 'experiences-header'}">
+                <sly data-sly-set.experiencesHeader="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'view-experience-details-label'}">
+                <sly data-sly-set.viewExperienceDetailsLabel="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'phone-icon'}">
+                <sly data-sly-set.phoneIcon="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'hours-icon'}">
+                <sly data-sly-set.hoursIcon="${content.properties  @ context='html'}" />
+            </sly>
+        </sly>
+    </sly>
+    <sly data-sly-test="${model.propertiesList}">
+
+        <div class="resort-dining-sec experiences-sec" id="experiences">
+            <div class="grid-container">
+                <div class="resort-sec">
+
+
+                    <div class="title-sec">
+                        <h3 class="heading3">${experiencesHeader}</h3>
+
+                        <sly data-sly-test="${model.propertiesList.size > 3}">
+                            <div class="control-sec desktop-only">
+                                <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                                <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                            </div>
+                        </sly>
+                    </div>
+
+                    <div class="dining-cards">
+
+                        <sly data-sly-list.experience="${model.propertiesList}">
+
+                            <sly data-sly-set.modalId="experience-modal-${experienceList.index}" />
+
+                            <div class="dining-card">
+
+
+                                <sly data-sly-set.foundImagePath="" />
+                                <sly data-sly-test="${experience.images}">
+                                    <sly data-sly-list.image="${experience.images}">
+                                        <sly data-sly-test="${imageList.index == 0}">
+                                            <sly data-sly-list.photo="${image.photo}">
+                                                <sly data-sly-test="${photoList.index == 0 && photo.path}">
+                                                    <sly data-sly-set.foundImagePath="${photo.path}" />
+                                                    <div class="img-wrapper">
+                                                        <img src="${photo.path}"
+                                                         alt="${experience.name}" />
+                                                    </div>
+                                                </sly>
+                                            </sly>
+                                        </sly>
+                                    </sly>
+                                </sly>
+
+
+                                <sly data-sly-test="${!foundImagePath}">
+                                    <div class="img-wrapper">
+                                        <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/placeholder-experience.jpg"
+                                         alt="${experience.name}" />
+                                    </div>
+                                </sly>
+
+
+                                <div class="text-sec">
+                                    <h4 class="card-title">${experience.name}</h4>
+
+                                    <div class="icons-text rte-content">
+                                        ${experience.description @ context='html'}
+                                    </div>
+
+                                    <div class="resort-dining-detail">
+
+                                        <sly data-sly-test="${experience.detailsUrl}">
+                                            <a href="${experience.detailsUrl}" class="button-with-icon" target="_blank">
+                                                ${viewExperienceDetailsLabel}
+                                            </a>
+                                        </sly>
+
+                                        <sly data-sly-test="${!experience.detailsUrl}">
+                                            <button class="button-with-icon"
+                                                type="button"
+                                                data-media-lightbox="content"
+                                                data-content-id="${modalId}"
+                                                data-modal-class="experience-modal">
+                                            ${viewExperienceDetailsLabel}
+                                        </button>
+
+                                            <template id="${modalId}">
+                                                <div class="amenities-lightbox-wrapper">
+
+                                                    <h3 class="heading3 align-left">${experience.name}</h3>
+
+                                                    <div class="amenities-model-content">
+                                                        <div class="img">
+                                                            <sly data-sly-test="${foundImagePath}">
+                                                                <img src="${foundImagePath}"
+                                                                 alt="${experience.name}">
+                                                            </sly>
+                                                        </div>
+
+                                                        <div class="content">
+                                                            <div class="text rte-content">
+                                                                ${experience.longDescription @ context='html'}
+                                                            </div>
+
+                                                            <div class="floor-des">
+                                                                <div class="detail-list">
+
+                                                                    <sly data-sly-test="${experience.phone}">
+                                                                        <div class="detail">
+                                                                            <i class="fa-light ${phoneIcon}"></i>
+                                                                            <span>${experience.phone}</span>
+                                                                        </div>
+                                                                    </sly>
+
+                                                                    <sly data-sly-test="${experience.hours}">
+                                                                        <div class="detail">
+                                                                            <i class="fa-light ${hoursIcon}"></i>
+                                                                            <span>${experience.hours}</span>
+                                                                        </div>
+                                                                    </sly>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <sly data-sly-test="${experience.detailsUrl}">
+                                                            <div class="cta">
+                                                                <a href="${experience.detailsUrl}"
+                                                                    class="cmp-button cmp-button--primary-alt cmp-button--large"
+                                                                    target="_blank">
+                                                                    View Details
+                                                                </a>
+                                                            </div>
+                                                        </sly>
+
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </sly>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </sly>
+                    </div>
+                    <sly data-sly-test="${model.propertiesList.size > 1}">
+                        <div class="control-sec mobile-only">
+                            <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                            <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                        </div>
+                    </sly>
+
+                </div>
+            </div>
+        </div>
+
+    </sly>

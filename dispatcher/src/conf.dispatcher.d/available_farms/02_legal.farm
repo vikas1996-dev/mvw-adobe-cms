@@ -1,0 +1,74 @@
+/legaltmvcpublishfarm {
+	/info "1"
+
+	/clientheaders {
+		$include "../clientheaders/clientheaders.any"
+	}
+
+	/virtualhosts {
+		$include "../virtualhosts/legal_virtualhosts.any"
+	}
+
+	/renders {
+		$include "../renders/default_renders.any"
+	}
+
+	/filter {
+		$include "../filters/filters.any"
+	}
+
+	/propagateSyndPost "0"
+
+	/cache {
+		/docroot "${DOCROOT}"
+		/statfileslevel "3"
+		/allowAuthorized "1"
+		/serveStaleOnError "2"
+
+		/rules {
+			$include "../cache/rules.any"
+		}
+
+		/invalidate {
+			/0000 {
+				/glob "*"
+				/type "deny"
+			}
+			/0001 {
+				/glob "*.html"
+				/type "allow"
+			}
+			/0002 {
+				/glob "/adobe/dynamicmedia*"
+				/type "allow"
+			}
+		}
+
+		/allowedClients {
+			$include "../cache/default_invalidate.any"
+		}
+
+		/headers {
+			"Cache-Control"
+			"Content-Disposition"
+			"Content-Type"
+			"Last-Modified"
+			"X-Content-Type-Options"
+			"Access-Control-Allow-Origin"
+			"Surrogate-Control"
+			"Surrogate-Key"
+		}
+		/ignoreUrlParams {
+			/0001 { /glob "*" /type "deny" }
+			/0002 { /glob "cid" /type "allow" }
+			/0003 { /glob "utm_source" /type "allow" }
+			/0004 { /glob "utm_medium" /type "allow" }
+			/0005 { /glob "utm_campaign" /type "allow" }
+
+		}
+
+
+		/gracePeriod "2"
+		/enableTTL "1"
+	}
+}

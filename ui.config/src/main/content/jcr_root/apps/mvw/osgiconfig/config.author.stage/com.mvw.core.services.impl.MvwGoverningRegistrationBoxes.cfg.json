@@ -1,0 +1,5 @@
+{
+  "marriotts_registration_box": "$[env:MARRIOTTS_REGISTRATION_BOX;default=]",
+  "hyatt_registration_box": "$[env:HYATT_REGISTRATION_BOX;default=]",
+  "from_address": "$[env:BULK_PUBLISH_NOTIFICATION_FROM_ADDRESS;default=]"
+}

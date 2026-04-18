@@ -1,0 +1,55 @@
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+  data-sly-call="${ templates.placeholder @ component_name= 'Error Page Information Banner' }" />
+<sly data-sly-use.errorInformation="com.mvw.core.models.LegalErrorInformationModel" />
+
+<main class="error-container" role="main" id="main-content">
+  <div class="${errorInformation.twoColumns ? '' : 'two-col'}" role="region" aria-label="Error Content Section">
+    <div class="${errorInformation.twoColumns ? '' : 'left-content'}" role="region" aria-label="Left Column">
+
+
+      <div class="aem-GridColumn aem-GridColumn--default--6 left-content">
+        ${errorInformation.copyText @ context='html'}
+        <sly data-sly-test="${errorInformation.cardList}">
+          <sly class="support-cards" role="list">
+            <div class="support-cards"> 
+            <sly data-sly-list.cardList="${errorInformation.cardList}" >
+              <div class="support-card ">
+                <!-- Icon for visual purpose -->
+                   <i class="${cardList.iconClass}" aria-hidden="true"></i>
+
+                <!-- Contact info: label and link -->
+                <span class="support-label">${cardList.label @ context='text'}<sly data-sly-test="${cardList.buttonLink }">:</sly></span>
+                <a href="${cardList.buttonLink @ context='uri'}" class="support-link" tabindex="0">
+                  ${cardList.linkText @ context='text'}
+                </a>
+              </div>
+            </sly>
+            </div>
+          </sly>
+        </sly>
+
+
+      </div>
+    </div>
+    <div data-sly-test="${!errorInformation.twoColumns}" class="right-content" role="region" aria-label="Right Column">
+
+      <div class="aem-GridColumn aem-GridColumn--default--6 left-content">
+        <div class="right-image">
+          <div class="image-stack">
+            <img class="main-img" src="${errorInformation.mainImageFileReference}" fetchpriority="high"
+              alt="${errorInformation.mainImageAltText}">
+            <img class="overlay-img" src="${errorInformation.overlayImagePath}" fetchpriority="high"
+              alt="${errorInformation.overlayImageAltText}">
+          </div>
+        </div>
+        <div class="right-image-mob">
+          <div class="image-stack">
+            <img class="main-img" src="${errorInformation.mainImageFileReference}"
+              alt="${errorInformation.mainImageAltText}">
+            <img class="overlay-img" src="${errorInformation.overlayImagePath}"
+              alt="${errorInformation.overlayImageAltText}">
+          </div>
+        </div>
+      </div>
+    </div>
+</main>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2026-02-23T10:32:13.422-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/legal/settings/wcm/templates/unbranded-hyatt-vacation-club-template"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="mvw/components/legal/hvcpage"
+        pwaCachestrategy="staleWhileRevalidate"
+        pwaDisplay="standalone"
+        pwaOrientation="any"
+        cq:robotsTags="[noindex,nofollow]"
+        site_id="legal_hvc"
+        siteName="unbranded hvc">
+        <root jcr:primaryType="nt:unstructured">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/container">
+                <experiencefragment
+                    jcr:created="{Date}2026-02-03T08:23:24.385-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2026-02-03T08:23:24.385-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="mvw/components/experiencefragment"/>
+            </container>
+        </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2026-02-23T10:32:13.415-05:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+</jcr:root>

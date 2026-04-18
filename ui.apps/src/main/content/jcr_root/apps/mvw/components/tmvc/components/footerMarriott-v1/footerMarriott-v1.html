@@ -1,0 +1,128 @@
+<div data-sly-use.models="com.mvw.core.models.MarriottFooterModel" data-sly-unwrap>
+  <div class="footer-brand-sec" data-parent-component="Footer">
+    <div class="brand-sec-logo">
+      <img src="${models.fileReference}" href="${models.logoURL}" target="${models.logoURLOpens}"
+           alt="${models.logoAltText}" loading="lazy"/>
+      <div class="brand-logos">
+        <sly data-sly-list.logos=${models.brandLogos}>
+          <a aria-label="${logos.ariaLabel}" href="${logos.logoCTAURL}" target="${logos.logoCTAOpens}">
+            <img src="${logos.fileReference}" alt="${logos.logoAltText}" loading="lazy">
+          </a>
+        </sly>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer-cmp grid-container">
+  <div class="edit-sec">Enter the marriott Footer here</div>
+  <div data-sly-use.models="com.mvw.core.models.MarriottFooterModel" data-sly-unwrap>
+    <footer class="footer">
+      <div class="footer-links">
+        <div class="links" data-sly-list.cta1="${models.cta1}">
+          <div class="footer-link">
+            <a class="link ${cta1.showNewTabIcon ? 'new-tab-icon' : ''} ${cta1.thirdParty ? 'third-party-link' : ''}"
+               href="${cta1.ctaURL}" target="${cta1.ctaOpens}">${cta1.ctaText
+              @ context='text'}</a>
+          </div>
+        </div>
+        <div class="links" data-sly-list.cta2="${models.cta2}">
+          <div class="footer-link">
+            <a class="link ${cta2.showNewTabIcon ? 'new-tab-icon' : ''} ${cta2.thirdParty ? 'third-party-link' : ''}"
+               href="${cta2.ctaURL @ context='uri'}" target="${cta2.ctaOpens}">${cta2.ctaText @
+              context='text'}</a>
+          </div>
+        </div>
+        <div class="links">
+          <div class="connect-with-us col-heading">${models.headlineText @ context='text'}</div>
+          <div class="brand-social-wrapper" data-sly-list.cta3="${models.cta3}">
+            <div class="brand-social-sec">
+              <a class="brand-heading ${cta3.showNewTabIcon ? 'new-tab-icon' : ''} ${cta3.thirdParty ? 'third-party-link' : ''}"
+                 href="${cta3.ctaURL @ context='uri'}" target="${cta3.ctaOpens}">${cta3.ctaText @ context='text'}</a>
+              <div class="social-logos">
+                <sly data-sly-test="${cta3.facebook}">
+                  <a class="fa fa-brands fa-facebook ${cta3.fbThirdParty ? 'third-party-link' : ''}"
+                     href="${cta3.fbURL @ context ='uri'}" target="${cta3.fbCtaTab}">
+                  </a>
+                </sly>
+                <sly data-sly-test="${cta3.instagram}">
+                  <a class="fa fa-brands fa-instagram ${cta3.instaThirdParty ? 'third-party-link' : ''}"
+                     href="${cta3.instaURL}" target="${cta3.instaCtaTab}"></a>
+                </sly>
+                <sly data-sly-test="${cta3.youtube}">
+                  <a class="fa fa-brands fa-youtube ${cta3.ytThirdParty ? 'third-party-link' : ''}" href="${cta3.ytURL}"
+                     target="${cta3.ytCtaTab}"> </a>
+                </sly>
+                <sly data-sly-test="${cta3.tiktok}">
+                  <a class="fa fa-brands fa-tiktok ${cta3.ttThirdParty ? 'third-party-link' : ''}" href="${cta3.ttURL}"
+                     target="${cta3.ttCtaTab}"></a>
+                </sly>
+                <sly data-sly-test="${cta3.pinterest}">
+                  <a class="fa fa-brands fa-pinterest ${cta3.piThirdParty ? 'third-party-link' : ''}"
+                     href="${cta3.piURL}" target="${cta3.piCtaTab}"></a>
+                </sly>
+                <sly data-sly-test="${cta3.x}">
+                  <a class="fa fa-brands fa-x-twitter ${cta3.xThirdParty ? 'third-party-link' : ''}" href="${cta3.xURL}"
+                     target="${cta3.xCtaTab}"></a>
+                </sly>
+                <sly data-sly-test="${cta3.linkedIn}">
+                  <a class="fa fa-brands fa-linkedin ${cta3.liThirdParty ? 'third-party-link' : ''}"
+                     href="${cta3.liURL}" target="${cta3.liCtaTab}"></a>
+                </sly>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="links">
+          <div class="were-here-for col-heading">${models.headingText}</div>
+          <div>
+            <sly data-sly-test="${models.phoneNumber}">
+              <a href="tel:${models.phoneNumber}"
+                 class="cmp-button cta-phone cmp-button--${models.ctaStyle4} cmp-button--large"
+                 data-url="${models.phoneNumber}"
+                 x-cq-linkchecker="valid" data-append-with-text="${models.appendPhoneNumber}">
+                     <span data-sly-test="${models.ctaText4}" class="cmp-button__text">
+                     ${models.ctaText4}
+                     </span>
+                <span class="cta-phone__number">
+                     ${models.phoneNumber}
+                     </span>
+              </a>
+            </sly>
+          </div>
+          <div class="time-sec">
+            <div class="hours col-heading">${models.hoursTitle}</div>
+            <div class="monday-through-friday">${models.hoursDescription @ context ='html'}</div>
+          </div>
+        </div>
+      </div>
+      <div class="legal-disclosures-links">
+        <div class="legal-housing-logo">
+          <div class="club-points-for-container">
+            ${models.legalSubFooterCopy @ context ='html'}
+          </div>
+          ${models.timeshareSolicitationFooter @ context ='html'}
+        </div>
+        <div class="legal-links" data-sly-list.legalLinks="${models.legalLinks}">
+          <div class="links2">
+            <a href="${legalLinks.enableCookieSetting ? 'javascript:void(0)' : legalLinks.ctaURL @ context='uri'}"
+               target="${legalLinks.enableCookieSetting ? '' : legalLinks.ctaOpens}"
+               class="legal-disclosures
+                     ${legalLinks.showNewTabIcon ? 'new-tab-icon' : ''}
+                     ${legalLinks.thirdPartylink ? 'third-party-link' : ''}
+                     ${legalLinks.cssClass}">
+              ${legalLinks.ctaText @ context='text'}
+              <img data-sly-test="${legalLinks.fileReference}"
+                   class="accessibility-logo-icon"
+                   src="${legalLinks.fileReference}"
+                   alt="${legalLinks.iconNewAlt}" loading="lazy"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- For phoneNumber test only -->
+  <sly data-sly-test="${models.phoneNumber}">
+    <input type="hidden" id="requestPhoneNumber" value="${models.phoneNumber}" />
+  </sly>
+</div>

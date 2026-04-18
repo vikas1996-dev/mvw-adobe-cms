@@ -1,0 +1,172 @@
+<sly data-sly-use.resortAccommodationModel="com.mvw.core.models.ResortAccommodationModel">
+    <sly data-sly-test="${resortAccommodationModel.propertiesList}">
+        <div class="full-width-carousel-accommodations" data-mod="full-width-carousel" id="accommodations">
+            <div class="full-container">
+                <div class="carousel-header grid-container">
+                    <h3 class="heading3 cmp-title align-center carousel-title">
+                        <sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+                            <sly data-sly-test="${contents.propertiesList}">
+                                <sly data-sly-list.content="${contents.propertiesList}">
+                                    <sly data-sly-test="${content.nodename == 'accommodations-label'}">
+                                        ${content.properties}
+                                    </sly>
+
+                                </sly>
+                            </sly>
+                        </sly>
+                    </h3>
+                </div>
+                <div class="services-grid">
+                    <sly data-sly-list.model="${resortAccommodationModel.propertiesList}">
+                        <div class="service-card" data-title="${model.name}" data-description="${model.description}"
+                             data-sleeps="${model.sleeps}" 
+                             data-size="${model.squareFootage}" 
+                             data-view="${model.view}"
+                             data-gallery='${model.galleryJson @ context="text"}'
+                             data-amenities='${model.amenitiesJson @ context="text"}'
+                             data-floorplan="${model.floorPlanUrl}" data-availability="${model.checkAvailabilityUrl}"
+                             data-disclaimer="${model.disclaimer}">
+
+                            <div class="image-container">
+                                <sly data-sly-test.hasImage="${model.gallery}">
+                                    <sly data-sly-list.gallery="${model.gallery}">
+                                        <sly data-sly-test="${galleryList.index == 0}">
+                                            <sly data-sly-list.image="${gallery.sortedImages}">
+                                                <sly data-sly-list.photo="${image.photo}">
+                                                    <sly data-sly-test="${photoList.first}">
+                                                        <sly data-sly-test.imageFound="${photo.path}" />
+                                                        <img
+                                                                src="${photo.path}"
+                                                                width="${photo.width}"
+                                                                height="${photo.height}"
+                                                                alt="${image.nodename || model.name}" />
+                                                    </sly>
+                                                </sly>
+                                            </sly>
+                                        </sly>
+                                    </sly>
+                                </sly>
+                                <sly data-sly-test="${!hasImage}">
+                                    <img
+                                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%23e8e8e8' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23999'%3EAccommodation Image%3C/svg%3E"
+                                            alt="${model.name}"
+                                            class="placeholder-image" />
+                                </sly>
+                            </div>
+                            <div class="details">
+                                <div class="text">
+                                    <h3>${model.name}</h3>
+                                    <div class="icons-text">
+                                        <sly data-sly-test="${model.sleeps}">
+                                            <div class="category">
+                                                <i class="fa-solid fa-user-group"></i>
+                                                Sleeps ${model.sleeps}
+                                            </div>
+                                        </sly>
+                                        <sly data-sly-test="${model.squareFootage}">
+                                            <div class="category">
+                                                <i class="fa-solid fa-ruler-combined"></i>
+                                                ${model.squareFootage} sq ft
+                                            </div>
+                                        </sly>
+                                        <sly data-sly-test="${model.view}">
+                                            <div class="category">
+                                                <i class="fa-solid fa-eye"></i>
+                                                ${model.view}
+                                            </div>
+                                        </sly>
+                                    </div>
+                                    <div class="view-more-link">
+                                        <sly data-sly-test="${model.detailsUrl}">
+                                            <a href="${model.detailsUrl}" class="button-with-icon" target="_blank">
+                                                <sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+                                                    <sly data-sly-test="${contents.propertiesList}">
+                                                        <sly data-sly-list.content="${contents.propertiesList}">
+                                                            <sly data-sly-test="${content.nodename == 'view-accommodation-details-label'}">
+                                                                ${content.properties}
+                                                            </sly>
+
+                                                        </sly>
+                                                    </sly>
+                                                </sly>
+                                            </a>
+                                        </sly>
+                                        <sly data-sly-test="${!model.detailsUrl}">
+                                            <a href="" class="viewmore-link"><sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+                                                <sly data-sly-test="${contents.propertiesList}">
+                                                    <sly data-sly-list.content="${contents.propertiesList}">
+                                                        <sly data-sly-test="${content.nodename == 'view-accommodation-details-label'}">
+                                                            ${content.properties}
+                                                        </sly>
+
+                                                    </sly>
+                                                </sly>
+                                            </sly></a>
+                                        </sly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                </div>
+                <div class="accommodations-modal" aria-hidden="true" role="dialog">
+                    <div class="accommodations-modal__dialog">
+
+                        <div class="accommodations-modal__header">
+                            <h2 class="accommodations-modal__title heading3"></h2>
+                            <button type="button" class="accommodations-modal__close">×</button>
+                        </div>
+
+                        <div class="accommodations-modal__media">
+                            <div class="accommodations-modal__carousel"></div>
+                            <div class="accommodations-modal__controls">
+                                <div class="prev accommodations-prev">
+                                    <i class="fa-solid fa-chevron-down rotate"></i>
+                                </div>
+                                <div class="next accommodations-next">
+                                    <i class="fa-solid fa-chevron-down rotate"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accommodations-modal__body">
+
+                            <div class="accommodations-modal__content">
+                              <div class="text"></div>
+                              <div class="floor-des">
+                                <div class="detail-list"></div>
+                                <div class="floor-plan-link">
+                                    <button class="floor-plan-btn cmp-button--tertiary" target="_blank"  data-media-lightbox="content" data-content-id="floorPlan">View Floor Plan</button>
+                                </div>
+                              </div>
+                               
+                                <template id="floorPlan">
+                                    <div class="map-lightbox-content">
+                                        <h3 class="heading3 cmp-title align-left">View Floor Plan</h3>
+                                        <div class="model-content">
+                                            <img class="media-lightbox__image media-lightbox__image--full floorplan-image"
+                                                 src=""
+                                                 alt="Floor Plan" />
+                                        </div>
+                                    </div>
+                                </template>
+
+                            </div>
+                            <div class="accommodations-modal__amenities"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-icons" role="group" aria-label="Carousel navigation">
+                    <button class="nav-icon-left" type="button" aria-label="Previous slide">
+                        <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/prev.svg" alt="" />
+                    </button>
+                    <div class="current-slide">1 / ${resortAccommodationModel.propertiesList.size}</div>
+                    <button class="nav-icon-right" type="button" aria-label="Next slide">
+                        <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/next.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </sly>
+</sly>

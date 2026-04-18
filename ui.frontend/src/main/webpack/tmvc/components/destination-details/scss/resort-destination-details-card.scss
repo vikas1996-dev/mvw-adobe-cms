@@ -1,0 +1,495 @@
+.resort-destinations-cards-cmp {
+    padding: 34px 0 42px 0;
+    background: #fff;
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: 24px 0 42px 0;
+    }
+
+    .grid-container {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .content-area {
+        width: 100% !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: visible !important;
+    }
+
+    // Results count
+    .results-count-row {
+        margin-bottom: 24px;
+    }
+
+    .results-count {
+        color: #082940;
+        font-size: 20px;
+        font-family: 'roboto-semibold', sans-serif;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    // Resort Grid
+    .resort-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 24px !important;
+        margin-bottom: 24px;
+
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr !important;
+            margin-bottom: 24px;
+            gap: 16px !important;
+        }
+    }
+
+    // Resort Card
+    .resort-card {
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .resort-image {
+            position: relative;
+            height: 180px;
+            background: #F2F2F2;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .collection-badge {
+                position: absolute;
+                top: 8px;
+                left: 8px;
+                height: 31px;
+                padding: 8px;
+                background: rgba(8, 41, 64, 0.85);
+                border-radius: 4px;
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                color: #FFFFFF;
+                font-family: 'Roboto', sans-serif;
+                font-size: 10px;
+                font-weight: 500;
+
+                i {
+                    font-size: 11px;
+                }
+            }
+        }
+
+        .resort-content {
+            padding: 16px;
+            background: #F2F2F2;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            min-height: 142px;
+
+            .resort-info {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                margin-bottom: 16px;
+
+                .resort-title {
+                    font-family: 'arsenal', serif;
+                    font-size: 20px;
+                    line-height: 24px;
+                    color: #082940;
+                    margin: 0;
+                }
+
+                .resort-location {
+                    font-family: 'roboto', sans-serif;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #082940;
+                    margin: 0;
+                }
+            }
+
+            .resort-actions {
+                align-self: stretch;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 20px;
+
+                .view-resort {
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 3px;
+                    font-family: 'roboto-semibold', sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 16px;
+                    color: #082940;
+                    text-decoration: none;
+                    border-bottom: 1px solid #AC6523;
+                    height: 20px;
+                    box-sizing: border-box;
+                    transition: border-color 0.3s ease;
+
+                    &:hover {
+                        border-bottom-color: transparent;
+                    }
+
+                    &:active {
+                        border-bottom-color: #AC6523;
+                    }
+                }
+
+                .tripadvisor-rating {
+                    display: block;
+                    height: 20px;
+                }
+
+                .rating-image {
+                    width: 119px;
+                    height: 20px;
+                    object-fit: contain;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    // Offer Card
+    .offer-card {
+        grid-column: 1 / -1;
+        display: flex;
+        background: #E8F5F4;
+        border-radius: 8px;
+        overflow: hidden;
+        min-height: 322px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            min-height: auto;
+        }
+
+        // When there are fewer than 4 resorts, display as single column card next to resort cards
+        &.offer-card-vertical {
+            grid-column: auto; 
+            flex-direction: column;
+            min-height: auto;
+
+            .offer-image {
+                flex: none;
+                width: 100%;
+                height: 180px;
+
+                .offer-badge {
+                    display: flex;
+                }
+            }
+
+            .offer-content {
+                padding: 16px;
+                min-height: 142px;
+
+                .offer-eyebrow {
+                    display: none;
+                }
+
+                .offer-title {
+                    font-size: 16px;
+                    line-height: 18px;
+                }
+
+                .offer-description {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+
+                .offer-secondary-cta {
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+            }
+        }
+
+        .offer-image {
+            flex: 0 0 50%;
+            position: relative;
+
+            @media (max-width: 768px) {
+                flex: none;
+                width: 100%;
+                height: 180px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .offer-badge {
+                position: absolute;
+                top: 8px;
+                left: 8px;
+                height: 31px;
+                padding: 8px;
+                background: #E8F5F4;
+                border-radius: 4px;
+                display: none;
+                align-items: center;
+                gap: 4px;
+
+                @media (max-width: 768px) {
+                    display: flex;
+                }
+
+                i {
+                    font-size: 12px;
+                    color: #082940;
+                }
+
+                span {
+                    font-family: 'roboto', sans-serif;
+                    font-size: 10px;
+                    font-weight: 500;
+                    color: #082940;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .offer-content {
+            flex: 1;
+            padding: 24px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 16px;
+
+            @media (max-width: 768px) {
+                padding: 16px;
+                min-height: 142px;
+            }
+
+            .offer-text {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                align-self: stretch;
+
+                .offer-eyebrow {
+                    color: #082940;
+                    font-family: 'roboto', sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    line-height: 20px;
+                    letter-spacing: 3px;
+
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+                }
+
+                .offer-title {
+                    color: #082940;
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    font-family: 'roboto-semibold', sans-serif;
+
+                    @media (max-width: 768px) {
+                        font-size: 16px;
+                        line-height: 18px;
+                    }
+                }
+
+                .offer-description {
+                    color: #082940;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    font-family: 'roboto', sans-serif;
+
+                    @media (max-width: 768px) {
+                        font-size: 14px;
+                        line-height: 20px;
+                    }
+                }
+            }
+
+            .offer-actions {
+                display: flex;
+                gap: 19px;
+                align-items: center; 
+                justify-content: center; 
+                margin: 0; 
+                padding: 0; 
+
+                .offer-primary-cta {
+                    width: 156px;
+                    height: 44px;
+                    padding: 0 24px;
+                    background: #B1DDDB;
+                    border-radius: 1000px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    color: #082940;
+                    font-weight: 600;
+                    font-family: 'roboto-semibold', sans-serif;
+                }
+
+                .offer-secondary-cta {
+                    padding: 0 0 4px 0; 
+                    margin: 0;
+                    overflow: visible;
+                    border-bottom: 1px solid #AC6523;
+                    font-family: 'roboto', sans-serif;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 18px; 
+                    color: #082940;
+                    cursor: pointer;
+                    background: none;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    text-decoration: none;
+                    transition: border-color 0.3s ease;
+                    display: inline-block;
+                    height: auto;
+                    vertical-align: baseline;
+
+                    @media (max-width: 768px) {
+                        font-size: 14px;
+                        line-height: 1;
+                    }
+
+                    &:hover {
+                        border-bottom-color: transparent;
+                    }
+
+                    &:active {
+                        border-bottom-color: #AC6523;
+                    }
+                }
+            }
+        }
+    }
+
+    // Load More Button
+    .load-more-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        width: 100%;
+
+        @media (max-width: 768px) {
+            margin-top: 0;
+        }
+    }
+
+    .load-more-btn {
+        width: 33.333%; 
+        max-width: 416px; 
+        height: 48px;
+        padding: 0 32px;
+        background: transparent;
+        border: none;
+        border-radius: 1000px;
+        outline: 1px solid #082940;
+        outline-offset: -1px;
+        color: #082940;
+        font-family: 'roboto-semibold', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 18px;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        word-wrap: break-word;
+
+        &:hover {
+            background: #F2F2F2;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .loading-spinner {
+        text-align: center;
+        padding: 60px 40px;
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid #F2F2F2;
+            border-top-color: #082940;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #082940;
+            margin: 0;
+        }
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

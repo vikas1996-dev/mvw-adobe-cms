@@ -1,0 +1,180 @@
+query ($query1: String!, 
+$query3: String!,
+  $query2: String!,
+  $query4: String!,
+$path: String!)
+{
+   jcr(workspace: LIVE) {
+    propertiesFolderNode: nodeByPath(path: $path) {
+            names: children {
+                nodes {  
+                    name: value(name: "jcr:title" language:"en")
+                    nodename: value(name: "j:nodename")
+                   }
+                }
+        }
+   
+    destinations: nodesByQuery(query: $query1) {
+            nodes {
+        name: value(name: "name", language:"en")
+        nodename: value(name: "j:nodename")
+        description: value(name: "description", language: "en")
+        referenceProperty: refNodes(name: "referenceProperty") {
+            name: value(name: "name")
+            featured: value(name:"featured")
+             tripadvisorId: value(name:"tripAdvisorId")
+            nodename: value(name: "j:nodename")
+            marshaCode: value(name: "marshaCode")
+            universalPropertyCode: value(name: "universalPropertyCode")
+            slug: value(name: "slug")
+            city: value(name:"city", language:"en")
+        state:value(name:"state", language:"en")
+        country:value(name:"country", language:"en")
+        coordinateLatitude: value(name: "coordinateLatitude")
+        coordinateLongitude: value(name: "coordinateLongitude")
+        images: refNodes(name: "images") {
+          name: value(name: "jcr:title" language:"en")
+          nodename: value(name: "name")
+          photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+            }
+        region: refNode(name: "region") {
+            name: value(name: "name")
+            nodename: value(name: "j:nodename")
+            }
+        structuredContent: values(name: "structuredContent")
+        images: refNodes(name: "images") {
+            name: value(name: "name" language:"en")
+            nodename: value(name: "name")
+            photo: refNodes(name: "photo") {
+                name
+                path
+                width: value(name: "j:width")
+                ratio: value(name: "ratio")
+                height: value(name: "j:height")
+                }
+            altText: value(name: "altText", language:"en")
+            }
+        }
+    }
+    promotions: nodesByQuery(query: $query2) {
+        promoDestinations: nodes {
+            name:value(name: "name", language:"en")
+            path
+            nodename: value(name: "nodename")
+            destinations: refNodes(name:"destinations", language:"en") {
+                    nodename: name
+                }
+            shortDescriptionAd: value(name:"shortDescriptionAd", language:"en")
+            buttonOfferTextAd: value(name:"buttonOfferTextAd", language:"en")
+            buttonOfferUrlAd: value(name:"buttonOfferUrlAd", language:"en")
+            buttonOfferTextAd1: value(name:"buttonOfferTextAd1", language:"en")
+            buttonOfferUrlAd1: value(name:"buttonOfferUrlAd1", language:"en")
+            placementId: refNodes(name:"placementId") {
+                nodename: name
+                }
+            descriptionAd: value(name:"descriptionAd" language:"en")
+            priority: value(name:"priority")
+            imagesAd: refNodes(name: "imagesAd") {
+                name: value(name: "jcr:title", language:"en")
+                nodename: value(name: "name")
+                altText: value(name: "altText", language:"en")
+                photo: refNodes(name: "photo") {
+                    name
+                    path
+                    width: value(name: "j:width")
+                    ratio: value(name: "ratio")
+                    height: value(name: "j:height")
+                    }
+            }
+            }
+        }
+         defaultPromotions: nodesByQuery(query: $query3) {
+      nodes {
+        nodename: value(name: "j:nodename")
+        name: value(name: "name", language: "en")
+         priority: value(name: "priority")
+         path
+        persona: values(name: "persona")
+        placementId: refNodes(name:"placementId") {
+            nodename: name
+          }
+shortDescriptionAd: value(
+          name: "shortDescriptionAd"
+          language: "en"
+        )
+        buttonOfferTextAd: value(
+          name: "buttonOfferTextAd"
+          language: "en"
+        )
+        buttonOfferUrlAd: value(
+          name: "buttonOfferUrlAd"
+          language: "en"
+        )
+        buttonOfferTextAd1: value(name:"buttonOfferTextAd1" language:"en")
+        buttonOfferUrlAd1: value(name:"buttonOfferUrlAd1" language:"en")
+        descriptionAd: value(
+          name: "descriptionAd"
+          language: "en"
+        )
+        imagesAd: refNodes(name: "imagesAd") {
+          name: value(name: "jcr:title", language: "en")
+          nodename: value(name: "name")
+          altText: value(name: "altText", language: "en")
+
+          referenceId: refNode(name: "referenceID") {
+            name
+          }
+photo: refNodes(name: "photo") {
+            name
+            path
+            width: value(name: "j:width")
+            ratio: value(name: "ratio")
+            height: value(name: "j:height")
+          }
+        }
+        }
+      }
+
+       articles: nodesByQuery(query: $query4) {
+      nodes {
+        name: value(name: "name", language:"en")
+        nodename:value(name:"j:nodename")
+        created: value(name:"jcr:created")
+        shortDescription:value(name:"shortDescription", language:"en")
+        url:value(name:"url", language:"en")
+        dcmTags: refNodes(name: "dcmTags") {
+            name: value(name: "description", language:"en")
+            nodename: value(name: "j:nodename")
+            parent {
+                name: value(name: "name", language:"en")
+            }
+            }
+        destinations: refNodes(name: "destinations") {
+            nodename: value(name: "j:nodename")
+            title: value(name: "jcr:title")
+            structuredContent:values(name:"structuredContent")
+        }
+        images: refNode(name: "images") {
+            name: value(name: "name" language:"en")
+            nodename: value(name: "name")
+            photo: refNodes(name: "photo") {
+                name
+                path
+                width: value(name: "j:width")
+                ratio: value(name: "ratio")
+                height: value(name: "j:height")
+                }
+            altText: value(name: "altText", language:"en")
+           
+        }
+      }
+    }
+  }
+}

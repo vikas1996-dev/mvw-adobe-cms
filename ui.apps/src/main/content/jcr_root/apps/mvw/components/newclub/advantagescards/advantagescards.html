@@ -1,0 +1,35 @@
+<sly
+    data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Advantages Cards' }"
+/>
+<sly data-sly-use.cards="com.mvw.core.models.NewClubAdvantagesCardModel">
+    <div class="vacation_container" role="region" aria-label="Vacation highlights">
+        <sly data-sly-test= "${cards.backgroundImage}">
+       <img
+            class="vacation__bg-img  ${cards.hideBackgroundInMobile ? 'vacation__bg-img--hide':''}"
+            src="${cards.backgroundImage @context='uri'}"
+            alt="${cards.altText @context='text'}"
+            loading="${!cards.disableLazyLoading ? 'lazy' : ''}"
+        />
+        </sly>
+
+        <div class="vacation__content">
+            <sly data-sly-test="${cards.cardList}">
+                <sly data-sly-list.cardList="${cards.cardList}">
+                    <sly data-sly-test="${cardList.iconClass || cardList.cardTitle || cardList.cardDescription}">
+                    <div class="vacation_card_item" role="group" tabindex="0" aria-labelledby="vacation-title-${cardListList.index}
+                      vacation-desc-${cardListList.index}">
+                        <div class="vacation_card_icon_wrapper" role="img" aria-label="${cardList.iconClass}">
+                            <i class="${cardList.iconClass} big-icon icon-grayish_blue" aria-hidden="true"></i>
+                        </div>
+                        <div class="vacation_card_body">
+                            <h3 class="vacation__title" id="vacation-title-${cardListList.index}">${cardList.cardTitle @context='text'}</h3>
+                            <div class="vacation__description" id="vacation-desc-${cardListList.index}">${cardList.cardDescription @context='html'}</div>
+                        </div>
+                    </div>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+    </div>
+</sly>

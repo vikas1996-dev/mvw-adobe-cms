@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/default"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="TMVC Publishing Workflow"
+        sling:resourceType="cq/workflow/components/pages/model">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <dialog
+                jcr:description="Author selects reviewers and approvers (names and roles)."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Reviewer Selection"
+                sling:resourceType="cq/workflow/components/model/dialog">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-selection/cq:dialog"
+                    PARTICIPANT="mvw-content-coordinators"/>
+            </dialog>
+            <process_set_reviewers_metadata
+                jcr:description="Setting up Reviewers Info set to workflow metaDataMap node, so as to consume in the flow moving ahead."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Set Reviewers Info to Workflow MetaDataMap"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.WritingMetaDataMapProcess"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_set_reviewers_metadata>
+            <process_replicate_preview
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Deploy Content to Stage Preview"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.ReplicateContentProcess"
+                    PROCESS_ARGS="preview"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_replicate_preview>
+            <process_reset_loop
+                jcr:description="Reset continueLoop to false; any feedback branch will flip it back to true."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Reset Loop Flag"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                    PROCESS_ARGS="continueLoop=false"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_reset_loop>
+            <or_selfpeer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                branchName1="Self/Peer Review"
+                branchName2="Skip Self/Peer Review"
+                branchOrder="[0,1]"
+                orSplit="true"
+                scriptPath1="/apps/mvw/workflow/scripts/checkSelfReviewer.ecma"
+                scriptPath2="/apps/mvw/workflow/scripts/defaultSkip.ecma">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <email_selfpeer
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Email to Self/Peer Reviewer"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                            PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=selfPeerReviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </email_selfpeer>
+                    <dynamic_participant
+                        jcr:description="Content is staged in a lower environment for Self/Peer review."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Self/Peer Review (Dynamic Participant)"
+                        sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                            DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"
+                            DO_NOTIFY="true"/>
+                    </dynamic_participant>
+                    <process_copy_action_selfpeer
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy Reviewer Action - Self/Peer"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy_action_selfpeer>
+                    <or_selfpeer_feedback
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/workflow/components/model/or"
+                        branches="2"
+                        branchName1="Provide Feedback"
+                        branchName2="Approve Content"
+                        branchOrder="[0,1]"
+                        orSplit="true"
+                        scriptPath1="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+                        scriptPath2="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma">
+                        <_x0031_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <process_set_loop_selfpeer
+                                jcr:description="Feedback given – flag the loop to restart from the beginning."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Set Loop Flag - Self/Peer Feedback"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                                    PROCESS_ARGS="continueLoop=true"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </process_set_loop_selfpeer>
+                            <email_feedback_selfpeer
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Email Feedback to Author"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                                    PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </email_feedback_selfpeer>
+                        </_x0031_>
+                        <_x0032_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <noop_approve_selfpeer
+                                jcr:description="Content approved by Self/Peer reviewer."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Content Approved - Self/Peer"
+                                sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="/libs/workflow/scripts/noop.ecma"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </noop_approve_selfpeer>
+                        </_x0032_>
+                    </or_selfpeer_feedback>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <noop_skip_selfpeer
+                        jcr:description="Self/Peer review not required."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skip Self/Peer Review"
+                        sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="/libs/workflow/scripts/noop.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </noop_skip_selfpeer>
+                </_x0032_>
+            </or_selfpeer>
+            <process_conditional_goto_selfpeer
+                jcr:description="If feedback was given during Self/Peer review, loop back to Content Authoring Team."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Loop Check - Conditional GOTO"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                    PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                    PROCESS_AUTO_ADVANCE="false"/>
+            </process_conditional_goto_selfpeer>
+            <or_qa
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                branchName1="QA Review"
+                branchName2="Skip QA Review"
+                branchOrder="[0,1]"
+                orSplit="true"
+                scriptPath1="/apps/mvw/workflow/scripts/checkQaReviewer.ecma"
+                scriptPath2="/apps/mvw/workflow/scripts/defaultSkip.ecma">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <email_qa
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Email to QA Reviewer"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                            PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=qaReviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </email_qa>
+                    <dynamic_participant_
+                        jcr:description="QA reviews and approves content."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="QA Review (Dynamic Participant)"
+                        sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                            DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"
+                            DO_NOTIFY="true"/>
+                    </dynamic_participant_>
+                    <process_copy_action_qa
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy Reviewer Action - QA"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy_action_qa>
+                    <or_qa_feedback
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/workflow/components/model/or"
+                        branches="2"
+                        branchName1="Provide Feedback"
+                        branchName2="Approve Content"
+                        branchOrder="[0,1]"
+                        orSplit="true"
+                        scriptPath1="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+                        scriptPath2="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma">
+                        <_x0031_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <process_set_loop_qa
+                                jcr:description="Feedback given – flag the loop to restart from the beginning."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Set Loop Flag - QA Feedback"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                                    PROCESS_ARGS="continueLoop=true"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </process_set_loop_qa>
+                            <email_feedback_qa
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Email Feedback to Author"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                                    PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </email_feedback_qa>
+                        </_x0031_>
+                        <_x0032_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <noop_approve_qa
+                                jcr:description="Content approved by QA reviewer."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Content Approved - QA"
+                                sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="/libs/workflow/scripts/noop.ecma"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </noop_approve_qa>
+                        </_x0032_>
+                    </or_qa_feedback>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <noop_skip_qa
+                        jcr:description="QA review not required."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skip QA Review"
+                        sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="/libs/workflow/scripts/noop.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </noop_skip_qa>
+                </_x0032_>
+            </or_qa>
+            <process_conditional_goto_qa
+                jcr:description="If feedback was given during QA review, loop back to Content Authoring Team."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Loop Check - Conditional GOTO"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                    PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                    PROCESS_AUTO_ADVANCE="false"/>
+            </process_conditional_goto_qa>
+            <or_copyproofread
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                branchName1="Copy/Proofread Review"
+                branchName2="Skip Copy/Proofread Review"
+                branchOrder="[0,1]"
+                orSplit="true"
+                scriptPath1="/apps/mvw/workflow/scripts/checkCopyProofReviewer.ecma"
+                scriptPath2="/apps/mvw/workflow/scripts/defaultSkip.ecma">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <email_copyproofread
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Email to Copy/Proofread Reviewer"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                            PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=copyProofreadReviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </email_copyproofread>
+                    <dynamic_participant_
+                        jcr:description="Copy/Proofread team reviews and approves content."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy/Proofread Review (Dynamic Participant)"
+                        sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                            DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"
+                            DO_NOTIFY="true"/>
+                    </dynamic_participant_>
+                    <process_copy_action_copyproofread
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy Reviewer Action - Copy/Proofread"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy_action_copyproofread>
+                    <or_copyproofread_feedback
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/workflow/components/model/or"
+                        branches="2"
+                        branchName1="Provide Feedback"
+                        branchName2="Approve Content"
+                        branchOrder="[0,1]"
+                        orSplit="true"
+                        scriptPath1="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+                        scriptPath2="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma">
+                        <_x0031_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <process_set_loop_copyproofread
+                                jcr:description="Feedback given – flag the loop to restart from the beginning."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Set Loop Flag - Copy/Proofread Feedback"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                                    PROCESS_ARGS="continueLoop=true"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </process_set_loop_copyproofread>
+                            <email_feedback_copyproofread
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Email Feedback to Author"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                                    PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </email_feedback_copyproofread>
+                        </_x0031_>
+                        <_x0032_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <noop_approve_copyproofread
+                                jcr:description="Content approved by Copy/Proofread reviewer."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Content Approved - Copy/Proofread"
+                                sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="/libs/workflow/scripts/noop.ecma"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </noop_approve_copyproofread>
+                        </_x0032_>
+                    </or_copyproofread_feedback>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <noop_skip_copyproofread
+                        jcr:description="Copy/Proofread review not required."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skip Copy/Proofread Review"
+                        sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="/libs/workflow/scripts/noop.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </noop_skip_copyproofread>
+                </_x0032_>
+            </or_copyproofread>
+            <process_conditional_goto_copyproofread
+                jcr:description="If feedback was given during Copy/Proofread review, loop back to Content Authoring Team."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Loop Check - Conditional GOTO"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                    PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                    PROCESS_AUTO_ADVANCE="false"/>
+            </process_conditional_goto_copyproofread>
+            <or_business
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                branchName1="Business Review"
+                branchName2="Skip Business Review"
+                branchOrder="[0,1]"
+                orSplit="true"
+                scriptPath1="/apps/mvw/workflow/scripts/checkBusinessReviewer.ecma"
+                scriptPath2="/apps/mvw/workflow/scripts/defaultSkip.ecma">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <email_business
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Email to Business Reviewer"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                            PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=businessReviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </email_business>
+                    <dynamic_participant_
+                        jcr:description="Business team reviews and approves content."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Business Review (Dynamic Participant)"
+                        sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                            DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"
+                            DO_NOTIFY="true"/>
+                    </dynamic_participant_>
+                    <process_copy_action_business
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy Reviewer Action - Business"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy_action_business>
+                    <or_business_feedback
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/workflow/components/model/or"
+                        branches="2"
+                        branchName1="Provide Feedback"
+                        branchName2="Approve Content"
+                        branchOrder="[0,1]"
+                        orSplit="true"
+                        scriptPath1="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+                        scriptPath2="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma">
+                        <_x0031_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <process_set_loop_business
+                                jcr:description="Feedback given – flag the loop to restart from the beginning."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Set Loop Flag - Business Feedback"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                                    PROCESS_ARGS="continueLoop=true"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </process_set_loop_business>
+                            <email_feedback_business
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Email Feedback to Author"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                                    PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </email_feedback_business>
+                        </_x0031_>
+                        <_x0032_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <noop_approve_business
+                                jcr:description="Content approved by Business reviewer."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Content Approved - Business"
+                                sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="/libs/workflow/scripts/noop.ecma"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </noop_approve_business>
+                        </_x0032_>
+                    </or_business_feedback>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <noop_skip_business
+                        jcr:description="Business review not required."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skip Business Review"
+                        sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="/libs/workflow/scripts/noop.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </noop_skip_business>
+                </_x0032_>
+            </or_business>
+            <process_conditional_goto_business
+                jcr:description="If feedback was given during Business review, loop back to Content Authoring Team."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Loop Check - Conditional GOTO"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                    PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                    PROCESS_AUTO_ADVANCE="false"/>
+            </process_conditional_goto_business>
+            <or_legal
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                branchName1="Legal Review"
+                branchName2="Skip Legal Review"
+                branchOrder="[0,1]"
+                orSplit="true"
+                scriptPath1="/apps/mvw/workflow/scripts/checkLegalReviewer.ecma"
+                scriptPath2="/apps/mvw/workflow/scripts/defaultSkip.ecma">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <email_legal
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Email to Legal Reviewer"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                            PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=legalReviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </email_legal>
+                    <dynamic_participant_
+                        jcr:description="Legal team reviews and approves content."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Legal Review (Dynamic Participant)"
+                        sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                            DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"
+                            DO_NOTIFY="true"/>
+                    </dynamic_participant_>
+                    <process_copy_action_legal
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy Reviewer Action - Legal"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy_action_legal>
+                    <or_legal_feedback
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/workflow/components/model/or"
+                        branches="2"
+                        branchName1="Provide Feedback"
+                        branchName2="Approve Content"
+                        branchOrder="[0,1]"
+                        orSplit="true"
+                        scriptPath1="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+                        scriptPath2="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma">
+                        <_x0031_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <process_set_loop_legal
+                                jcr:description="Feedback given – flag the loop to restart from the beginning."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Set Loop Flag - Legal Feedback"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                                    PROCESS_ARGS="continueLoop=true"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </process_set_loop_legal>
+                            <email_feedback_legal
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Email Feedback to Author"
+                                sling:resourceType="cq/workflow/components/model/process">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                                    PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </email_feedback_legal>
+                        </_x0031_>
+                        <_x0032_
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="cq/flow/components/parsys">
+                            <noop_approve_legal
+                                jcr:description="Content approved by Legal reviewer."
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Content Approved - Legal"
+                                sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                                <metaData
+                                    jcr:primaryType="nt:unstructured"
+                                    PROCESS="/libs/workflow/scripts/noop.ecma"
+                                    PROCESS_AUTO_ADVANCE="true"/>
+                            </noop_approve_legal>
+                        </_x0032_>
+                    </or_legal_feedback>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <noop_skip_legal
+                        jcr:description="Legal review not required."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Skip Legal Review"
+                        sling:resourceType="cq/workflow/components/workflow/noopprocess">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="/libs/workflow/scripts/noop.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </noop_skip_legal>
+                </_x0032_>
+            </or_legal>
+            <process_conditional_goto
+                jcr:description="Checks continueLoop flag. If feedback was given, uses back routes to loop to Content Authoring Team. If all approved, advances forward to final steps."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Loop Check - Conditional GOTO"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                    PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                    PROCESS_AUTO_ADVANCE="false"/>
+            </process_conditional_goto>
+            <email_final_author
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Email to Author - Ready for Final Approval"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                    PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </email_final_author>
+            <finalapproval
+                jcr:description="Content author (Initiator) publishes content."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Final Approval"
+                sling:resourceType="cq/workflow/components/workflow/initiatorparticipantchooser">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                    PROCESS_AUTO_ADVANCE="false"/>
+            </finalapproval>
+            <process_cdn_purge_cache
+                jcr:primaryType="nt:unstructured"
+                jcr:title="CDN Purge Cache for Payload"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.CdnPurgeCacheProcess"
+                    PROCESS_ARGS="purgeTypeHeader=X-AEM-Purge, type=resource"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_cdn_purge_cache>
+            <process_replicate_publish
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Deploy Content to Stage Publish"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.mvw.core.workflow.ReplicateContentProcess"
+                    PROCESS_ARGS="publish"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_replicate_publish>
+        </flow>
+    </jcr:content>
+</jcr:root>

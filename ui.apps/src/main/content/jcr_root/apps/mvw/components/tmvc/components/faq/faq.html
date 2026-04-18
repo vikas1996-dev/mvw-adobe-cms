@@ -1,0 +1,92 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='mvw.faq'}" />
+
+<sly data-sly-use.model="com.mvw.core.models.AccordionModel" />
+<sly data-sly-use.accordion="com.adobe.cq.wcm.core.components.models.Accordion" />
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html" />
+
+<sly data-sly-use.faq="com.mvw.core.models.FaqJsonLdModel" />
+
+<div id="${accordion.id}" data-cmp-is="accordion" data-cmp-data-layer="${accordion.data.json}"
+     data-cmp-single-expansion="${accordion.singleExpansion}"
+     data-panelcontainer="${wcmmode.edit || wcmmode.preview ? 'accordion' : ''}"
+     class="cmp-accordion mvw-faq bg-theme-${model.backgroundColor}">
+
+    <div class="grid-container">
+        <div class="faq-container-wrapper">
+            <sly data-sly-test="${model.headlineText}">
+                <span data-sly-element="${model.headlineTag}"
+                      class="faq-heading align-left ${model.headlineType}${model.headlineStyledBorder == 'yes' ? ' cmp-title' : ''}">${model.headlineText @ context='html'}</span>
+            </sly>
+            <!-- Accordion Items -->
+            <sly data-sly-test="${accordion.items}">
+                <sly data-sly-list.item="${accordion.items}">
+                    <div class="cmp-accordion__item ${item.name in accordion.expandedItems ? 'cmp-accordion__item--expanded' : ''}"
+                         id="${item.id}" data-cmp-hook-accordion="item"
+                         data-cmp-data-layer="${item.data.json}"
+                         data-cmp-expanded="${item.name in accordion.expandedItems}">
+
+                        <h3 data-sly-element="${accordion.headingElement @ context='elementName'}"
+                            class="cmp-accordion__header">
+                            <button id="${item.id}-button"
+                                    class="cmp-accordion__button ${item.name in accordion.expandedItems ? 'cmp-accordion__button--expanded' : ''}"
+                                    type="button" aria-controls="${item.id}-panel"
+                                    aria-expanded="${item.name in accordion.expandedItems}"
+                                    data-cmp-hook-accordion="button">
+                                <span class="cmp-accordion__title">${item.title}</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </h3>
+
+                        <div id="${item.id}-panel"
+                             class="cmp-accordion__panel ${item.name in accordion.expandedItems ? 'cmp-accordion__panel--expanded' : ''}"
+                             data-cmp-hook-accordion="panel" role="region"
+                             aria-labelledby="${item.id}-button">
+
+                            <div class="resources">
+                                <sly data-sly-resource="${item.resource}"></sly>
+                            </div>
+
+                        </div>
+                    </div>
+                </sly>
+            </sly>
+
+            <!-- CTA Buttons -->
+            <sly data-sly-list.cta="${model.ctas}">
+                <a href="${cta.ctaDestination}"
+                   class="cmp-button cmp-button--${cta.ctaStyle}${cta.ctaPlacement == 'icon-only' ? ' cmp-button--icon-only' : ''} cmp-button--large"
+                   data-url="${cta.ctaDestination}"
+                   data-tab="${cta.ctaTab}"
+                   aria-label="${cta.ctaText}">
+
+                    <sly data-sly-test="${cta.ctaPlacement != 'icon-only'}">
+                        <sly data-sly-test="${cta.ctaPlacement == 'left-icon' && cta.fontAwesomeIcon}">
+                            <span class="cmp-button__icon cmp-button__icon--left fa fa-brands ${cta.fontAwesomeIcon}"></span>
+                        </sly>
+
+                        <span data-sly-test="${cta.ctaText}" class="cmp-button__text">${cta.ctaText @ context='html'}</span>
+
+                        <sly data-sly-test="${cta.ctaPlacement == 'right-icon' && cta.fontAwesomeIcon}">
+                            <span class="cmp-button__icon cmp-button__icon--right fa fa-brands ${cta.fontAwesomeIcon}"></span>
+                        </sly>
+                    </sly>
+
+                    <sly data-sly-test="${cta.ctaPlacement == 'icon-only'}">
+                        <span class="cmp-button__icon cmp-button__icon fa fa-brands ${cta.fontAwesomeIcon}"></span>
+                    </sly>
+                </a>
+            </sly>
+
+        </div>
+    </div>
+</div>
+
+<!-- FAQ JSON-LD Structured Data -->
+<sly data-sly-test="${faq.jsonLd}">
+    <script type="application/ld+json">
+        ${faq.jsonLd @ context='unsafe'}
+    </script>
+</sly>
+
+<sly data-sly-call="${clientlib.js @ categories='mvw.faq'}" />

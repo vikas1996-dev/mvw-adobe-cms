@@ -1,0 +1,9 @@
+Subject: ACTION NEEDED: Ready for Review in ${environmentName}
+
+The following content is ready for review in the ${environmentName} Preview environment.
+
+${previewLinks}
+${commentsSection}
+You can provide feedback and/or approve content at the link below:
+
+${approvalLink}

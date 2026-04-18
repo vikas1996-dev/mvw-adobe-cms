@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <backgroundImage
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Background Image"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <bgType
+                                                granite:class="cq-dialog-dropdown-showhide"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Background Type"
+                                                name="./bgType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <image
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Image"
+                                                        value="image"/>
+                                                    <video
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Video"
+                                                        value="video"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-dropdown-showhide-target=".cta-dependent"/>
+                                            </bgType>
+                                            <image
+                                                granite:class="cta-dependent"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="image"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <backgroundImage
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                        class="cq-droptarget"
+                                                        enableNextGenDynamicMedia="{Boolean}true"
+                                                        fieldLabel="Background Image"
+                                                        fileNameParameter="./fileName"
+                                                        fileReferenceParameter="./bgImage"
+                                                        mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                                        name="./backgroundImage"/>
+                                                    <bgImageAlignmentLeftRight
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                        fieldLabel="Background Position Left and Right"
+                                                        max="100"
+                                                        min="-100"
+                                                        name="./bgImageAlignmentLeftRight"
+                                                        step="1"
+                                                        value="0"/>
+                                                    <bgImageAlignmentTopBottom
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                        fieldLabel="Background Position Top and Bottom"
+                                                        max="100"
+                                                        min="-100"
+                                                        name="./bgImageAlignmentTopBottom"
+                                                        step="1"
+                                                        value="0"/>
+                                                </items>
+                                            </image>
+                                            <video
+                                                granite:class="cta-dependent"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <videoUrl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                        fieldLabel="Video Url"
+                                                        name="./bgVideo"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="video"/>
+                                            </video>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </backgroundImage>
+                    <copySection
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy Section"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <taglineText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Tagline Text"
+                                                name="./taglineText"/>
+                                            <tagLineColor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Tagline Color"
+                                                name="./taglineColor">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <none
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="None"
+                                                        value="none"/>
+                                                    <indigo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Indigo"
+                                                        value="indigo"/>
+                                                    <pearl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Pearl"
+                                                        value="pearl"/>
+                                                    <teal
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Teal"
+                                                        value="teal"/>
+                                                    <linen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Linen"
+                                                        value="linen"/>
+                                                </items>
+                                            </tagLineColor>
+                                            <headlineText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Headline Text"
+                                                name="./headlineText"
+                                                required="{Boolean}true"/>
+                                            <headlineAlignment
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Headline Alignment "
+                                                name="./headlineAlignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <Left
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Left"
+                                                        value="left"/>
+                                                    <Right
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Right"
+                                                        value="right"/>
+                                                    <Center
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Center"
+                                                        value="center"/>
+                                                </items>
+                                            </headlineAlignment>
+                                            <copySectionAlignment
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Copy Section Alignment"
+                                                name="./copySectionAlignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <Left
+                                                        jcr:primaryType="nt:unstructured"
+                                                        selected="{Boolean}true"
+                                                        text="Left"
+                                                        value="left-section"/>
+                                                    <Right
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Right"
+                                                        value="moved-section-right"/>
+                                                </items>
+                                            </copySectionAlignment>
+                                            <backgroundColor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Background Color"
+                                                name="./copySectionBgColor">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <none
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="None"
+                                                        value="none"/>
+                                                    <indigo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Indigo"
+                                                        value="indigo"/>
+                                                    <pearl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Pearl"
+                                                        value="pearl"/>
+                                                    <teal
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Teal"
+                                                        value="teal"/>
+                                                    <linen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Linen"
+                                                        value="linen"/>
+                                                </items>
+                                            </backgroundColor>
+                                            <copySectionBorderControl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Background Border Control"
+                                                name="./copySectionBorderControl">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <None
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="None"
+                                                        value="none"/>
+                                                    <Convex
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Convex"
+                                                        value="convex"/>
+                                                    <Concave
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Concave"
+                                                        value="concave"/>
+                                                </items>
+                                            </copySectionBorderControl>
+                                            <backgroundColorTransparency
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Background Color Transparency (%)"
+                                                max="100"
+                                                min="1"
+                                                name="./copySectionBgColorTransparency"
+                                                step="1"
+                                                emptyText="90"
+                                                value="90"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </copySection>
+                    <callToAction
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Call To Action"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        granite:class="cq-RichText-FixedColumn-column"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <ctaAlignmentControl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="CTA Alignment Control"
+                                                name="./ctaAlignmentControl">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <left
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Left"
+                                                        value="left"/>
+                                                    <right
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Right"
+                                                        value="right"/>
+                                                    <center
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Center"
+                                                        value="center"/>
+                                                </items>
+                                            </ctaAlignmentControl>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </callToAction>
+                    <brandLogos
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Brand Logos"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        fieldLabel="Brand Logos"
+                        margin="{Boolean}true"
+                        name="./logos">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                granite:class="cq-RichText-FixedColumn-column"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <logo
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Logo"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldLabel="Logos"
+                                        maxItems="5"
+                                        minItems="1">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Logo"
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            name="./logos">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/collapsible"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <logo
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                    allowUpload="{Boolean}true"
+                                                    class="cq-droptarget"
+                                                    enableNextGenDynamicMedia="{Boolean}true"
+                                                    fieldLabel="Logo"
+                                                    fileNameParameter="logo"
+                                                    fileReferenceParameter="logoImage"
+                                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                                    name="./logoImage"
+                                                    text="Upload your image here"/>
+                                                <logoAltText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Logo Alt Text"
+                                                    name="./logoAltText"
+                                                    required="{Boolean}true"/>
+                                                <ctaUrls
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                    fieldLabel="CTA URL"
+                                                    name="./logoCtaUrl"
+                                                    required="{Boolean}true"/>
+                                                <ctaOpensIn
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="CTA Open In"
+                                                    name="./logoCtaTab">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <sameWindow
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Same Window"
+                                                            value="sameTab"/>
+                                                        <newWindow
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="New Window"
+                                                            value="newTab"/>
+                                                    </items>
+                                                </ctaOpensIn>
+                                                <ariaLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Logo Aria Label"
+                                                    name="./ariaLabel"
+                                                    required="{Boolean}true"/>
+                                            </items>
+                                        </field>
+                                    </logo>
+                                </items>
+                            </column>
+                        </items>
+                    </brandLogos>
+                    <mobile
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Mobile"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        granite:class="cq-RichText-FixedColumn-column"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <backgroundImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                class="cq-droptarget"
+                                                enableNextGenDynamicMedia="{Boolean}true"
+                                                fieldLabel="Background Image"
+                                                fileNameParameter="./fileName"
+                                                fileReferenceParameter="./mobileBackgroundImage"
+                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                                name="./mobileBackgroundImages"/>
+                                            <mobileBgImageAlignmentLeftRight
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Background Position Left and Right"
+                                                max="100"
+                                                min="0"
+                                                name="./mobileBgImageAlignmentLeftRight"
+                                                step="1"
+                                                value="0"/>
+                                            <mobileBgImageAlignmentTopBottom
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Background Position Top and Bottom"
+                                                max="100"
+                                                min="0"
+                                                name="./mobileBgImageAlignmentTopBottom"
+                                                step="1"
+                                                value="0"/>
+                                            <headlineAlignment
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Headline Alignment "
+                                                name="./mobileHeadlineAlignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <Left
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Left"
+                                                        value="left"/>
+                                                    <Right
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Right"
+                                                        value="right"/>
+                                                    <Center
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Center"
+                                                        value="center"/>
+                                                </items>
+                                            </headlineAlignment>
+                                            <backgroundColor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Background Color"
+                                                name="./mobileBgColorAlignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <none
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="None"
+                                                        value="none"/>
+                                                    <indigo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Indigo"
+                                                        value="indigo"/>
+                                                    <pearl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Pearl"
+                                                        value="pearl"/>
+                                                    <teal
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Teal"
+                                                        value="teal"/>
+                                                    <linen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Linen"
+                                                        value="linen"/>
+                                                </items>
+                                            </backgroundColor>
+                                            <backgroundColorBorderControl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldLabel="Background Color Border Control"
+                                                name="./mobileBgColorBorderControl">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <none
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="None"
+                                                        value="none"/>
+                                                    <ConvexTop
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Convex Top"
+                                                        value="convex"/>
+                                                    <ConcaveTop
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Concave Top"
+                                                        value="concave"/>
+                                                </items>
+                                            </backgroundColorBorderControl>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </mobile>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

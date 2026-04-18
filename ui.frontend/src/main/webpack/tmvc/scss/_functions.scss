@@ -1,0 +1,46 @@
+// Replace theme-color function
+@function theme-color($key) {
+  @return map-get($theme-colors, $key);
+}
+
+// Function to check if a list is ascending
+@function is-ascending($list) {
+  $last: nth($list, 1);
+  @for $i from 2 through length($list) {
+    $current: nth($list, $i);
+    @if $current <= $last {
+      @return false;
+    }
+    $last: $current;
+  }
+  @return true;
+}
+
+// Function to check if list starts with zero
+@function starts-with-zero($list) {
+  @return nth($list, 1) == 0;
+}
+
+// Assertion mixins
+@mixin _assert-ascending($map, $map-name) {
+  $values: map-values($map);
+  @if not is-ascending($values) {
+    @error "#{$map-name} values must be in ascending order";
+  }
+}
+
+@mixin _assert-starts-at-zero($map, $map-name) {
+  $values: map-values($map);
+  @if not starts-with-zero($values) {
+    @error "#{$map-name} must start at 0";
+  }
+}
+
+// Color functions
+@function darken($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function lighten($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}

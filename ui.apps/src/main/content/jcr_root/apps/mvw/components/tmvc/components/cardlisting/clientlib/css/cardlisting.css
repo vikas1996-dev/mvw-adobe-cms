@@ -1,0 +1,262 @@
+/* mvw.vacationcard - Final CSS */
+/* Matches provided design closely, supports n cards, and all CTA types */
+
+/* ---------- Core Variables ---------- */
+:root {
+  --color-indigo: #0f2b4c;
+  --color-pearl: #f3f5f6;
+  --color-copper: #b66a3a;
+  --color-dark: #0b1a2b;
+  --color-muted: #555e6c;
+  --color-white: #ffffff;
+  --shadow-card: 0 4px 16px rgba(11, 26, 43, 0.08);
+}
+
+/* ---------- Container ---------- */
+.vacation-card-container {
+  background-color: var(--color-pearl);
+  padding: 64px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-dark);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* ---------- Primary Section ---------- */
+.vacation-card-primary {
+  max-width: 880px;
+  margin-bottom: 40px;
+}
+
+.vacation-card-headline {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin: 0 0 16px;
+}
+
+.vacation-card-headline::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 12px auto 0;
+  background-color: var(--color-copper);
+  border-radius: 2px;
+}
+
+.vacation-card-copy {
+  font-size: 16px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* ---------- Card Grid (n cards supported) ---------- */
+.vacation-card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto 40px;
+  box-sizing: border-box;
+}
+
+/* Keep cards side-by-side (shrink in size) until 770px width */
+@media (max-width: 1024px) {
+  .vacation-card-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 770px) {
+  .vacation-card-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Card ---------- */
+.vacation-card-item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vacation-card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(11, 26, 43, 0.12);
+}
+
+/* ---------- Image ---------- */
+.vacation-card-item-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Card Content ---------- */
+.vacation-card-item-content {
+  padding: 22px 20px 28px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.vacation-card-item-headline {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin-bottom: 8px;
+}
+
+.vacation-card-item-copy {
+  font-size: 15px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* ---------- Inside Card CTA (UPDATED to Link Style) ---------- */
+.vacation-card-item-cta {
+  margin-top: auto;
+}
+
+.vacation-card-item-cta-link {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0073e6;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.vacation-card-item-cta-link:hover {
+  color: #005bb5;
+  text-decoration: underline;
+}
+
+/* ---------- Secondary Section ---------- */
+.vacation-card-secondary {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.vacation-card-secondary-copy {
+  font-size: 15px;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+}
+
+.vacation-card-secondary-cta {
+  display: inline-block;
+  padding: 10px 28px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-dark);
+  background: transparent;
+  border: 1.8px solid var(--color-dark);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.vacation-card-secondary-cta:hover {
+  background-color: rgba(15, 43, 76, 0.05);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .vacation-card-headline {
+    font-size: 28px;
+  }
+
+  .vacation-card-item-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vacation-card-container {
+    padding: 48px 20px;
+  }
+
+  .vacation-card-item-image {
+    height: 180px;
+  }
+
+  .vacation-card-item-content {
+    padding: 18px 16px 24px;
+  }
+
+  .vacation-card-headline {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vacation-card-item-image {
+    height: 160px;
+  }
+
+  .vacation-card-item-headline {
+    font-size: 18px;
+  }
+
+  .vacation-card-item-cta-link {
+    font-size: 13px;
+  }
+}
+
+/* ---------- Card Background Variants ---------- */
+.vacation-card-item--bg-none {
+  background-color: var(--color-white);
+}
+
+.vacation-card-item--bg-indigo {
+  background-color: var(--color-indigo);
+  color: var(--color-white);
+}
+
+.vacation-card-item--bg-pearl {
+  background-color: var(--color-pearl);
+}
+
+.vacation-card-item--bg-teal {
+  background-color: #008080;
+  color: var(--color-white);
+}
+
+.vacation-card-item--bg-linen {
+  background-color: #faf0e6;
+}
+
+/* Adjust text color for dark backgrounds */
+.vacation-card-item--bg-Indigo .vacation-card-item-headline,
+.vacation-card-item--bg-Teal .vacation-card-item-headline {
+  color: var(--color-white);
+}
+
+.vacation-card-item--bg-Indigo .vacation-card-item-cta-link,
+.vacation-card-item--bg-Teal .vacation-card-item-cta-link {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.vacation-card-item--bg-Indigo .vacation-card-item-cta-link:hover,
+.vacation-card-item--bg-Teal .vacation-card-item-cta-link:hover {
+  color: #cce4ff;
+}

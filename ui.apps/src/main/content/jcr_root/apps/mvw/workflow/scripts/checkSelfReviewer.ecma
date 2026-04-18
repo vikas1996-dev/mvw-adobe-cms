@@ -1,0 +1,13 @@
+function check() {
+    var metadataMap = workflowData.getMetaDataMap();
+    var reviewer = metadataMap.get("selfPeerReviewer", "");
+    log.info("Workflow Debug: selfPeerReviewer value is: " + reviewer);
+
+    // Only proceed if reviewer is not empty
+    if (reviewer != "") {
+        metadataMap.put("currentFlowReviewStatus", "self");
+        return true;
+    }
+
+    return false;
+}

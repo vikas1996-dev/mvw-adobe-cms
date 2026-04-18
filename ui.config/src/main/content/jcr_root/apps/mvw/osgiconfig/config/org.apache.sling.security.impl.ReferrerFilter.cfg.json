@@ -1,0 +1,6 @@
+{
+  "allow.empty": true,
+  "allow.hosts": ["author-p171035-e1845335.adobeaemcloud.com","publish-p171035-e1845335.adobeaemcloud.com","localhost"],
+  "filter.methods": ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"],
+  "filter.enable": true
+}

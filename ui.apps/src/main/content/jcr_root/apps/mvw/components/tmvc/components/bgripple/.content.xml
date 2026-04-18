@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          jcr:description="Background Ripple - Two vertical slots with split background"
+          jcr:primaryType="cq:Component"
+          jcr:title="Background Ripple"
+          componentGroup="TMVC - Content"
+          cq:isContainer="{Boolean}true"/>

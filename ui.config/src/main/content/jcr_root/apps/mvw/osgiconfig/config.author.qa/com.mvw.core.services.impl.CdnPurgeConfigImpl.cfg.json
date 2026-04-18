@@ -1,0 +1,5 @@
+{
+  "cdnPurgeKey1": "$[secret:CDN_PURGEKEY_DEV_1]",
+  "cdnPurgeKey2": "$[secret:CDN_PURGEKEY_QA_1]",
+  "cdnPurgeDomain": "dev-publish.marriottvacationclubs.com"
+}

@@ -1,0 +1,45 @@
+{
+  "cards": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "jcr:lastModifiedBy": "admin",
+    "jcr:created": "Thu Nov 13 2025 10:49:01 GMT+0530",
+    "jcr:lastModified": "Thu Nov 13 2025 12:18:18 GMT+0530",
+    "sling:resourceType": "mvw/components/newclub/cards",
+    "textIsRich": [
+      "true",
+      "true",
+      "true"
+    ],
+    "backgroundImage": "/content/dam/mvw/Logo.svg",
+    "altText": "logo alt",
+    "disableLazyLoading": "false",
+    "hideBackgroundInMobile" : "true",
+    "cardList": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "cardDescription": "\u003Cp\u003ECommit to making once-in-a-lifetime every single time, and show your vacations all the dedication\u003Cbr\u003E\r\nthey’re due.\u003C/p\u003E\r\n",
+        "iconClass": "vacation__icon--beach",
+        "cardTitle": "Unlock you inner uropiacde",
+        "name": "First"
+
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "cardDescription": "\u003Cp\u003EWherever you’re dreaming of, we have just the place. Set your vacation sights on distinctive all-inclusive resorts—all with elevated experiences for those in the know.\u003C/p\u003E\r\n",
+        "iconClass": "vacation__icon--advantage",
+        "cardTitle": "Get the Inside Advantage",
+        "name": "First"
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "cardDescription": "\u003Cp\u003EParadise isn't limited to a single destination. Whether you're on a family vacation or romantic getaway, each all-inclusive resort is completely distinctive.\u003C/p\u003E\r\n",
+        "iconClass": "vacation__icon--map",
+        "cardTitle": "One Happiness-Inducing  Destination After Another",
+        "name": "First"
+      }
+    }
+  }
+}
+

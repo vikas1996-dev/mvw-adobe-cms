@@ -1,0 +1,44 @@
+<sly data-sly-use.content="com.mvw.core.models.StaticDetailModel" />
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentImagesModel">
+    <sly data-sly-test="${contents.propertiesList}">
+        <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.name == 'destination-landing-search-hero'}">
+                <sly data-sly-list.image="${content.images}">
+
+                    <sly data-sly-set.name="${image.name}"/>
+                    <sly data-sly-list.photo="${image.photo}">
+                        <sly data-sly-test="${photoList.index == 0}">
+                           
+                            <!-- <img src="https://content.vistana.com/files/live${photo.path}"
+                                    alt="${photo.altText || offer.name}" role="presentation" loading="lazy"> -->
+                        <sly data-sly-set.photo="${photo.path}"/> 
+                         </sly>
+                    </sly>
+                </sly>
+            </sly>
+        </sly>
+
+        <section class="search-hero" aria-label="Search destinations and resorts">
+            <div class="hero-image-wrapper">
+                <img src="${photo}" alt="Discover destinations" class="hero-background" loading="eager" fetchpriority="high"/>
+                <div class="location-badge">
+                    <div class="location-content">
+                        <i class="fa-light fa-location-dot" aria-hidden="true"></i>
+                        <span class="location-text">${name}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text"
+                           class="search-input"
+                           placeholder="Search destinations and resorts"
+                           aria-label="Search destinations and resorts"
+                           autocomplete="off" />
+                    <button class="search-icon" aria-label="Search" type="button">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    

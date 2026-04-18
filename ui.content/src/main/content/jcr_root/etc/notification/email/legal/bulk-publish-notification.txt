@@ -1,0 +1,20 @@
+Subject: Publication Alert, Your Documents Will Go Live in 72 Hours ${environmentName}
+
+<html>
+  <body>
+    <p>The following documents are scheduled to go live:</p>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+      <thead>
+        <tr>
+          <th align="left">Document Name</th>
+          <th align="left">Scheduled Go-Live Date</th>
+          <th align="left">Time Share</th>
+          <th align="left">User</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${documentRows}
+      </tbody>
+    </table>
+  </body>
+</html>

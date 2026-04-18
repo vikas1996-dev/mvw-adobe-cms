@@ -1,0 +1,9 @@
+{
+    "site.id" : "newclub",
+    "adobe.launch.url": "$[env:NEWCLUB_ADOBE_LAUNCH_URL;default=]",
+    "cookie.consent.script" :"$[env:NEWCLUB_COOKIE_CONSENT_SCRIPT;default=]",
+    "brightcove.account.id": "$[env:NEWCLUB_BRIGHTCOVE_ACCOUNT_ID;default=]",
+    "brightcove.player.id": "$[env:NEWCLUB_BRIGHTCOVE_PLAYER_ID;default=]",
+    "google.map.key" : "AIzaSyCa-Nr6zMaWDafbLzvQY5TwMLtyCe6abF4",
+    "privacy.notice" :"$[env:NEWCLUB_PRIVACY_NOTICE_SCRIPT;default=]"
+}

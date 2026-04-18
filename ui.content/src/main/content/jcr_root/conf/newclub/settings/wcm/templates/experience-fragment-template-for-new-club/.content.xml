@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2025-11-05T16:54:58.182-05:00"
+        cq:lastModifiedBy="admin"
+        cq:templateType="/conf/newclub/settings/wcm/template-types/xf"
+        jcr:description="Experience Fragment Template for New Club"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Experience Fragment Template for New Club"
+        status="enabled"/>
+</jcr:root>

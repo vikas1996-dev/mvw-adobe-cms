@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <rep:policy/>
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured"/>
+                <page jcr:primaryType="nt:unstructured">
+                    <jcr:content
+                        jcr:primaryType="nt:unstructured"
+                        mergeList="{Boolean}true"/>
+                    <default
+                        jcr:description="Policy of the default page"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Default Page"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[wcm.foundation.components.page.responsive]">
+                        <jcr:content
+                            jcr:primaryType="nt:unstructured"
+                            mergeList="{Boolean}true"/>
+                    </default>
+                </page>
+            </components>
+        </foundation>
+    </wcm>
+    <mvw jcr:primaryType="nt:unstructured">
+        <components jcr:primaryType="nt:unstructured">
+            <container jcr:primaryType="nt:unstructured">
+                <policy_1762367145895
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="New Club Brand Awareness Layout Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,group:New Club - Content]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1762367145895>
+                <policy_54179568879791
+                    jcr:description="New Club Brand Awareness Layout Policy"
+                    jcr:lastModified="{Date}2026-01-22T23:25:47.727-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="New Club Brand Awareness Layout Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,group:New Club - Content]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_54179568879791>
+                <policy_65970928545208
+                    jcr:description="New Club Brand Awareness XF Policy"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="New Club Brand Awareness XF Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:Marriott Vacations Worldwide - Content,group:New Club - Content]"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_65970928545208>
+                <policy_25567238859541
+                    cq:styleDefaultElement="div"
+                    jcr:description="Container policy&#xd;&#xa;1) Background color with predefined swatches&#xd;&#xa;2) Styles for alignment and size"
+                    jcr:lastModified="{Date}2026-01-22T23:30:47.278-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="New Club Container Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedColorSwatches="[#F0F0F0,#D4E1E4,#FFFFFF,#EAF0F1,#FAA387,#E8F6F6]"
+                    backgroundColorEnabled="true"
+                    layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Desktop Variations"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="desk-padded"
+                                    cq:styleId="1763156909341"
+                                    cq:styleLabel="Padding"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="desk-full-width"
+                                    cq:styleId="1763156940019"
+                                    cq:styleLabel="Full Width"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="desk-fixed-1280"
+                                    cq:styleId="1763156983016"
+                                    cq:styleLabel="Fixed Width 1280px"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Mobile Variations"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="mob-padded"
+                                    cq:styleId="1764001248101"
+                                    cq:styleLabel="Padding (Sides 32px)"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="mob-full-width"
+                                    cq:styleId="1764001250723"
+                                    cq:styleLabel="Full Width"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
+                </policy_25567238859541>
+            </container>
+            <xfpage jcr:primaryType="nt:unstructured">
+                <policy_1762379680815
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="newclub XF Site Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="newclub.site">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1762379680815>
+            </xfpage>
+            <newclub jcr:primaryType="nt:unstructured">
+                <teaser jcr:primaryType="nt:unstructured">
+                    <policy_1764772759860
+                        jcr:description="Teaser content policy for adding style variations"
+                        jcr:lastModified="{Date}2026-01-22T22:24:34.170-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="New Club Teaser Content Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedHeadingElements="[h1,h2,h3,h4,h5,h6]"
+                        showTitleType="false"
+                        titleType="h1">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Teaser Variations"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-teaser--stacked"
+                                        cq:styleId="1763394054571"
+                                        cq:styleLabel="Stacked"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-teaser--centered"
+                                        cq:styleId="1763394068328"
+                                        cq:styleLabel="Centered"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item2
+                                        cq:styleClasses="cmp-teaser--hero"
+                                        cq:styleId="1764772839893"
+                                        cq:styleLabel="Image Overlay Block - Padded"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item3
+                                        cq:styleClasses="cmp-teaser--full-width-hero"
+                                        cq:styleId="1764775091783"
+                                        cq:styleLabel="Image Overlay Block - Full width"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item4
+                                        cq:styleClasses="cmp-teaser--overlay-card"
+                                        cq:styleId="1764772886840"
+                                        cq:styleLabel="Page Hero"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                            <item1
+                                cq:styleGroupLabel="Alignment"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-teaser--align-left"
+                                        cq:styleId="1763393947967"
+                                        cq:styleLabel="Left"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="cmp-teaser--align-center"
+                                        cq:styleId="1763393961618"
+                                        cq:styleLabel="Center"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item1>
+                            <item2
+                                cq:styleGroupLabel="Underline/Separtor"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleClasses="cmp-teaser--no-separator"
+                                        cq:styleId="1763393841764"
+                                        cq:styleLabel="No"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleId="1763393916694"
+                                        cq:styleLabel="Yes"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item2>
+                        </cq:styleGroups>
+                    </policy_1764772759860>
+                </teaser>
+                <resortpromotion jcr:primaryType="nt:unstructured">
+                    <policy_1764226680611
+                        jcr:lastModified="{Date}2026-01-22T23:23:58.990-05:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Image Alignment"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Image Alignment"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        cq:styleId="1765257086375"
+                                        cq:styleLabel="Left"
+                                        jcr:primaryType="nt:unstructured"/>
+                                    <item1
+                                        cq:styleClasses="resort-promo--swapped"
+                                        cq:styleId="1764226710714"
+                                        cq:styleLabel=" Right"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1764226680611>
+                </resortpromotion>
+                <bannertitle jcr:primaryType="nt:unstructured">
+                    <policy_1768227558489
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Content Policy for Banner Title"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedTypes="h1"
+                        linkDisabled="false">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1768227558489>
+                </bannertitle>
+                <amenitiescard jcr:primaryType="nt:unstructured">
+                    <policy_1770105179360 jcr:lastModified="{Date}2026-02-03T17:32:40.949+05:30" jcr:lastModifiedBy="admin" jcr:primaryType="nt:unstructured" jcr:title="New Club Amenties Cards Policy" sling:resourceType="wcm/core/components/policy/policy" allowedHeadingElements="[h1,h2,h3,h4,h5,h6]" showTitleType="false" titleType="h2">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 cq:styleGroupLabel="background" jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0 cq:styleClasses="bg-secondary-blue-40" cq:styleId="1770105193804" cq:styleLabel="Secondary Blue 40" jcr:primaryType="nt:unstructured"/>
+                                    <item1 cq:styleClasses="bg-primary-black" cq:styleId="1770105236594" cq:styleLabel="Primary Black" jcr:primaryType="nt:unstructured"/>
+                                    <item2 cq:styleClasses="bg-secondary-teal" cq:styleId="1770105649379" cq:styleLabel="Secondary Teal" jcr:primaryType="nt:unstructured"/>
+                                    <item3 cq:styleClasses="bg-white" cq:styleId="1770105655871" cq:styleLabel="White" jcr:primaryType="nt:unstructured"/>
+                                    <item4 cq:styleClasses="bg-coral-04" cq:styleId="1770105664613" cq:styleLabel="Coral 04" jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1770105179360>
+                </amenitiescard>
+            </newclub>
+            <title jcr:primaryType="nt:unstructured">
+                <policy_1764931026719
+                        jcr:lastModified="{Date}2026-02-04T13:14:43.333+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="New Club Title Content Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedTypes="[h1,h2,h3,h4,h5,h6]"
+                        linkDisabled="false"
+                        type="h1">
+                    <jcr:content
+                            jcr:mixinTypes="[]"
+                            jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                                cq:styleGroupLabel="Desktop Alignment"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="title--align-left"
+                                        cq:styleId="1764931033098"
+                                        cq:styleLabel="Left"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleId="1764934054830"
+                                        cq:styleLabel="Center"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                                cq:styleGroupLabel="Mobile alignment"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleClasses="title--align--mobile-left"
+                                        cq:styleId="1770190536982"
+                                        cq:styleLabel="Left"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="title--align--mobile-center"
+                                        cq:styleId="1770190543021"
+                                        cq:styleLabel="Center"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                        <item2
+                                cq:styleGroupLabel="Seperator"
+                                jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                        cq:styleId="1764934073316"
+                                        cq:styleLabel="Yes"
+                                        jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                        cq:styleClasses="title--no-separator "
+                                        cq:styleId="1764934096006"
+                                        cq:styleLabel="No"
+                                        jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item2>
+
+                    </cq:styleGroups>
+                </policy_1764931026719>
+            </title>
+        </components>
+    </mvw>
+</jcr:root>

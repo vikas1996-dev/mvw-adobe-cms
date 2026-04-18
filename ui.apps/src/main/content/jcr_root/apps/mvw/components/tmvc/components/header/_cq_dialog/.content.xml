@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Marriott Header"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Tabs"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <utilityNavigation
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Utility Navigation"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <contactUsCopy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Contact Us Copy"
+                                name="./contactUsCopy"/>
+                            <contactUsUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Contact Us URL"
+                                name="./contactUsUrl"/>
+                            <contactUsTab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Contact Us URL opens in"
+                                name="./contactUsTab">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <same-tab
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Same Tab"
+                                        value="_self"/>
+                                    <new-tab
+                                        jcr:primaryType="nt:unstructured"
+                                        text="New Tab"
+                                        value="_blank"/>
+                                </items>
+                            </contactUsTab>
+                            <contactCtaStyle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="CTA Style"
+                                name="./contactCtaStyle">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <primaryButton
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Primary Button"
+                                        value="primary-button"/>
+                                    <primaryAltButton
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Primary Alt Button"
+                                        value="primary-alt"/>
+                                    <secondaryOutline
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Secondary Outline"
+                                        value="secondary-outline"/>
+                                    <secondaryGhost
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Secondary Ghost"
+                                        value="secondary-ghost"/>
+                                    <tertiaryButton
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Tertiary Button"
+                                        value="tertiary-button"/>
+                                    <specialText
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Special Text"
+                                        value="special-text"/>
+                                </items>
+                            </contactCtaStyle>
+                            <contactCtaAlignment
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="CTA  Alignment"
+                                name="./contactCtaAlignment">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <none
+                                        jcr:primaryType="nt:unstructured"
+                                        text="None"
+                                        value="none"/>
+                                    <leftIcon
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Left Icon"
+                                        value="left-icon"/>
+                                    <rightIcon
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Right Icon"
+                                        value="right-icon"/>
+                                    <iconOnly
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Icon Only"
+                                        value="icon-only"/>
+                                </items>
+                            </contactCtaAlignment>
+                            <contactCtaSize
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldLabel="CTA Size"
+                                name="./contactCtaSize">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <large
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Large"
+                                        value="large"/>
+                                    <medium
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Medium"
+                                        value="medium"/>
+                                    <small
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Small"
+                                        value="small"/>
+                                </items>
+                            </contactCtaSize>
+                            <contactIcon
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Contact Us Font Awesome Icon"
+                                name="./contactUsIcon"/>
+                            <loginHeaderText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Login Header Text"
+                                name="./loginHeadertext"/>
+                            <loginText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Login Button Title"
+                                name="./loginText"/>
+                            <loginAlt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Login Alt Text"
+                                name="./loginAlt"/>
+                            <loginHeadline
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Login Headline"
+                                name="./loginHeadline"/>
+                            <ctas
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="CTA"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="CTA"
+                                name="./ctas">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Cta"
+                                    sling:resourceType="granite/ui/components/foundation/container"
+                                    max-items="{Long}2"
+                                    min-items="{Long}0"
+                                    name="./ctas">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <ctaText
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="CTA Text"
+                                            name="./ctaText"
+                                            required="{Boolean}true"/>
+                                        <ctaUrl
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                            fieldLabel="Cta URL"
+                                            name="./ctaUrl"
+                                            required="{Boolean}true"/>
+                                        <ctaAdditionalText
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Text Below CTA"
+                                            name="./ctaAdditionalText"/>
+                                        <ctaOpensIn
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/select"
+                                            fieldLabel="CTA Open In"
+                                            name="./ctaOpensIn">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <sameWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Same Window"
+                                                    value="sameTab"/>
+                                                <newWindow
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="New Window"
+                                                    value="newTab"/>
+                                            </items>
+                                        </ctaOpensIn>
+                                    </items>
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/collapsible"/>
+                                </field>
+                            </ctas>
+                            <loginIcon
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Login Font Awesome Icon"
+                                name="./loginIcon"/>
+                            <logoAltText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Logo Alt Text"
+                                name="./logoAltText"
+                                required="{Boolean}true"/>
+                            <logoUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldLabel="Logo URL"
+                                name="./logoUrl"
+                                required="{Boolean}true"/>
+                            <accessibilityLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Accessibility Label"
+                                name="./accessibilityLabel"
+                                required="{Boolean}true"/>
+                            <logoImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}true"
+                                autoUpload="{Boolean}true"
+                                class="cq-droptarget"
+                                enableNextGenDynamicMedia="{Boolean}true"
+                                fieldLabel="Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./logoImage"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                name="./logo1Image"/>
+                        </items>
+                    </utilityNavigation>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

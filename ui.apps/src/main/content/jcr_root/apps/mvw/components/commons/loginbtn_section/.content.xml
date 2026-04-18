@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured">
+    <buttontab
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Login Button"
+        sling:resourceType="granite/ui/components/coral/foundation/container"
+        margin="{Boolean}true">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <loginbuttontext
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Login Button Text"
+                        name="./loginButtonText"
+                        required="{Boolean}true"/>
+                    <loginbuttonlink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Login Button Link"
+                        name="./loginButtonLink"
+                        required="{Boolean}true"
+                        rootPath="/content"/>
+                    <hideloginbutton
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                        checked="false"
+                        name="./loginHide"
+                        text="Hide Login Button"
+                        value="Hide Login Button"/>
+                    <buttonvariation
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Select button variation"
+                        name="./buttonVariation">
+                        <items jcr:primaryType="nt:unstructured">
+                            <opt-primary
+                                jcr:primaryType="nt:unstructured"
+                                text="Primary"
+                                value="primary"/>
+                            <opt-secondary
+                                jcr:primaryType="nt:unstructured"
+                                text="Secondary"
+                                value="secondary"/>
+                            <opt-tertiary
+                                jcr:primaryType="nt:unstructured"
+                                text="Tertiary"
+                                value="tertiary"/>
+                        </items>
+                    </buttonvariation>
+                </items>
+            </column>
+        </items>
+    </buttontab>
+</jcr:root>

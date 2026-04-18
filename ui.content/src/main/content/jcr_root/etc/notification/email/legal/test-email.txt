@@ -1,0 +1,7 @@
+Subject: ${subject}
+
+<html>
+  <body>
+    <p>${message}</p>
+  </body>
+</html>

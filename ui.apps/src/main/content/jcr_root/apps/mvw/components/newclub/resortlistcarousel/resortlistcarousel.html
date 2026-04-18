@@ -1,0 +1,21 @@
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+     data-sly-call="${ templates.placeholder @ component_name= 'Resort List Carousel' }" />
+<sly data-sly-use.resortListCarousel="com.mvw.core.models.NewClubResortListCarouselModel">
+    <sly data-sly-set.alignment="${properties.alignment || properties.aignment || properties.ctaAlignment || 'center'}" />
+    <div class="resort-list-carousel${wcmmode.edit ? ' cq-wcm-edit' : ''}${resortListCarousel.carouselType == 'rightWrapped' ? ' right-wrapped' : ''}">
+        <div class="resort-list-carousel__header ${alignment == 'left' ? 'align-left' : 'align-center'}"
+             data-sly-test="${properties.title || properties.description}">
+            <h2 class="carousel-title${properties.hideUnderline ? '' : ' with-border has-underline'} ${alignment == 'left' ? 'align-left' : 'align-center'}"
+                data-sly-test="${properties.title}">
+                ${properties.title @ context='text'}
+            </h2>
+            <div class="resort-list-carousel__description ${alignment == 'left' ? 'align-left' : 'align-center'}"
+                 data-sly-test="${properties.description}">
+                ${properties.description @ context='html'}
+            </div>
+        </div>
+        <div class="resort-list-carousel__cards">
+            <sly data-sly-resource="${cards @ resourceType='wcm/foundation/components/parsys'}"></sly>
+        </div>
+    </div>
+</sly>

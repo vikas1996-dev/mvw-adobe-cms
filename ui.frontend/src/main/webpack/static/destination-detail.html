@@ -1,0 +1,911 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Static Frontend file</title>
+    <meta name="template" content="page-content" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-base.css" type="text/css">
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.js"></script>
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.css" type="text/css">
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.css" type="text/css">
+
+</head>
+
+<body>
+    <div class="page-hero-cmp destination-hero bg-theme-teal  m-concave-top  convex center " hero-svg-color="teal"
+        hero-m-svg-color="teal" style="--desktop-opacity: .8; --mobile-opacity: 1; ">
+        <div class="hero-nav grid-container">
+            <div class="hero-breadcrumb">
+                <ul>
+                    <li class="region-filter"><a href="#">USA-East</a></li>
+                    <li class="state-filter active">Orlando</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="page-hero-container">
+                <div class="page-hero-content">
+                    <div class="page-hero-content-section">
+                        <h1 class="cmp-title heading1 align-left m-align-center">
+                            Orlando Timeshare Resorts</h1>
+    
+                        <div class="hero__description m-align-center">
+                            <p>An Orlando timeshare resort promises sun, beach and enough golf and theme parks to keep
+                                you energized throughout your stay.</p>
+    
+                        </div>
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-hero-image" data-cmp-hook-hero="bgImage" style="background-image: url('/content/dam/mvw/Intersect.png');
+                     background-position: 0px 0px;
+                     background-size: cover;">
+            <img src="/content/dam/mvw/Intersect.png" loading="lazy" alt="Orlando Timeshare Resorts"
+                data-cmp-hook-hero="bgImageElement" aria-hidden="true" hidden="">
+        </div>
+        <svg class="hero__bg-shape_convex" viewBox="0 0 1440 516" preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <clipPath id="clip-convex" clipPathUnits="userSpaceOnUse">
+                <rect x="0" y="0" width="1440" height="516"></rect>
+            </clipPath>
+            <g clip-path="url(#clip-convex)">
+                <path d="M635,259c-0.14-91.84,27.04-181.65,78.09-258H0v516h713.09C662.04,440.65,634.86,350.84,635,259z"
+                    fill="var(--hero-svg-color)"></path>
+            </g>
+        </svg>
+    </div>
+    <!-- Resort Destinations Cards Component -->
+    <div class="resort-destinations-cards-cmp" data-mod="resort-destination-details-card">
+        <div class="sr-announcer" role="status" aria-live="polite" aria-atomic="true"></div>
+
+        <div class="grid-container">
+            <div class="content-area">
+                <!-- Results Count -->
+                <div class="results-count-row">
+                    <div class="results-count" aria-live="polite">4 of 8 Resorts</div>
+                </div>
+
+                <!-- Resort Grid -->
+                <div class="resort-grid">
+                    <!-- Resort Card 1 -->
+                    <article class="resort-card" aria-labelledby="title-resort-1" data-href="/resorts/westin-st-john">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/wsj/PT-2482_WestinStJohn_hero_svoSTTWJpo-199107_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                            <div class="collection-badge">
+                                <i class="fa-solid fa-building" aria-hidden="true"></i>
+                                Premium Collection
+                            </div>
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-1">The Westin St. John Resort Villas</h3>
+                                <p class="resort-location">St. John, U.S. Virgin Islands</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/westin-st-john" class="view-resort"
+                                    aria-label="View details for The Westin St. John Resort Villas">View Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review-g147410-d147568" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.0-11216-5.svg"
+                                        alt="4.2 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resort Card 2 -->
+                    <article class="resort-card" aria-labelledby="title-resort-2"
+                        data-href="/resorts/sheraton-steamboat">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/ssh/PT-2482_SheratonSteamboat_hero_svoSSHpoSki-199109_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-2">Sheraton Steamboat Resort Villas</h3>
+                                <p class="resort-location">Steamboat Springs, Colorado</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/sheraton-steamboat" class="view-resort"
+                                    aria-label="View details for Sheraton Steamboat Resort Villas">View Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-11216-5.svg"
+                                        alt="4.5 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resort Card 3 -->
+                    <article class="resort-card" aria-labelledby="title-resort-3"
+                        data-href="/resorts/westin-ka-anapali">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/wko/PT-2482_WestinKaanapali_hero_svoWKOpo-199108_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                            <div class="collection-badge">
+                                <i class="fa-solid fa-building" aria-hidden="true"></i>
+                                Premium Collection
+                            </div>
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-3">The Westin Ka'anapali Ocean Resort Villas
+                                </h3>
+                                <p class="resort-location">Lahaina, Hawaii</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/westin-ka-anapali" class="view-resort"
+                                    aria-label="View details for The Westin Ka'anapali Ocean Resort Villas">View
+                                    Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-11216-5.svg"
+                                        alt="4.5 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resort Card 4 -->
+                    <article class="resort-card" aria-labelledby="title-resort-4"
+                        data-href="/resorts/westin-desert-willow">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/wdw/PT-2482_WestinDesertWillow_hero_svoWDWpo-199106_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-4">The Westin Desert Willow Villas</h3>
+                                <p class="resort-location">Palm Desert, California</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/westin-desert-willow" class="view-resort"
+                                    aria-label="View details for The Westin Desert Willow Villas">View Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.0-11216-5.svg"
+                                        alt="4.0 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Offer Card -->
+                    <section class="offer-card" aria-label="Offer: Get up to 20,000 Marriott Bonvoy Points">
+                        <div class="offer-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/ads/RAD-1164_PromoMed_40kBonvoyPoints_mvcls-201671_416_250.jpg"
+                                alt="Get up to 20,000 Marriott Bonvoy Points" role="presentation" loading="lazy">
+                            <div class="offer-badge" aria-hidden="true">
+                                <i class="fas fa-sparkles"></i>
+                                <span>BONVOY PROMO</span>
+                            </div>
+                        </div>
+                        <div class="offer-content">
+                            <div class="offer-text">
+                                <div class="offer-eyebrow">BONVOY PROMO</div>
+                                <h2 class="offer-title">Get up to 20,000 Marriott Bonvoy® Points</h2>
+                                <div class="offer-description">Earn bonus points on your next vacation purchase. Limited
+                                    time offer.</div>
+                            </div>
+                            <div class="offer-actions">
+                                <a href="/offers/bonvoy-promo" class="offer-primary-cta">Learn How</a>
+                                <a href="/offers/terms" class="offer-secondary-cta">View Terms</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Hidden Resort Cards (to be shown on "View All Resorts" click) -->
+                    <!-- Resort Card 5 -->
+                    <article class="resort-card hidden-card" aria-labelledby="title-resort-5"
+                        data-href="/resorts/sheraton-vistana-villages" style="display: none;">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/svv/PT-2482_SheratonVistanaVillages_hero_svoSVVpo-199110_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-5">Sheraton Vistana Villages Resort Villas
+                                </h3>
+                                <p class="resort-location">Orlando, Florida</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/sheraton-vistana-villages" class="view-resort"
+                                    aria-label="View details for Sheraton Vistana Villages Resort Villas">View
+                                    Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.0-11216-5.svg"
+                                        alt="4.0 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resort Card 6 -->
+                    <article class="resort-card hidden-card" aria-labelledby="title-resort-6"
+                        data-href="/resorts/westin-princeville" style="display: none;">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/wpv/PT-2482_WestinPrinceville_hero_svoWPVpo-199111_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                            <div class="collection-badge">
+                                <i class="fa-solid fa-building" aria-hidden="true"></i>
+                                Premium Collection
+                            </div>
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-6">The Westin Princeville Ocean Resort Villas
+                                </h3>
+                                <p class="resort-location">Princeville, Hawaii</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/westin-princeville" class="view-resort"
+                                    aria-label="View details for The Westin Princeville Ocean Resort Villas">View
+                                    Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-11216-5.svg"
+                                        alt="4.5 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resort Card 7 -->
+                    <article class="resort-card hidden-card" aria-labelledby="title-resort-7"
+                        data-href="/resorts/westin-riverfront" style="display: none;">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/wrf/PT-2482_WestinRiverfront_hero_svoWRFpoSki-199112_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-7">The Westin Riverfront Resort & Spa</h3>
+                                <p class="resort-location">Avon, Colorado</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/westin-riverfront" class="view-resort"
+                                    aria-label="View details for The Westin Riverfront Resort & Spa">View Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-11216-5.svg"
+                                        alt="4.5 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resort Card 8 -->
+                    <article class="resort-card hidden-card" aria-labelledby="title-resort-8"
+                        data-href="/resorts/sheraton-lakeside" style="display: none;">
+                        <div class="resort-image">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/slt/PT-2482_SheratonLakeside_hero_svoSLTpo-199113_3_4.jpg"
+                                alt="" role="presentation" loading="lazy">
+                        </div>
+                        <div class="resort-content">
+                            <div class="resort-info">
+                                <h3 class="resort-title" id="title-resort-8">Sheraton Lakeside Terrace Villas</h3>
+                                <p class="resort-location">Kissimmee, Florida</p>
+                            </div>
+                            <div class="resort-actions">
+                                <a href="/resorts/sheraton-lakeside" class="view-resort"
+                                    aria-label="View details for Sheraton Lakeside Terrace Villas">View Resort</a>
+                                <a href="https://www.tripadvisor.com/Hotel_Review" target="_blank"
+                                    rel="noopener noreferrer" class="tripadvisor-rating third-party-link"
+                                    aria-label="View reviews on TripAdvisor">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.0-11216-5.svg"
+                                        alt="4.0 rating" class="rating-image" />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="load-more-btn" type="button" aria-label="View all resorts">
+                        View All Resorts
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Editorial Carousel Component -->
+    <div class="editorial-carousel bg-white" 
+         data-mod="editorial-carousel-details" 
+         data-loop="true">
+
+        <div class="carousel-container">
+            <!-- Carousel Header -->
+            <div class="carousel-header">
+                <h2 class="carousel-title with-border align-center">Explore Orlando</h2>
+            </div>
+
+            <!-- Slides Container -->
+            <div class="editorial-slides" role="region" aria-label="Editorial carousel with 5 slides" aria-live="polite">
+
+                <!-- Slide 1 -->
+                <div class="editorial-card slide-bg-pearl" role="group" aria-roledescription="slide" aria-label="Slide 1 of 5: Fine Dining in Orlando">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1740&auto=format&fit=crop"
+                            alt="Fine Dining in Orlando" />
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main-content">
+                            <div class="card-tags">
+                                <div class="card-tag">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-tree-city"></i>
+                                        </div>
+                                        <span>City</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-person-skiing"></i>
+                                        </div>
+                                        <span>Adventure</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-family"></i>
+                                        </div>
+                                        <span>Family</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Fine Dining in Orlando: Delicious Food with No Line</h3>
+                            <p class="card-description">Michelin-starred and recommended restaurants in Orlando, Florida
+                                offer your vacation outstanding culinary experiences. Discover fine dining in Orlando!
+                            </p>
+                        </div>
+                        <a href="https://vacationlife.marriott.com/orlando-dining" class="card-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="Read the article about fine dining in Orlando">
+                            Read the article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="editorial-card slide-bg-pearl" role="group" aria-roledescription="slide" aria-label="Slide 2 of 5: Stay fit on vacation">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1740&auto=format&fit=crop"
+                            alt="Stay fit on vacation" />
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main-content">
+                            <div class="card-tags">
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-tree-city"></i>
+                                        </div>
+                                        <span>City</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-person-skiing"></i>
+                                        </div>
+                                        <span>Adventure</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-family"></i>
+                                        </div>
+                                        <span>Family</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="card-title">How to stay fit and have fun on vacation</h3>
+                            <p class="card-description">Exercise on vacation while having fun, from on-site gyms and
+                                aqua
+                                fitness to tennis or a night out dancing. Learn more tips for staying fit on vacation.
+                            </p>
+                        </div>
+                        <a href="https://vacationlife.marriott.com/stay-fit-vacation" class="card-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="Read the article about staying fit on vacation">
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="editorial-card slide-bg-pearl" role="group" aria-roledescription="slide" aria-label="Slide 3 of 5: Botanical Gardens">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1740&auto=format&fit=crop"
+                            alt="Botanical Gardens" />
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main-content">
+                            <div class="card-tags">
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-tree-city"></i>
+                                        </div>
+                                        <span>City</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-person-skiing"></i>
+                                        </div>
+                                        <span>Adventure</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-family"></i>
+                                        </div>
+                                        <span>Family</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Explore The Stunning Flora of U.S. Botanical Gardens</h3>
+                            <p class="card-description">Step into nature by visiting the best botanical gardens in the
+                                country. From Orlando and Arizona to Hawai'i, these gardens offer peace and beauty
+                                during
+                                your vacation.</p>
+                        </div>
+                        <a href="https://vacationlife.marriott.com/botanical-gardens" class="card-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="Read the article about botanical gardens">
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="editorial-card slide-bg-pearl" role="group" aria-roledescription="slide" aria-label="Slide 4 of 5: Beach Destinations">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1740&auto=format&fit=crop"
+                            alt="Beach vacation" />
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main-content">
+                            <div class="card-tags">
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-tree-city"></i>
+                                        </div>
+                                        <span>City</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-person-skiing"></i>
+                                        </div>
+                                        <span>Adventure</span>
+                                    </div>
+                                </div>
+                                <div class="card-tag tag-teal">
+                                    <div class="tag-content">
+                                        <div class="tag-icon">
+                                            <i class="fa-light fa-family"></i>
+                                        </div>
+                                        <span>Family</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Best Beach Destinations for Your Next Vacation</h3>
+                            <p class="card-description">Discover pristine beaches, crystal-clear waters, and
+                                unforgettable
+                                coastal experiences at these top beach destinations perfect for your next getaway.</p>
+                        </div>
+                        <a href="https://vacationlife.marriott.com/beach-destinations" class="card-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="Read the article about beach destinations">
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="editorial-card slide-bg-pearl" role="group" aria-roledescription="slide" aria-label="Slide 5 of 5: Mountain Adventures">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1740&auto=format&fit=crop"
+                            alt="Mountain adventures" />
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main-content">
+                            <div class="card-tags">
+                                <div class="card-tag tag-teal">
+                                    <i class="fa-light fa-mountain"></i>
+                                    <span>Mountain</span>
+                                </div>
+                                <div class="card-tag tag-teal">
+                                    <i class="fa-light fa-person-skiing"></i>
+                                    <span>Adventure</span>
+                                </div>
+                            </div>
+                            <h3 class="card-title">Mountain Adventures: Hiking and Skiing Experiences</h3>
+                            <p class="card-description">From breathtaking hiking trails to world-class ski resorts,
+                                explore
+                                the best mountain destinations for outdoor enthusiasts and adventure seekers.</p>
+                        </div>
+                        <a href="https://vacationlife.marriott.com/mountain-adventures" class="card-link"
+                            target="_blank" rel="noopener noreferrer"
+                            aria-label="Read the article about mountain adventures">
+                            Read Article
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="nav-icons" role="group" aria-label="Carousel navigation">
+                <button class="nav-icon-left" 
+                        type="button" 
+                        aria-label="Previous slide"
+                        aria-controls="editorial-slides">
+                    <img src="/apps/mvw/clientlibs/clientlib-tmvc/resources/images/icons/prev.svg"
+                         alt="" 
+                         aria-hidden="true" />
+                </button>
+                <div class="current-slide" aria-live="polite" aria-atomic="true">1 / 5</div>
+                <button class="nav-icon-right" 
+                        type="button" 
+                        aria-label="Next slide"
+                        aria-controls="editorial-slides">
+                    <img src="/apps/mvw/clientlibs/clientlib-tmvc/resources/images/icons/next.svg"
+                         alt="" 
+                         aria-hidden="true" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Card Offer Carousel -->
+    <div class="editorial-carousel offers-carousel" data-mod="editorial-carousel" data-card-count="1">
+        <div class="carousel-container">
+            <div class="carousel-header">
+                <h2 class="carousel-title with-border">Offers and Packages</h2>
+            </div>
+            <div class="grid-container">
+              <div class="editorial-slides" id="offers-slides-single">
+                
+                <!-- Offer Card 1 -->
+                <div class="editorial-card offer-card is-active">
+                    <div class="card-image-container offer-image-container">
+                        <img src="https://placehold.co/588x317" alt="Get up to 10,000 Marriott Bonvoy Points" />
+                        <div class="offer-overlay"></div>
+                        <div class="offer-tag tag-indigo">
+                            <div class="tag-content">
+                                <div class="tag-icon">
+                                    <i class="fa-light fa-sparkles"></i>
+                                </div>
+                                <span>BONVOY PROMO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content offer-content">
+                        <div class="card-main-content">
+                            <div class="offer-text-content">
+                                <div class="offer-eyebrow">BONVOY PROMO</div>
+                                <h3 class="offer-title">Get up to 10,000 Marriott Bonvoy® Points</h3>
+                                <p class="offer-description">Explore everything Orlando has to offer with special vacation packages starting from $369. Conditions apply.</p>
+                            </div>
+                        </div>
+                        <div class="offer-card-actions">
+                            <a href="#" class="offer-book-btn">Learn How</a>
+                            <a href="#" class="offer-learn-more">View Terms</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!-- Three Card Carousel -->
+    <div class="editorial-carousel offers-carousel bg-teal" data-mod="editorial-carousel" data-loop="true">
+        <div class="carousel-container">
+            <div class="carousel-header">
+                <h2 class="carousel-title with-border">Offers and Packages</h2>
+            </div>
+
+            <div class="editorial-slides" id="offers-slides-3card" role="region" aria-roledescription="carousel" aria-label="Offers and packages carousel">
+                
+                <!-- Offer Card 1 -->
+                <div class="editorial-card offer-card is-active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3: Get up to 10,000 Marriott Bonvoy Points">
+                    <div class="card-image-container offer-image-container">
+                        <img src="https://placehold.co/588x317" alt="Get up to 10,000 Marriott Bonvoy Points" />
+                        <div class="offer-overlay"></div>
+                        <div class="offer-tag tag-indigo">
+                            <div class="tag-content">
+                                <div class="tag-icon">
+                                    <i class="fa-light fa-building"></i>
+                                </div>
+                                <span>City Collection</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content offer-content">
+                        <div class="card-main-content">
+                            <div class="offer-text-content">
+                                <h3 class="offer-title">Get up to 10,000 Marriott Bonvoy Points</h3>
+                                <p class="offer-description">Explore everything Orlando has to offer with special vacation packages starting from $369. Conditions apply.</p>
+                            </div>
+                        </div>
+                        <div class="offer-card-actions">
+                            <button class="offer-book-btn">
+                                Book
+                            </button>
+                            <a href="#" class="offer-learn-more">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer Card 2 -->
+                <div class="editorial-card offer-card" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3: Exclusive Resort Package">
+                    <div class="card-image-container offer-image-container">
+                        <img src="https://placehold.co/588x317" alt="Exclusive Resort Package" />
+                        <div class="offer-overlay"></div>
+                        <div class="offer-tag tag-indigo">
+                            <div class="tag-content">
+                                <div class="tag-icon">
+                                    <i class="fa-light fa-building"></i>
+                                </div>
+                                <span>City Collection</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content offer-content">
+                        <div class="card-main-content">
+                            <div class="offer-text-content">
+                                <h3 class="offer-title">Exclusive Resort Package</h3>
+                                <p class="offer-description">Book your stay at our premium resorts and enjoy exclusive perks. Limited time offer available now.</p>
+                            </div>
+                        </div>
+                        <div class="offer-card-actions">
+                            <button class="offer-book-btn">
+                                Book
+                            </button>
+                            <a href="#" class="offer-learn-more">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer Card 3 -->
+                <div class="editorial-card offer-card" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3: Summer Special Savings">
+                    <div class="card-image-container offer-image-container">
+                        <img src="https://placehold.co/588x317" alt="Summer Special Savings" />
+                        <div class="offer-overlay"></div>
+                        <div class="offer-tag tag-indigo">
+                            <div class="tag-content">
+                                <div class="tag-icon">
+                                    <i class="fa-light fa-sparkles"></i>
+                                </div>
+                                <span>Special Offer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content offer-content">
+                        <div class="card-main-content">
+                            <div class="offer-text-content">
+                                <h3 class="offer-title">Summer Special Savings</h3>
+                                <p class="offer-description">Save up to 30% on your next vacation booking. Perfect time to plan your summer getaway.</p>
+                            </div>
+                        </div>
+                        <div class="offer-card-actions">
+                            <button class="offer-book-btn">
+                                Book
+                            </button>
+                            <a href="#" class="offer-learn-more">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="nav-icons" role="group" aria-label="Carousel navigation">
+                <button class="nav-icon-left" 
+                        type="button" 
+                        aria-label="Previous slide"
+                        aria-controls="offers-slides-3card">
+                    <img src="/apps/mvw/clientlibs/clientlib-tmvc/resources/images/icons/prev.svg"
+                         alt="" 
+                         aria-hidden="true" />
+                </button>
+                <div class="current-slide" aria-live="polite" aria-atomic="true">1 / 3</div>
+                <button class="nav-icon-right" 
+                        type="button" 
+                        aria-label="Next slide"
+                        aria-controls="offers-slides-3card">
+                    <img src="/apps/mvw/clientlibs/clientlib-tmvc/resources/images/icons/next.svg"
+                         alt="" 
+                         aria-hidden="true" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two Card -->
+    <div class="editorial-carousel offers-carousel" data-mod="editorial-carousel" data-card-count="2">
+        <div class="grid-container">
+            <div class="carousel-header">
+                <h2 class="carousel-title with-border">Offers and Packages</h2>
+            </div>
+
+            <div class="editorial-slides" id="offers-slides-2card">
+                
+                <!-- Offer Card 1 -->
+                <div class="editorial-card offer-card is-active">
+                    <div class="card-image-container offer-image-container">
+                        <img src="https://placehold.co/588x317" alt="Get up to 10,000 Marriott Bonvoy Points" />
+                        <div class="offer-overlay"></div>
+                        <div class="offer-tag tag-indigo">
+                            <div class="tag-content">
+                                <div class="tag-icon">
+                                    <i class="fa-light fa-building"></i>
+                                </div>
+                                <span>City Collection</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content offer-content">
+                        <div class="card-main-content">
+                            <div class="offer-text-content">
+                                <h3 class="offer-title">Get up to 10,000 Marriott Bonvoy Points</h3>
+                                <p class="offer-description">Explore everything Orlando has to offer with special vacation packages starting from $369. Conditions apply.</p>
+                            </div>
+                        </div>
+                        <div class="offer-card-actions">
+                            <button class="offer-book-btn">
+                                Book
+                            </button>
+                            <a href="#" class="offer-learn-more">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer Card 2 -->
+                <div class="editorial-card offer-card">
+                    <div class="card-image-container offer-image-container">
+                        <img src="https://placehold.co/588x317" alt="Exclusive Resort Package" />
+                        <div class="offer-overlay"></div>
+                        <div class="offer-tag tag-indigo">
+                            <div class="tag-content">
+                                <div class="tag-icon">
+                                    <i class="fa-light fa-sparkles"></i>
+                                </div>
+                                <span>Special Offer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content offer-content">
+                        <div class="card-main-content">
+                            <div class="offer-text-content">
+                                <h3 class="offer-title">Exclusive Resort Package</h3>
+                                <p class="offer-description">Book your stay at our premium resorts and enjoy exclusive perks. Limited time offer available now.</p>
+                            </div>
+                        </div>
+                        <div class="offer-card-actions">
+                            <button class="offer-book-btn">
+                                Book
+                            </button>
+                            <a href="#" class="offer-learn-more">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Story block-->
+    <div class="destination-details__story-block">
+        <section class="content-flip grid-container">
+            <div class="copy-section-wrapper">
+                <div class="content-block">
+                    <h3 class="cmp-title heading3 align-left">
+                        Fun-Filled Attractions for the Family
+                    </h3>
+                    <div class="split__col split__image small--bottom-right mobile-only">
+                        <div class="image__large img--rounded">
+                            <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=900"
+                                alt="Featured image" />
+                            <div class="image__small small--bottom-left img--rounded" aria-hidden="true"
+                                svg-color="teal">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400"
+                                    alt="Decorative image" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block__section">
+                        Experience the best of Orlando with a hotel-style timeshare close
+                        to world-famous attractions or a tranquil resort retreat that
+                        reveals the city’s sophisticated side. Create magical family
+                        memories at our Orlando timeshare resorts.
+                        <ul class="content-block-list">
+                            <li>
+                                Feel the nonstop thrills of Walt Disney World® and Universal
+                                Orlando®.
+                            </li>
+                            <li>
+                                Savor culinary delights in the Mills 50 neighborhood, from
+                                endless tacos to New American fine dining.
+                            </li>
+                            <li>
+                                Relax on the white sands of Daytona and New Smyrna beaches
+                                under the warm Florida sun.
+                            </li>
+                            <li>
+                                Glide over crystal-clear waters on a glass-bottom boat tour at
+                                Silver Springs State Park.
+                            </li>
+                            <li>
+                                Watch playful manatees at Blue Spring State Park or explore
+                                wildlife at a nearby safari.
+                            </li>
+                            <li>
+                                Discover a grown-up's playground with museums, boutiques, wine
+                                bars, and craft breweries in historic Winter Park.
+                            </li>
+                            <li>
+                                Immerse yourself in arts and culture with museums and theaters
+                                in Ivanhoe Village.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="split__col split__image small--bottom-right desktop-only">
+                    <div class="image__large img--rounded">
+                        <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=900"
+                            alt="Featured image" />
+                        <div class="image__small small--bottom-left img--rounded" aria-hidden="true" svg-color="teal">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400"
+                                alt="Decorative image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-site.js"></script>
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-base.js"></script>
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.js"></script>
+</body>
+    
+</html>

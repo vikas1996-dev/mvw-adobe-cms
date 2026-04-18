@@ -1,0 +1,37 @@
+@import '../../variables.scss';
+
+.bannertitle {
+    padding: 48px;
+    background-color: $black;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        padding: 24px 48px 24px 32px;
+    }
+
+    .cmp-title {
+        max-width: 1280px;
+        margin: auto;
+
+        &__text {
+            font-size: 42px;
+            font-weight: 400;
+            font-family: 'cormorantgaramond';
+            line-height: 125%;
+            margin-bottom: 0;
+            color: $white;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            @media (max-width: 768px) {
+                font-size: 36px;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+<sly data-sly-use.headerModel="com.mvw.core.models.HeaderModel">
+    <div class="grid-container header-cmp" data-mod="header" data-parent-component="Header">
+        <!-- Utility Header -->
+        <div class="utility-header" data-parent-component="Header">
+            <!-- Contact Us Link -->
+            <div class="nav-item">
+                <sly data-sly-test.contactUrl="${headerModel.contactUsUrl}">
+                    <a  data-link-type="Main Level Navigation" aria-label="${headerModel.contactUsCopy}" href="${contactUrl}" class="link"
+                        data-sly-attribute.target="${headerModel.contactUsTab}">
+                        <i class="${headerModel.contactUsIcon}" data-sly-test="${headerModel.contactUsIcon}"></i>
+                        ${headerModel.contactUsCopy @ context='html'}
+                    </a>
+                </sly>
+            </div>
+
+            <!-- Owner Login with Dropdown -->
+            <div class="nav-item">
+                    <sly data-sly-test="${headerModel.loginText}">
+                        <a aria-label="${headerModel.loginText}" href="${headerModel.loginUrl}" class="link has-sub-nav"
+                            data-sly-attribute.target="${headerModel.loginTab ? '_blank' : null}" tabindex="0">
+                            <i class="${headerModel.loginIcon}" data-sly-test="${headerModel.loginIcon}"></i>
+                            ${headerModel.loginText @ context='html'}
+                        </a>
+                    </sly>
+                    <div class="owner-login-dropdown">
+                        <p data-sly-test="${headerModel.loginHeadline}" class="description">${headerModel.loginHeadline @ context='html'}</p>
+                        <ul class="login-list">
+                            <sly data-sly-list.ctaItem="${headerModel.ctas}">
+                                    <li>
+									 <p data-sly-test="${ctaItem.ctaAdditionalText}"  class="description">${ctaItem.ctaAdditionalText @ context='html'}</p>
+                                     <a href="${ctaItem.ctaUrl}" data-link-type="Sub Level Navigation"
+                                        data-sly-attribute.target="${ctaItem.ctaOpensIn == 'newTab' ? '_blank' : '_self'}"
+                                        data-sly-attribute.rel="${ctaItem.ctaOpensIn == 'newTab' ? 'noopener noreferrer' : null}">
+                                        ${ctaItem.ctaText}
+                                        <span class="arrow"></span>
+                                    </a>                                  
+                                </li>
+                            </sly>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Primary Header -->
+        <nav class="primary-header">
+            <button class="menu-toggle" aria-label="Menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <div class="logo col-1">
+               <a href="${headerModel.logoUrl}" aria-label="${headerModel.accessibilityLabel}">
+                <img src="${headerModel.logoImage}" loading="eager" fetchprioirty="high"  alt="${headerModel.logoAltText}" />
+              </a>
+
+                <!-- <sly data-sly-resource="${'header-logo' @ resourceType='mvw/components/image'}"></sly> -->
+            </div>
+            <a class="close-icon" aria-label="Close" tabindex="0"></a>
+
+            <div class="account-sec">
+                <a class="user-login-icon" href="#" aria-label="user login"></a>
+                <div class="owner-login-dropdown">
+                    <h3 class="section-title">
+                        Login
+                    </h3>
+                    <p data-sly-test="${headerModel.loginHeadline}"  class="description">
+                        ${headerModel.loginHeadline @ context='html'}
+                    </p>
+
+                    <ul class="login-list">
+                        <sly data-sly-list.ctaItem="${headerModel.ctas}">
+                            <li>
+                                <p data-sly-test="${ctaItem.ctaAdditionalText}" class="section-label">${ctaItem.ctaAdditionalText @ context='html'}</p>
+                                <a href="${ctaItem.ctaUrl}" data-link-type="Sub Level Navigation"
+                                   data-sly-attribute.target="${ctaItem.ctaOpensIn == 'newTab' ? '_blank' : '_self'}"
+                                   data-sly-attribute.rel="${ctaItem.ctaOpensIn == 'newTab' ? 'noopener noreferrer' : null}">
+                                    ${ctaItem.ctaText}
+                                    <span class="arrow"></span>
+                                </a>
+                            </li>
+                        </sly>
+                    </ul>
+                </div>
+            </div>
+            <!-- Main Navigation -->
+            <sly data-sly-resource="${'main-navigation' @ resourceType='mvw/components/tmvc/components/navigation'}">
+            </sly>
+
+            <!-- CTA Buttons -->
+            <div class="navigation-right col-3">
+                <sly data-sly-resource="${'cta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"></sly>
+            </div>
+        </nav>
+    </div>
+</sly>

@@ -1,0 +1,36 @@
+<div class="policies">
+  <h3>Policies</h3>
+  <sly data-sly-use.resortPlacesModel="com.mvw.core.models.ResortPlacesModel">
+    <sly data-sly-list.rm="${resortPlacesModel.propertiesList}">
+      <sly data-sly-test="${rm.name == 'Parking'}">
+        <p>${rm.name @ context='html'} ${rm.description @ context='html'}</p>
+      </sly>
+    </sly>
+  </sly>
+  <p>////////////////</p>
+  
+  <sly data-sly-use.model="com.mvw.core.models.ResortSmokingModel">
+    <sly data-sly-list.policy="${model.getResortInfoItems}">
+     <p>${policy.name @ context='html'}</p>
+      <p>${policy.description @ context='html'}</p>
+   
+  </sly>
+ </sly>
+ <sly data-sly-use.model="com.mvw.core.models.ResortPolicyModel">
+    <sly data-sly-list.policy="${model.getResortInfoItems}">
+     <sly data-sly-test="${policy.isServiceAnimalPolicy}">
+    <p>${policy.name @ context='html'}</p>
+    <p>${policy.description @ context='html'}</p>
+  </sly>
+    </sly>
+     <sly data-sly-list.policy="${model.getResortInfoItems}">
+   <sly data-sly-test="${policy.isCashlessResort}">
+    <p>${policy.name @ context='html'}</p>
+    <p>${policy.description @ context='html'}</p>
+  </sly>
+     </sly>
+  </sly>
+ </sly>
+ 
+ 
+</div>

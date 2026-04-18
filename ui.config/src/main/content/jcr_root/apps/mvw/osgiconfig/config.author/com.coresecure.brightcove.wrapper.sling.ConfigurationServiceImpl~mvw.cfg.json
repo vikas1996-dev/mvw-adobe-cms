@@ -1,0 +1,15 @@
+{
+  "clientId": "$[env:BRIGHTCOVE_CLIENT_ID]",
+  "allowedGroups":[
+    "administrators",
+    "mvw-content-managers",
+    "mvw-global-technology-bau",
+    "mvw-content-coordinators",
+    "mvw-creatives",
+    "mvw-product-owners-tmvcs"
+  ],
+  "clientSecret": "$[env:BRIGHTCOVE_CLIENT_SECRET]",
+  "accountAlias":"MVW BrightCove Account",
+  "accountId": "$[env:BRIGHTCOVE_ACCOUNT_ID]",
+  "defaultVideoPlayerId": "$[env:BRIGHTCOVE_DEFAULT_VIDEO_PLAYER_ID]"
+}

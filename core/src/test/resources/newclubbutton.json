@@ -1,0 +1,15 @@
+{
+  "button": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "iconClass": "instagram",
+    "jcr:lastModifiedBy": "admin",
+    "iconOnly": "false",
+    "jcr:created": "Thu Nov 20 2025 15:09:20 GMT+0530",
+    "buttonLink": "#",
+    "buttonText": "Book Now at Marriott Bonvoy",
+    "buttonVariation": "primary",
+    "jcr:lastModified": "Fri Nov 21 2025 13:32:02 GMT+0530",
+    "sling:resourceType": "mvw/components/newclub/button"
+  }
+}

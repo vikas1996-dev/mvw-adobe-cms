@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Static Frontend file</title>
+    <meta name="template" content="page-content" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-base.css" type="text/css">
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.js"></script>
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.css" type="text/css">
+</head>
+
+<body>
+    <div class="destination-landing" data-component="destination-landing" data-api-endpoint="/bin/mvw/experiences/destinations" data-image-base-url="https://content.vistana.com/files/live">
+        <!-- Search Hero Section -->
+        <section class="search-hero" aria-label="Search destinations and resorts">
+            <div class="hero-image-wrapper">
+                <img src="https://placehold.co/1440x460" alt="Discover destinations" class="hero-background" />
+                <div class="location-badge">
+                    <div class="location-content">
+                        <i class="fa-light fa-location-dot" aria-hidden="true"></i>
+                        <span class="location-text">Marriott's Grande Vista, Florida</span>
+                    </div>
+                    <i class="fa-light fa-arrow-right" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" 
+                           class="search-input" 
+                           placeholder="Search destinations and resorts"
+                           aria-label="Search destinations and resorts"
+                           autocomplete="off" />
+                    <button class="search-icon" aria-label="Search" type="button">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Hero, Tabs, Filters, and Cards Section -->
+        <div class="grid-container">
+            <!-- Hero Section -->
+            <div class="hero-section col-12">
+                <h1 class="hero-title">Discover Your Next Vacation</h1>
+            </div>
+    
+            <!-- Tabs Navigation -->
+            <div class="tabs-container col-12">
+                <nav class="tabs-nav" role="tablist" aria-label="Browse destinations">
+                    <button class="tab-button active" role="tab" aria-selected="true" aria-controls="regions-panel" id="regions-tab" data-tab="regions">
+                        <i class="fa-light fa-location-dot" aria-hidden="true"></i>
+                        <span>BROWSE REGIONS</span>
+                    </button>
+                    <button class="tab-button" role="tab" aria-selected="false" aria-controls="vacation-types-panel" id="vacation-types-tab" data-tab="vacation-types">
+                        <i class="fa-light fa-umbrella-beach" aria-hidden="true"></i>
+                        <span>BROWSE VACATION TYPES</span>
+                    </button>
+                </nav>
+            </div>
+    
+            <!-- Tab Panels -->
+            <div class="tab-content col-12">
+                <!-- Loading Spinner -->
+                <div class="loading-spinner" style="display: block;" aria-hidden="false">
+                    <div class="spinner"></div>
+                    <p>Loading destinations...</p>
+                </div>
+    
+                <!-- Error Message -->
+                <div class="error-message" style="display: none;" role="alert"></div>
+    
+                <!-- Browse Regions Panel -->
+                <div class="tab-panel active" role="tabpanel" id="regions-panel" aria-labelledby="regions-tab">
+                    <!-- Region Filter Pills -->
+                    <div class="filter-pills-container">
+                        <div class="filter-pills">
+                            <!-- Pills will be dynamically generated -->
+                        </div>
+                    </div>
+    
+                    <!-- Destination Cards Grid -->
+                    <div class="cards-grid destination-cards" role="list" aria-label="Destination cards">
+                        <!-- Cards will be dynamically generated -->
+                    </div>
+    
+                    <!-- Special Offer Card -->
+                    <!-- <div class="special-offer-container">
+                       
+                    </div> -->
+    
+                    <!-- View All Button -->
+                    <div class="view-all-container">
+                        <button class="btn-view-all" aria-label="View all resorts">
+                            View All Resorts
+                        </button>
+                    </div>
+                </div>
+    
+                <!-- Browse Vacation Types Panel -->
+                <div class="tab-panel" role="tabpanel" id="vacation-types-panel" aria-labelledby="vacation-types-tab" hidden>
+                    <div class="cards-grid vacation-type-cards" role="list" aria-label="Vacation type cards">
+                        <!-- Cards will be dynamically generated -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Featured Resorts Section -->
+        <section class="featured-resorts-section" aria-labelledby="featured-resorts-title" style="display: none;">
+            <h2 class="section-title" id="featured-resorts-title">Featured Resorts</h2>
+            <div class="featured-resorts-carousel" data-mod="editorial-carousel" data-loop="true">
+                <div class="editorial-slides" role="list" aria-label="Featured resorts carousel">
+                    <!-- Resort cards will be dynamically generated -->
+                </div>
+                <div class="nav-icons">
+                    <button class="nav-icon-left" aria-label="Previous resort">
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="current-slide" aria-live="polite" aria-atomic="true">1 / 6</div>
+                    <button class="nav-icon-right" aria-label="Next resort">
+                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Experience Even More - Multi Card Section -->
+        <section class="experience-more-section" aria-labelledby="experience-more-title">
+            <div class="grid-container">
+                <div class="section-header">
+                    <h2 class="section-title" id="experience-more-title">Experience Even More</h2>
+                    <p class="section-description">Club Points unlock seemingly endless vacations. Redefine your travel lens with thousands of cruises, immersive guided tours, and vacation adventures, all through Abound by Marriott Vacations™.</p>
+                </div>
+                <div class="experience-cards-container">
+                    <!-- Card 1: Cruises, Hotels & More -->
+                <article class="experience-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://placehold.co/400x186" alt="Cruises, Hotels & More" />
+                    </div>
+                    <div class="card-icon-overlay">
+                        <div class="card-icon">
+                            <img src="https://placehold.co/82x82" alt="Abound by Marriott Vacations icon" />
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Cruises, Hotels & More</h3>
+                        <p class="card-description">Club Points unlock seemingly endless vacations. Redefine your travel lens with thousands of cruises, immersive guided tours and vacation adventures, all through Abound by Marriott Vacations™.</p>
+                        <a href="#" class="card-cta">View Experiences</a>
+                    </div>
+                </article>
+    
+                <!-- Card 2: Marriott Bonvoy® -->
+                <article class="experience-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://placehold.co/400x186" alt="Marriott Bonvoy®" />
+                    </div>
+                    <div class="card-icon-overlay">
+                        <div class="card-icon">
+                            <img src="https://placehold.co/82x82" alt="Marriott Bonvoy® icon" />
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Marriott Bonvoy®</h3>
+                        <p class="card-description">A metropolitan adventure or a cozy retreat? When you use your ownership for Marriott Bonvoy® points, you can secure your stay at one of 8,000+ distinctive hotels across 30 extraordinary hotel brands.</p>
+                        <a href="#" class="card-cta">Learn More</a>
+                    </div>
+                </article>
+    
+                <!-- Card 3: Interval International® -->
+                <article class="experience-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://placehold.co/400x186" alt="Interval International®" />
+                    </div>
+                    <div class="card-icon-overlay">
+                        <div class="card-icon">
+                            <img src="https://placehold.co/82x82" alt="Interval International® icon" />
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Interval International®</h3>
+                        <p class="card-description">Club Points unlock seemingly endless vacations. Redefine your travel lens with thousands of cruises, immersive guided tours and vacation adventures, all through Abound by Marriott Vacations™.</p>
+                        <a href="#" class="card-cta">Learn More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        </section>
+    
+        <!-- Screen Reader Announcer -->
+        <div class="sr-only sr-announcer" role="status" aria-live="polite" aria-atomic="true"></div>
+    </div>
+</body>
+    
+</html>

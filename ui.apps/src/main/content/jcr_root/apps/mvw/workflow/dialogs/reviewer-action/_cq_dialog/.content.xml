@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Review Action"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <reviewerAction
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldLabel="Review Decision"
+                        name="reviewerAction"
+                        required="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <approve
+                                jcr:primaryType="nt:unstructured"
+                                selected="{Boolean}true"
+                                text="Approve Content"
+                                value="approve"/>
+                            <feedback
+                                jcr:primaryType="nt:unstructured"
+                                text="Provide Feedback (Return to Author)"
+                                value="feedback"/>
+                        </items>
+                    </reviewerAction>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

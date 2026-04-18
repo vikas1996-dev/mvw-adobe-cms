@@ -1,0 +1,145 @@
+<!-- ============================= -->
+<!-- Resort Landing - Offers -->
+<!-- ============================= -->
+
+<sly data-sly-use.resortOffersModel="com.mvw.core.models.ResortOffersModel" />
+
+<!-- Safe offer count -->
+<sly data-sly-set.offerCount="${resortOffersModel.propertiesList ? resortOffersModel.propertiesList.size : 0}" />
+
+<sly data-sly-test="${offerCount > 0}">
+
+    <div class="editorial-carousel offers-carousel offers-layout-custom" data-mod="editorial-carousel"
+        data-card-count="${offerCount}" data-loop="true" id="offers">
+
+        <div class="carousel-container">
+            <div class="grid-container">
+                <!-- Header -->
+                <div class="carousel-header">
+                    <h2 class="carousel-title ${offerCount <= 2 ? 'without-border align-left' : 'with-border'}">
+                        Offers
+                    </h2>
+                </div>
+
+                <!-- ============================= -->
+                <!-- SLIDES -->
+                <!-- ============================= -->
+
+                <div class="editorial-slides" id="offers-slides" role="region" aria-roledescription="carousel"
+                    aria-label="Resort offers carousel">
+
+                    <sly data-sly-list.offer="${resortOffersModel.propertiesList}">
+
+                        <div class="editorial-card offer-card ${offerList.index == 0 ? 'is-active' : ''}" role="group"
+                            aria-roledescription="slide"
+                            aria-label="Slide ${offerList.count} of ${offerCount}: ${offer.name}">
+
+                            <!-- IMAGE -->
+                            <div class="card-image-container offer-image-container">
+
+                                <sly data-sly-set.imageFound="false" />
+
+                                <sly data-sly-test="${offer.imagesAd}">
+                                    <sly data-sly-list.image="${offer.imagesAd}">
+                                        <sly data-sly-test="${imageList.index == 0}">
+                                            <sly data-sly-list.photo="${image.photo}">
+                                                <sly data-sly-test="${photoList.index == 0 && photo.path}">
+                                                    <img src="${photo.path}" alt="${image.altText || offer.name}"  loading="lazy"/>
+                                                    <sly data-sly-set.imageFound="true" />
+                                                </sly>
+                                            </sly>
+                                        </sly>
+                                    </sly>
+                                </sly>
+
+                                <!-- Fallback -->
+                                <sly data-sly-test="${!imageFound}">
+                                    <img src="/etc.clientlibs/mvw/clientlibs/clientlib-site/resources/placeholder.jpg"
+                                        alt="${offer.name}" />
+                                </sly>
+
+                                <div class="offer-overlay"></div>
+
+                                <!-- Badge logic: Only display if offer.badge exists -->
+                                <sly data-sly-test="${offer.badge}">
+                                    <div class="offer-tag tag-indigo">
+                                        <div class="tag-content">
+                                            <span>${offer.badge}</span>
+                                        </div>
+                                    </div>
+                                </sly>
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div class="card-content offer-content bg-teal">
+
+                                <div class="card-main-content">
+                                    <div class="offer-text-content">
+                                        
+                                        <div class="offer-eyebrow">${offer.name}</div>
+                                         <h3 class="offer-title">
+                                            ${offer.shortDescriptionAd @ context='html'}
+                                        </h3>
+
+                                        <p class="offer-description">
+                                            ${offer.descriptionAd @ context='html'}
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <!-- BUTTONS -->
+                                <div class="offer-card-actions">
+
+                                    <sly data-sly-test="${offer.buttonOfferUrlAd}">
+                                        <a href="${offer.buttonOfferUrlAd}" class="offer-book-btn" target="_blank"
+                                            rel="noopener noreferrer">
+                                            ${offer.buttonOfferTextAd}
+                                        </a>
+                                    </sly>
+
+                                    <sly data-sly-test="${offer.buttonOfferUrlAd1}">
+                                        <a href="${offer.buttonOfferUrlAd1}" class="offer-learn-more" target="_blank"
+                                            rel="noopener noreferrer">
+                                            ${offer.buttonOfferTextAd1}
+                                        </a>
+                                    </sly>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </sly>
+
+                </div>
+
+                <!-- NAVIGATION (only if >1) -->
+                <sly data-sly-test="${offerCount > 1}">
+                    <div class="nav-icons" role="group" aria-label="Carousel navigation">
+
+                        <button class="nav-icon-left" type="button" aria-label="Previous slide"
+                            aria-controls="offers-slides">
+                            <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/prev.svg" alt=""
+                                aria-hidden="true" />
+                        </button>
+
+                        <div class="current-slide" aria-live="polite" aria-atomic="true">
+                            1 / ${offerCount}
+                        </div>
+
+                        <button class="nav-icon-right" type="button" aria-label="Next slide"
+                            aria-controls="offers-slides">
+                            <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/next.svg" alt=""
+                                aria-hidden="true" />
+                        </button>
+
+                    </div>
+                </sly>
+            </div>
+        </div>
+    </div>
+
+</sly>

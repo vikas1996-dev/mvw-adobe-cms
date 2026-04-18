@@ -1,0 +1,342 @@
+
+$breakpoint-tablet: 1024px;
+$breakpoint-mobile: 768px;
+
+.multi-bubble {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  min-height: 480px;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 80px 0;
+    min-height: auto;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 80px 0 132px;
+    min-height: auto;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    picture {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: end;
+      align-items: center;
+      opacity: calc(var(--desktop-opacity, 90) / 100);
+
+      @media (max-width: $breakpoint-mobile) {
+        margin-bottom: 30%;
+      }
+      
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      align-items: center;
+      justify-content: center;
+
+      picture {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &--light {
+      .multi-bubble__map {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__map {
+    width: auto;
+    height: 100%;
+    max-width: 75%;
+    object-fit: contain;
+    object-position: right center;
+    transform: scale(1.15);
+
+    @media (max-width: $breakpoint-tablet) {
+      max-width: 80%;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-position: center bottom;
+      transform: scale(1.05);
+    }
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 24px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    z-index: 2;
+    margin-right: 34px;
+
+    @media (max-width: $breakpoint-mobile) {
+      flex: none;
+      max-width: 100%;
+      width: 100%;
+      text-align: center;
+      padding: 0;
+      margin-right: 0;
+    }
+  }
+
+  &__title {
+    font-family: "arsenal", serif;
+    font-weight: 400;
+    padding-bottom: 24px;
+    margin-bottom: 0;
+  }
+
+  &__description {
+    font-family: "roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 24px 0;
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 16px;
+      line-height: 24px;
+      margin: 24px 0;
+    }
+  }
+
+  &__cta-wrapper {
+    margin-top: 24px;
+
+    @media (max-width: $breakpoint-mobile) {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__bubbles {
+    flex: 1.4;
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $breakpoint-mobile) {
+      display: none;
+    }
+  }
+
+  &__bubble {
+    position: absolute;
+    z-index: 2;
+
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+    will-change: opacity, transform;
+    transition: opacity 0.25s linear, transform 0.25s cubic-bezier(0.65, 0.56, 0.62, 1.59);
+    transition-delay: calc(var(--order, 1) * 0.25s);
+
+    .multi-bubble.is-visible & {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    &--3 { --order: 1; } // Top Right Large
+    &--2 { --order: 2; } // Top Right Small
+    &--4 { --order: 3; } // Middle Left
+    &--6 { --order: 4; } // Bottom Left Large
+    &--7 { --order: 5; } // Bottom Left Small
+    &--1 { --order: 6; } // Middle Center
+    &--5 { --order: 7; } // Far Right
+
+    &--1 {
+      top: 62%;
+      right: 38%;
+      width: 105px;
+      height: 105px;
+
+      @media (max-width: 1240px) {
+        width: 94.5px;
+        height: 94.5px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        width: 84px;
+        height: 84px;
+      }
+    }
+
+    &--3 {
+      top: 0%;
+      right: 22%;
+      width: 200px;
+      height: 200px;
+      z-index: 3;
+
+      @media (max-width: 1240px) {
+        width: 180px;
+        height: 180px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        width: 160px;
+        height: 160px;
+      }
+
+      .multi-bubble__bubble--2 {
+        position: absolute;
+        top: 5%;
+        bottom: auto;
+        width: 66px;
+        height: 66px;
+        z-index: 4;
+        left: -20%;
+
+        @media (max-width: 1240px) {
+          width: 59.4px;
+          height: 59.4px;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 52.8px;
+          height: 52.8px;
+        }
+
+        div {
+          border: 4px solid var(--Colors-Linen-100, #E8E5DE);
+        }
+      }
+    }
+
+    &--4 {
+      top: 26%;
+      right: 60%;
+      width: 130px;
+      height: 130px;
+
+      @media (max-width: 1240px) {
+        width: 117px;
+        height: 117px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        width: 104px;
+        height: 104px;
+      }
+    }
+
+    &--5 {
+      bottom: 38%;
+      right: 0%;
+      width: 130px;
+      height: 130px;
+
+      @media (max-width: 1240px) {
+        width: 117px;
+        height: 117px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        width: 104px;
+        height: 104px;
+      }
+    }
+
+    &--6 {
+      width: 150px;
+      height: 150px;
+      right: 77%;
+      bottom: 9%;
+      z-index: 3;
+
+      @media (max-width: 1240px) {
+        width: 135px;
+        height: 135px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        width: 120px;
+        height: 120px;
+      }
+
+      .multi-bubble__bubble--7 {
+        position: absolute;
+        top: 76%;
+        right: -8%;
+        bottom: auto;
+        width: 84px;
+        height: 84px;
+        z-index: 4;
+
+        @media (max-width: 1240px) {
+          width: 75.6px;
+          height: 75.6px;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 67.2px;
+          height: 67.2px;
+        }
+
+        div {
+          border: 4px solid var(--Colors-Linen-100, #E8E5DE);
+        }
+      }
+    }
+  }
+
+  &__bubble-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+

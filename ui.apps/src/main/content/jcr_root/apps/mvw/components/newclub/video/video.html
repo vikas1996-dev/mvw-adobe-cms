@@ -1,0 +1,20 @@
+<sly data-sly-use.model="com.mvw.core.models.NewClubVideo"
+     data-sly-use.configModel="com.mvw.core.models.GlobalConfigModel"/>
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+     data-sly-call="${ templates.placeholder @ component_name= 'New Club Video'}" />
+<div class="cmp-video">
+    <div class="cmp-video__container">
+        <video-js class="video-js"
+                  data-cmp-hook-video="player"
+                  data-account="${configModel.brightcoveAccountId}"
+                  data-player="${configModel.brightcovePlayerId}"
+                  data-embed="default"
+                  data-video-id="${model.videoId}"
+                  data-sly-attribute.data-controls="${model.videoControls}"
+                  data-sly-attribute.data-autoplay="${model.videoAutoplay}"
+                  muted
+                  loop
+                  playsinline>
+        </video-js>
+    </div>
+</div>

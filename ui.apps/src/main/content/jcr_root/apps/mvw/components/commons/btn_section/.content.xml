@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured">
+    <buttontab
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Button"
+        sling:resourceType="granite/ui/components/coral/foundation/container"
+        margin="{Boolean}true">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <buttonType
+                        granite:class="cq-dialog-dropdown-showhide-multi"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldDescription="Select whether the button will display text or icon only."
+                        fieldLabel="Button Type"
+                        name="./iconOnly">
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            cq-dialog-dropdown-showhide-target=".cta-dependent"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <buttontext
+                                jcr:primaryType="nt:unstructured"
+                                selected="{Boolean}true"
+                                text="Button text"
+                                value="false" />
+                            <icononly
+                                jcr:primaryType="nt:unstructured"
+                                text="Icon Only"
+                                value="true" />
+                        </items>
+                    </buttonType>
+                    <iconclass
+                        granite:class="cta-dependent"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            showhidetargetvalue="true"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <iconclass
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter the icon class for the button (e.g., 'fa fa-user')."
+                                fieldLabel="Icon Class"
+                                name="./iconClass"/>
+                        </items>
+                    </iconclass>
+                    <buttontext
+                        granite:class="cta-dependent"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            showhidetargetvalue="false"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <buttontext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter the icon class for the button (e.g., 'fa fa-user')."
+                                fieldLabel="Button Text"
+                                name="./buttonText"/>
+                        </items>
+                    </buttontext>
+                    <buttonvariation
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                        fieldDescription="Select the variation/style of the button."
+                        fieldLabel="Select button variation"
+                        name="./buttonVariation">
+                        <items jcr:primaryType="nt:unstructured">
+                            <opt-primary
+                                jcr:primaryType="nt:unstructured"
+                                text="Primary"
+                                value="primary" />
+                            <opt-secondary
+                                jcr:primaryType="nt:unstructured"
+                                text="Secondary"
+                                value="secondary" />
+                            <opt-tertiary
+                                jcr:primaryType="nt:unstructured"
+                                text="Teritiary"
+                                value="teritiary"/>
+                        </items>
+                    </buttonvariation>
+                    <thirdParty
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                        fieldDescription="Check if the link is to a third party website."
+                        name="./thirdParty"
+                        text="Is Third Party?"
+                        uncheckedValue="false"
+                        value="{Boolean}true"/>
+                    <buttonlink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                        fieldDescription="Select/Enter the link URL for the button."
+                        fieldLabel="Button Link"
+                        name="./buttonLink"
+                        rootPath="/content"/>
+                    <opensin
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/form/select"
+                        fieldLabel="Opens in"
+                        name="./opensIn">
+                        <items jcr:primaryType="nt:unstructured">
+                            <sametab
+                                jcr:primaryType="nt:unstructured"
+                                text="Same Tab"
+                                value="_self"/>
+                            <newtab
+                                jcr:primaryType="nt:unstructured"
+                                text="New Tab"
+                                value="_blank"/>
+                        </items>
+                    </opensin>
+                </items>
+            </column>
+        </items>
+    </buttontab>
+</jcr:root>

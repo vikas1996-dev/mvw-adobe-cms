@@ -1,0 +1,11 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "jcr:createdBy": "admin",
+  "logoImage": "/content/dam/usb-legal/marriot-vacation-club/brand-logo.png",
+  "jcr:lastModifiedBy": "admin",
+  "jcr:created": "Mon Nov 10 2025 20:50:02 GMT-0500",
+  "jcr:lastModified": "Mon Nov 10 2025 21:07:13 GMT-0500",
+  "sling:resourceType": "mvw/components/legal/header",
+  "logoImageAltText": "Marriott Vacation Club",
+  "homeLink": "/content/legal/marriott-vacation-club/en.html"
+}

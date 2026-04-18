@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2025-11-17T10:04:57.787+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/tmvc/settings/wcm/templates/home-page-template"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="mvw/components/tmvc/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="mvw/components/container"
+            layout="responsiveGrid">
+            <experiencefragment-header
+                jcr:lastModified="{Date}2025-11-17T10:04:57.750+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/tmvcs/us/en/site/header/master"/>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid"/>
+            <experiencefragment-universal-csd
+                jcr:lastModified="{Date}2026-02-20T23:54:24.068+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/tmvcs/us/en/site/universal-csd/master"/>
+            <experiencefragment-footer
+                jcr:lastModified="{Date}2025-11-16T23:37:01.070+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/tmvcs/us/en/site/footer/master"/>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}650"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

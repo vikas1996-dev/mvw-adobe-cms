@@ -1,0 +1,116 @@
+
+@mixin default-typo-styles($size, $lineHeight) {
+  font-size: $size;
+  line-height: $lineHeight;
+}
+
+.body-01 {
+  font-family: var(--font-family-body);
+  @include default-typo-styles(20px, 1.25);
+}
+
+.body-02 {
+  font-family: var(--font-family-body);
+  @include default-typo-styles(16px, 1.25);
+}
+
+.body-03 {
+  font-family: var(--font-family-body);
+  @include default-typo-styles(14px, 1.25);
+}
+
+.body-04 {
+  font-family: var(--font-family-body);
+  @include default-typo-styles(14px, 1.25);
+}
+
+.body-01-bold {
+  font-family: var(--font-family-body-bold);
+  font-weight: 600;
+  @include default-typo-styles(20px, 1.25);
+}
+
+.body-02-bold {
+  font-family: var(--font-family-body-bold);
+  font-weight: 600;
+  @include default-typo-styles(16px, 1.25);
+}
+
+.body-03-bold {
+  font-family: var(--font-family-body-bold);
+  font-weight: 600;
+  @include default-typo-styles(14px, 1.25);
+}
+
+.body-04-bold {
+  font-family: var(--font-family-body-bold);
+  font-weight: 600;
+  @include default-typo-styles(14px, 1.25);
+}
+
+h1,
+.h1 {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  @include default-typo-styles(32px, 1.25); 
+ 
+  @media (min-width: 768px) {
+    @include default-typo-styles(42px, 1.25); 
+  }
+}
+
+h2,
+.h2 {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  @include default-typo-styles(26px, 1.25); 
+ 
+  @media (min-width: 768px) {
+    @include default-typo-styles(36px, 1.25); 
+  }
+}
+
+h3,
+.h3 {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  @include default-typo-styles(20px, 1.25); 
+ 
+  @media (min-width: 768px) {
+    @include default-typo-styles(28px, 1.25); 
+  }
+}
+
+h4,
+.h4 {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  @include default-typo-styles(18px, 1.25); 
+ 
+  @media (min-width: 768px) {
+    @include default-typo-styles(24px, 1.25); 
+  }
+}
+
+h5,
+.h5 {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  @include default-typo-styles(16px, 1.25); 
+ 
+  @media (min-width: 768px) {
+    @include default-typo-styles(22px, 1.25); 
+  }
+}
+
+h6,
+.h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  @include default-typo-styles(14px, 1.25); 
+ 
+  @media (min-width: 768px) {
+    @include default-typo-styles(20px, 1.25); 
+  }
+}
+

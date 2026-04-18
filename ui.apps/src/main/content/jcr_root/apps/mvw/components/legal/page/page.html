@@ -1,0 +1,114 @@
+
+<!DOCTYPE HTML>
+<html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page" lang="${page.language}"
+      data-sly-use.pwa="com.adobe.cq.wcm.core.components.models.PWA"
+      data-sly-use.head="head.html"
+      data-sly-use.footer="footer.html"
+      data-sly-use.redirect="redirect.html">
+    <head data-sly-call="${head.head @ page = page, pwa = pwa}"></head>
+
+    <sly data-sly-use.configModel="com.mvw.core.models.GlobalConfigModel"/>
+
+    <sly data-sly-use.siteConfig="com.mvw.core.models.TemplateSiteConfigs"/>
+
+    <body class="${page.cssClassNames} ${siteConfig.siteName}"
+          id="${page.id}"
+          data-cmp-link-accessibility-enabled
+          data-cmp-link-accessibility-text="${'opens in a new tab' @ i18n}"
+          data-cmp-data-layer-enabled="${page.data ? true : false}"
+          data-cmp-data-layer-name="${page.dataLayerName @ context='scriptToken'}">
+
+<script data-sly-test.dataLayerEnabled="${page.data}">
+  (function () {
+    var dataLayerName =
+      ("${page.dataLayerName @ context='scriptToken'}" || "").trim() || "adobeDataLayer";
+
+    function patchDataLayer(dl) {
+      if (!Array.isArray(dl) || dl.__cmpLoadedPatched) return dl;
+
+      // mark patched
+      Object.defineProperty(dl, "__cmpLoadedPatched", { value: true, configurable: true });
+
+      // remove any already-added cmp:loaded entries
+      for (var i = dl.length - 1; i >= 0; i--) {
+        if (dl[i] && dl[i].event === "cmp:loaded") dl.splice(i, 1);
+      }
+
+      // patch push to ignore future cmp:loaded
+      var originalPush = dl.push;
+      dl.push = function () {
+        for (var a = 0; a < arguments.length; a++) {
+          var obj = arguments[a];
+
+          // handle push([obj1, obj2])
+          if (Array.isArray(obj)) {
+            for (var j = 0; j < obj.length; j++) {
+              var inner = obj[j];
+              if (inner && inner.event === "cmp:loaded") continue;
+              originalPush.call(dl, inner);
+            }
+            continue;
+          }
+
+          if (obj && obj.event === "cmp:loaded") continue;
+          originalPush.call(dl, obj);
+        }
+        return dl.length;
+      };
+
+      return dl;
+    }
+
+    // If data layer already exists, patch now
+    if (Array.isArray(window[dataLayerName])) {
+      patchDataLayer(window[dataLayerName]);
+    } else {
+      // Intercept later creation/replacement of window[dataLayerName]
+      var currentValue = window[dataLayerName];
+      try {
+        Object.defineProperty(window, dataLayerName, {
+          configurable: true,
+          get: function () {
+            return currentValue;
+          },
+          set: function (v) {
+            currentValue = v;
+            if (Array.isArray(v)) patchDataLayer(v);
+          }
+        });
+      } catch (e) {
+        // If defineProperty fails for any reason, we fall back to simple init below.
+      }
+
+      // Ensure it's at least an array and patched
+      window[dataLayerName] = patchDataLayer(Array.isArray(currentValue) ? currentValue : []);
+    }
+
+    // Push your event (separately)
+    document.addEventListener("DOMContentLoaded", function () {
+      var dl = window[dataLayerName] = window[dataLayerName] || [];
+
+      dl.push({
+        event: "docs page load",
+        pageInfo: {
+          siteSection: "legal Documents",
+          pageName: "${page.title @ context='scriptString'}",
+          resortBrand: "${siteConfig.siteName @ context='scriptString'}",
+          resortName: "${pageProperties.resortName @ context='scriptString'}"
+            ? "${pageProperties.resortName @ context='scriptString'}" : ""
+        }
+      });
+    });
+  })();
+</script>
+
+
+        <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
+             data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
+        <sly data-sly-test="${!isRedirectPage}">
+            <sly data-sly-include="body.skiptomaincontent.html"></sly>
+            <sly data-sly-include="body.html"></sly>
+            <sly data-sly-call="${footer.footer @ page = page, pwa = pwa}"></sly>
+        </sly>
+    </body>
+</html>

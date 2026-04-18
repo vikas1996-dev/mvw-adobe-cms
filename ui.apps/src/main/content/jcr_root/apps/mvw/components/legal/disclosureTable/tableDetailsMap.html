@@ -1,0 +1,45 @@
+<sly data-sly-template.tableData="${ @ id, pdfDetails, class, tableType,column1, column2 }">
+  <div class="table-container ${class @ context='attribute'}"
+       id="${id @ context='attribute'}">
+
+    <table class="document-table">
+      <thead>
+        <tr>
+
+          <th class="column-title">${properties.first_column @ context='text'}</th>
+          <th class="column-action">${column2 @ context='text'}</th>
+        </tr>
+      </thead>
+
+      <!-- ONE ROW PER DOCUMENT -->
+      <tbody data-sly-list.entry="${pdfDetails.entrySet}">
+        <tr>
+          <!-- Serial number -->
+
+
+          <!-- Document title -->
+          <td class="document-title" title=" ${entry.key @ context='text'}">
+            <!--/*<span class="file-icon"></span>*/-->
+            ${entry.key @ context='text'}
+          </td>
+
+          <!-- Languages -->
+          <td class="row-action">
+            <sly data-sly-list.lang="${entry.value.entrySet}">
+              <a href="${lang.value @ context='unsafe'}" aria-label="${lang.key @ context='text'}" data-document-name="${entry.key @ context='text'}"
+                 class="language-link file-link" target="_blank" rel="noopener noreferrer">
+                ${lang.key}
+              </a>
+              <sly class="document_language" data-sly-test="${!langList.last}"> <div class="divider" aria-hidden="true">|</div> </sly>
+            </sly>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div data-sly-test="${pdfDetails.size == 0}"
+         class="no-content">
+      No ${tableType @ context='text'} PDFs found.
+    </div>
+  </div>
+</sly>

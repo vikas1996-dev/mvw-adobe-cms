@@ -1,0 +1,600 @@
+@import '../../variables.scss';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.resort-details-component {
+    width: 100%;
+    max-width: 1728px;
+
+    /* FIGMA PADDINGS */
+    //padding-left: calc(48 / 1728 * 100%);
+    //padding-right: calc(48 / 1728 * 100%);
+    //padding-top: 64px;
+    //padding-bottom: 128px;
+
+    // background-color: $white;
+
+    .resort-details-wrapper {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+
+        /* 🔥 MAIN 2-COLUMN GRID LAYOUT (DESKTOP) */
+        display: grid;
+        grid-template-columns: 56% 44%;
+        grid-template-rows: auto auto;
+        grid-column-gap: 8px;
+        grid-row-gap: 48px;
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* ----------------- TOP LEFT MEDIA ----------------- */
+
+        &__top {
+            display: none;
+        }
+
+        &__top,
+        &__bottom {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 56% 44%;
+            gap: 8px;
+
+            @media (max-width: 768px) {
+                gap: 0px;
+                padding: 0PX;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        &__bottom {
+            gap: 16px !important;
+        }
+
+        .media-main {
+            grid-column: 1;
+            aspect-ratio: 3/2;
+            position: relative;
+            overflow: hidden;
+            align-self: stretch;
+            cursor: pointer;
+
+            .resort-video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .video-play-btn {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 80px;
+                cursor: pointer;
+                color: $white;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+            }
+        }
+
+        /* ----------------- TOP RIGHT GALLERY ----------------- */
+        .media-gallery {
+            grid-column: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+
+            &__item {
+                position: relative;
+                cursor: pointer;
+            }
+
+            .resort-media__gallery-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: 5/4;
+            }
+
+            &__item--cta .gallery__cta {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                padding: 6px 16px;
+                font-family: Roboto Light;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 20px;
+                word-wrap: break-word;
+                background: $primary-coral;
+                color: $white;
+                border-radius: 20px;
+                cursor: pointer;
+                z-index: 2;
+                user-select: none;
+                border: none;
+            }
+        }
+
+        /* ----------------- BOTTOM LEFT CONTENT ----------------- */
+        &__bottom {
+            @media (max-width: 768px) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 20px;
+                padding-right: calc(32 / 375 * 100%);
+                padding-left: calc(32 / 375 * 100%);
+                padding-bottom: 64px;
+                gap: 32px;
+            }
+            .resort-info {
+                grid-column: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+                align-self: stretch;
+
+                @media (max-width: 768px) {
+                    align-items: flex-start;
+                    padding: 0px;
+                    gap: 37px;
+                }
+
+                &__header {
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 64px;
+                        height: 2px;
+                        background-color: $gray-color;
+                        margin-top: 16px;
+
+                        @media (max-width: 768px) {
+                            background-color: $primary-coral;
+                        }
+                    }
+                }
+
+                &__title {
+                    font-family: 'cormorantgaramond';
+                    font-size: 42px;
+                    font-weight: 400;
+                    line-height: 125%;
+                    margin-bottom: 16px;
+
+                    @media (max-width: 768px) {
+                        font-size: 32px;
+                    }
+                }
+
+                &__rating__reviews {
+                    display: flex;
+                    gap: 8px;
+
+                    .resort-info__rating {
+                        display: flex;
+                        gap: 4px;
+
+                        i.fa-star,
+                        i.fa-star-half {
+                            font-size: 24px;
+                            width: 24px;
+                            height: 24px;
+                            line-height: 24px;
+                            color: $gray-color;
+
+                            @media (max-width: 768px ) {
+                                font-size: 16px;
+                                height: 16px;
+                                width: 16px;
+                                color: $primary-coral;
+                            }
+                        }
+                    }
+
+                    .resort-info__reviews {
+                        font-family: 'roboto';
+                        font-size: 14px;
+                        font-weight: 300;
+                        line-height: 125%;
+                        color: $gray-color;
+
+                        @media (max-width: 768px) {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .resort-info__desc {
+                    font-family: 'roboto';
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 125%;
+                    color: $gray-color;
+
+                    @media (max-width: 768px) {
+                        font-size: 16px;
+                    }
+                }
+
+                .resort-info__sub-desc {
+                    font-family: 'roboto';
+                    font-size: 20px;
+                    font-weight: 300;
+                    line-height: 125%;
+                    color: $gray-color;
+
+                    @media (max-width: 768px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            /* ----------------- BOTTOM RIGHT MAP ----------------- */
+            .resort-map-wrapper {
+                grid-column: 2;
+                aspect-ratio: 5/3;
+                width: 100%;
+
+                @media (max-width: 768px) {
+                    padding: 0px;
+                }
+
+                .resort-media__map {
+                    width: 100%;
+                    border-radius: 6px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        /* MOBILE ONLY HIDDEN ON DESKTOP */
+        .mobile-only {
+            display: none;
+        }
+
+        .media-main,
+        .media-gallery__item {
+            transition: outline 0.3s ease;
+
+            &:focus-visible {
+                outline: 3px solid $primary-coral;
+                outline-offset: 4px;
+            }
+
+            &.is-focused {
+                outline: 3px solid $primary-coral;
+                outline-offset: 4px;
+            }
+        }
+    }
+}
+
+// Opacity managed on Overlay/Modal open
+.dim-resort-details-component {
+    opacity: 0.20;
+    /* darkens */
+    // pointer-events: none;
+}
+
+
+/* ----------------- MODAL OVERLAY ----------------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.5);
+    /* dark overlay */
+    overflow-y: auto;
+
+    /* ----------------- MODAL CONTAINER ----------------- */
+    .media-modal__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $white;
+        width: 100%;
+        max-width: 1169px;
+        padding: 24px 24px 88px 24px;
+        position: relative;
+
+        .media-modal__wrapper {
+            max-width: calc(960 / (1728 - (276 + 283)) * 100%);
+            width: 100%;
+
+            .media-modal__close {
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                font-size: 28px;
+                cursor: pointer;
+                width: 10px;
+                height: 10px;
+            }
+
+            .media-modal__title {
+                font-family: 'roboto';
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 32px;
+                margin-top: 40px;
+            }
+
+            .media-modal__viewer {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                aspect-ratio: 3 / 2;
+
+                .viewer-main-img {
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 6px;
+                }
+
+                .modal-video-wrapper {
+                    display: none;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+
+                    video {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 6px;
+                    }
+
+                    .modal-video-play-btn {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        margin: auto;
+                        font-size: 80px;
+                        color: $white;
+                        cursor: pointer;
+                      text-shadow: 0 0 10px rgba(0,0,0,.75);
+                    }
+                }
+            }
+
+            .media-modal__caption {
+                font-family: 'roboto';
+                text-align: center;
+                font-size: 12px;
+                line-height: 125%;
+                margin: 16px 0 12px;
+                color: $black;
+            }
+
+            .media-modal__thumb-row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 16px;
+                position: relative;
+
+                .thumb-arrow {
+                    max-width: 46.65px;
+                    max-height: 46.65px;
+                    border-radius: 50%;
+                    background: $black;
+                    border: 4px solid $white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+                    padding: 10px;
+                    z-index: 1;
+                    font-size: 24px;
+                    color: $white;
+                }
+
+                .thumb-arrow img {
+                    width: 100%;
+                    height: auto;
+                    pointer-events: none;
+                }
+
+                .thumb-arrow:hover {
+                    opacity: 0.8;
+                }
+
+                .thumb-arrow--left {
+                    position: absolute;
+                    left: -18px;
+                    top: 15px;
+                }
+
+                .thumb-arrow--right {
+                    position: absolute;
+                    right: -18px;
+                }
+
+                .media-modal__thumbnails {
+                    display: grid;
+                    grid-auto-flow: column;
+                    grid-auto-columns: 1fr;
+                    gap: 10px;
+                    width: 100%;
+
+                    .thumb {
+                        max-width: 121px;
+                        width: 100%;
+                        height: 114pxpx;
+                        border-radius: 4px;
+                        object-fit: cover;
+                        cursor: pointer;
+                        opacity: 0.5;
+                        transition: 0.2s;
+                        border: 2px solid transparent;
+                    }
+
+                    .thumb:hover,
+                    .active-thumb {
+                        opacity: 1;
+                        border-color: $primary-coral;
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .resort-details-component {
+        padding: 0;
+
+        .resort-details-wrapper {
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+
+            &__top {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+
+            .resort-media-carousel {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+
+                .carousel-favourite {
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    z-index: 20;
+                    font-size: 22px;
+                    color: #ffffff;
+                    text-shadow: 0 2px 6px rgba(0,0,0,.6);
+                    pointer-events: none;
+                }
+
+                .carousel-track {
+                    display: flex;
+                    transition: transform 0.3s ease;
+
+                    .carousel-item {
+                        min-width: 100%;
+
+                        img,
+                        video {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .carousel-arrow {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 16px;
+                    height: 32px;
+                    background: $white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    cursor: pointer;
+                    z-index: 10;
+                    color: $black;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+
+                    /* half-circle shape */
+                    &.left {
+                        left: 0;
+                        border-top-right-radius: 50px;
+                        border-bottom-right-radius: 50px;
+                    }
+
+                    &.right {
+                        right: 0;
+                        border-top-left-radius: 50px;
+                        border-bottom-left-radius: 50px;
+                    }
+                }
+
+                .carousel-dots {
+                    position: absolute;
+                    bottom: 12px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    gap: 8px;
+                    z-index: 20;
+
+                    .dot {
+                        width: 10px;
+                        height: 10px;
+                        background: transparent;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        border: 1.5px solid #fff;
+
+                        &.active {
+                            background: $white;
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+                }
+            }
+
+            &__bottom {
+                display: flex;
+                flex-direction: column;
+                padding-top: 20px;
+                padding-right: calc(32 / 375 * 100%);
+                padding-left: calc(32 / 375 * 100%);
+                padding-bottom: 64px;
+
+                &__left {
+                    .resort_info__header {
+                        .resort-info__rating__reviews {
+                            .resort-info__rating {
+
+                                i.fa-star,
+                                i.fa-star-half {
+                                    font-size: 16px;
+                                    width: 16px;
+                                    height: 16px;
+                                    color: $primary-coral;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__right {
+                    .resort-media__map {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<sly
+        data-sly-use.templates="mvw/components/newclub/templates.html"
+        data-sly-call="${ templates.placeholder @ component_name= 'Resort Promotion' }"
+/>
+
+<sly data-sly-use.resortPromotionModel="com.mvw.core.models.NewClubResortPromotionModel">
+    <div class="resort-promo">
+        <div class="resort-promo__media">
+            <sly data-sly-test="${resortPromotionModel.resortImage}">
+                <picture class="resort-promo__picture">
+                    <source media="(min-width: 768px)" srcset="${resortPromotionModel.resortImage @context='uri'}" />
+                    <img
+                            class="resort-promo__img"
+                            src="${resortPromotionModel.resortImage @context='uri'}"
+                        alt="${resortPromotionModel.altText @context='text'}"
+                            loading="${!resortPromotionModel.disableLazyLoading ? 'lazy' : ''}"
+                    />
+                </picture>
+            </sly>
+
+            <p class="resort-promo__caption" tabindex="0"
+                aria-label="${resortPromotionModel.imageCaption @context='text'}">${resortPromotionModel.imageCaption
+                @context='text'}</p>
+        </div>
+
+        <div class="resort-promo__content">
+            <sly data-sly-test="${resortPromotionModel.countryName}">
+                <div class="resort-promo__header">
+                    <h2 class="resort-promo__title" tabindex="0"
+                        aria-label="${resortPromotionModel.countryName @context='text'}">
+                        ${resortPromotionModel.countryName @context='text'}</h2>
+                </div>
+            </sly>
+
+            <div class="resort-promo__links-container">
+                <ul class="resort-promo__link-list">
+                    <sly data-sly-test="${resortPromotionModel.resortListFirstColumn}">
+                        <sly data-sly-list.listOfResortsInFirstColumn="${resortPromotionModel.resortListFirstColumn}">
+                            <li>
+                                <a 
+                                        href="${listOfResortsInFirstColumn.navLinkUrl @context='uri'}"
+                                    target="${listOfResortsInFirstColumn.navLinkTab}" aria-label="${listOfResortsInFirstColumn.navLinkText @context='text'}"
+                                        class="resort-promo__link ${listOfResortsInFirstColumn.thirdParty =='true' ? 'third-party-link' : ''}"
+                                >${listOfResortsInFirstColumn.navLinkText @context='text'}</a
+                                >
+                            </li>
+                        </sly>
+                    </sly>
+                </ul>
+
+                <ul class="resort-promo__link-list">
+                    <sly data-sly-test="${resortPromotionModel.resortListSecondColumn}">
+                        <sly data-sly-list.listOfResorts="${resortPromotionModel.resortListSecondColumn}">
+                            <li>
+                                <a 
+                                        href="${listOfResorts.navLinkUrl @context='uri'}"
+                                    target="${listOfResorts.navLinkTab}" aria-label="${listOfResorts.navLinkText @context='text'}"
+                                        class="resort-promo__link ${listOfResorts.thirdParty =='true' ? 'third-party-link' : ''}"
+                                >${listOfResorts.navLinkText @context='text'}</a
+                                >
+                            </li>
+                        </sly>
+                    </sly>
+                </ul>
+            </div>
+        </div>
+    </div>
+</sly>
+
+ 

@@ -1,0 +1,16 @@
+<sly data-sly-use.model="com.mvw.core.models.CityCollection">
+    <div class="resort-city-collection-cmp bg-theme-none"
+         data-mod="city-collection-cmp"
+         data-api-endpoint="${currentPage.path}/_jcr_content.data.json?collection=City%20Collection">
+        <div class="grid-container">
+            <div class="city-collection-wrapper">
+                <h3 data-sly-element="${model.headlineType}" class="${model.headlineType}">
+                    ${model.headlineText @ context='html'}
+                </h3>
+                <div class="resort-grid">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

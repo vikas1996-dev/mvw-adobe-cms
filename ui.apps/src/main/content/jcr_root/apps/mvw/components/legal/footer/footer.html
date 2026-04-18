@@ -1,0 +1,92 @@
+<sly data-sly-use.legalFooterModel="com.mvw.core.models.LegalFooterModel" />
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+  data-sly-call="${ templates.placeholder @ component_name= 'Footer' }" />
+
+
+  <sly data-sly-test.check="${legalFooterModel.logoImage!=null || legalFooterModel.brandDetails!=null}">
+
+<div class="footer footer-icons-wrapper" role="contentinfo">
+  
+  <div sly-data-sly-test="${check}" class="footer-icons">
+
+    <!-- Main Logo (keyboard accessible) -->
+    <div sly-data-sly-test="${legalFooterModel.logoImage}" class="footer-bottom top-imgs" role="img" aria-label="${legalFooterModel.logoImageAltText @ context='text'}"
+      tabindex="0">
+      <img src="${legalFooterModel.logoImage @ context='uri'}"
+        alt="${legalFooterModel.logoImageAltText @ context='text'}" />
+    </div>
+
+    <!-- Brand Logos (keyboard accessible list) -->
+    <div sly-data-sly-test="${legalFooterModel.brandDetails}" class="footer-bottom bottom-imgs" role="group" aria-label="Brand Logos">
+
+      <sly data-sly-list="${legalFooterModel.brandDetails}">
+        <div role="img" aria-label="${item.brandImageAltText @ context='text'}" tabindex="0">
+          <sly data-sly-test="${item.brandImageLink}">
+            <a class="brand-logo" aria-label="${item.ariaLabel}" href="${item.brandImageLink}" target="${item.brandImageLinkTarget}">
+               <img src="${item.brandImage @ context='uri'}" alt="${item.brandImageAltText @ context='text'}" />
+            </a>
+          </sly>
+          <sly data-sly-test="${!item.brandImageLink}">
+          <img src="${item.brandImage @ context='uri'}" alt="${item.brandImageAltText @ context='text'}" />
+          </sly>
+        </div>
+      </sly>
+
+    </div>
+
+  </div>
+  
+</div>
+</sly>
+<div class="footer-text-wrapper">
+  <div class="footer-text">
+    ${legalFooterModel.footerText @ context='html'}
+  </div>
+  <div class="footer-equal-logo-wrapper">
+    <sly data-sly-test="${legalFooterModel.equalImage}">
+    <div class="equal-housing-logo" role="img" aria-label="Equal Housing Opportunity Logo" tabindex="0">
+      <img src="${legalFooterModel.equalImage @ context='uri'}" alt="Equal Housing Opportunity Logo" />
+    </div>
+    </sly>
+    <div>
+      ${legalFooterModel.legalText @ context='html'}
+      <div class="footer-section footer-links-wrapper" data-sly-test.legalLinks="${legalFooterModel.legalLinks}"
+        role="navigation" aria-label="Legal Links">
+        <div class="legal-links" >
+          <sly data-sly-list="${legalFooterModel.legalLinks}">
+          <sly data-sly-test="${item.cookieLink}">
+            <a class="ot-sdk-show-settings" href="javascript:void(0)" aria-label="${item.legalLinkText @ context='text'}" >${item.legalLinkText @ context='text'}</a>
+          </sly>
+          <sly data-sly-test="${!item.cookieLink}">
+            <a class="footer-link ${item.cookieLink ? 'ot-sdk-show-settings' : ''}${item.thirdParty =='true' ? 'third-party-link' : ''}" id="${item.cookieLink ? 'ot-sdk-btn' : ''}"
+            aria-label="${item.legalLinkText @ context='text'}" href="${item.legalLinkUrl @ context='uri'}" target="${item.legalLinkTab}">
+            ${item.legalLinkText @ context='text'}
+            <sly
+              data-sly-test="${item.legalLinkTab == '_blank'}">
+              <i class="legal-external-icon fa-solid fa-arrow-up-right-from-square"></i>
+            </sly>
+
+          </a>
+          </sly>
+          <span class="divider" aria-hidden="true" data-sly-test="${!itemList.last}">|</span>
+
+          </sly>
+            <a class="footer-link ${legalFooterModel.thirdParty =='true' ? 'third-party-link' : ''}" 
+            href="${legalFooterModel.legalLinkUrl @ context='uri'}" target="${legalFooterModel.legalLinkTab}" aria-label="accessibility link">
+            
+            <span  data-sly-test="${legalFooterModel.icon}">
+              <img class="accessibility-icon" src="${legalFooterModel.icon @ context='uri'}" />
+            </span>
+          </a>
+
+
+        </div>
+
+
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>

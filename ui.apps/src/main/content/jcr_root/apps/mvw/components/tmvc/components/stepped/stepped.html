@@ -1,0 +1,65 @@
+<sly data-sly-use.model="com.mvw.core.models.SteppedModel" />
+<sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+<sly data-sly-call="${tpl.placeHolderBlock @
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+
+<div class="multi-step-cmp rte-content ${model.hideCircles ? 'hidecircles' : ''} ${model.stackcolumns ? 'stackcolumns' : ''} ${model.showDivider ? 'showdivider' : ''} bg-theme-${model.copySectionBgColor} m-bg-theme-${model.mobileBgColor}"
+    style="background-image: url('${model.image @ context='uri'}'); background-size: cover; background-position: center;"
+    data-parent-component="stepped">
+    <div class="grid-container">
+        <div class="multi-step-wrapper align-${model.copySectionAlignment} m-align-${model.mobileCopySectionAlignmnet}">
+            <sly data-sly-test="${model.headlineText}">
+                <span data-sly-element="${model.headlineTag}"
+                    class="cmp-title title align-${model.copySectionAlignment} m-align-${model.mobileCopySectionAlignmnet} ${model.headlineType}">${model.headlineText}</span>
+            </sly>
+            <div data-sly-test="${model.primaryCopy}" class="subtitle">${model.primaryCopy @ context='html'}</div>
+            <div class="stepped-cta">
+                <sly data-sly-resource="${'primarycta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}">
+                </sly>
+            </div>
+            <div class="steps-container">
+                <sly data-sly-list.step="${model.steps}">
+                    <div class="step-item align-${model.columnsAlignment} m-align-${model.columnAlignment}">
+                        <sly data-sly-test="${step.typeOfColumn == 'text'}">
+                            <div class="circle-wrap">
+                                <div class="circle bg-theme-${model.stepsBgColor}">${step.stepTitle @ context='html'}
+                                </div>
+                            </div>
+                        </sly>
+                        <sly data-sly-test="${step.typeOfColumn == 'font'}">
+                            <div class="circle-wrap">
+                                <div class="circle bg-theme-${model.stepsBgColor}"><i
+                                        class="${step.fontAwesomeIcon}"></i>
+                                </div>
+                            </div>
+                        </sly>
+                        <sly data-sly-test="${step.headlineText}">
+                            <span data-sly-element="${step.headlineTag}"
+                                class="cmp-title title ${step.headlineType}">${step.headlineText @
+                                context='html'}</span>
+                        </sly>
+                        <div data-sly-test="${step.shortDescription}" class="step-text">${step.shortDescription @
+                            context='html'}</div>
+                        <div class="stepped-cta ctaclass">
+                            <sly
+                                data-sly-resource="${'stepcta-'}${stepList.index @ resourceType='mvw/components/tmvc/components/ctacontainer'}">
+                            </sly>
+                        </div>
+                    </div>
+                </sly>
+            </div>
+
+            <div data-sly-test="${model.secondaryCopy}" class="secondary-description">
+                <div>${model.secondaryCopy @ context='html'}</div>
+            </div>
+            <div class="stepped-cta">
+                <sly data-sly-resource="${'secondarycta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}">
+                </sly>
+            </div>
+        </div>
+    </div>
+
+</div>

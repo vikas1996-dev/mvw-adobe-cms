@@ -1,0 +1,1976 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Static Frontend file</title>
+    <meta name="template" content="page-content" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-base.css" type="text/css">
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.js"></script>
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-dependencies.css" type="text/css">
+    <link rel="stylesheet" href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.css" type="text/css">
+
+</head>
+
+<body>
+    <div class="breadcrumb-sec">
+        <div class="grid-container">
+            <nav>
+                <ul>
+                    <li><a href="#">USA - West</a></li>
+                    <li><a href="#">Hawai’i</a></li>
+                    <li class="active">Kapolei, O’ahu</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="resort-header">
+         <div class="resort-hero">
+        <div class="grid-container">
+            <div class="hero-content">
+                <h1 class="heading1">Marriott’s Ko Olina Beach Club </h1>
+                <div class="review-sec">
+                    <!-- <div class="fav">
+                        <i class="fa-regular fa-heart"></i>
+                        Favorite
+                    </div> -->
+                    <div class="city">
+                        <i class="fa-regular fa-city"></i>
+                        City Collection
+                    </div>
+                    <div class="trip-adviser">
+                        <div class="rating" data-rating="3.5"></div>
+                        <div class="reviews-count">
+                            5,106 Reviews
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-navigation">
+        <div class="grid-container">
+            <nav class="content-nav" data-accordion>
+                <a href="#overview" class="nav-toggle active">Overview <i class="fa-solid fa-chevron-down"></i></a>
+
+                <div class="nav-items">
+                    <a href="#accommodations">Accommodations</a>
+                    <a href="#offers">Offers</a>
+                    <a href="#dining">Dining</a>
+                    <a href="#amenities">Amenities</a>
+                    <a href="#experiences">Experiences</a>
+                    <a href="#resort-details" class="nav-close">
+                        Resort Details
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+    </div>
+   
+
+
+
+    <div class="gallery-modal" aria-hidden="true" role="dialog" aria-label="Gallery">
+        <div class="nav-sec">
+            <button type="button" class="resort-media-model__prev button-with-icon-prev gallery-modal__back"
+                aria-label="Close media modal">Back to Resort Details</button>
+            <button type="button" class="gallery-modal__close" aria-label="Close gallery" data-gallery-close>×</button>
+        </div>
+        <div class="gallery-modal__content" role="document">
+            <div class="gallery-modal__frame">
+                <figure class="gallery-modal__figure">
+                    <img class="gallery-modal__img" src="" alt="" />
+                    <figcaption class="gallery-modal__caption"></figcaption>
+                </figure>
+
+            </div>
+            <div class="gallery-modal__footer">
+                <button class="gallery-modal__nav gallery-modal__nav--prev" data-gallery-prev aria-label="Previous"><i
+                        class="fa-solid fa-chevron-down left"></i></button>
+                <div class="gallery-modal__counter" aria-live="polite">0 / 0</div>
+                <button class="gallery-modal__nav gallery-modal__nav--next" data-gallery-next aria-label="Next"><i
+                        class="fa-solid fa-chevron-down right"></i></button>
+                <!-- <button class="cmp-button cmp-button--secondary-ghost gallery-modal__back" data-gallery-close>Back to
+                    Gallery</button> -->
+            </div>
+        </div>
+    </div>
+    <div class="resort-media-model">
+        <div class="resort-media__model">
+            <div class="nav-sec">
+                <button type="button" class="resort-media-model__prev close_model button-with-icon-prev"
+                    aria-label="Close media modal">Back to Resort Details</button>
+                <button type="button" class="resort-media-model__close close_model"
+                    aria-label="Close media modal">×</button>
+            </div>
+            <div class="grid-container">
+                <div class="grid-wrapper">
+                    <div class="media-grid">
+                        <!-- Row 1: full width image -->
+                        <button class="media-grid__item media-grid__item--full full-width"
+                            data-image-src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
+                            aria-label="Open image">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
+                                alt="Panoramic resort view" />
+                        </button>
+
+                        <!-- Row 2: two images side-by-side -->
+                        <button class="media-grid__item half-width"
+                            data-image-src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80"
+                            aria-label="Open image">
+                            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80"
+                                alt="Resort pool" />
+                        </button>
+
+                        <button class="media-grid__item half-width"
+                            data-image-src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=800&q=80"
+                            aria-label="Open image">
+                            <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=800&q=80"
+                                alt="Resort dining" />
+                        </button>
+
+                        <!-- Row 3: full width video -->
+                        <button class="media-grid__item media-grid__item--full media-grid__item--video full-width"
+                            aria-label="Play video" data-video-id="6326395794112" data-video-account="1441355349001"
+                            data-video-player="jFCpKQt1X" data-video-embed="default">
+                            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+                                alt="Resort video thumbnail" />
+                            <span class="media-grid__play" aria-hidden="true"></span>
+                        </button>
+
+                        <!-- Row 4: two images side-by-side -->
+                        <button class="media-grid__item half-width"
+                            data-image-src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+                            aria-label="Open image">
+                            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+                                alt="Night pool view" />
+                        </button>
+
+                        <button class="media-grid__item half-width"
+                            data-image-src="https://images.unsplash.com/photo-1500530855697-7feafebae273?auto=format&fit=crop&w=800&q=80"
+                            aria-label="Open image">
+                            <img src="https://images.unsplash.com/photo-1500530855697-7feafebae273?auto=format&fit=crop&w=800&q=80"
+                                alt="Lagoon view" />
+                        </button>
+                    </div>
+                    <div class="back-btn-wrapper">
+                        <button type="button"
+                            class="cmp-button cmp-button--secondary-ghost cmp-button--large close_model"
+                            aria-label="Close media modal">Back to Resort Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="resort-media">
+        <div class="resort-media__layout">
+            <div class="resort-media__main">
+                <button type="button" class="resort-media__trigger" data-open-media-model="true"
+                    aria-label="Open resort media gallery">
+                    <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                        alt="Panoramic view of the beachfront resort" />
+                </button>
+
+
+            </div>
+            <div class="resort-media__aside">
+                <a class="resort-media__tile resort-media__tile--video resort-media__trigger" href="#watch-story"
+                    data-open-media-model="true" aria-label="Watch resort story video" data-video-id="6320272191112"
+                    data-video-account="1441355349001" data-video-player="jFCpKQt1X" data-video-embed="default">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=520&q=80"
+                        alt="Guests enjoying live music on the lawn" />
+                    <span class="resort-media__play" aria-hidden="true"></span>
+                </a>
+                <a class="resort-media__tile resort-media__trigger" href="#lagoon-gallery"
+                    aria-label="View lagoon gallery" data-open-media-model="true"
+                    data-image-src="https://images.unsplash.com/photo-1500530855697-7feafebae273?auto=format&fit=crop&w=1600&q=80">
+                    <img src="https://images.unsplash.com/photo-1500530855697-7feafebae273?auto=format&fit=crop&w=520&q=80"
+                        alt="Aerial view of the resort lagoon" />
+                </a>
+                <a class="resort-media__tile resort-media__tile--cta resort-media__trigger" href="#all-media"
+                    data-open-media-model="true" aria-label="View all resort media"
+                    data-image-src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=520&q=80"
+                        alt="Night view of resort pools" />
+                    <span class="resort-media__cta">
+                        View All Media
+                       <i class="fa-regular fa-arrow-right"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="resort-overview-cmp left">
+        <div class="resort-overview-wrapper grid-container">
+            <div class="resort-overview-content align-center">
+                <div class="content-sec">
+                    <div class="content-text rte-content">
+                        <h1 class="heading1 cmp-title align-left">Discover Your Beachfront Hideaway</h1>
+                        <p>The exquisite western shore of Oahu is home to Marriott's Ko Olina Beach Club, where
+                            waterfalls and fountains welcome your arrival. Only 18 miles from Honolulu, this secluded
+                            beachfront oasis is nestled within Ko Olina Resort & Marina, a lush 640-acre gated community
+                            where seven crystal-clear lagoons shimmer.</p>
+                        <p>The exquisite western shore of Oahu is home to Marriott's Ko Olina Beach Club, where
+                            waterfalls and fountains welcome your arrival. Only 18 miles from Honolulu, this secluded
+                            beachfront oasis is nestled within Ko Olina Resort & Marina, a lush 640-acre gated community
+                            where seven crystal-clear lagoons shimmer.</p>
+                    </div>
+                    <a href="#" class="show-more"> Show More</a>
+                </div>
+                <div class="favrouties-sec">
+                    <h4 class="heading5">Guest Favorites</h4>
+                    <ul class="favrouties">
+                        <li><i class="fa-resort fa-solid fa-plate-wheat"></i> Golf</li>
+                        <li><i class="fa-resort fa-solid fa-plate-wheat"></i>Pool</li>
+                        <li><i class="fa-resort fa-solid fa-child"></i> Spa</li>
+                        <li><i class="fa-resort fa-solid fa-dumbbell"></i> Beach</li>
+                    </ul>
+                    <a href="#other-amenities" class="all-amenities">View All Amenities</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="planning-visit-cmp" id="accommodations">
+        <div class="planning-visit-wrap">
+            <h2 class="heading2">Planning Your Visit</h2>
+
+            <!-- Resort Alert -->
+            <div class="resort-alert">
+                <div class="alert-header">
+                    <div class="alert-title">
+                        <i class="fa-regular fa-circle-info">
+                            <span class="count">2</span>
+                        </i>
+                        <strong>Resort Alerts:</strong>
+                        Public Safety Power Shutoff Strategy; Construction Notice
+                    </div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="alert-content rte-content">
+                    <div class="alert-content-sec">
+                        <div class="alert-title-sec">Public Safety Power Shutoff strategy</div>
+                        <div class="alert-text">
+                            <p data-renderer-start-pos="45">The Hawaii Electric Company has implemented periodic power
+                                outages that may
+                                impact our resort&nbsp;as part of the Public Safety Power Shutoff (<a
+                                    data-renderer-mark="true" data-testid="link-with-safety"
+                                    href="https://www.hawaiianelectric.com/safety-and-outages/wildfire-safety/public-safety-power-shutoff"
+                                    title="https://www.hawaiianelectric.com/safety-and-outages/wildfire-safety/public-safety-power-shutoff">PSPS</a>)
+                                strategy to help prevent wildfires for the foreseeable future.</p>
+
+                            <p data-renderer-start-pos="253">Due to these potential outages, owners and guests are
+                                advised to travel with
+                                any necessary items you may need in the event of a power outage.&nbsp;Please refer to
+                                the <a data-renderer-mark="true" data-testid="link-with-safety"
+                                    href="https://www.hawaiianelectric.com/safety-and-outages/wildfire-safety/public-safety-power-shutoff"
+                                    title="https://www.hawaiianelectric.com/safety-and-outages/wildfire-safety/public-safety-power-shutoff">PSPS
+                                    strategy</a> on how to prepare. As noted, these outages could occur at any time and
+                                may last for up to
+                                one to three days.</p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="alert-content-sec">
+                        <div class="alert-title">Construction Notice</div>
+                        <div class="alert-text">
+                            <p>The Naiʻa Pool will be closed for refurbishment from Sep 7, 2026 to Dec 18, 2026. All
+                                other resort pools and
+                                amenities are expected to remain open during this time.</p>
+
+                            <p>Beginning Jan. 4, 2027 to Jun. 23, 2027, the Kona Tower at the resort will be undergoing
+                                villa refurbishment.
+                                Work will occur daily during daytime hours, so please anticipate construction noise
+                                during this time. All
+                                other resort amenities are expected to remain open and fully operational for your
+                                enjoyment.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Content Columns -->
+            <div class="visit-columns">
+                <!-- Column 1 -->
+
+                <div class="visit-col">
+                    <h4 class="col-title">
+                        <i class="fa-solid fa-key"></i> VACATION OWNERSHIP
+                    </h4>
+                    <div class="visit-column-content">
+                        <p>
+                            Vacation ownership opens the door to a lifetime of unforgettable
+                            vacations in the world’s most sought-after destinations.
+                        </p>
+                        <a href="#" class="cmp-button cmp-button--primary cmp-button--large  " data-url="#"
+                            data-tab="newTab" target="_blank">
+                            <span class="cmp-button__text">Explore Ownership</span>
+                        </a>
+                        <p class="small-text">Already an owner?</p>
+                        <a href="#" class="cmp-button cmp-button--tertiary cmp-button--large  " data-url="#"
+                            data-tab="newTab" target="_blank">
+                            <span class="cmp-button__text">Use Your Ownership</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="visit-col">
+                    <h4 class="col-title">RENTALS</h4>
+                    <div class="visit-column-content">
+                        <p>
+                            Vacation ownership opens the door to a lifetime of unforgettable
+                            vacations in the world’s most sought-after destinations.
+                        </p>
+                        <a href="#" class="cmp-button cmp-button--secondary-ghost cmp-button--large  " data-url="#"
+                            data-tab="newTab" target="_blank">
+                            <span class="cmp-button__text">Check Availability</span>
+                        </a>
+                        <a href="#" class="cmp-button cmp-button--tertiary cmp-button--large  " data-url="#"
+                            data-tab="newTab" target="_blank">
+                            <span class="cmp-button__text">Learn More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="visit-col">
+                    <h4 class="col-title">RESORT DETAILS</h4>
+                    <div class="visit-column-content">
+                        <div class="resort-details">
+
+                            <!-- Accessibility -->
+                            <div class="detail">
+                                <div class="icon">
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                </div>
+                                <div class="text">
+                                    <p>This resort is committed to making our facilities accessible to guests with
+                                        disabilities.</p>
+                                    <button type="button"
+                                        class="detail-description accessibility-link button-with-chevron-icon"
+                                        data-media-lightbox="content" data-content-id="accessibility-link-template"
+                                        aria-label="Open resort map" data-media-lightbox-bound="true">View All
+                                        Accessibility Features</button>
+                                    <template id="accessibility-link-template">
+                                        <div class="policy-lightbox">
+                                            <h3 class="heading3 cmp-title align-left">Nearby Dining Options</h3>
+                                            <div class="model-content">
+                                                <ul>
+                                                    <li>
+                                                        <h4>Quarterdeck Seafood Bar <span>(0.7 miles)</span></h4>
+                                                        <p>Casual sports bar serving American fare and cocktails. Open
+                                                            for lunch and dinner.</p>
+                                                        <p>Phone: <a href="tel:+19545252010">+1 954-525-2010</a></p>
+                                                        <p><strong>Cuisine:</strong> American &nbsp;•&nbsp;
+                                                            <strong>Atmosphere:</strong> Casual</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <h4>The Ocean Grill <span>(1.2 miles)</span></h4>
+                                                        <p>Upscale seafood restaurant with ocean views. Dinner service
+                                                            nightly; reservations recommended.</p>
+                                                        <p>Phone: <a href="tel:+19541234567">+1 954-123-4567</a></p>
+                                                        <p><strong>Cuisine:</strong> Seafood &nbsp;•&nbsp;
+                                                            <strong>Atmosphere:</strong> Upscale</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <h4>Palm Café <span>(0.4 miles)</span></h4>
+                                                        <p>Casual café serving breakfast, sandwiches and coffee — great
+                                                            for grab-and-go.</p>
+                                                        <p>Phone: <a href="tel:+19549876543">+1 954-987-6543</a></p>
+                                                        <p><strong>Cuisine:</strong> Café / American &nbsp;•&nbsp;
+                                                            <strong>Atmosphere:</strong> Casual</p>
+                                                    </li>
+                                                </ul>
+
+                                                <div>
+                                                    <p>If you'd like help with reservations or accessibility needs,
+                                                        please contact the resort concierge.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <!-- Address & Phone (from resortDetailsModel) -->
+
+                            <div class="detail">
+                                <div class="icon">
+                                    <i class="fa-solid location-dot"></i>
+                                </div>
+                                <div class="text">
+                                    <p class="detail-description">
+                                        92-161 Waipahe Place, Kapolei, Oʻahu, Hawaiʻi
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="detail">
+                                <div class="icon">
+                                    <i class="fa-regular fa-phone"></i>
+                                </div>
+                                <div class="text">
+                                    <p class="detail-description phone">1-808-679-4700</p>
+                                </div>
+                            </div>
+                            <!-- Resort Map -->
+                            <div class="detail">
+                                <div class="icon">
+                                    <i class="fa-regular fa-map"></i>
+                                </div>
+                                <div class="text">
+                                    <button type="button" class="detail-description map-btn"
+                                        data-media-lightbox="content" data-content-id="resort-map-template"
+                                        aria-label="Open resort map" data-media-lightbox-bound="true">Resort
+                                        Map</button>
+                                </div>
+                                <template id="resort-map-template">
+                                    <div class="map-lightbox-content">
+                                        <img class="media-lightbox__image media-lightbox__image--full"
+                                            src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/map/Marriott%20Vacation%20Club/21-108-794483_BP-M-003_SiteMap_Layered_WCAG_01_1300.png"
+                                            alt="Resort map">
+                                    </div>
+                                </template>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="resort-offers" aria-labelledby="offers-heading">
+        <div class="grid-container offers__wrap">
+            <h2 class="heading2 offer-heading">Offers</h2>
+            <div class="offers-sec">
+                <div class="offer-card offer-card--promo" aria-labelledby="offer-1-title">
+                    <div class="offer-card__media" role="presentation"
+                        style="background-image: url('https://www.marriottvacationclubs.com/resource/1689164889000/x7sMvIcons/ripple-bg.svg');">
+                        <div class="offer-content">
+                            <span class="offer-card__eyebrow">SPECIAL OFFER</span>
+                            <h3 id="offer-1-title heading3" class="offer-card__title">5-Day Vacation from $399</h3>
+                            <p class="offer-card__meta">5 Days / 4 Nights</p>
+                        </div>
+                    </div>
+                    <div class="offer-card__body">
+                        <p class="offer-card__desc">Enjoy a 5-Day stay at Marriott's [Resort Name] in a Guestroom with a
+                            kitchenette. Valued at $916. Conditions apply.</p>
+                        <div class="offer-card__actions">
+                            <a href="#" class="cmp-button cmp-button--primary-alt cmp-button--large  " data-url="#"
+                                data-tab="newTab" target="_blank">
+                                <span class="cmp-button__text">View Offer</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offer-card offer-card--image" aria-labelledby="offer-2-title">
+                    <div class="offer-card__media">
+                        <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                            alt="Panoramic resort" />
+                    </div>
+                    <div class="offer-card__body">
+                        <h3 id="offer-2-title" class="offer-card__title">Get up to 10,000 Marriot Bonvoy Points</h3>
+                        <p class="offer-card__desc">Explore everything Orlando has to offer with special vacation
+                            packages starting from $369. Conditions apply.</p>
+                        <div class="offer-card__actions">
+                            <div class="cta-group" data-mod="ctacontainer" data-component-name="primaryCta">
+                                <div class="cta-button-item">
+                                    <a data-cta-type="video" data-video-id="6368433059112"
+                                        class="cmp-button cmp-button--primary-alt cmp-button--large " data-tab="sameTab"
+                                        target="_self" role="button" aria-label="Play video: Watch Video">
+                                        <span class="cmp-button__text">Watch Video</span>
+                                    </a>
+                                </div>
+                                <div class="cta-button-item">
+                                    <a href="#" class="cmp-button cmp-button--tertiary cmp-button--large  " data-url="#"
+                                        data-tab="sameTab" target="_self">
+                                        <span class="cmp-button__text">Learn More</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="resort-dining-sec">
+        <div class="grid-container">
+            <div class="resort-sec">
+                <div class="title-sec">
+                    <h3 class="heading3">On-Site Dining</h3>
+                    <div class="control-sec desktop-only">
+                        <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                        <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                    </div>
+                </div>
+                <div class="dining-cards">
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button type="button" class="button-with-icon view-dining-link">View Dining Details </button>
+                            </div>
+                            <div class="model-content">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button class="button-with-icon" type="button" aria-expanded="false" data-media-lightbox="content"
+                                    data-content-id="dining-modal" data-modal-class="experience-modal">
+                                    View Dining Details
+                                </button>
+                                <template id="dining-modal">
+                                    <div class="amenities-lightbox-wrapper">
+                                        <h3 class="heading3 align-left">Longhi's Ko Olina</h3>
+                                        <div class="amenities-model-content">
+                                            <div class="img">
+                                                <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                                                    alt="Infinity pool overlooking the ocean at sunset">
+                                            </div>
+                                            <div class="content">
+                                                    <div class="text">
+                                                        Savor delicious Italian fare crafted from the finest ingredients at Longhi’s Restaurant. Popular with resort guests and Ko Olina locals, this al fresco eatery serves prime steaks, fresh island fish, pastas and lobster amidst striking Oahu ocean views.
+                                                    </div>
+                                                    <div class="floor-des">
+                                                        <div class="detail-list">
+                                                            <div class="detail">
+                                                                <i class="fa-thin fa-clothes-hanger"></i><span>Causual</span>
+                                                            </div>
+                                                            <div class="detail">
+                                                                <i class="fa-thin fa-bowl-hot"></i><span>Italian</span>
+                                                            </div>
+                                                            <div class="detail">
+                                                               <i class="fa-thin fa-clock"></i><span>Open for brunch and dinner</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                            </div>
+                                            <div class="cta">
+                                                <a href="#" class="cmp-button cmp-button--primary-alt cmp-button--large" role="button">View Menu
+                                                    </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button type="button" class="button-with-icon">View Dining Details </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button type="button" class="button-with-icon">View Dining Details </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-sec mobile-only">
+                    <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                    <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                </div>
+                <div class="explore-sec">
+                    <div class="text">
+                        Explore a variety of nearby dining options to suit every taste.
+                        <button href="#" class="cmp-button cmp-button--tertiary cmp-button--large  " data-url="#"
+                            data-tab="sameTab" target="_self" data-media-lightbox="content"
+                            data-content-id="nearby-dining-options-template">
+                            <span class="cmp-button__text">View Nearby Dining Options</span>
+                        </button>
+                        <template id="nearby-dining-options-template">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Nearby Dining Options</h3>
+                                <div class="model-content">
+                                    <h3>Quarterdeck Seafood Bar (0.7 miles)</h3>
+                                    <p>Casual sports bar serving American fare and cocktails. Open for lunch and dinner.
+                                        +1 954-525-2010</p>
+
+                                    <p></p>Cuisine: American</p>
+                                    <p>Atmosphere: Casual</p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="resort-amenities-sec" id=amenities>
+        <div class="grid-container resort-favourites-wrapper">
+            <h3 class="resort-fav-title heading3">Resort Favorites</h3>
+            <div class="favourites-list">
+                <div class="favourite-item">
+                    <div class="img-sec">
+                        <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                            alt="Infinity pool overlooking the ocean at sunset">
+                    </div>
+                    <div class="text-sec">
+                        <h3 class="heading3">
+                            <i class="fa-resort fa-solid fa-child"></i>
+                            Heated Outdoor Pool
+                        </h3>
+                        <div class="text-area">
+                            <p>Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.</p>
+                            <p>
+                                Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.
+                            </p>
+                        </div>
+                        <button class="show-more" type="button" aria-expanded="false">
+                            Show more
+                        </button>
+                    </div>
+                </div>
+                <div class="favourite-item">
+                    <div class="img-sec">
+                        <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                            alt="Infinity pool overlooking the ocean at sunset">
+                    </div>
+                    <div class="text-sec">
+                        <h3 class="heading3">Heated Outdoor Pool</h3>
+                        <div class="text-area">
+                            <p>Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.</p>
+                            <p>
+                                Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.
+                            </p>
+                        </div>
+                        <button class="show-more" type="button" aria-expanded="false" data-modal-class="amenities-modal">
+                            Show more a
+                        </button>
+                    </div>
+                </div>
+                <div class="favourite-item">
+                    <div class="img-sec">
+                        <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                            alt="Infinity pool overlooking the ocean at sunset">
+                    </div>
+                    <div class="text-sec">
+                        <h3 class="heading3">Heated Outdoor Pool</h3>
+                        <div class="text-area">
+                            <p>Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.
+                                Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.
+                                Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.
+                            </p>
+                        </div>
+                        <button class="show-more" type="button" aria-expanded="false" data-media-lightbox="content"
+                            data-content-id="headted-outdoor-pool" data-modal-class="amenities-modal">
+                            Show more
+                        </button>
+                        <template id="headted-outdoor-pool1">
+                            <div class="amenities-lightbox-wrapper">
+                                <h3 class="heading3 align-left">Heated Outdoor Pool</h3>
+                                <div class="amenities-model-content">
+                                    <div class="img">
+                                        <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                                            alt="Infinity pool overlooking the ocean at sunset">
+                                    </div>
+                                    <div class="spa-content rte-content">
+                                        <p class="spa-description">
+                                            Schedule a spa session at the fitness center and pamper your senses
+                                            with a variety of soothing treatments including facials, scrubs,
+                                            wraps and a signature Hawaiian sea salt scrub and massage.
+                                        </p>
+
+                                        <ul class="spa-list">
+                                            <li>Appointment required</li>
+                                            <li>Body treatments</li>
+                                            <li>Massages</li>
+                                            <li>Appointment required</li>
+                                            <li>Body treatments</li>
+                                            <li>Massages</li>
+                                            <li>Appointment required</li>
+                                            <li>Body treatments</li>
+                                            <li>Massages</li>
+                                            <li><a href="tel:18083825798">808-382-5798</a></li>
+                                        </ul>
+
+                                        <p class="spa-note">
+                                            * Made available by a third-party service provider.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="favourite-item">
+                    <div class="img-sec">
+                        <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                            alt="Infinity pool overlooking the ocean at sunset">
+                    </div>
+                    <div class="text-sec">
+                        <h3 class="heading3">Heated Outdoor Pool</h3>
+                        <div class="text-area">
+                            <p>Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.</p>
+                            <p>
+                                Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.
+                            </p>
+                            <p>
+                                Make a splash at one of our heated outdoor pools, have fun with the family at the
+                                children’s pool or relax in the soothing whirlpool spas.
+                            </p>
+                        </div>
+                        <button class="show-more" type="button" aria-expanded="false" data-media-lightbox="content"
+                            data-content-id="headted-outdoor-pool">
+                            Show more
+                        </button>
+                        <template id="headted-outdoor-pool">
+                            <div class="amenities-lightbox-wrapper">
+                                <h3 class="heading3 align-left">Heated Outdoor Pool</h3>
+                                <div class="amenities-model-content">
+                                    <div class="img">
+                                        <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                                            alt="Infinity pool overlooking the ocean at sunset">
+                                    </div>
+                                    <div class="spa-content rte-content">
+                                        <p class="spa-description">
+                                            Schedule a spa session at the fitness center and pamper your senses
+                                            with a variety of soothing treatments including facials, scrubs,
+                                            wraps and a signature Hawaiian sea salt scrub and massage.
+                                        </p>
+
+                                        <ul class="spa-list">
+                                            <li>Appointment required</li>
+                                            <li>Body treatments</li>
+                                            <li>Massages</li>
+                                            <li>Appointment required</li>
+                                            <li>Body treatments</li>
+                                            <li>Massages</li>
+                                            <li>Appointment required</li>
+                                            <li>Body treatments</li>
+                                            <li>Massages</li>
+                                            <li>Appointment required</li>
+                                            <li>Body treatments</li>
+                                            <li>Massages</li>
+                                            <li><a href="tel:18083825798">808-382-5798</a></li>
+                                        </ul>
+
+                                        <p class="spa-note">
+                                            * Made available by a third-party service provider.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="other-amenities-container" id="other-amenities">
+        <div class="grid-container other-amenities-wrapper">
+            <h5 class="main-title">Other Amenities</h5>
+            <div class="amenities-list">
+                <div class="amenities-section">
+                    <div class="section-header" onclick="toggleSection('services')">
+                        <h2 class="section-title"><i class="fa-resort fa-solid fa-wifi"></i>Services</h2>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="section-content" id="services-content">
+                        <ul class="services-list">
+                            <li>Complimentary local and toll-free phone calls</li>
+                            <li>Concierge services</li>
+                            <li>Laundry</li>
+                            <li>Valet dry cleaning</li>
+                            <li>Beauty shop nearby, referral at front desk</li>
+                            <li>High-speed wireless internet access</li>
+                        </ul>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+
+                <div class="amenities-section">
+                    <div class="section-header" onclick="toggleSection('children')">
+                        <h2 class="section-title"><i class="fa-resort fa-solid fa-child"></i>Children's Amenities</h2>
+                        <i class="fa-solid fa-chevron-down" id="children-icon"></i>
+                    </div>
+                    <div class="section-content" id="children-content">
+                        <div class="children-amenities">
+                            <div class="content-placeholder">
+                                Share your favorite destinations, most memorable experiences and future travel wishes
+                                with one of our Vacation Specialists to:
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+
+                <div class="amenities-section">
+                    <div class="section-header" onclick="toggleSection('sports')">
+                        <h2 class="section-title"><i class="fa-resort fa-solid fa-dumbbell"></i>Sports and Fitness</h2>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="section-content" id="sports-content">
+                        <div class="children-amenities">
+                            <div class="content-placeholder">Content to be added</div>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+
+                <div class="amenities-section">
+                    <div class="section-header" onclick="toggleSection('recreation')">
+                        <h2 class="section-title"><i class="fa-resort fa-solid fa-plate-wheat"></i>Recreation</h2>
+                        <i class="fa-solid fa-chevron-down" id="children-icon"></i>
+                    </div>
+                    <div class="section-content" id="recreation-content">
+                        <div class="children-amenities">
+                            <div class="content-placeholder">Content to be added</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="resort-dining-sec experiences-sec">
+        <div class="grid-container">
+            <div class="resort-sec">
+                <div class="title-sec">
+                    <h3 class="heading3">Experiences</h3>
+                    <div class="control-sec desktop-only">
+                        <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                        <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                    </div>
+                </div>
+                <div class="dining-cards">
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text rte-content">
+                                <p>Reserve your spot or call 808-679-4728 for more information.</p>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button class="button-with-icon" type="button" aria-expanded="false" data-media-lightbox="content"
+                                    data-content-id="experience-modal" data-modal-class="experience-modal">
+                                    View Experience Details
+                                </button>
+                                <template id="experience-modal">
+                                    <div class="amenities-lightbox-wrapper">
+                                        <h3 class="heading3 align-left">Longhi's Ko Olina</h3>
+                                        <div class="amenities-model-content">
+                                            <div class="img">
+                                                <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/properties/Marriott%20Vacation%20Club/BP/SUP-21007_BeachplaceTowers_dining_mvcFLLBP-208766-Splash_Bar.jpg_1757643146_16x9.jpg"
+                                                    alt="Infinity pool overlooking the ocean at sunset">
+                                            </div>
+                                            <div class="content">
+                                                    <div class="text">
+                                                        Your comfortable and sumptuously appointed guestroom makes the
+                                                        ideal home base for your Hawaiian vacation. The room includes a king bed, pull-out sofa, kitchenette
+                                                        and high-speed internet.
+                                                    </div>
+                                                    <div class="floor-des">
+                                                        <div class="detail-list">
+                                                            <div class="detail">
+                                                                <i class="fa-light fa-phone"></i><span>808-679-4728</span>
+                                                            </div>
+                                                            <div class="detail">
+                                                               <i class="fa-light fa-clock"></i><span>Tuesdays starting at 5 p.m.</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                            </div>
+                                            <div class="cta">
+                                                <a href="#" class="cmp-button cmp-button--primary-alt cmp-button--large" role="button">
+                                                    Reserve Now</a><span>or call <a href="tel:8086794728">808-679-4728</a> for more info.
+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text rte-content">
+                                <ul>
+                                    <li>Experience traditional Hawaiian music and hula dancing</li>
+                                    <li>Savor a delicious buffet featuring local cuisine</li>
+                                </ul>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button type="button" class="button-with-icon">View Dining Details </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text rte-content">
+                                <p>Reserve your spot or call 808-679-4728 for more information.</p>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button type="button" class="button-with-icon">View Dining Details </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dining-card">
+                        <div class="img-wrapper">
+                            <img src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/mvcs/SUP-16936_WVCBrandTile_wvcSJDWBls-202644_TMVCsSliderPlacement_1300.jpg"
+                                alt="">
+                        </div>
+                        <div class="text-sec">
+                            <h4 class="card-title">Fia Fia Lu’au</h4>
+                            <div class="icons-text  rte-content">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="resort-dining-detail">
+                                <button type="button" class="button-with-icon">View Dining Details </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-sec mobile-only">
+                    <div class="prev"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                    <div class="next"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- accommodations slider (shared SimpleSlider) -->
+    <div class="full-width-carousel-accommodations" data-mod="full-width-carousel">
+        <div class="full-container">
+            <div class="carousel-header grid-container">
+                <h3 class="heading3 cmp-title align-center carousel-title">Accommodations</h3>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1767576501162-46f8b5042d78?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Service 1" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3>Be Rejuvenate 1</h3>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="view-more-link">
+                                <a href="" class="viewmore-link">View Accomodation Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1766155072321-6705a3c42496?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Service 1" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3>Be Renewed 2</h3>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="view-more-link">
+                                <a href="" class="viewmore-link">View Accomodation Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="image-container">
+                        <img src="https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Service 1" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3>Be Inspired 4</h3>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Ocean or Mountain View
+                                </div>
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                            </div>
+                            <div class="view-more-link">
+                                <a href="" class="viewmore-link">View Accomodation Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Service 1" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3>Be Inspired 3</h3>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Ocean or Mountain View
+                                </div>
+                            </div>
+                            <div class="view-more-link">
+                                <a href="" class="viewmore-link">View Accomodation Details</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Service 1" />
+                    </div>
+                    <div class="details">
+                        <div class="text">
+                            <h3>Be Inspired 5</h3>
+                            <div class="icons-text">
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Other
+                                </div>
+                                <div class="category">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Ocean or Mountain View
+                                </div>
+                            </div>
+                            <div class="view-more-link">
+                                <a href="" class="viewmore-link">View Accomodation Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-icons" role="group" aria-label="Carousel navigation">
+                <button class="nav-icon-left" type="button" aria-label="Previous slide">
+                    <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/prev.svg" alt="" />
+                </button>
+                <div class="current-slide">1 / 3</div>
+                <button class="nav-icon-right" type="button" aria-label="Next slide">
+                    <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/next.svg" alt="" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESORT DETAILS SECTION -->
+    <section class="resort-detail-sec" id="resort-details">
+        <div class="grid-container resort-detail-wrapper">
+            <h2 class="heading2">Resort Details</h2>
+
+            <div class="resort-detail-grid">
+                <div class="detail-col essentials">
+                    <h3 class="col-title">Essentials</h3>
+                    <ul class="essentials-list">
+                        <li><i class="fa-regular fa-clock" aria-hidden="true"></i> Check-in: 4 p.m. | Check-out: 10 a.m.
+                        </li>
+                        <li><i class="fa-light fa-location-dot" aria-hidden="true"></i> 92-161 Waipahe Place,<br>
+                            Kapolei,
+                            Oʻahu, Hawaiʻi</li>
+                        <li><i class="fa-light fa-phone" aria-hidden="true"></i> 954-525-4440</li>
+                        <li><i class="fa-brands fa-instagram" aria-hidden="true"></i> <a href="#">Resort Instagram</a>
+                        </li>
+                        <li><i class="fa-brands fa-facebook" aria-hidden="true"></i> <a href="#">Resort Facebook</a>
+                        </li>
+                    </ul>
+
+                    <div class="tripadvisor-badge" aria-hidden="false">
+                        <img src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc/resources/images/icons/trip-advisor.png"
+                            alt="Tripadvisor certificate" />
+                        <p class="tripadvisor-note">Awarded the Certificate <br> of Excellence by<br> TripAdvisor®
+                            (2019)</p>
+                    </div>
+                </div>
+
+                <div class="detail-col policies">
+                    <h3 class="col-title">Policies</h3>
+                    <ul class="policy-list">
+                        <li><i class="fa-light fa-car-side" aria-hidden="true"></i><a href="#"
+                                data-media-lightbox="content" data-content-id="policy-parking">Parking</a></li>
+                        <li><i class="fa-light fa-ban-smoking" aria-hidden="true"></i><a href="#"
+                                data-media-lightbox="content" data-content-id="policy-smoking">Smoking Policy</a>
+                        </li>
+                        <li><i class="fa-light fa-paw" aria-hidden="true"></i><a href="#" data-media-lightbox="content"
+                                data-content-id="policy-service-animal">Service Animal Policy</a></li>
+                        <li><i class="fa-light fa-dollar-sign" aria-hidden="true"></i><a href="#"
+                                data-media-lightbox="content" data-content-id="policy-cashless">Cashless Resort</a>
+                        </li>
+                        <li><i class="custom marriot-vacation-club" aria-hidden="true">T</i><a href="#"
+                                data-media-lightbox="content" data-content-id="policy-marriott-trust">Marriott Vacation
+                                Club Trust Resort</a></li>
+                        <li><i class="custom abound-by-marriott" aria-hidden="true">E</i><a href="#"
+                                data-media-lightbox="content" data-content-id="policy-abound">Abound by Marriott
+                                Vacations™</a></li>
+                        <li><i class="custom club-resort-asia-pacific" aria-hidden="true">AP</i><a href="#"
+                                data-media-lightbox="content" data-content-id="policy-club-asia">Club Resort in Asia
+                                Pacific</a></li>
+                        <li><i class="fa-solid fa-ban" aria-hidden="true"></i><a href="#" data-media-lightbox="content"
+                                data-content-id="policy-no-resort-fees">No Resort Fees</a></li>
+                    </ul>
+
+                    <!-- Hidden templates for policy content lightboxes -->
+                    <div style="display:none;">
+                        <template id="policy-parking">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Parking</h3>
+                                <div class="model-content">
+                                    <p>Self-parking is available on-site for a daily fee. Valet parking may be offered
+                                        at select locations. Please contact the front desk for current rates and
+                                        availability.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="policy-smoking">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Smoking Policy</h3>
+                                <div class="model-content">
+                                    <p>This resort is smoke-free in all indoor public areas and guest accommodations.
+                                        Designated outdoor smoking areas may be provided; please follow on-site signage
+                                        and respect neighboring rooms.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="policy-service-animal">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Service Animal Policy</h3>
+                                <div class="model-content">
+                                    <p>Service animals that are trained to do work or perform tasks for people with
+                                        disabilities are welcome. Emotional support animals may be subject to additional
+                                        restrictions. Please notify the resort in advance if you will be traveling with
+                                        a service animal.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="policy-cashless">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Cashless Resort</h3>
+                                <div class="model-content">
+                                    <p>Our resort operates as a cashless environment for safety and convenience.
+                                        Credit/debit cards and approved mobile payments are accepted at all food,
+                                        beverage and amenity locations.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="policy-marriott-trust">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Marriott Vacation Club Trust Resort</h3>
+                                <div class="model-content">
+                                    <p>Information and eligibility regarding Marriott Vacation Club Trust resorts.
+                                        Contact Owners Services for specific trust program inquiries.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="policy-abound">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Abound by Marriott Vacations™</h3>
+                                <div class="model-content">
+                                    <p>Abound properties offer a distinct resort experience. Please review
+                                        brand-specific policies and amenities prior to arrival.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="policy-club-asia">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">Club Resort in Asia Pacific</h3>
+                                <div class="model-content">
+                                    <p>Club Resort offerings in the Asia Pacific region may have additional local
+                                        policies and entry requirements. Guests should review region-specific guidance.
+                                    </p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="policy-no-resort-fees">
+                            <div class="policy-lightbox">
+                                <h3 class="heading3 cmp-title align-left">No Resort Fees</h3>
+                                <div class="model-content">
+                                    <p>This resort does not charge additional resort fees. Taxes and incidental charges
+                                        may still apply.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="resort-map-template">
+                            <h3 class="heading3 cmp-title align-left">Resort Map</h3>
+                            <div class="map-lightbox-content">
+                                <img class="media-lightbox__image media-lightbox__image--full"
+                                    src="https://content.vistana.com/files/live/sites/vistana-digital-content-manager/files/images/map/Marriott%20Vacation%20Club/21-108-794483_BP-M-003_SiteMap_Layered_WCAG_01_1300.png"
+                                    alt="Resort map" />
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="detail-col area-map">
+                    <h3 class="col-title">Area Map</h3>
+                    <div class="map-embed" role="region" aria-label="Resort area map">
+                        <iframe
+                            src="https://www.google.com/maps?ll=25.083690,-77.315614&q=Marriott%E2%80%99s+Ko+Olina+Beach+Club&z=2&output=embed"
+                            style="border:0; width:100%; height:260px;" loading="lazy" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="accommodations-modal" aria-hidden="true" role="dialog" aria-label="Accommodations Modal">
+        <div class="accommodations-modal__dialog">
+            <div class="accommodations-modal__header">
+                <h2 class="accommodations-modal__title heading3">Typical Guest Room</h2>
+                <button type="button" class="accommodations-modal__close"
+                    aria-label="Close accommodations modal">×</button>
+            </div>
+
+            <div class="accommodations-modal__media">
+                <div class="accommodations-modal__carousel">
+                    <div class="accommodations-slide" data-index="0">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80"
+                            alt="Guest room - view 1">
+                    </div>
+                    <div class="accommodations-slide" data-index="1">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80"
+                            alt="Guest room - view 2">
+                    </div>
+                    <div class="accommodations-slide" data-index="2" style="display:none;">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80"
+                            alt="Guest room - view 1">
+                    </div>
+                    <div class="accommodations-slide" data-index="3" style="display:none;">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80"
+                            alt="Guest room - view 2">
+                    </div>
+                </div>
+                <div class="accommodations-modal__controls ">
+                    <div>
+                        <div class="prev accommodations-prev disabled"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                    </div>
+                     <div>
+                        <div class="next accommodations-next disabled"><i class="fa-solid fa-chevron-down rotate"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accommodations-modal__body">
+                <div class="accommodations-modal__content">
+                    <div class="text">
+                        Your comfortable and sumptuously appointed guestroom makes the
+                        ideal home base for your Hawaiian vacation. The room includes a king bed, pull-out sofa, kitchenette
+                        and high-speed internet.
+                    </div>
+                    <div class="floor-des">
+                        <div class="detail-list">
+                            <div class="detail">
+                                <i class="fa-light fa-people-group"></i><span>Sleep 2</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fa-light fa-ruler-combined"></i><span>360 sr. ft.</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fa-light fa-binoculars"></i><span>Ocean or Mountain View</span>
+                            </div>
+                        </div>
+                         <div class="floor-plan-link">
+                            <button class="cmp-button--tertiary">View Floor Plan</button>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="accommodations-modal__amenities">
+                    <div class="amenities-col">
+                        <h4>General Amenities</h4>
+                        <div class="content-text">
+                            <p>Making your home-away-from-home comfortable</p>
+                            <ul>
+                                <li>Alarm clock</li>
+                                <li>Iron / ironing board</li>
+                                <li>Pillows: Foam</li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                    <div class="amenities-col">
+                        <h4>Kitchenette Amenities</h4>
+                        <div class="content-text">
+                            <p>Making your home-away-from-home comfortable</p>
+                            <ul>
+                                <li>Mini-refrigerator</li>
+                                <li>Microwave oven</li>
+                                <li>Toaster</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="amenities-col">
+                        <h4>Kitchenette Amenities</h4>
+                        <div class="content-text">
+                            <ul>
+                                <li>Mini-refrigerator</li>
+                                <li>Microwave oven</li>
+                                <li>Toaster</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="amenities-col">
+                        <h4>Kitchenette Amenities</h4>
+                        <div class="content-text">
+                            <p>Making in-room cooking and dining convenient</p>
+                            <ul>
+                                <li>Mini-refrigerator</li>
+                                <li>Microwave oven</li>
+                                <li>Toaster</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="amenities-col">
+                        <h4>Upon Request</h4>
+                        <div class="content-text">
+                            <p>Making in-room cooking and dining convenient</p>
+                            <ul>
+                                <li>Portable playard</li>
+                                <li>Feather pillows</li>
+                                <li>Additional silverware</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accommodations-modal__cta">
+                    <a href="#" class="cmp-button cmp-button--secondary-ghost cmp-button--large" role="button">Check
+                        Availability</a>
+                </div>
+                <div class="accommodations-modal-bottom-text">
+                    Features, furnishings and amenities are subject to change. Floor plans are intended to give a general indication of the proposed layout only. The floor plans provided may not represent all of the various floor plans that may be available at the property.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const containers = document.querySelectorAll('.accommodations-sec');
+            if (!containers.length) return;
+
+            containers.forEach(container => {
+                if (window.SimpleSlider) {
+                    window.SimpleSlider.init(container, {
+                        trackSelector: '.accommodations-cards',
+                        cardSelector: '.accommodation-card',
+                        nextSelector: '.next',
+                        prevSelector: '.prev',
+                        gap: 24,
+                        visibleFn: function () { return window.innerWidth <= 767 ? 1 : 3; }
+                    });
+                } else {
+                    // fallback: basic scroll snap (no JS) or keep static
+                }
+            });
+        })();
+    </script>
+
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-site.js"></script>
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-base.js"></script>
+    <script type="text/javascript" src="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.js"></script>
+    <script>
+        const alertHeader = document.querySelector(".resort-alert .alert-header");
+        const alertContent = document.querySelector(".resort-alert .alert-content");
+        const chevron = alertHeader ? alertHeader.querySelector(".fa-chevron-down") : null;
+
+        // Start collapsed
+        if (alertContent) alertContent.style.display = "none";
+
+        if (alertHeader) {
+            alertHeader.addEventListener("click", function () {
+                const isOpen = alertContent && alertContent.style.display === "block";
+
+                if (alertContent) alertContent.style.display = isOpen ? "none" : "block";
+                if (chevron) chevron.classList.toggle("rotate", !isOpen);
+            });
+        }
+
+        function toggleSection(sectionId) {
+            const content = document.getElementById(`${sectionId}-content`);
+            if (!content) return;
+            const header = content.previousElementSibling;
+
+            // Toggle active class on content
+            content.classList.toggle('active');
+
+            // Toggle active class on header
+            if (header) header.classList.toggle('active');
+        }
+
+        // Initialize with Services section open
+        document.addEventListener('DOMContentLoaded', function () {
+            toggleSection('services');
+        });
+
+        document.querySelectorAll(".content-sec").forEach(section => {
+            const content = section.querySelector(".rte-content");
+            const btn = section.querySelector(".show-more");
+
+            if (!content || !btn) return;
+
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                content.classList.toggle("expanded");
+
+                btn.textContent = content.classList.contains("expanded")
+                    ? "Show Less"
+                    : "Show More";
+            });
+        });
+
+        document.querySelectorAll('.rating').forEach(el => {
+            const rating = el.dataset.rating || '0';
+            const ratingValue = parseFloat(rating).toFixed(1);
+
+            // Construct the TripAdvisor rating image URL
+            // Format: {rating}-MCID-5.svg
+            const url = `https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/${ratingValue}-MCID-5.svg`;
+
+            // Insert image
+            el.innerHTML = `<img src="${url}" alt="TripAdvisor rating ${ratingValue}" />`;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.text-sec').forEach(section => {
+                const textArea = section.querySelector('.text-area');
+                const showMoreBtn = section.querySelector('.show-more');
+
+                // Safeguard — skip if elements are missing
+                if (!textArea || !showMoreBtn) return;
+
+                const maxHeight = parseInt(getComputedStyle(textArea).maxHeight, 10);
+
+                if (!isNaN(maxHeight) && textArea.scrollHeight > maxHeight) {
+                    showMoreBtn.style.display = 'inline-block';
+                }
+            });
+        });
+
+
+        document.querySelectorAll('.text-area .show-more').forEach(button => {
+            button.addEventListener('click', () => {
+                const container = button.closest('.text-area');
+                const expanded = container.classList.toggle('expanded');
+
+                button.textContent = expanded ? 'Show less' : 'Show more';
+                button.setAttribute('aria-expanded', expanded);
+            });
+        });
+
+        const nav = document.querySelector("[data-accordion]");
+        if (nav) {
+            const toggle = nav.querySelector(".nav-toggle");
+            const links = nav.querySelectorAll('a[href^="#"], .all-amenities[href^="#"]');
+            const navigation = document.querySelector(".content-navigation");
+
+            // Toggle accordion (mobile)
+            if (toggle) {
+                toggle.addEventListener("click", e => {
+                    e.preventDefault();
+                    nav.classList.toggle("open");
+                });
+            }
+
+            // Smooth scroll + auto-close
+            links.forEach(link => {
+                link.addEventListener("click", e => {
+                    const targetId = link.getAttribute("href");
+                    const target = document.querySelector(targetId);
+
+                    if (!target) return;
+
+                    e.preventDefault();
+
+                    const navHeight = navigation ? navigation.offsetHeight : 0;
+                    const offsetTop =
+                        target.getBoundingClientRect().top +
+                        window.pageYOffset -
+                        navHeight;
+
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: "smooth"
+                    });
+
+                    // Auto-close accordion on mobile
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove("open");
+                    }
+                });
+            });
+        }
+
+
+
+        const allAmenities = document.querySelector('.all-amenities[href^="#"]');
+
+        if (allAmenities) {
+            allAmenities.addEventListener("click", e => {
+                const targetId = allAmenities.getAttribute("href");
+                const target = document.querySelector(targetId);
+                if (!target) return;
+
+                e.preventDefault();
+
+                window.scrollTo({
+                    top: target.getBoundingClientRect().top + window.pageYOffset,
+                    behavior: "smooth"
+                });
+            });
+        }
+
+
+        // Initialize sliders per dining-cards container so two sliders don't interfere
+        (function () {
+            const sliders = document.querySelectorAll('.dining-cards');
+            if (!sliders.length) return;
+
+            // If a global SimpleSlider exists, prefer initializing it per container context
+            if (window.SimpleSlider) {
+                sliders.forEach(container => {
+                    const context = container.closest('.resort-sec') || document;
+                    window.SimpleSlider.init(context, {
+                        trackSelector: '.dining-cards',
+                        cardSelector: '.dining-card',
+                        nextSelector: '.next',
+                        prevSelector: '.prev',
+                        gap: 24,
+                        visibleFn: function () {
+                            return window.innerWidth <= 767 ? 1 : 3;
+                        }
+                    });
+                });
+                return;
+            }
+
+            // Fallback: simple per-container slider implementation
+            sliders.forEach(track => {
+                const cards = track.querySelectorAll('.dining-card');
+                if (!cards.length) return;
+
+                const container = track.closest('.resort-sec') || track.parentElement || document;
+                const nextBtn = container.querySelector('.next');
+                const prevBtn = container.querySelector('.prev');
+
+                let index = 0;
+
+                function getVisibleCards() {
+                    return window.innerWidth <= 767 ? 1 : 3;
+                }
+
+                function updateSlider() {
+                    const gap = 24;
+                    const cardWidth = cards[0].offsetWidth + gap;
+                    const visibleCards = getVisibleCards();
+
+                    track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+                    if (prevBtn) prevBtn.classList.toggle('disabled', index === 0);
+                    if (nextBtn) nextBtn.classList.toggle('disabled', index >= cards.length - visibleCards);
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        if (index < cards.length - getVisibleCards()) {
+                            index++;
+                            updateSlider();
+                        }
+                    });
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        if (index > 0) {
+                            index--;
+                            updateSlider();
+                        }
+                    });
+                }
+
+                window.addEventListener('resize', () => {
+                    index = 0; // reset to avoid overflow issues when breakpoint changes
+                    updateSlider();
+                });
+
+                // initial layout
+                updateSlider();
+            });
+        })();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                const openButtons = document.querySelectorAll('[data-open-media-model]');
+                const modal = document.querySelector('.resort-media-model');
+                if (!modal) return;
+                const inner = modal.querySelector('.resort-media__model');
+
+                function showModal() {
+                    modal.classList.add('resort-media-model--open');
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    const firstClose = modal.querySelector('.close_model');
+                    if (firstClose) firstClose.focus();
+                }
+
+                openButtons.forEach(button => {
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const videoId = this.getAttribute('data-video-id');
+                        const videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&showinfo=0`;
+                        const imageSrc = this.getAttribute('data-image-src');
+
+                        // Set video source
+                        const videoIframe = inner.querySelector('iframe');
+                        if (videoIframe) {
+                            videoIframe.src = videoSrc;
+                        }
+
+                        // Set image source for fallback
+                        const fallbackImage = inner.querySelector('.fallback-image');
+                        if (fallbackImage && imageSrc) {
+                            fallbackImage.src = imageSrc;
+                            fallbackImage.style.display = 'block';
+                        }
+
+                        showModal();
+                    });
+                });
+
+                // Close modal function
+                function closeModal() {
+                    modal.classList.remove('resort-media-model--open');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                    const videoIframe = inner.querySelector('iframe');
+                    if (videoIframe) {
+                        videoIframe.src = '';
+                    }
+                }
+
+                const closeButtons = modal.querySelectorAll('.close_model');
+                closeButtons.forEach(btn => {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        closeModal();
+                    });
+                });
+
+                // Close modal on outside click
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+            } catch (error) {
+                console.error('Error initializing media model:', error);
+            }
+        });
+
+        (function () {
+            const modal = document.querySelector('.accommodations-modal');
+            if (!modal) return;
+            const dialog = modal.querySelector('.accommodations-modal__dialog');
+            const titleEl = modal.querySelector('.accommodations-modal__title');
+            const carousel = modal.querySelector('.accommodations-modal__carousel');
+            const prevBtn = modal.querySelector('.accommodations-prev');
+            const nextBtn = modal.querySelector('.accommodations-next');
+            const closeBtn = modal.querySelector('.accommodations-modal__close');
+            let currentIndex = 0;
+            let slidesPerView = window.innerWidth <= 680 ? 1 : 2;
+
+            // Ensure carousel uses flex layout so sizing/scroll calculations work
+            if (carousel) {
+                carousel.style.display = carousel.style.display || 'flex';
+                carousel.style.flexWrap = 'nowrap';
+                carousel.style.gap = carousel.style.gap || '12px';
+                // allow horizontal scrolling so scrollTo works; we can hide the scrollbar via CSS if desired
+                carousel.style.overflowX = carousel.style.overflowX || 'auto';
+                carousel.style.scrollbarWidth = 'none';
+                // Hide scrollbar — IE / old Edge
+                carousel.style.msOverflowStyle = 'none';
+            }
+
+            function setSlideSizes() {
+                slidesPerView = window.innerWidth <= 680 ? 1 : 2;
+                const slides = Array.from(carousel.querySelectorAll('.accommodations-slide'));
+                const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
+                slides.forEach(s => {
+                    s.style.flex = `0 0 ${100 / slidesPerView}%`;
+                    s.style.display = 'block';
+                });
+                // reset scroll position if too far
+                requestAnimationFrame(() => {
+                    // ensure currentIndex not out of range after resize
+                    const slideWidth = slides[0] ? slides[0].getBoundingClientRect().width + gap : 0;
+                    const maxIndex = Math.max(0, slides.length - slidesPerView);
+                    currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+                    const left = currentIndex * slideWidth;
+                    if (typeof carousel.scrollTo === 'function') {
+                        carousel.scrollTo({ left: left, behavior: 'auto' });
+                    } else {
+                        carousel.style.transform = `translateX(-${left}px)`;
+                    }
+                    updateControls();
+                });
+            }
+
+            function renderSlides(images) {
+                carousel.innerHTML = '';
+                images.forEach((src, idx) => {
+                    const slide = document.createElement('div');
+                    slide.className = 'accommodations-slide';
+                    slide.setAttribute('data-index', idx);
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `${titleEl.textContent} - image ${idx + 1}`;
+                    slide.appendChild(img);
+                    carousel.appendChild(slide);
+                });
+                currentIndex = 0;
+                setSlideSizes();
+            }
+
+            function updateTrack(instant) {
+                const slides = carousel.querySelectorAll('.accommodations-slide');
+                if (!slides.length) return;
+                const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
+                const slideWidth = slides[0].getBoundingClientRect().width + gap;
+                const maxIndex = Math.max(0, slides.length - slidesPerView);
+                currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+                const left = currentIndex * slideWidth;
+
+                if (typeof carousel.scrollTo === 'function') {
+                    carousel.scrollTo({ left: left, behavior: instant ? 'auto' : 'smooth' });
+                } else {
+                    carousel.style.transform = `translateX(-${left}px)`;
+                }
+            }
+
+            function updateControls() {
+                const slides = carousel.querySelectorAll('.accommodations-slide');
+                if (!slides.length) {
+                    if (prevBtn) prevBtn.classList.add('disabled');
+                    if (nextBtn) nextBtn.classList.add('disabled');
+                    return;
+                }
+                if (prevBtn) prevBtn.classList.toggle('disabled', currentIndex === 0);
+                if (nextBtn) nextBtn.classList.toggle('disabled', currentIndex >= slides.length - slidesPerView);
+            }
+
+            function showSlide(index) {
+                const slides = carousel.querySelectorAll('.accommodations-slide');
+                if (!slides.length) return;
+                const maxIndex = Math.max(0, slides.length - slidesPerView);
+                currentIndex = Math.max(0, Math.min(index, maxIndex));
+                updateTrack();
+                updateControls();
+            }
+
+            function openModalForCard(card) {
+                if (!card) return;
+                const cardTitle = card.querySelector('.text h3') || card.querySelector('.text .card-title') || card.querySelector('h3');
+                const imgEl = card.querySelector('.image-container img') || card.querySelector('img');
+                const titleText = cardTitle ? cardTitle.textContent.trim() : 'Accommodations';
+                titleEl.textContent = titleText;
+
+                // If modal already contains slides (the static 4 images), preserve them instead of overwriting
+                const existingSlides = carousel.querySelectorAll('.accommodations-slide');
+                if (!existingSlides || existingSlides.length < 2) {
+                    const images = [];
+                    if (imgEl && imgEl.src) images.push(imgEl.src);
+                    // add fallback duplicate so at least two slides exist
+                    if (images.length === 1) images.push(images[0]);
+                    renderSlides(images);
+                } else {
+                    // ensure any slides that were hidden are shown and sizes adjusted
+                    existingSlides.forEach(s => s.style.display = 'block');
+                    currentIndex = 0;
+                    setSlideSizes();
+                    updateControls();
+                }
+
+                modal.style.display = 'flex';
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                if (closeBtn) closeBtn.focus();
+            }
+
+            function closeModal() {
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            // attach handlers
+            document.querySelectorAll('.viewmore-link').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const card = this.closest('.service-card');
+                    openModalForCard(card);
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                slidesPerView = window.innerWidth <= 680 ? 1 : 2;
+                setSlideSizes();
+            });
+
+            if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+            if (closeBtn) closeBtn.addEventListener('click', () => closeModal());
+
+            // close on outside click
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+            // keyboard
+            document.addEventListener('keydown', (e) => {
+                const isOpen = modal.style.display === 'flex' || modal.style.display === 'block';
+                if (!isOpen) return;
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
+                if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+            });
+
+            // ensure arrows exist
+            if (prevBtn && prevBtn.innerHTML.trim() === '') prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>';
+            if (nextBtn && nextBtn.innerHTML.trim() === '') nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+
+            // expose for debug
+            window._accomModal = { openModalForCard, closeModal, showSlide };
+
+        })();
+    </script>
+</body>
+
+</html>

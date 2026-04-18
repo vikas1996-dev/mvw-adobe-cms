@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marriott Vacation Clubs - Special Offer</title>
+    <link
+      rel="stylesheet"
+      href="/etc.clientlibs/mvw/clientlibs/clientlib-tmvc.css"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="form-page-hero" data-mod="form-page-hero">
+      <!-- conatiner color for desktop and mobile -->
+      <section
+        class="grid-container form-page-hero__section bg-theme-gray m-bg-theme-white"
+      >
+        <div class="form-page-hero__background">
+          <img
+            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&h=1000&fit=crop"
+            alt="Underwater snorkeling scene"
+          />
+        </div>
+        <!-- Form and Content Container class="form-page-hero__container form-page-hero--reverse"  reverse class can be added to reverse the order -->
+        <div class="form-page-hero__container">
+          <div class="form-page-hero__form">
+            <div class="form__header bg-theme-teal">
+              <h2 class="heading2 cmp-title align-left">
+                A Special Offer Awaits
+              </h2>
+              <h4 class="description heading4">
+                Join us for a 90-minute virtual sales presentation to receive up
+                to
+              </h4>
+              <div class="form__points">
+                <span class="form__points-number">20,000</span>
+                <span class="form__points-label"
+                  >Marriott<br />Bonvoy®<br />Points</span
+                >
+              </div>
+            </div>
+            <div class="form-main">
+              <div class="form__contact">
+                <strong
+                  >Call <a href="tel:877-368-1984">877-368-1984</a> to schedule
+                  your presentation<br />
+                </strong>
+                or fill in the form below to request a call from us.
+              </div>
+              <p class="form__required-note">All fields are required.</p>
+              <form
+                id="bonvoyForm"
+                novalidate
+                data-form-type="request-information"
+              >
+                <div class="form-group" id="visitReasonGroup">
+                  <label class="form__label"
+                    >Select the option that best describes the reason for your
+                    visit:</label
+                  >
+                  <div class="radio-options-container rte-content">
+                    <div class="radio-option">
+                      <input
+                        type="radio"
+                        id="prospect"
+                        name="visitReason"
+                        value="Prospect"
+                      />
+                      <label for="prospect">
+                        I'd like to learn more about timeshare ownership.
+                      </label>
+                    </div>
+
+                    <div class="radio-option">
+                      <input
+                        type="radio"
+                        id="ownerservices"
+                        name="visitReason"
+                        value="Owner Services"
+                      />
+                      <label for="ownerservices">
+                        I'm an existing Owner who needs Owner Services
+                        assistance.
+                      </label>
+                    </div>
+
+                    <div class="radio-option">
+                      <input
+                        type="radio"
+                        id="owner"
+                        name="visitReason"
+                        value="Owner"
+                      />
+                      <label for="owner">
+                        I'm an existing Owner who is interested in adding to my
+                        vacation portfolio.
+                      </label>
+                    </div>
+                  </div>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please select a reason for your visit</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    autocomplete="given-name"
+                  />
+                  <label for="firstName">First Name</label>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please enter your first name</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    autocomplete="family-name"
+                  />
+                  <label for="lastName">Last Name</label>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please enter your last name</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <select
+                    id="country"
+                    name="country"
+                    autocomplete="country-name"
+                  >
+                    <option value=""></option>
+                  </select>
+                  <label for="country">Country / Region of Residence</label>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please select your country</span>
+                  </div>
+                </div>
+
+                <div class="form-group" id="stateGroup">
+                  <select id="state" name="state" autocomplete="address-level1">
+                    <option value=""></option>
+                  </select>
+                  <label for="state">State</label>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please select your state</span>
+                  </div>
+                </div>
+
+                <div class="form-group" id="postalCodeGroup">
+                  <input
+                    type="text"
+                    id="postalCode"
+                    name="postalCode"
+                    maxlength="20"
+                    autocomplete="postal-code"
+                  />
+                  <label for="postalCode">Zip/Postal Code</label>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please enter your zip/postal code</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    autocomplete="tel"
+                  />
+                  <label for="phone">Phone Number</label>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please enter a valid phone number</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                  />
+                  <label for="email">Email Address</label>
+                  <div class="error-message" style="display: none">
+                    <svg
+                      class="error-icon"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"
+                      />
+                    </svg>
+                    <span>Please enter a valid email address</span>
+                  </div>
+                </div>
+
+                <div class="form-group" id="commentGroup">
+                  <textarea id="comment" name="comment" rows="4"></textarea>
+                  <label for="comment">Comments / Additional Details</label>
+                  <div class="form__error-message">Please enter a comment</div>
+                </div>
+
+                <div class="checkbox-group">
+                  <div id="consentGroup" class="form-group">
+                    <div class="checkbox-wrapper">
+                      <input
+                        type="checkbox"
+                        id="consent"
+                        name="consent"
+                        class="form__checkbox"
+                        required
+                      />
+                      <label for="consent" class="checkbox-label">
+                        YES! I want to receive promotional materials and
+                        information with The Marriott Vacation Clubs timeshare
+                        by mail, email, phone and/or text (at the number
+                        provided with this consent), regardless of any prior
+                        preference to the contrary. Texts and calls may be sent
+                        via automated technology, and consent to receive them is
+                        not required to make a purchase. Messaging and data
+                        charges may apply.
+                      </label>
+                    </div>
+                    <div class="form__error-message" id="consentError">
+                      You must agree to receive communications to proceed.
+                    </div>
+                  </div>
+
+                  <div id="gdprPolicy">
+                    <p class="rte-content gdprPolicy__content">
+                      By clicking submit you agree that Marriott Vacation Club
+                      may use the personal information you provide to contact
+                      you about this offer and to process your request. For
+                      information on how we collect and use your data, please
+                      review our
+                      <a href="#" class="form__link">Privacy Policy</a>.
+                    </p>
+                  </div>
+                </div>
+                <!-- Detail popup button This is optional button it is for special offers page form -->
+                <div class="detail-popup">
+                  <button class="detail-popup__btn" type="button">
+                    <span class="cmp-button cmp-button--tertiary"
+                      >View Details of Participation</span
+                    >
+                  </button>
+                </div>
+                <div id="hiddenFields"></div>
+                <button type="submit" class="submit-btn">
+                  Submit Request for a Virtual Tour
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Modal which will be shown only in special offers -->
+          <div class="participation-modal" id="participationModal">
+            <div class="participation-modal__overlay"></div>
+            <div class="participation-modal__container">
+              <div class="participation-modal__content">
+                <button
+                  class="participation-modal__close"
+                  type="button"
+                  aria-label="Close modal"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    />
+                  </svg>
+                </button>
+
+                <h3 class="participation-modal__title .heading3">
+                  Details of Participation
+                </h3>
+
+                <div class="participation-modal__body rte-content">
+                  <h4 class="participation-modal__section-title .heading4">
+                    Sponsor
+                  </h4>
+                  <p class="participation-modal__text">
+                    This special invitation is presented to you by Marriott
+                    Ownership Resorts, Inc. d/b/a Marriott Vacation Club
+                    International ("MVCI").
+                  </p>
+
+                  <h4 class="participation-modal__section-title .heading4">
+                    Eligibility
+                  </h4>
+                  <p class="participation-modal__text">
+                    Annual income of $100,000 or more is required to be eligible
+                    for this offer. This offer is for residents of, and
+                    participants from, the United States, including the District
+                    of Columbia, but excluding Delaware and Maine. Persons who
+                    are also not eligible for this offer include: (i) those who
+                    have attended a sales presentation with the last 6 months
+                    with the MVCI corporate direct sales office; (ii) those who
+                    have an MVCI contract pending or on hold; (iii) Owners who
+                    have delinquent maintenance fees or are in foreclosure; and
+                    (iv) MVCI associates.
+                  </p>
+
+                  <h4 class="participation-modal__section-title .heading4">
+                    Offer
+                  </h4>
+                  <p class="participation-modal__text">
+                    All eligible parties must complete a 90-minute virtual
+                    program overview and sales presentation via telephone or
+                    video platform in order to receive Marriott Bonvoy points
+                    with internet access with an authorized MVCI Sales
+                    Professional. Participants cannot be represented by a third
+                    party. If married, engaged or living together as a couple,
+                    both must participate together sharing the same tablet or
+                    computer for the virtual presentation. Upon booking of the
+                    virtual program, participants will receive a link with
+                    instructions to join the program overview and both must
+                    participate in the program overview. Both must be active
+                    participants in the program overview and virtual sales
+                    presentation for 90 minutes. Eligible parties requesting
+                    sales presentation premier time slots will receive 15,000
+                    Marriott Bonvoy points, and those requesting other sales
+                    presentation premier time slots will receive 20,000 Marriott
+                    Bonvoy Points. Those participating as an individual and who
+                    are requesting sales presentation premier time slots will
+                    receive 7,500 Marriott Bonvoy points, and those requesting
+                    other sales presentation time slots will receive 10,000
+                    Marriott Bonvoy points. Every effort will be made to
+                    accommodate your preferred time. If a sales Vice President
+                    or Lifestyle Advisor deletes video images of a participant
+                    for no audio or video connection with the participating
+                    parties' computer with internet access for more than a
+                    combined 10 minutes, the participant will forfeit the right
+                    to attend the sales presentation and the overview and to
+                    receive Marriott Bonvoy Points. Those joining who do not
+                    activate the video and audio recording button for the
+                    majority of the meeting will not be ineligible for this
+                    offer. The Marriott Bonvoy points will be deposited into the
+                    one account provided by the participant approximately 6 to 8
+                    weeks after completion. The awarding of any such prizes or
+                    receipt of any Marriott Bonvoy points is subject to the
+                    terms and conditions of the Marriott Bonvoy Program. For
+                    complete Marriott Bonvoy Program Terms and Conditions, visit
+                    <a
+                      href="https://www.marriott.com/loyalty.mi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >marriott.com/loyalty</a
+                    >. Only one gift/offer per household. Availability of
+                    appointments for sales presentations are limited. Offer not
+                    valid in conjunction with any other offers or promotions.
+                    Marriott Vacation Club Destinations Ownership Program review
+                    per household: individual or couple, if married or similarly
+                    committed. Expiration Date: December 31, 2025.
+                  </p>
+
+                  <p
+                    class="participation-modal__text participation-modal__text heading7"
+                  >
+                    <strong>For Residents of California:</strong> Marriott
+                    Ownership Resorts, Inc. CA-DRE #1065481. James Miller:
+                    Responsible Broker.
+                  </p>
+
+                  <p class="participation-modal__text heading7">
+                    <strong>For Residents of Hawaii:</strong> The value of
+                    interests in the Marriott Vacation Club Destinations
+                    timeshare plan ranges from $3,540 to $6,430 per beneficial
+                    interests (depending on the number of beneficial interests
+                    purchased as of 09/30/24 and certain limitations may apply.
+                    Prices are subject to change.
+                  </p>
+
+                  <p class="participation-modal__text heading7">
+                    Trust accounts held by Marriott Ownership Resorts, Inc. in
+                    Hawaii's, as a travel agency, are held at Bank of Hawaii,
+                    111 South King Street, Honolulu, HI 96813, under the
+                    following escrow names: (i) Maui Ocean Club – Client Trust
+                    Accounts; (ii) Marriott's Ko Olina Travel Agent Trust
+                    Agency; (iii) Kauai Lagoons M&S Other Packages Client Trust
+                    Account; and (iv) Starwood TA Client Account.
+                  </p>
+
+                  <p class="participation-modal__text heading7">
+                    <strong>For Residents of Kentucky:</strong> Marriott
+                    Vacation Club Destinations (NY AG # R-1146) is a registered
+                    project with the Kentucky Real Estate Commission.
+                  </p>
+
+                  <p class="participation-modal__text heading7">
+                    <strong>For Residents of Massachusetts:</strong> Marriott
+                    Ownership Resorts, Inc., 9002 San Marco Ct, Orlando, Florida
+                    32819, 407-903-6101.
+                  </p>
+
+                  <p class="participation-modal__text heading7">
+                    <strong>For Residents of New Jersey:</strong> N.J. Reg. No.
+                    19-99-0007
+                  </p>
+
+                  <p class="participation-modal__text heading7">
+                    <strong>For Residents of New York:</strong> The value of
+                    interests in the Marriott Vacation Club Destinations
+                    timeshare plan ranges from $3,540 to $6,430 per beneficial
+                    interest (depending on the number of beneficial interests
+                    purchased as of 09/30/24 and certain limitations may apply.
+                    Prices are subject to change.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- below div will be  replaced by copy block -->
+          <div class="form-page-hero__content m-bg-theme-linen">
+            <h2 class="content__title">How This Offer Works</h2>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

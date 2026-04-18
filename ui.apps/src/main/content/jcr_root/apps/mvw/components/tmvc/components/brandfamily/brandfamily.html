@@ -1,0 +1,80 @@
+<sly data-sly-use.model="com.mvw.core.models.BrandFamily">
+    <sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+    <sly data-sly-call="${tpl.placeHolderBlock @ 
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+    <div class="brand-family-cmp" data-mod="brand-family" data-parent-component="BrandFamily">
+        <div class="grid-container">
+            <div class="family-container bg-theme-${model.copySectionBgColor} m-bg-theme-${model.brandIconImageBgColor}">
+            <div class="text-block">
+                <sly data-sly-test="${model.headlineTag}">
+                    <span data-sly-element="${model.headlineTag}" class="cmp-title title ${model.headlineType} align-${model.copySectionAlignment} m-align-${model.copyAlignment}">${model.headlineText @ context='html'}</span>
+                </sly>
+
+                <div class="description align-${model.copySectionAlignment} m-align-${model.copyAlignment}">
+                    ${model.shortDescription @ context='html'}
+                </div>
+                <div class="buttons align-${model.copySectionAlignment} m-align-${model.copyAlignment}">
+                    <sly
+                        data-sly-resource="${'primaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}" />
+                </div>
+                <div class="owner-sec align-${model.copySectionAlignment} m-align-${model.copyAlignment}">
+                    <h4 class="owner-text">${model.secondaryHeadline @ context='html'}</h4>
+                    <div data-sly-test="${model.secondaryDescription}"
+                        class="description align-${model.copySectionAlignment} m-align-${model.copyAlignment}">
+                        ${model.secondaryDescription @ context='html'}
+                    </div>
+                    <div class="learn-text">
+                        <sly
+                            data-sly-resource="${'secondaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}" />
+                    </div>
+                </div>
+            </div>
+            <sly data-sly-test="${model.logos}">
+                <div class="brand-logos" f-svg-color="${model.copySectionBgColor}">
+                    <div class="logos">
+                        <div class="logo-row">
+                            <sly data-sly-list.logo="${model.logos}">
+                                <sly data-sly-test="${logoList.index < 2}">
+                                    <div class="brand-logo">
+                                        <a rel="${logo.logoCtaTab == 'newTab' ? 'noopener noreferrer' : ''}"  aria-label="${logo.ariaLabel}"  href="${logo.logoCtaUrl}"
+                                            target="${logo.logoCtaTab == 'newTab' ? '_blank' : '_self'}">
+                                            <img src="${logo.logoImage}" loading="lazy" alt="${logo.logoAltText}">
+                                        </a>
+                                    </div>
+                                </sly>
+                            </sly>
+                        </div>
+
+                        <sly data-sly-test="${model.logos.size > 2}">
+                            <div class="logo-row">
+                                <div class="brand-logo">
+                                    <a rel="${model.logos[2].logoCtaTab == 'newTab' ? 'noopener noreferrer' : ''}" aria-label="${logo.ariaLabel}" href="${model.logos[2].logoCtaUrl}"
+                                        target="${model.logos[2].logoCtaTab == 'newTab' ? '_blank' : '_self'}">
+                                        <img src="${model.logos[2].logoImage}" loading="lazy" alt="${model.logos[2].logoAltText}">
+                                    </a>
+                                </div>
+                            </div>
+                        </sly>
+
+
+                    </div>
+                    <svg class="bg-shape" viewBox="0 0 975 661" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                        <clipPath id="a">
+                            <path d="m-6819-14840.148h975v661h-975z"></path>
+                        </clipPath>
+                        <g clip-path="url(%23a)" transform="translate(6819 14840.148)">
+                            <circle cx="625" cy="625" fill="var(--f-svg-color)" r="625"
+                                transform="translate(-6819 -15136.148)">
+                            </circle>
+                        </g>
+                    </svg>
+                </div>
+            </sly>
+        </div>
+        </div>
+    </div>
+</sly>

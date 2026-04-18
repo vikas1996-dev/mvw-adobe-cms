@@ -1,0 +1,62 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Image Load",
+    "cq:template": "/conf/newclub/settings/wcm/templates/home-page-template",
+    "sling:resourceType": "mvw/components/newclub/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "container": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "mvw/components/container",
+        "resortlistcarousel": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "sling:resourceType": "mvw/components/newclub/resortlistcarousel",
+          "carouselType": "rightWrapped",
+          "featuredcard_0": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "Image Policy for Content",
+            "fileReference": "/content/dam/newclub/resort-details/gallery2.png",
+            "actionsEnabled": "false",
+            "jcr:lastModifiedBy": "admin",
+            "titleFromPage": "false",
+            "jcr:description": "\u003Cp\u003EOur ocean view suites provide amet, con setetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\u003C/p\u003E\r\n",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "mvw/components/newclub/featuredcard",
+            "textIsRich": "true"
+          },
+          "featuredcard_1": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "Terms of Use",
+            "fileReference": "/content/dam/new-club-brand-awareness/brand-awareness/uphoria.png",
+            "actionsEnabled": "false",
+            "jcr:lastModifiedBy": "admin",
+            "titleFromPage": "false",
+            "jcr:description": "\u003Cp\u003EOur ocean view suites provide amet, con setetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\u003C/p\u003E\r\n",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "mvw/components/newclub/featuredcard",
+            "textIsRich": "true"
+          },
+          "featuredcard_2": {
+            "jcr:primaryType": "nt:unstructured",
+            "jcr:title": "Input Heaidng title",
+            "fileReference": "/content/dam/mvw/instagram-logo.jpg",
+            "actionsEnabled": "false",
+            "jcr:lastModifiedBy": "admin",
+            "titleFromPage": "false",
+            "jcr:description": "\u003Cp\u003EOur ocean view suites provide amet, con setetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\u003C/p\u003E\r\n",
+            "descriptionFromPage": "false",
+            "sling:resourceType": "mvw/components/newclub/featuredcard",
+            "textIsRich": "true"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "testimonials":
+  {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "jcr:lastModifiedBy": "admin",
+    "jcr:created": "Wed Nov 19 2025 12:25:01 GMT+0530",
+    "jcr:lastModified": "Wed Nov 19 2025 18:14:03 GMT+0530",
+    "sling:resourceType": "mvw/components/newclub/testimonials",
+    "cardList": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "cardDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "altText": "alt text",
+        "cardTitle": "Title 1",
+        "name": "First last",
+        "thumbnailImage": "/content/dam/new-club-brand-awareness/Aspect ratio.png"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "cardDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "altText": "altext",
+        "cardTitle": "Title 2",
+        "name": "First Last",
+        "thumbnailImage": "/content/dam/new-club-brand-awareness/Aspect ratio.png"
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "cardDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "altText": "alt text",
+        "cardTitle": "Title 3",
+        "name": "First Last",
+        "thumbnailImage": "/content/dam/new-club-brand-awareness/Aspect ratio.png"
+      }
+    }
+
+  }
+}
+

@@ -1,0 +1,91 @@
+<sly data-sly-use.destinationDetails="com.mvw.core.models.DestinationDetails">
+    <sly data-sly-test="${destinationDetails.propertiesList}">
+        <sly data-sly-list.offer="${destinationDetails.propertiesList}">
+            <sly data-sly-set.resortCounts="${destinationDetails.propertiesList.size}" />
+           
+        </sly>
+    </sly>
+</sly>
+
+<sly data-sly-use.resortOffersModel="com.mvw.core.models.DestinationDefaultPromotions">
+ 
+    <sly data-sly-test="${resortOffersModel.propertiesList}">
+        <sly data-sly-list.offer="${resortOffersModel.propertiesList}">
+            <sly data-sly-test="${resortCounts < 4}">
+                <section class="offer-card offer-card-vertical" aria-label="Offer: ${offer.name}">
+                    <div class="offer-image">
+                        <sly data-sly-list.image="${offer.imagesAd}">
+                            <sly data-sly-test="${imageList.index == 0}">
+                                <sly data-sly-list.photo="${image.photo}">
+                                    <sly data-sly-test="${photoList.index == 0}">
+                                        <img src="${photo.path}"
+                                    alt="${photo.altText || offer.name}" role="presentation" loading="lazy">
+                                    </sly>
+                                </sly>
+                            </sly>
+ 
+                        </sly>
+                        <div class="offer-badge" aria-hidden="true">
+                            <i class="fas fa-sparkles"></i>
+                            <span>${offer.name}</span>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-text">
+                            <div class="offer-eyebrow">${offer.name}</div>
+                            <h2 class="offer-title">${offer.shortDescriptionAd @ context='html'}</h2>
+                            <div class="offer-description" data-sly-test="${offer.descriptionAd}">${offer.descriptionAd @ context='html'}</div>
+                        </div>
+                        <div class="offer-actions">
+                            <sly data-sly-test="${offer.buttonOfferUrlAd}">
+                                <a href="${offer.buttonOfferUrlAd}" class="offer-primary-cta">${offer.buttonOfferTextAd}</a>
+                            </sly>
+                            <sly data-sly-test="${offer.buttonOfferUrlAd1}">
+                                <a href="${offer.buttonOfferUrlAd1}"
+                                    class="offer-primary-cta">${offer.buttonOfferTextAd1}</a>
+                            </sly>
+                        </div>
+                    </div>
+                </section>
+            </sly>
+            <sly data-sly-test="${resortCounts >= 4}">
+                <section class="offer-card" aria-label="Offer: ${offer.name}">
+                    <div class="offer-image">
+                        <sly data-sly-list.image="${offer.imagesAd}">
+                            <sly data-sly-test="${imageList.index == 0}">
+                                <sly data-sly-list.photo="${image.photo}">
+                                    <sly data-sly-test="${photoList.index == 0}">
+                                        <img src="${photo.path}"
+                                    alt="${photo.altText || offer.name}" role="presentation" loading="lazy">
+                                    </sly>
+                                </sly>
+                            </sly>
+ 
+                        </sly>
+                        <div class="offer-badge" aria-hidden="true">
+                            <i class="fas fa-sparkles"></i>
+                            <span>${offer.name}</span>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div class="offer-text">
+                            <div class="offer-eyebrow">${offer.name}</div>
+                            <h2 class="offer-title">${offer.shortDescriptionAd @ context='html'}</h2>
+                            <div class="offer-description" data-sly-test="${offer.descriptionAd}">${offer.descriptionAd @ context='html'}</div>
+                        </div>
+                        <div class="offer-actions">
+                            <sly data-sly-test="${offer.buttonOfferUrlAd}">
+                                <a href="${offer.buttonOfferUrlAd}" class="offer-primary-cta">${offer.buttonOfferTextAd}</a>
+                            </sly>
+                            <sly data-sly-test="${offer.buttonOfferUrlAd1}">
+                                <a href="${offer.buttonOfferUrlAd1}"
+                                    class="offer-primary-cta">${offer.buttonOfferTextAd1}</a>
+                            </sly>
+                        </div>
+                    </div>
+                </section>
+            </sly>
+ 
+        </sly>
+    </sly>
+</sly>

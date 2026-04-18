@@ -1,0 +1,68 @@
+{
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "logoImage": "/content/dam/usb-legal/Group (3).png",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Mon Dec 29 2025 09:35:42 GMT-0500",
+        "jcr:lastModified": "Mon Dec 29 2025 09:55:32 GMT-0500",
+        "sling:resourceType": "mvw/components/legal/footer",
+        "footerText": "\u003Cp\u003EThis is neither an offer to sell timeshare nor a solicitation to buy timeshare to residents in jurisdictions in which registration requirements have not been fulfilled, including any Member State of the European Union, and your eligibility to purchase may depend upon your residency. All requests originating in Member States of the European Union will not be carried out by Marriott Vacation Club. Visit marriottvacationclub.eu for Marriott Vacation Club products available for purchase by residents of the European Union.\u003C/p\u003E\r\n",
+        "textIsRich": [
+            "true",
+            "true"
+        ],
+        "logoImageAltText": "alt",
+        "legalText": "\u003Cp\u003EThis advertising material is being used for the purpose of soliciting the sale of timeshare periods.\u003C/p\u003E\r\n\u003Cp\u003EANY NAMES AND ADDRESSES ACQUIRED WILL BE USED FOR THE PURPOSE OF SOLICITING THE SALE OF TIMESHARE PERIODS.\u003C/p\u003E\r\n\u003Cp\u003ETHE COMPLETE OFFERING TERMS ARE IN AN OFFERING PLAN AVAILABLE FROM SPONSOR.\u003C/p\u003E\r\n\u003Cp\u003EMarriott Vacation Club International and the programs and products provided under the Marriott Vacation Club, Sheraton Vacation Club and Westin Vacation Club brands are not owned, developed or sold by Marriott International, Inc. Marriott Vacation Club International uses the Marriott marks under license from Marriott International, Inc. and its affiliates.\u003C/p\u003E\r\n\u003Cp\u003E©2025 Marriott Vacation Club International. All Rights Reserved. MDC-25-148\u003C/p\u003E\r\n",
+        "equalImage": {
+            "jcr:primaryType": "nt:unstructured",
+            "fileReference": "/content/dam/usb-legal/equal_housing.jpeg",
+            "jcr:lastModifiedBy": "admin",
+            "jcr:lastModified": "Mon Dec 29 2025 09:55:32 GMT-0500"
+        },
+        "brandDetails": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+                "jcr:primaryType": "nt:unstructured",
+                "brandImageAltText": "marriott vacations club",
+                "brandImage": "/content/dam/usb-legal/image.png",
+                "brandImageLink" : "https://www.marriottvacationclubs.com/",
+                "brandImageLinkTarget" : "_blank"
+            },
+            "item1": {
+                "jcr:primaryType": "nt:unstructured",
+                "brandImageAltText": "westin vacations club",
+                "brandImage": "/content/dam/usb-legal/brand-logo (4).png",
+                "brandImageLink" : "/content/marriottvacationclubs/en/legal/westin-vacation-club.html",
+                "brandImageLinkTarget" : "_self"
+            },
+            "item2": {
+                "jcr:primaryType": "nt:unstructured",
+                "brandImageAltText": "Sheraton Vacations club",
+                "brandImage": "/content/dam/usb-legal/Sheraton.png",
+                "brandImageLink" : "https://www.sheraton.com/",
+                "brandImageLinkTarget" : "_blank"
+            }
+        },
+        "legalLinks": {
+            "jcr:primaryType": "nt:unstructured",
+            "item0": {
+                "jcr:primaryType": "nt:unstructured",
+                "legalLinkTab": "_blank",
+                "legalLinkUrl": "https://www.marriottvacationclubs.com/s/state-and-legal-disclosures",
+                "legalLinkText": "State And Legal Disclosure"
+            },
+            "item1": {
+                "jcr:primaryType": "nt:unstructured",
+                "legalLinkTab": "_blank",
+                "legalLinkUrl": "https://privacy.marriottvacationclubs.com/",
+                "legalLinkText": "Privacy & Cookie Policy"
+            },
+            "item2": {
+                "jcr:primaryType": "nt:unstructured",
+                "cookieLink": "true",
+                "legalLinkTab": "_self",
+                "legalLinkUrl": "#",
+                "legalLinkText": "Cookie Settings"
+            }
+        }
+    }

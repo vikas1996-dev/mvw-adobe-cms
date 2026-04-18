@@ -1,0 +1,6 @@
+
+{
+  "enabled":true,
+  "vanity.dispatch.enabled":true,
+  "cache.serve-authenticated":true
+}

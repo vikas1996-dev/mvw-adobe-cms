@@ -1,0 +1,98 @@
+<sly data-sly-use.model="com.mvw.core.models.CtaContainer">
+    <sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+    <sly data-sly-call="${tpl.placeHolderBlock @
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+    <div class="cta-group" data-mod="ctacontainer" data-component-name="${resource.name}">
+        <sly data-sly-list.ctaItem="${model.ctas}">
+            <sly data-sly-test="${ctaItem.ctaType == 'url'}">
+                <div class="cta-button-item ${ctaItem.ctaStyle != 'tertiary' && ctaItem.ctaStyle != 'special-text' ? 'start-cls' : ''}">
+                    <a href="${ctaItem.ctaUrl}"
+                       class="cmp-button cmp-button--${ctaItem.ctaStyle} cmp-button--${ctaItem.ctaSize} ${model.ctaPlacement == 'icon-only' ? ' cmp-button--icon-only' : ''} ${ctaItem.thirdPartyLink ? 'third-party-link' : ''}"
+                       data-url="${ctaItem.ctaUrl}" data-tab="${ctaItem.ctaOpensIn}"
+                       target="${ctaItem.ctaOpensIn == 'newTab' ? '_blank' : '_self'}">
+                        <sly data-sly-test="${ctaItem.ctaPlacement != 'icon-only'}">
+                            <sly data-sly-test="${ctaItem.ctaPlacement == 'left-icon' && ctaItem.fontAwesomeIcon}">
+                                <span class="cmp-button__icon cmp-button__icon--left ${ctaItem.fontAwesomeIcon}"></span>
+                            </sly>
+                            <span data-sly-test="${ctaItem.ctaText}" class="cmp-button__text">${ctaItem.ctaText @ context='html'}</span>
+
+                            <sly data-sly-test="${ctaItem.ctaPlacement == 'right-icon' && ctaItem.fontAwesomeIcon}">
+                                <span class="cmp-button__icon cmp-button__icon--right ${ctaItem.fontAwesomeIcon}"></span>
+                            </sly>
+                        </sly>
+                        <sly data-sly-test="${ctaItem.ctaPlacement == 'icon-only'}">
+                            <span class="cmp-button__icon cmp-button__icon ${ctaItem.fontAwesomeIcon}"></span>
+                        </sly>
+                    </a>
+                    <span data-sly-test="${ctaItem.ctaTextUnder}" class="cta-text-under-cta">${ctaItem.ctaTextUnder @ context='html'}</span>
+                </div>
+            </sly>
+
+            <sly data-sly-test="${ctaItem.ctaType == 'video'}">
+                <div class="cta-button-item ${ctaItem.ctaStyle != 'tertiary' && ctaItem.ctaStyle != 'special-text' ? 'start-cls' : ''}">
+                    <a href="${ctaItem.ctaUrl @ context='uri' ? ctaItem.ctaUrl : '#'}"
+                       data-cta-type="video"
+                       data-video-id="${ctaItem.videoID}"
+                       class="cmp-button cmp-button--${ctaItem.ctaStyle} cmp-button--${ctaItem.ctaSize} ${model.ctaPlacement == 'icon-only' ? ' cmp-button--icon-only' : ''}"
+                       data-url="${ctaItem.ctaUrl}" data-tab="${ctaItem.ctaOpensIn}"
+                       target="${ctaItem.ctaOpensIn == 'newTab' ? '_blank' : '_self'}"
+                       role="button"
+                       aria-label="Play video: ${ctaItem.ctaText}">
+                        <sly data-sly-test="${ctaItem.ctaPlacement != 'icon-only'}">
+                            <sly data-sly-test="${ctaItem.ctaPlacement == 'left-icon' && ctaItem.fontAwesomeIcon}">
+                                <span class="cmp-button__icon cmp-button__icon--left ${ctaItem.fontAwesomeIcon}"></span>
+                            </sly>
+                            <span data-sly-test="${ctaItem.ctaText}" class="cmp-button__text">${ctaItem.ctaText @ context='html'}</span>
+
+                            <sly data-sly-test="${ctaItem.ctaPlacement == 'right-icon' && ctaItem.fontAwesomeIcon}">
+                                <span class="cmp-button__icon cmp-button__icon--right ${ctaItem.fontAwesomeIcon}"></span>
+                            </sly>
+                        </sly>
+                        <sly data-sly-test="${ctaItem.ctaPlacement == 'icon-only'}">
+                            <span class="cmp-button__icon cmp-button__icon ${ctaItem.fontAwesomeIcon}"></span>
+                        </sly>
+                    </a>
+                    <span data-sly-test="${ctaItem.ctaTextUnder}" class="cta-text-under-cta">${ctaItem.ctaTextUnder @ context='html'}</span>
+                </div>
+            </sly>
+
+            <sly data-sly-test="${ctaItem.ctaType == 'phone'}">
+                    <div class="cta-button-item ${ctaItem.ctaStyle != 'tertiary' && ctaItem.ctaStyle != 'special-text' ? 'start-cls' : ''}">
+                        <a href="tel:{{phoneNumber}}"
+                            data-cta-type="phone"
+                            class="cmp-button cmp-button--${ctaItem.ctaStyle} cta-phone cmp-button--${ctaItem.ctaSize} ${model.ctaPlacement == 'icon-only' ? ' cmp-button--icon-only' : ''}"
+                            data-phone="${ctaItem.phoneNumber}"
+                            role="button"
+                            aria-label="Call: ${ctaItem.phoneNumber}" data-append-with-text="${ctaItem.appendPhoneNumber}">
+                                <sly data-sly-test="${ctaItem.ctaPlacement != 'icon-only'}">
+                                    <sly data-sly-test="${ctaItem.ctaPlacement == 'left-icon' && ctaItem.fontAwesomeIcon}">
+                                        <span class="cmp-button__icon cmp-button__icon--left ${ctaItem.fontAwesomeIcon}"></span>
+                                    </sly>
+                                    <span data-sly-test="${ctaItem.ctaText}"
+                                        class="cmp-button__text">
+                                        ${ctaItem.ctaText @ context='html'}
+                                    </span>
+                                    <sly data-sly-test="${ctaItem.ctaText && ctaItem.phoneNumber}">
+                                        &nbsp;
+                                    </sly>
+                                    <span data-sly-test="${ctaItem.phoneNumber}"
+                                        class="cmp-button__text cta-phone__number">
+                                        ${ctaItem.phoneNumber}
+                                    </span>
+                                    <sly data-sly-test="${ctaItem.ctaPlacement == 'right-icon' && ctaItem.fontAwesomeIcon}">
+                                        <span class="cmp-button__icon cmp-button__icon--right ${ctaItem.fontAwesomeIcon}"></span>
+                                    </sly>
+                                </sly>
+                                <sly data-sly-test="${ctaItem.ctaPlacement == 'icon-only'}">
+                                    <span class="cmp-button__icon cmp-button__icon ${ctaItem.fontAwesomeIcon}"></span>
+                                </sly>
+                            </a>
+                        <span data-sly-test="${ctaItem.ctaTextUnder}" class="cta-text-under-cta">${ctaItem.ctaTextUnder @ context='html'}</span>
+                    </div>
+            </sly>
+        </sly>
+    </div>
+</sly>

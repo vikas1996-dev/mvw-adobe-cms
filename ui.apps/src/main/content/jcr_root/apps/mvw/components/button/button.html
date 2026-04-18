@@ -1,0 +1,30 @@
+
+<sly data-sly-use.model="com.mvw.core.models.CustomButton">
+     
+<p>${model.ctaSize} ${model.ctaStyle} ${model.ctaAlignment} </p>
+<button data-sly-use.button="com.adobe.cq.wcm.core.components.models.Button"
+        data-sly-use.iconTemplate="icon.html"
+        data-sly-element="${button.buttonLink.valid ? 'a' : 'button'}"
+        type="${button.buttonLink.valid ? '' : 'button'}"
+        id="${button.id}"
+        class="cmp-button cmp-button--${model.ctaStyle} cmp-button--${model.ctaSize}
+  ${model.ctaAlignment == 'icon-only' ? ' cmp-button--icon-only' : ''}"
+        data-sly-attribute="${button.buttonLink.htmlAttributes}"
+        aria-label="${button.accessibilityLabel}"
+        title="${button.text ? '' : button.accessibilityLabel}"
+        data-cmp-clickable="${button.data ? true : false}"
+        data-cmp-data-layer="${button.data.json}">
+    <sly data-sly-call="${iconTemplate.icon @ icon=button.icon}"></sly>
+    <sly data-sly-test="${model.ctaAlignment == 'left-icon'}">
+   <span class="cmp-button__icon cmp-button__icon--left">${button.icon}</span>
+  </sly>
+    <span data-sly-test="${button.text}" class="cmp-button__text">${button.text}</span>
+    
+  <sly data-sly-test="${model.ctaAlignment == 'right-icon'}">
+   <span class="cmp-button__icon cmp-button__icon--right">${button.icon}</span>
+  </sly>
+
+   
+
+</button>
+</sly>

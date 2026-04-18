@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Footer"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <footerText
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Text"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <hideSectionA
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    checked="true"
+                                    fieldDescription="Check to hide Section-A in Footer"
+                                    name="./hideSectionA"
+                                    text="Hide Section-A"
+                                    uncheckedValue="{Boolean}false"
+                                    value="true">
+                            </hideSectionA>
+                            <sectionAcontainer
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <footercopy
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            fieldDescription="Enter the footer copy text to be displayed in the footer section."
+                                            name="./footerCopy"
+                                            fieldLabel="Footer Copy Text"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                        <rtePlugins
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceSuperType="/apps/mvw/components/commons/richtext_block/cq:dialog/content/items/richtext/rtePlugins"/>
+                                        <uiSettings
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceSuperType="/apps/mvw/components/commons/richtext_block/cq:dialog/content/items/richtext/uiSettings"/>
+                                    </footercopy>
+                                </items>
+                            </sectionAcontainer>
+                        </items>
+                    </footerText>
+                    <footernavigation
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Navigation"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <navigationheading
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldDescription="Enter the value for Navigation Heading Column-1 which will be displayed above the links."
+                                    fieldLabel="Navigation Heading Column-1"
+                                    name="./navigationHeading"
+                                    required="{Boolean}true"/>
+                            <navigationlinkscol1
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldLabel="CTA Navigation Link(s) for Column-1">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="CTA Link"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        name="./ctaNavLinks">
+                                    <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/collapsible"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <navlinkbuttoncontainer
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                path="/mnt/overlay/mvw/components/commons/cta_link_section/linkDetails"/>
+                                    </items>
+                                </field>
+                            </navigationlinkscol1>
+                            <navigationheadingCol2
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldDescription="Enter the value for Navigation Heading Column-2 which will be displayed above the links."
+                                    fieldLabel="Navigation Heading Column-2"
+                                    name="./navigationHeadingColTwo"/>
+                            <navigationlinkscol2
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldDescription="Add CTA Navigation Links for Column-2"
+                                    fieldLabel="CTA Navigation Link(s) for Column-2 (Optional)">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="CTA Link"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        name="./ctaNavLinksCol2">
+                                    <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/collapsible"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <navlinkbuttoncontainer
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                path="/mnt/overlay/mvw/components/commons/cta_link_section/linkDetails"/>
+                                    </items>
+                                </field>
+                            </navigationlinkscol2>
+                            <navigationheadingCol3
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldDescription="Enter the value for Navigation Heading Column-3 which will be displayed above the links."
+                                    fieldLabel="Navigation Heading Column-3"
+                                    name="./navigationHeadingColThree"/>
+                            <navigationlinkscol3
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldLabel="CTA Navigation Link(s) for Column-3 (Optional)">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="CTA Link"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        name="./ctaNavLinksCol3">
+                                    <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/collapsible"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <navlinkbuttoncontainer
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                path="/mnt/overlay/mvw/components/commons/cta_link_section/linkDetails"/>
+                                    </items>
+                                </field>
+                            </navigationlinkscol3>
+                            <contactUsCopy
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                    name="./contactUsText"
+                                    fieldDescription="Enter the Contact Us text to be displayed in the footer section."
+                                    fieldLabel="Contact Us Text"
+                                    useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceSuperType="/apps/mvw/components/commons/richtext_block/cq:dialog/content/items/richtext/rtePlugins"/>
+                                <uiSettings
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceSuperType="/apps/mvw/components/commons/richtext_block/cq:dialog/content/items/richtext/uiSettings"/>
+                            </contactUsCopy>
+                        </items>
+                    </footernavigation>
+                    <footerlogo
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Logo"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <hideSectionB
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    checked="true"
+                                    fieldDescription="Check to hide Section-B in Footer"
+                                    name="./hideSectionB"
+                                    text="Hide Section-B"
+                                    uncheckedValue="{Boolean}false"
+                                    value="true">
+                            </hideSectionB>
+                            <logoImage
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    class="cq-droptarget"
+                                    enableNextGenDynamicMedia="{Boolean}true"
+                                    fieldDescription="Upload the logo image to be displayed in the footer."
+                                    fieldLabel="Logo Image"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./logoImage"
+                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                    allowUpload="{Boolean}false"
+                                    name="./logoImages"
+                                    required="{Boolean}true"/>
+                            <altText
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldDescription="Enter the alt text for the logo image for accessibility."
+                                    fieldLabel="Alt Text"
+                                    name="./logoImageAltText"
+                                    required="{Boolean}true"/>
+                            <homeLink
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldDescription="Select/Enter the Page Link to redirect."
+                                    fieldLabel="Home Page Link"
+                                    name="./homeLink"
+                                    rootPath="/content/newclub"/>
+                        </items>
+                    </footerlogo>
+                    <footersocialmedia
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Social Media"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            fieldDescription="Add Social Media Links to be displayed in the footer."
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <socialmedialinks
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldDescription="Add Social Media Links to be displayed in the footer."
+                                    fieldLabel="Social Media Link(s)">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="CTA Link"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        name="./socialMediaLinks">
+                                    <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/collapsible"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <socialmediabuttoncontainer
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/mvw/components/commons/cta_link_section/linkDetails"/>
+                                    </items>
+                                </field>
+                            </socialmedialinks>
+                        </items>
+                    </footersocialmedia>
+                    <footerlegal
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Legal"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <legalCopy
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                    name="./legalCopy"
+                                    fieldDescription="Enter the legal copy text to be displayed in the footer section."
+                                    fieldLabel="Legal Copy Text"
+                                    useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceSuperType="/apps/mvw/components/commons/richtext_block/cq:dialog/content/items/richtext/rtePlugins"/>
+                                <uiSettings
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceSuperType="/apps/mvw/components/commons/richtext_block/cq:dialog/content/items/richtext/uiSettings"/>
+                            </legalCopy>
+                            <legalinks
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    fieldDescription="Add Legal Links to be displayed in the footer."
+                                    composite="{Boolean}true"
+                                    fieldLabel="Legal Link(s)">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Legal Link CTA"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        name="./legalLinks">
+                                    <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/collapsible"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <legallinkfield
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <legallinktext
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Legal Link Text"
+                                                        fieldDescription="Enter the value for Legal Link Text to be displayed."
+                                                        name="./legalLinkText"
+                                                        required="{Boolean}true"/>
+                                                <legallinkurl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldDescription="Select/Enter the URL for the Legal Link."
+                                                        fieldLabel="Legal Link Url"
+                                                        name="./legalLinkUrl"
+                                                        required="{Boolean}true"
+                                                        rootPath="/content"/>
+                                                <opensin
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/select"
+                                                        fieldLabel="URL Opens In"
+                                                        fieldDescription="Select whether the link opens in the same tab or a new tab."
+                                                        name="./legalLinkTab">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <sametab
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Same Tab"
+                                                                value="_self"/>
+                                                        <newtab
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="New Tab"
+                                                                value="_blank"/>
+                                                    </items>
+                                                </opensin>
+                                                <thirdParty
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="Check if the link is to a third party website."
+                                                        name="./thirdParty"
+                                                        text="Is Third Party?"
+                                                        uncheckedValue="false"
+                                                        value="{Boolean}true"/>
+                                                <iscookielink
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        checked="false"
+                                                        fieldDescription="Check if this link is a cookie Consent."
+                                                        name="./cookieLink"
+                                                        text="Is Cookie Link"
+                                                        value="true"/>
+                                            </items>
+                                        </legallinkfield>
+                                    </items>
+                                </field>
+                            </legalinks>
+                        </items>
+                    </footerlegal>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:WorkflowLauncher"
+          conditions="[]"
+          description="Launches a workflow to sync jcr:title from dc:title for legal PDF assets."
+          disabledFeatures="[]"
+          enabled="{Boolean}true"
+          eventType="{Long}16"
+          excludeList="jcr:lastModified,jcr:lastModifiedBy,event-user-data:changedByWorkflowProcess"
+          features="[]"
+          glob="/content/dam/legal(/.*)?"
+          nodetype="dam:Asset"
+          condition="jcr:content/metadata/dc:format==application/pdf"
+          runModes="author"
+          workflow="/var/workflow/models/legal-pdf-title-sync"/>

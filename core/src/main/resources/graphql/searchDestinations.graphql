@@ -1,0 +1,23 @@
+query GetNodesByPaths {
+    jcr(workspace: LIVE) {
+        destinations: nodeByPath(path: "/sites/vistana-digital-content-manager/contents/references/destinations") {
+            propertiesRoot: children (
+                fieldSorter: {fieldName:"order", sortType:ASC, ignoreCase:true}) {
+                nodes {
+                    name: value(name: "jcr:title" language:"en")
+                    nodename: value(name: "j:nodename")
+                    referenceProperty: refNodes(name: "referenceProperty") {
+                       name: value(name: "name")
+                       universalPropertyCode: value(name: "universalPropertyCode")
+                        slug: value(name:"slug")   
+                           }
+           
+                      structuredContent: values(name: "structuredContent")
+                      
+                }
+        
+      
+        }
+    }
+    }
+}

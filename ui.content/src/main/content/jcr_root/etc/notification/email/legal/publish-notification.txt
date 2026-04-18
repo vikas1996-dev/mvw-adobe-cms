@@ -1,0 +1,5 @@
+Subject: Publication Alert, Your Document Will Go Live in 72 Hours - ${environmentName}
+
+Document Name: ${documentName}
+Scheduled Go-Live Date:  ${scheduledDate}
+User:  ${user}

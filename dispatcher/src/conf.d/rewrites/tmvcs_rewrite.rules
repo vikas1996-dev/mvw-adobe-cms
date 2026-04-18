@@ -1,0 +1,60 @@
+### START TMVCS RULES ###
+Include conf.d/variables/custom.vars
+
+# Match ONLY these hosts (plus optional www for live)
+
+# 1) Redirect AEM homepage path to "/"
+RewriteCond %{REQUEST_URI} ^/content/tmvcs/us/en\.html$ [NC]
+RewriteRule ^/content/tmvcs/us/en\.html$ / [NE,L,R=302]
+
+# 2) Strip internal AEM content path -> pretty URL
+RewriteCond %{REQUEST_URI} !jcr:content [NC]
+RewriteCond %{REQUEST_URI} !^/content/tmvcs/us/en/errors/(404|500|503)\.html$ [NC]
+RewriteRule ^/content/tmvcs/us/en/(.*)$ /$1 [NE,L,R=302]
+
+# 3) robots.txt (adjust DAM path if different)
+RewriteCond %{HTTP_HOST} ^(${TMVCS_WWW}|${TMVCS_DEV_PUBLISH}|${TMVCS_QA_PUBLISH}|${TMVCS_STAGE_PUBLISH})?$ [NC]
+RewriteRule ^/?robots\.txt$ /content/dam/tmvcs/seo/publish/robots.txt [PT,L]
+
+RewriteCond %{HTTP_HOST} ^(${TMVCS_PROD_PREVIEW}|${TMVCS_DEV_PREVIEW}|${TMVCS_QA_PREVIEW}|${TMVCS_STAGE_PREVIEW})?$ [NC]
+RewriteRule ^/?robots\.txt$ /content/dam/tmvcs/seo/preview/robots.txt [PT,L]
+
+# 4) sitemaps
+RewriteRule ^/?sitemap\.xml$ /content/tmvcs/us/en.sitemap.xml [PT,L]
+RewriteRule ^/?sitemap-index\.xml$ /content/tmvcs/us/en.sitemap-index.xml [PT,L]
+
+# 4a) Fallback /s/ redirects for unmatched legacy URLs
+RewriteRule ^/s/?$ / [R=301,L]
+RewriteRule ^/s/(.*)\.html/?$ /$1.html [R=301,L]
+RewriteRule ^/s/(.*?)/?$ /$1.html [R=301,L]
+
+
+
+
+############### STANDARD TMVC RULES ###############
+
+# 5) Render English home page by default when user hits "/"
+#RewriteCond %{HTTP_HOST} ^(dev-publish\.marriottvacationclubs\.com|qa-publish\.marriottvacationclubs\.com|stage-publish\.marriottvacationclubs\.com|www\.marriottvacationclubs\.com|marriottvacationclubs\.com)(:[0-9]+)?$ [NC]
+RewriteRule ^/$ /content/tmvcs/us/en.html [PT,L]
+
+# 6) Pretty URL -> AEM content mapping for all non-system paths
+# Example: /foo/bar.html -> /content/tmvcs/us/en/foo/bar.html
+#RewriteCond %{HTTP_HOST} ^(dev-publish\.marriottvacationclubs\.com|qa-publish\.marriottvacationclubs\.com|stage-publish\.marriottvacationclubs\.com|www\.marriottvacationclubs\.com|marriottvacationclubs\.com)(:[0-9]+)?$ [NC]
+RewriteCond %{REQUEST_URI} !^/apps/ [NC]
+RewriteCond %{REQUEST_URI} !^/bin/ [NC]
+RewriteCond %{REQUEST_URI} !^/content/ [NC]
+RewriteCond %{REQUEST_URI} !^/conf/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc/ [NC]
+RewriteCond %{REQUEST_URI} !^/etc\.clientlibs/ [NC]
+RewriteCond %{REQUEST_URI} !^/home/ [NC]
+RewriteCond %{REQUEST_URI} !^/libs/ [NC]
+RewriteCond %{REQUEST_URI} !^/system/ [NC]
+RewriteCond %{REQUEST_URI} !^/tmp/ [NC]
+RewriteCond %{REQUEST_URI} !^/var/ [NC]
+RewriteCond %{REQUEST_URI} !^/dispatcher/ [NC]
+RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteCond %{REQUEST_URI} !^/cgi/ [NC]
+RewriteRule ^/(.*)$ /content/tmvcs/us/en/$1 [PT,QSA,L]
+
+### END TMVC RULES ###

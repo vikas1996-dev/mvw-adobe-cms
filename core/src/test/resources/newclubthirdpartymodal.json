@@ -1,0 +1,13 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "jcr:createdBy": "admin",
+  "modalTitle": "You are Leaving Site",
+  "jcr:lastModifiedBy": "admin",
+  "modalDescription": "<p>checking the modal</p>",
+  "jcr:created": "Thu Dec 04 2025 18:10:32 GMT-0500",
+  "buttonText": "I acknowledge",
+  "buttonVariation": "primary",
+  "jcr:lastModified": "Fri Dec 05 2025 15:08:48 GMT-0500",
+  "sling:resourceType": "mvw/components/newclub/thirdparty",
+  "textIsRich": "true"
+}

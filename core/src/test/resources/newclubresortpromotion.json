@@ -1,0 +1,59 @@
+{
+  "resortpromotion": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "countryName": "India",
+    "resortImage": "/content/dam/new-club-brand-awareness/brand-awareness/uphoria.png",
+    "jcr:lastModifiedBy": "admin",
+    "altText": "alt ",
+    "jcr:created": "Sat Nov 29 2025 23:04:46 GMT+0530",
+    "jcr:lastModified": "Sun Nov 30 2025 00:05:42 GMT+0530",
+    "imageCaption": "Hideaway At Royalton Punta Cana, An Autograph Collection All-Inclusive Resort &             Casino – Adults Only",
+    "sling:resourceType": "mvw/components/newclub/resortpromotion",
+    "cq:styleIds": [
+      "1764226710714"
+    ],
+    "resortListFirstColumn": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Royalton CHIC Punta Cana",
+        "navLinkTab": "_blank",
+        "navLinkUrl": "/content/newclub/us/en/test.html"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Royalton Punta Cana",
+        "navLinkTab": "_blank",
+        "navLinkUrl": "#"
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Hideaway at Royalton Punta Cana",
+        "navLinkTab": "_self",
+        "navLinkUrl": "#"
+      }
+    },
+    "resortListSecondColumn": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Royalton CHIC Punta Cana",
+        "navLinkTab": "_blank",
+        "navLinkUrl": "/content/newclub/us/en/test.html"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Royalton Punta Cana",
+        "navLinkTab": "_blank",
+        "navLinkUrl": "#"
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "navLinkText": "Hideaway at Royalton Punta Cana",
+        "navLinkTab": "_self",
+        "navLinkUrl": "/content/newclub/us/en/test.html"
+      }
+    }
+  }
+}

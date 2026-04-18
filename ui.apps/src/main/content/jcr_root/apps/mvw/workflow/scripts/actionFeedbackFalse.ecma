@@ -1,0 +1,4 @@
+function check() {
+    var action = workflowData.getMetaDataMap().get("reviewerAction", "");
+    return (action != "feedback");
+}

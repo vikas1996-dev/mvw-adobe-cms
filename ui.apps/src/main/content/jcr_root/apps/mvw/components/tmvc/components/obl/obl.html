@@ -1,0 +1,45 @@
+<sly data-sly-use.model="com.mvw.core.models.OBLModel" />
+<section class="obl bg-theme-white" aria-labelledby="obl-title" data-mod="obl">
+    <div class="grid-container">
+        <div class="obl__container">
+            <div class="obl__header">
+                <sly data-sly-test="${model.headlineText}">
+                    <h2 data-sly-element="${model.headlineTag}"
+                        id="obl-title"
+                        class="cmp-title ${model.headlineClass} align-${model.headlineAlignment} m-align-${model.mobileHeadlineAlignment}">
+                        ${model.headlineText}
+                    </h2>
+                </sly>
+                <sly data-sly-test="${model.description}">
+                    <div class="obl__description rte-content align-${model.descriptionAlignment} m-align-${model.mobileDescriptionAlignment}">
+                        ${model.description @ context='html'}
+                    </div>
+                </sly>
+            </div>
+            <sly data-sly-test="${model.offerBadgeList && !model.offerBadgeList.empty}">
+                <div class="obl__levels" role="list" aria-label="Owner Benefit Levels">
+                    <sly data-sly-list.badge="${model.offerBadgeList}">
+                        <div class="obl__level" role="listitem">
+                            <div class="obl__level-circle" aria-hidden="true"
+                                 border-color="obl-${badge.oblColor}">
+                                <sly data-sly-test="${badge.oblLabel}">
+                                    <h3 class="obl__level-name">
+                                        ${badge.oblLabel}
+                                    </h3>
+                                </sly>
+                            </div>
+                            <sly data-sly-test="${badge.oblPointsRange}">
+                                <div class="obl__level-points">
+                                    ${badge.oblPointsRange @ context='html'}
+                                </div>
+                            </sly>
+                        </div>
+                    </sly>
+                </div>
+            </sly>
+            <sly data-sly-test="${wcmmode.edit && (!model.offerBadgeList || model.offerBadgeList.empty)}">
+                <div class="cq-placeholder" data-emptytext="OBL Component"></div>
+            </sly>
+        </div>
+    </div>
+</section>

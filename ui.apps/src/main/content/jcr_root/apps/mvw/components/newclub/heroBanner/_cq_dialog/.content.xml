@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="New Club Hero Banner"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <bannerImage
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Media"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <bgType
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Media Type"
+                                name="./bgType">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Image"
+                                        value="image"/>
+                                    <video
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Video"
+                                        value="video"/>
+                                </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    cq-dialog-dropdown-showhide-target=".hero-banner-bg-options"/>
+                            </bgType>
+                            <imageContainer
+                                granite:class="hero-banner-bg-options"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    showhidetargetvalue="image"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <bannnerImage
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                        class="cq-droptarget"
+                                        fieldLabel="Banner Image"
+                                        fileNameParameter="./bannerImage/fileName"
+                                        fileReferenceParameter="./bannerImage/fileReference"
+                                        fieldDescription="Upload the banner image to be displayed as the hero banner."
+                                        name="./bannerImage/file"
+                                        allowUpload="{Boolean}false"
+                                        useHTML5="true"
+                                        mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]" />
+                                    <altText
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Banner Alt Text"
+                                        fieldDescription="Enter the Alt Text for the banner image."
+                                        name="./bannerImage/bannerImageAltText"/>
+                                </items>
+                            </imageContainer>
+                            <videoContainer
+                                granite:class="hero-banner-bg-options"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <videoUrl
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                        rootPath="/content/dam/brightcove_assets"
+                                        fieldLabel="Video Url"
+                                        name="./videoUrl"/>
+                                </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    showhidetargetvalue="video"/>
+                            </videoContainer>
+                        </items>
+                    </bannerImage>
+                    <overlaySectionContent
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Overlay Content"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <overlayTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter the Title text for the overlay section."
+                                fieldLabel="Overlay Title"
+                                name="./overlayTitle"/>
+                            <overlayDescription
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Overlay Description"
+                                fieldDescription="Enter the Description text for the overlay section."
+                                name="./overlayDescription"/>
+                        </items>
+                    </overlaySectionContent>
+                    <overlaySectionImage
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Overlay Image"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <overlayImageDesktop
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                class="cq-droptarget"
+                                enableNextGenDynamicMedia="{Boolean}true"
+                                allowUpload="{Boolean}false"
+                                useHTML5="true"
+                                fieldLabel="Overlay Desktop Image"
+                                fileNameParameter="./overlay/overlayImage"
+                                fieldDescription="Upload the overlay image to be displayed on the hero banner for desktop."
+                                fileReferenceParameter="./overlay/fileReference"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                name="./overlay/file" />
+                            <altText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter the Alt Text for the overlay image."
+                                fieldLabel="Overlay Image Alt Text"
+                                name="./overlay/overlayImageAltText" />
+                            <overlayImageMobile
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                class="cq-droptarget"
+                                enableNextGenDynamicMedia="{Boolean}true"
+                                allowUpload="{Boolean}false"
+                                useHTML5="true"
+                                fieldLabel="Overlay Mobile Image"
+                                fileNameParameter="./mboverlay/overlayImage"
+                                fieldDescription="Upload the overlay image to be displayed on the hero banner for mobile device."
+                                fileReferenceParameter="./mboverlay/fileReference"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                name="./mboverlay/file" />
+                        </items>
+                    </overlaySectionImage>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

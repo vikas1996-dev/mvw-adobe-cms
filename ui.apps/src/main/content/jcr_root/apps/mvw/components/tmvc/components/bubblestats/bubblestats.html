@@ -1,0 +1,237 @@
+<div
+  data-sly-use.model="com.mvw.core.models.BubbleStatsModel"
+  class="bubble-stats"
+>
+  <!-- Multi Stats Bubble Component - Variation 1: With Copy -->
+  <sly data-sly-test="${model.style == 'withHeadlineDescription'}">
+    <section
+      class="multi-stats-bubble bg-theme-${model.bgColor}"
+      aria-label="Vacation Statistics"
+    >
+      <div class="grid-container">
+        <div class="multi-stats-bubble__container">
+          <div class="multi-stats-bubble__wrapper">
+            <div class="multi-stats-bubble__copy">
+              <sly data-sly-test="${model.headlineText}">
+                <sly data-sly-test="${model.headlineTag}">
+                  <span
+                    data-sly-element="${model.headlineTag}"
+                    class="cmp-title multi-stats-bubble__title align-${model.headlineAlignment} m-align-${model.mobileHeadlineAlignment} ${model.headlineSize}"
+                    >${model.headlineText}</span
+                  >
+                </sly>
+              </sly>
+              <div
+                class="multi-stats-bubble__description align-${model.descriptionAlignment} m-align-${model.mobileDescriptionAlignment}"
+                data-sly-test="${model.description}"
+              >
+                ${model.description @ context='html'}
+              </div>
+              <div>
+                <sly
+                  data-sly-resource="${'primaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"
+                ></sly>
+              </div>
+            </div>
+            <!-- <button class="cmp-button cmp-button--primary cmp-button--large multi-stats-bubble__description__cta">
+                            <sly data-sly-resource="${'cta1' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"></sly>
+            </button> -->
+            <div
+              class="multi-stats-bubble__bubbles"
+              aria-label="Statistics bubbles"
+            >
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--1"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--2"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--3"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--4"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--5"
+                aria-hidden="true"
+              ></div>
+
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--turquoise multi-stats-bubble__item--1"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle1}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle1}
+                </p>
+              </div>
+
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--gray multi-stats-bubble__item--2"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle2}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle2}
+                </p>
+              </div>
+
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--indigo multi-stats-bubble__item--3"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle3}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle3}
+                </p>
+              </div>
+
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--indigo multi-stats-bubble__item--4"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle4}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle4}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="multi-stats-bubble__sub-copy">
+            <p class="multi-stats-bubble__sub-copy__sub-description">
+              ${model.secondaryCopyText @ context= 'html'}
+            </p>
+            <div>
+              <sly
+                data-sly-resource="${'secondaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"
+              ></sly>
+            </div>
+            <!-- <button
+            class="cmp-button cmp-button--primary cmp-button--large">
+                <sly data-sly-resource="${'cta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"></sly>
+            ></button> -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </sly>
+
+  <!-- Multi Stats Bubble Component - Variation 2: Full Width -->
+  <sly data-sly-test="${model.style == 'fullWidthNoHeadline'}">
+    <section
+      class="multi-stats-bubble multi-stats-bubble--full-width bg-theme-${model.bgColor}"
+      style="margin-top: 32px"
+      aria-label="Vacation Statistics Full Width"
+    >
+      <div class="grid-container">
+        <div class="multi-stats-bubble__container">
+          <div class="multi-stats-bubble__wrapper">
+            <div
+              class="multi-stats-bubble__bubbles"
+              aria-label="Statistics bubbles"
+            >
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--1"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--2"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--3"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--4"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__dot multi-stats-bubble__dot--5"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--turquoise multi-stats-bubble__item--1"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle1}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle1}
+                </p>
+              </div>
+
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--gray multi-stats-bubble__item--2"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle2}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle2}
+                </p>
+              </div>
+
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--indigo multi-stats-bubble__item--3"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle3}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle3}
+                </p>
+              </div>
+
+              <div
+                class="multi-stats-bubble__item multi-stats-bubble__item--indigo multi-stats-bubble__item--4"
+              >
+                <div class="multi-stats-bubble__circle">
+                  <span class="multi-stats-bubble__number"
+                    >${model.copyWithinCircle4}</span
+                  >
+                </div>
+                <p class="multi-stats-bubble__label">
+                  ${model.copyUnderCircle4}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="multi-stats-bubble__sub-copy">
+            <p class="multi-stats-bubble__sub-copy__sub-description">
+              ${model.secondaryCopyText @ context= 'html'}
+            </p>
+            <div>
+              <sly
+                data-sly-resource="${'secondaryCta2' @ resourceType='mvw/components/tmvc/components/ctacontainer'}"
+              ></sly>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sly>
+</div>

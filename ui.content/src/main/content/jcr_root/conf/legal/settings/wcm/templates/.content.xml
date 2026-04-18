@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <rep:policy/>
+    <experience-fragment-template-for-usb-legal/>
+    <marriott-vacations-club/>
+    <legal-landing-page-template/>
+    <sheraton-vacation-club/>
+    <westin-vacation-club/>
+    <hyatt-vacation-club/>
+    <unbranded-vacation-clubs/>
+    <marriott-vacations-error-page/>
+    <hyatt-vacation-error-page/>
+    <unbranded-hyatt-vacation-club-template/>
+</jcr:root>

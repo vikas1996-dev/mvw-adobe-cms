@@ -1,0 +1,8 @@
+@import 'reset';
+@import 'fonts';
+@import 'grids';
+@import 'typography';
+@import 'icons';
+// Import local Font Awesome CSS from the tmvc resources folder
+@import 'resources/awesome-fonts/css/all.css';
+@import '../../shared/videomodal/scss/videomodal.scss';

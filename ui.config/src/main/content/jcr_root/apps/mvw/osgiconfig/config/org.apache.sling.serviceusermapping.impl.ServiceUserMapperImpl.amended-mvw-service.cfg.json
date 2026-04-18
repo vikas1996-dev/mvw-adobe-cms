@@ -1,0 +1,8 @@
+{
+ "service.ranking": 100,
+ "user.mapping": [
+   "mvw.core:mvwServiceReader=[mvw-service-reader]",
+   "mvw.core:mvwServiceWriter=[mvw-service-writer]",
+   "mvw.core:mvwWorkflowServiceUser=[mvw-workflow-user]"
+ ]
+}

@@ -1,0 +1,102 @@
+@import '../../variables.scss';
+
+// --- Spacing Variables ---
+$pad-v-mob: 40px; // Mobile vertical
+$pad-v-top-desk: 64px; // Desktop top
+$pad-v-bot-desk: 80px; // Desktop bottom
+
+$pad-h-mob: 32px; // Mobile side
+$pad-h-desk: 48px; // Desktop side
+$max-width-1280: 1280px;
+
+/* ==========================================================================
+    MOBILE ONLY (0px to 767px)
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  // 1. Mobile Padded: 40px vertical, 32px side
+  .mob-padded {
+    .cmp-container {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: $pad-h-mob !important;
+      padding-right: $pad-h-mob !important;
+      padding-top: $pad-v-mob;
+      padding-bottom: $pad-v-mob;
+    }
+  }
+
+  // 2. Mobile Full Width: 40px vertical, 0 side
+  .mob-full-width {
+    .cmp-container {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: $pad-v-mob;
+      padding-bottom: $pad-v-mob;
+    }
+  }
+}
+
+/* ==========================================================================
+    DESKTOP ONLY (768px and up)
+   ========================================================================== */
+@media (min-width: 768px) {
+
+  // 1. Desktop Padded: 64/80px vertical, 48px side
+  .desk-padded {
+    .cmp-container {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding-left: $pad-h-desk;
+      padding-right: $pad-h-desk;
+      padding-top: $pad-v-top-desk;
+      padding-bottom: $pad-v-bot-desk;
+    }
+  }
+
+  // 2. Desktop Full Width: 64/80px vertical, 0 side
+  .desk-full-width {
+    .cmp-container {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: $pad-v-top-desk;
+      padding-bottom: $pad-v-bot-desk;
+    }
+  }
+
+  // 3. Desktop Fixed 1280: 64/80px vertical, Centered, No side padding
+  .desk-fixed-1280 {
+    .cmp-container {
+      width: 100%;
+      max-width: $max-width-1280;
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+  .desk-padded{
+    .cmp-container {
+      padding: $pad-v-top-desk;
+    }
+  }
+
+  .desk-padded {
+    .desk-fixed-1280 {
+      .cmp-container {
+        padding: 0;
+      }
+    }
+  }
+}

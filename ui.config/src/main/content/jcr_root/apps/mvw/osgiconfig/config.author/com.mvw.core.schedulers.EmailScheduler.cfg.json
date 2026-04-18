@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "scheduler.expression": "$[env:Legal_Email_Scheduler]",
+  "scheduler.name": "mvw.legal.email.scheduler",
+  "author.only": true,
+  "test_every_10_minutes":"false"
+}

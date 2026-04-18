@@ -1,0 +1,304 @@
+<sly data-sly-use.resortDetailsModel="com.mvw.core.models.ResortDetailsModel">
+   <sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+      <sly data-sly-test="${contents.propertiesList}">
+         <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.nodename == 'accommodations-label'}">
+               <sly data-sly-set.accommodationsHeader="${content.properties @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'experiences-header'}">
+               <sly data-sly-set.experiencesHeader="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'onsite-dining-header'}">
+               <sly data-sly-set.diningHeader="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'amenities-header'}">
+               <sly data-sly-set.amenitiesHeader="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'view-all-media-label'}">
+               <sly data-sly-set.viewAllMediaLabel="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'resort-favorites-header'}">
+               <sly data-sly-set.resortFavoritesHeader="${content.properties  @ context='html'}" />
+            </sly>
+         </sly>
+      </sly>
+   </sly>
+   <sly data-sly-list.properties="${resortDetailsModel.propertiesList}">
+      <div class="breadcrumb-sec">
+         <div class="grid-container">
+            <nav>
+               <ul>
+                  <sly data-sly-test="${properties.region}">
+                     <li class="region-filter"><a data-region="${properties.region}" href="#">${properties.region}</a>
+                     </li>
+                  </sly>
+                  <sly data-sly-test="${properties.state}">
+                     <li class="state-filter"><a data-state="${properties.state}" href="#">${properties.state}</a></li>
+                  </sly>
+                  <sly data-sly-test="${properties.city}">
+                     <li class="active">${properties.city}</li>
+                  </sly>
+               </ul>
+            </nav>
+         </div>
+      </div>
+      <div class="resort-header">
+         <div class="resort-hero">
+            <div class="grid-container">
+               <div class="hero-content">
+                  <h1 class="heading1 resort-title">${properties.name}</h1>
+                  <div class="review-sec">
+                     <div class="city" data-sly-test="${properties.cityCOllection}">
+                        <span class="fa-regular fa-city"></span>
+                        ${properties.cityCOllection}
+                     </div>
+                     <div class="trip-adviser">
+                        <sly data-sly-test="${properties.rating}">
+                           <a href="${properties.webUrl}" class="third-party-link">
+                              <div>
+                                 <img
+                                    src="${properties.ratingImage @ context='uri'}"
+                                     alt="TripAdvisor rating ${properties.rating}" />
+                              </div>
+                              <sly data-sly-test="${properties.reviews}">
+                                 <span class="reviews-count">
+                                    ${properties.reviews} Reviews
+                                 </span>
+                              </sly>
+                           </a>
+                        </sly>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="content-navigation">
+            <div class="grid-container">
+               <nav class="content-nav" data-accordion>
+                  <a href="#overview" class="nav-toggle active">
+                     Overview
+                     <span class="fa-solid fa-chevron-down"></span>
+                  </a>
+                  <div class="nav-items">
+                     <sly data-sly-use.resortAccommodationModel="com.mvw.core.models.ResortAccommodationModel">
+                        <sly data-sly-test="${resortAccommodationModel.propertiesList}">
+                           <a href="#accommodations">${accommodationsHeader}</a>
+                        </sly>
+                     </sly>
+                     <sly data-sly-use.resortOffersModel="com.mvw.core.models.ResortOffersModel">
+                        <sly data-sly-test="${resortOffersModel.propertiesList}">
+                           <a href="#offers">Offers</a>
+                        </sly>
+                     </sly>
+                     <sly data-sly-use.model="com.mvw.core.models.ResortDiningModel">
+                        <sly data-sly-test="${model.propertiesList}">
+                           <a href="#dining">${diningHeader}</a>
+                        </sly>
+                     </sly>
+                     <sly data-sly-use.resortAmenitiesModel="com.mvw.core.models.ResortAmenitiesModel">
+                        <sly data-sly-test="${resortAmenitiesModel.propertiesList}">
+                           <a href="#amenities">${amenitiesHeader}</a>
+                        </sly>
+                     </sly>
+                     <sly data-sly-use.model="com.mvw.core.models.ResortActivitiesModel">
+                        <sly data-sly-test="${model.propertiesList}">
+                           <a href="#experiences">${experiencesHeader}</a>
+                        </sly>
+                     </sly>
+                     <a href="#resort-details" class="nav-close">
+                        Resort Details
+                        <span class="fa-solid fa-chevron-down"></span>
+                     </a>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </div>
+      <div class="gallery-modal" aria-hidden="true" role="dialog" aria-label="Gallery">
+         <div class="nav-sec">
+            <button type="button" class="resort-media-model__prev button-with-icon-prev gallery-modal__back"
+               aria-label="Close media modal">Back to Resort Details</button>
+            <button type="button" class="gallery-modal__close" aria-label="Close gallery" data-gallery-close>×</button>
+         </div>
+         <div class="gallery-modal__content" role="document">
+            <div class="gallery-modal__frame">
+               <figure class="gallery-modal__figure">
+                  <img class="gallery-modal__img" src="" alt="" />
+                  <figcaption class="gallery-modal__caption"></figcaption>
+               </figure>
+            </div>
+            <div class="gallery-modal__footer">
+               <button class="gallery-modal__nav gallery-modal__nav--prev" data-gallery-prev aria-label="Previous"><span
+                     class="fa-solid fa-chevron-down left"></span></button>
+               <div class="gallery-modal__counter" aria-live="polite">0 / 0</div>
+               <button class="gallery-modal__nav gallery-modal__nav--next" data-gallery-next aria-label="Next"><span
+                     class="fa-solid fa-chevron-down right"></span></button>
+            </div>
+         </div>
+      </div>
+      <div class="resort-media-model">
+         <div class="resort-media__model">
+            <div class="nav-sec">
+               <button type="button" class="resort-media-model__prev close_model button-with-icon-prev"
+                  aria-label="Close media modal">Back to Resort Details</button>
+               <button type="button" class="resort-media-model__close close_model"
+                  aria-label="Close media modal">×</button>
+            </div>
+            <div class="grid-container">
+               <div class="grid-wrapper">
+                  <div class="media-grid">
+                     <sly data-sly-list.gallery="${properties.gallery}">
+                        <sly data-sly-test="${galleryList.index == 0}">
+                           <sly data-sly-list.image="${gallery.modalImages}">
+                              <sly data-sly-list.photo="${image.photo}">
+                                 <sly data-sly-test="${photoList.index == 0}">
+                                    <button data-sly-test="${image.isVideo
+                                       || imageList.index == 0
+                                       || imageList.index == 3
+                                       || imageList.index == 6
+                                       || imageList.index == 9
+                                       || imageList.index == 12
+                                       || imageList.index == 15
+                                       || imageList.index == 18
+                                       || imageList.index == 21
+                                       || imageList.index == 24}" class="media-grid__item media-grid__item--full full-width
+                                       ${image.isVideo ? 'media-grid__item--video' : ''}" aria-label="Open media"
+                                       aria-label="Play video"
+                                       data-video-id="${image.isVideo ? image.externalRefId : ''}"
+                                       data-video-account="${image.isVideo ? '1441355349001' : ''}"
+                                       data-video-player="${image.isVideo ? 'jFCpKQt1X' : ''}">
+                                       <img src="${photo.path}" alt="${image.name}" />
+                                       <span data-sly-test="${image.isVideo}" class="media-grid__play"
+                                          aria-hidden="true"></span>
+                                    </button>
+                                    <button data-sly-test="${!image.isVideo
+                                       && imageList.index != 0
+                                       && imageList.index != 3
+                                       && imageList.index != 6
+                                       && imageList.index != 9
+                                       && imageList.index != 12
+                                       && imageList.index != 15
+                                       && imageList.index != 18
+                                       && imageList.index != 21
+                                       && imageList.index != 24}" class="media-grid__item half-width"
+                                       aria-label="Open image">
+                                       <img src="${photo.path}" alt="${image.name}" />
+                                    </button>
+                                 </sly>
+                              </sly>
+                           </sly>
+                        </sly>
+                     </sly>
+                  </div>
+                  <div class="back-btn-wrapper">
+                     <button type="button" class="cmp-button cmp-button--secondary-ghost cmp-button--large close_model"
+                        aria-label="Close media modal">Back to Resort Details</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <sly data-sly-set.firstGalleryImage="">
+         <sly data-sly-list.gallery="${properties.gallery}">
+            <sly data-sly-test="${galleryList.index == 0}">
+               <sly data-sly-list.image="${gallery.sortedImages}">
+                  <sly data-sly-test="${imageList.index == 0}">
+                     <sly data-sly-list.photo="${image.photo}">
+                        <sly data-sly-test="${photoList.index == 0}">
+                           <sly data-sly-set.firstGalleryImage="${photo.path}" />
+                        </sly>
+                     </sly>
+                  </sly>
+               </sly>
+            </sly>
+         </sly>
+      </sly>
+      <div class="resort-media" id="overview">
+         <div class="resort-media__layout">
+            <div class="resort-media__main">
+               <sly data-sly-list.gallery="${properties.gallery}">
+                  <sly data-sly-test="${galleryList.index == 0}">
+                     <sly data-sly-list.image="${gallery.sortedImages}">
+                        <sly data-sly-test="${imageList.index == 0}">
+                           <sly data-sly-list.photo="${image.photo}">
+                              <sly data-sly-test="${photoList.index == 0}">
+                                 <button type="button" class="resort-media__trigger"
+                                    aria-label="Open resort media gallery" data-open-media-model="true">
+                                    <img src="${photo.path}" alt="${image.nodename}" />
+                                 </button>
+                              </sly>
+                           </sly>
+                        </sly>
+                     </sly>
+                  </sly>
+               </sly>
+            </div>
+            <div class="resort-media__aside">
+               <sly data-sly-list.gallery="${properties.gallery}">
+                  <sly data-sly-test="${galleryList.index == 0}">
+                     <sly data-sly-list.image="${gallery.sortedImages}">
+                        <sly data-sly-test="${imageList.index > 0 && imageList.index <3}">
+                           <sly data-sly-list.photo="${image.photo}">
+                              <sly data-sly-test="${photoList.index == 0}">
+                                 <a class="resort-media__tile resort-media__trigger" href="#media-${imageList.index}"
+                                    aria-label="View resort image" data-image-src="${photo.path}"
+                                    data-open-media-model="true">
+                                    <img src="${photo.path}" alt="${image.nodename}" />
+                                    <sly data-sly-test="${image.isVideo}">
+                                       <span class="resort-media__play" aria-hidden="true"></span>
+                                    </sly>
+                                 </a>
+                              </sly>
+                           </sly>
+                        </sly>
+                     </sly>
+                  </sly>
+               </sly>
+               <a class="resort-media__tile resort-media__tile--cta resort-media__trigger" href="#all-media"
+                  aria-label="View all resort media" data-open-media-model="true">
+                  <img src="${firstGalleryImage}" alt="View all resort media" />
+                  <span class="resort-media__cta">
+                     ${viewAllMediaLabel}
+                     <i class="fa-regular fa-arrow-right"></i>
+                  </span>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="resort-overview-cmp left">
+         <div class="resort-overview-wrapper grid-container">
+            <div class="resort-overview-content align-center">
+               <div class="content-sec">
+                  <div class="content-text rte-content">
+                     ${properties.longDescription @ context='html'}
+                     ${properties.description @ context='html'}
+                  </div>
+                  <a href="#" class="show-more">Show More</a>
+               </div>
+               <div class="favrouties-sec">
+                  <h4 class="heading5">${resortFavoritesHeader}</h4>
+                  <ul class="favrouties">
+                     <sly data-sly-use.resortAmenitiesModel="com.mvw.core.models.ResortAmenitiesModel">
+                        <sly data-sly-list.am="${resortAmenitiesModel.featuredAmenities}">
+                           <li>
+                              <sly data-sly-test="${am.mvcsIcon}">
+                                 <span class="fa-resort fa-light ${am.mvcsIcon}"></span>
+                              </sly>
+                              <sly data-sly-test="${!am.mvcsIcon && am.icon}">
+                                 <span class="fa-resort fa-light ${am.icon}"></span>
+                              </sly>
+                              <sly data-sly-test="${!am.mvcsIcon && !am.icon}">
+                                 <span class="fa-resort fa-light fa-star"></span>
+                              </sly>
+                              ${am.shortTitle}
+                           </li>
+                        </sly>
+                     </sly>
+                  </ul>
+                  <a href="#amenities" class="all-amenities">View All Amenities</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </sly>
+</sly>

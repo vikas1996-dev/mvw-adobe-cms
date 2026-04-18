@@ -1,0 +1,13 @@
+function check() {
+    var metadataMap = workflowData.getMetaDataMap();
+    var reviewer = metadataMap.get("legalReviewer", "");
+    log.info("Workflow Debug: legalReviewer value is: " + reviewer);
+
+    // Only proceed if reviewer is not empty
+    if (reviewer != null && reviewer != "") {
+        metadataMap.put("currentFlowReviewStatus", "legal");
+        return true;
+    }
+
+    return false;
+}

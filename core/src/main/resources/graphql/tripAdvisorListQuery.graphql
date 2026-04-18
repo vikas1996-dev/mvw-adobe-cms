@@ -1,0 +1,19 @@
+query (
+  $propertiesFolderNode: String!
+) {
+  jcr(workspace: LIVE) {
+
+    propertiesFolderNode: nodeByPath(path: $propertiesFolderNode) {
+      propertiesRoot: children(typesFilter: {types: ["dcm:properties"]}) {
+        nodes {
+universalPropertyCode: value(name: "universalPropertyCode")
+          tripadvisorId: value(name:"tripAdvisorId")
+
+         
+        }
+      }
+    }
+
+  
+  }
+}

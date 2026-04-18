@@ -1,0 +1,247 @@
+<sly data-sly-use.resortDetailsModel="com.mvw.core.models.ResortDetailsModel" />
+<sly data-sly-use.alertsModel="com.mvw.core.models.ResortAlertsModel" />
+<sly data-sly-use.rent="com.mvw.core.models.ResortRentModel" />
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+    <sly data-sly-test="${contents.propertiesList}">
+        <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.nodename == 'accessibility-description'}">
+                <sly data-sly-set.accessibilityDescription="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'resort-map-label'}">
+                <sly data-sly-set.resortMapLabel=" ${content.properties}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'address-icon'}">
+                <sly data-sly-set.addressIcon=" ${content.properties}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'phone-icon'}">
+                <sly data-sly-set.phoneIcon="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'already-owner-cta'}">
+                <sly data-sly-set.owner="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'explore-ownership-icon'}">
+                <sly data-sly-set.ownership="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'wheelchair-icon'}">
+                <sly data-sly-set.wheelchair="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'use-your-ownership-link-label'}">
+                <sly data-sly-set.useYourOwnershipLinkLabel="${content.properties  @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'resort-info-header'}">
+                <sly data-sly-set.resortInfo="${content.properties  @ context='html'}" />
+            </sly>
+
+        </sly>
+
+    </sly>
+</sly>
+
+<div class="planning-visit-cmp">
+    <div class="planning-visit-wrap">
+        <h3 class="heading3">Planning Your Visit</h3>
+       <sly data-sly-test="${alertsModel.propertiesList && alertsModel.propertiesList.size > 0}">
+        <!-- Resort Alert -->
+        <div class="resort-alert">
+            <div class="alert-header">
+                <div class="alert-title">
+                    <i class="fa-regular fa-circle-info">
+                        <span class="count">${alertsModel.propertiesList.size}</span>
+                    </i>
+                    <strong>Resort Alerts:</strong>
+                    <sly data-sly-list.alert="${alertsModel.propertiesList}">
+                        ${alert.name}${alertList.last ? '' : '; '}
+                    </sly>
+                </div>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="alert-content rte-content">
+                <sly data-sly-list.alert="${alertsModel.propertiesList}">
+                    <div class="alert-content-sec">
+                        <div class="alert-title-sec">${alert.name}</div>
+                        <div class="alert-text">
+                            ${alert.description @ context='html'}
+                        </div>
+                    </div>
+                </sly>
+            </div>
+        </div>
+    </sly>
+        <!-- Content Columns -->
+        <div class="visit-columns">
+
+            <!-- Column 1: Vacation Ownership -->
+            <div class="visit-col">
+                <sly data-sly-list.properties="${rent.propertiesList}">
+                    <sly data-sly-test="${properties.nodename == 'vacation-ownership-header'}">
+                        <h4 class="col-title">
+                            <i class="fa-solid ${ownership}"></i> ${properties.description @ context='html'}
+                        </h4>
+                    </sly>
+                </sly>
+
+                <div class="visit-column-content">
+                    <sly data-sly-list.properties="${rent.propertiesList}">
+                        <sly data-sly-test="${properties.nodename == 'vacation-ownership-description'}">
+                            ${properties.description @ context='html'}
+                        </sly>
+                    </sly>
+
+                    <sly data-sly-list.properties="${rent.propertiesList}">
+                        <sly data-sly-test="${properties.nodename == 'explore-ownership-url'}">
+                            <a href="${properties.description @ context='html'}"
+                                class="cmp-button cmp-button--primary cmp-button--large" data-tab="newTab"
+                                target="_blank">
+                                <span class="cmp-button__text">
+                                    <sly data-sly-list.props="${rent.propertiesList}">
+                                        <sly data-sly-test="${props.nodename == 'explore-ownership-link-label'}">
+                                            ${props.description @ context='html'}
+                                        </sly>
+                                    </sly>
+                                </span>
+                            </a>
+                        </sly>
+                    </sly>
+
+                    <div class="small-text">${owner @ context='html'}</div>
+
+                </div>
+            </div>
+
+            <!-- Column 2: Rentals -->
+            <sly data-sly-list.properties="${resortDetailsModel.propertiesList}">
+                <sly data-sly-test="${!properties.noRental}">
+                    <sly data-sly-test="${resortDetailsModel.propertiesList[0].hraCheck}">
+                        <sly data-sly-set.finalUrl="https://www.atlantisbahamas.com/rooms/harborsideresort" />
+                    </sly>
+
+                    <sly data-sly-test="${!resortDetailsModel.propertiesList[0].hraCheck}">
+                        <sly
+                            data-sly-set.finalUrl="https://www.marriott.com/search/availabilityCalendar.mi?isSearch=false&useRewardsPoints=false&propertyCode=${currentPage.properties.marshaCode}" />
+                    </sly>
+                    <div class="visit-col">
+                        <sly data-sly-list.properties="${rent.propertiesList}">
+                            <sly data-sly-test="${properties.nodename == 'rent-today-modal-header'}">
+                                <h4 class="col-title">${properties.description @ context='html'}</h4>
+                            </sly>
+                        </sly>
+
+                        <div class="visit-column-content">
+                            <sly data-sly-list.properties="${rent.propertiesList}">
+                                <sly data-sly-test="${properties.nodename == 'vacation-ownership-description'}">
+                                    ${properties.description @ context='html'}
+                                </sly>
+                            </sly>
+
+                            <sly data-sly-list.properties="${rent.propertiesList}">
+                                <sly data-sly-test="${properties.nodename == 'check-availability-button-label'}">
+
+                                    <a href="${finalUrl}"
+                                        class="cmp-button cmp-button--secondary-ghost cmp-button--large"
+                                        target="_blank">
+                                        <span class="cmp-button__text">
+                                            ${properties.description @ context='html'}
+                                        </span>
+                                    </a>
+
+                                </sly>
+                            </sly>
+
+
+                            <a href="#" class="cmp-button cmp-button--tertiary cmp-button--large" target="_blank">
+                                <span class="cmp-button__text">${useYourOwnershipLinkLabel}</span>
+                            </a>
+                        </div>
+                    </div>
+                </sly>
+            </sly>
+
+            <!-- Column 3: Resort Details -->
+            <div class="visit-col">
+                <h4 class="col-title">${resortInfo}</h4>
+                <div class="visit-column-content">
+                    <div class="resort-details">
+
+                        <!-- Accessibility -->
+                        <div class="detail">
+                            <div class="icon">
+                                <i class="fa-solid ${wheelchair}"></i>
+                            </div>
+                            <div class="text">
+                                ${accessibilityDescription @ context='html'}
+                                <sly data-sly-list.model="${rent.propertiesList}">
+                                    <sly data-sly-test="${model.nodename == 'view-all-accessibility-features-label'}">
+                                        <button type="button"
+                                            class="detail-description accessibility-link button-with-chevron-icon"
+                                            data-media-lightbox="content" data-content-id="accessibility-link-template"
+                                            aria-label="Open resort map">${model.description @ context='html'}</button>
+                                        <template id="accessibility-link-template">
+                                            <div class="policy-lightbox">
+                                                <h3 class="heading3 cmp-title align-left">Accessibility</h3>
+                                                <div class="model-content">
+                                                    <sly
+                                                        data-sly-list.properties="${resortDetailsModel.propertiesList}">
+                                                        ${properties.accessibilityOverride @ context='html'}
+                                                    </sly>
+                                                </div>
+                                            </div>
+                            </div>
+                            </template>
+                            </sly>
+                            </sly>
+                        </div>
+                    </div>
+
+                    <!-- Address & Phone (from resortDetailsModel) -->
+                    <sly data-sly-list.properties="${resortDetailsModel.propertiesList}">
+                        <div class="detail">
+                            <div class="icon">
+                                <i class="fa-light ${addressIcon}"></i>
+                            </div>
+                            <div class="text">
+                                <p class="detail-description">
+                                    ${properties.address1}, ${properties.city}, ${properties.state}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="icon">
+                                <i class="fa-regular ${phoneIcon}"></i>
+                            </div>
+                            <div class="text">
+                                <p class="detail-description phone">
+                                    <a href="tel:${properties.phoneMain}">${properties.phoneMain}</a>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <!-- Resort Map -->
+                        <div class="detail">
+                            <div class="icon">
+                                <i class="fa-regular fa-map"></i>
+                            </div>
+                            <div class="text">
+                                <button type="button" class="detail-description map-btn" data-media-lightbox="content"
+                                    data-content-id="resort-map-template" data-modal-class="experience-modal"
+                                    aria-label="Open resort map">${resortMapLabel}</button>
+                            </div>
+                            <template id="resort-map-template">
+                                <div class="map-lightbox-content">
+                                    <h3 class="heading3 cmp-title align-left">${resortMapLabel}</h3>
+                                    <div class="model-content">
+                                        <img class="media-lightbox__image media-lightbox__image--full"
+                                            src="${properties.mapPhotoPath}" alt="Resort map" />
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

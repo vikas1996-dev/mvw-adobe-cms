@@ -1,0 +1,74 @@
+<sly data-sly-use.destinationDetails="com.mvw.core.models.DestinationDetails">
+
+    <sly data-sly-test="${destinationDetails.propertiesList}">
+
+        <sly data-sly-list.destination="${destinationDetails.propertiesList}">
+
+            <!-- Page Hero Section -->
+            <div class="page-hero-cmp destination-hero bg-theme-teal m-concave-top convex center" hero-svg-color="teal"
+                hero-m-svg-color="teal" style="--desktop-opacity: 95; --mobile-opacity: 100;">
+
+                <div class="hero-nav grid-container">
+                    <div class="hero-breadcrumb">
+                        <ul>
+                            <sly data-sly-test="${destination.region}">
+                                <li class="region-filter"><a href="#" data-region="${destination.region.nodename}">${destination.region.name}</a></li>
+                            </sly>
+                            <li class="state-filter active">${destination.destination}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid-container">
+                    <div class="page-hero-container">
+                        <div class="page-hero-content">
+                            <div class="page-hero-content-section">
+                                <h1 class="cmp-title align-left m-align-center">
+                                    ${destination.name}
+                                </h1>
+
+                                <div class="hero__description m-align-center">
+                                    <p>${destination.description @ context='html'}</p>
+                                </div>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <sly data-sly-list.image="${destination.images}">
+                    <sly data-sly-test.firstPhoto="${image.photo[0]}">
+                        <sly data-sly-test="${destination.images && destination.images[0]}">
+                            <sly data-sly-set.firstPhoto="${destination.images[0].photo[0]}">
+                                <div class="page-hero-image" data-cmp-hook-hero="bgImage" style="background-image: url('${firstPhoto.path @ context='uri'}');
+                     background-position: 50% 50%;
+                     background-size: cover;">
+                                    <img src="${firstPhoto.path}" loading="eager" fetchpriority="high" alt="${destination.images[0].altText}"
+                data-cmp-hook-hero="bgImageElement" aria-hidden="true" hidden="">
+                                </div>
+
+                            </sly>
+                        </sly>
+
+
+                    </sly>
+                </sly>
+                <svg class="hero__bg-shape_convex" viewBox="0 0 1440 516" preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <clipPath id="clip-convex" clipPathUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="1440" height="516"></rect>
+                    </clipPath>
+                    <g clip-path="url(#clip-convex)">
+                        <path
+                            d="M635,259c-0.14-91.84,27.04-181.65,78.09-258H0v516h713.09C662.04,440.65,634.86,350.84,635,259z"
+                            fill="var(--hero-svg-color)">
+                        </path>
+                    </g>
+                </svg>
+
+            </div>
+
+        </sly>
+    </sly>
+
+</sly>

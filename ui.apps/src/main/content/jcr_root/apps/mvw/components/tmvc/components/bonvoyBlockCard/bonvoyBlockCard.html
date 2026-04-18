@@ -1,0 +1,29 @@
+<sly data-sly-use.model="com.mvw.core.models.BonvoyBlockCardModel">
+  <sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+  <sly data-sly-call="${tpl.placeHolderBlock @
+    title='Bonvoy Block Card',
+    content='Please open the dialog and configure the settings.'
+  }" />
+
+  <article class="bonvoy-block-card__category">
+    <div class="bonvoy-block-card__category-content">
+      <h3 data-sly-element="${model.headlineSize || 'h3'}"
+          class="bonvoy-block-card__category-title align-${model.copyAlignment} m-align-${model.mobileCopyAlignment}">
+        ${model.headline @ context='html'}
+      </h3>
+        <div data-sly-test="${model.description}" class="bonvoy-block-card__category-description align-${model.copyAlignment} m-align-${model.mobileCopyAlignment}">
+          ${model.description @ context='html'}
+        </div >
+      <sly data-sly-test="${model.brandLogos}">
+        <div class="bonvoy-block-card__brands">
+          <sly data-sly-list.brand="${model.brandLogos}">
+            <div class="bonvoy-block-card__brand">
+              <img src="${brand.brandLogoImage}" alt="${brand.brandLogoAltText}" />
+            </div>
+          </sly>
+        </div>
+      </sly>
+    </div>
+  </article>
+</sly>

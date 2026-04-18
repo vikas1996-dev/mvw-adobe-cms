@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:isCheckedOut="{Boolean}false"
+          jcr:primaryType="cq:WorkflowModel"
+          jcr:uuid="667fba70-3949-46f6-95d4-bab4311ba363"
+          sling:resourceType="cq/workflow/components/model"
+          description="TMVC publishing workflow for Pages, Assets"
+          title="TMVC Publishing Workflow">
+    <metaData
+        cq:generatingPage="/conf/global/settings/workflow/models/tmvc-publishing-workflow/jcr:content"
+        jcr:primaryType="nt:unstructured"/>
+    <nodes jcr:primaryType="nt:unstructured">
+        <node0
+            jcr:primaryType="cq:WorkflowNode"
+            title="Start"
+            type="START">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node0>
+        <node1
+            jcr:primaryType="cq:WorkflowNode"
+            description="Author selects reviewers and approvers (names and roles)."
+            title="Reviewer Selection"
+            type="PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-selection/cq:dialog"
+                PARTICIPANT="mvw-content-coordinators"/>
+        </node1>
+        <node2
+            jcr:primaryType="cq:WorkflowNode"
+            description="Setting up Reviewers Info set to workflow metaDataMap node, so as to consume in the flow moving ahead."
+            title="Set Reviewers Info to Workflow MetaDataMap"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.WritingMetaDataMapProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node2>
+        <node3
+            jcr:primaryType="cq:WorkflowNode"
+            title="Deploy Content to Stage Preview"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.ReplicateContentProcess"
+                PROCESS_ARGS="preview"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node3>
+        <node4
+            jcr:primaryType="cq:WorkflowNode"
+            description="Reset continueLoop to false; any feedback branch will flip it back to true."
+            title="Reset Loop Flag"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                PROCESS_ARGS="continueLoop=false"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node4>
+        <node5
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node5>
+        <node6
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node6>
+        <node7
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email to Self/Peer Reviewer"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=selfPeerReviewer"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node7>
+        <node8
+            jcr:primaryType="cq:WorkflowNode"
+            description="Content is staged in a lower environment for Self/Peer review."
+            title="Self/Peer Review (Dynamic Participant)"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                DO_NOTIFY="true"
+                DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"/>
+        </node8>
+        <node9
+            jcr:primaryType="cq:WorkflowNode"
+            title="Copy Reviewer Action - Self/Peer"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node9>
+        <node10
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node10>
+        <node11
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node11>
+        <node12
+            jcr:primaryType="cq:WorkflowNode"
+            description="Feedback given – flag the loop to restart from the beginning."
+            title="Set Loop Flag - Self/Peer Feedback"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                PROCESS_ARGS="continueLoop=true"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node12>
+        <node13
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email Feedback to Author"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node13>
+        <node14
+            jcr:primaryType="cq:WorkflowNode"
+            description="Content approved by Self/Peer reviewer."
+            title="Content Approved - Self/Peer"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node14>
+        <node15
+            jcr:primaryType="cq:WorkflowNode"
+            description="Self/Peer review not required."
+            title="Skip Self/Peer Review"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node15>
+        <node16
+            jcr:primaryType="cq:WorkflowNode"
+            description="If feedback was given during Self/Peer review, loop back to Content Authoring Team."
+            title="Loop Check - Conditional GOTO"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                PROCESS_AUTO_ADVANCE="false"/>
+        </node16>
+        <node17
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node17>
+        <node18
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node18>
+        <node19
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email to QA Reviewer"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=qaReviewer"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node19>
+        <node20
+            jcr:primaryType="cq:WorkflowNode"
+            description="QA reviews and approves content."
+            title="QA Review (Dynamic Participant)"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                DO_NOTIFY="true"
+                DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"/>
+        </node20>
+        <node21
+            jcr:primaryType="cq:WorkflowNode"
+            title="Copy Reviewer Action - QA"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node21>
+        <node22
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node22>
+        <node23
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node23>
+        <node24
+            jcr:primaryType="cq:WorkflowNode"
+            description="Feedback given – flag the loop to restart from the beginning."
+            title="Set Loop Flag - QA Feedback"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                PROCESS_ARGS="continueLoop=true"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node24>
+        <node25
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email Feedback to Author"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node25>
+        <node26
+            jcr:primaryType="cq:WorkflowNode"
+            description="Content approved by QA reviewer."
+            title="Content Approved - QA"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node26>
+        <node27
+            jcr:primaryType="cq:WorkflowNode"
+            description="QA review not required."
+            title="Skip QA Review"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node27>
+        <node28
+            jcr:primaryType="cq:WorkflowNode"
+            description="If feedback was given during QA review, loop back to Content Authoring Team."
+            title="Loop Check - Conditional GOTO"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                PROCESS_AUTO_ADVANCE="false"/>
+        </node28>
+        <node29
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node29>
+        <node30
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node30>
+        <node31
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email to Copy/Proofread Reviewer"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=copyProofreadReviewer"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node31>
+        <node32
+            jcr:primaryType="cq:WorkflowNode"
+            description="Copy/Proofread team reviews and approves content."
+            title="Copy/Proofread Review (Dynamic Participant)"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                DO_NOTIFY="true"
+                DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"/>
+        </node32>
+        <node33
+            jcr:primaryType="cq:WorkflowNode"
+            title="Copy Reviewer Action - Copy/Proofread"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node33>
+        <node34
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node34>
+        <node35
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node35>
+        <node36
+            jcr:primaryType="cq:WorkflowNode"
+            description="Feedback given – flag the loop to restart from the beginning."
+            title="Set Loop Flag - Copy/Proofread Feedback"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                PROCESS_ARGS="continueLoop=true"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node36>
+        <node37
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email Feedback to Author"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node37>
+        <node38
+            jcr:primaryType="cq:WorkflowNode"
+            description="Content approved by Copy/Proofread reviewer."
+            title="Content Approved - Copy/Proofread"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node38>
+        <node39
+            jcr:primaryType="cq:WorkflowNode"
+            description="Copy/Proofread review not required."
+            title="Skip Copy/Proofread Review"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node39>
+        <node40
+            jcr:primaryType="cq:WorkflowNode"
+            description="If feedback was given during Copy/Proofread review, loop back to Content Authoring Team."
+            title="Loop Check - Conditional GOTO"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                PROCESS_AUTO_ADVANCE="false"/>
+        </node40>
+        <node41
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node41>
+        <node42
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node42>
+        <node43
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email to Business Reviewer"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=businessReviewer"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node43>
+        <node44
+            jcr:primaryType="cq:WorkflowNode"
+            description="Business team reviews and approves content."
+            title="Business Review (Dynamic Participant)"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                DO_NOTIFY="true"
+                DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"/>
+        </node44>
+        <node45
+            jcr:primaryType="cq:WorkflowNode"
+            title="Copy Reviewer Action - Business"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node45>
+        <node46
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node46>
+        <node47
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node47>
+        <node48
+            jcr:primaryType="cq:WorkflowNode"
+            description="Feedback given – flag the loop to restart from the beginning."
+            title="Set Loop Flag - Business Feedback"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                PROCESS_ARGS="continueLoop=true"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node48>
+        <node49
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email Feedback to Author"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node49>
+        <node50
+            jcr:primaryType="cq:WorkflowNode"
+            description="Content approved by Business reviewer."
+            title="Content Approved - Business"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node50>
+        <node51
+            jcr:primaryType="cq:WorkflowNode"
+            description="Business review not required."
+            title="Skip Business Review"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node51>
+        <node52
+            jcr:primaryType="cq:WorkflowNode"
+            description="If feedback was given during Business review, loop back to Content Authoring Team."
+            title="Loop Check - Conditional GOTO"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                PROCESS_AUTO_ADVANCE="false"/>
+        </node52>
+        <node53
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node53>
+        <node54
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node54>
+        <node55
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email to Legal Reviewer"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=legalReviewer"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node55>
+        <node56
+            jcr:primaryType="cq:WorkflowNode"
+            description="Legal team reviews and approves content."
+            title="Legal Review (Dynamic Participant)"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DIALOG_PATH="/apps/mvw/workflow/dialogs/reviewer-action/cq:dialog"
+                DO_NOTIFY="true"
+                DYNAMIC_PARTICIPANT="com.mvw.core.workflow.DynamicReviewerChooserStep"/>
+        </node56>
+        <node57
+            jcr:primaryType="cq:WorkflowNode"
+            title="Copy Reviewer Action - Legal"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.CopyReviewerActionProcess"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node57>
+        <node58
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_SPLIT"
+            type="OR_SPLIT">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node58>
+        <node59
+            jcr:primaryType="cq:WorkflowNode"
+            title="OR_JOIN"
+            type="OR_JOIN">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node59>
+        <node60
+            jcr:primaryType="cq:WorkflowNode"
+            description="Feedback given – flag the loop to restart from the beginning."
+            title="Set Loop Flag - Legal Feedback"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.SetMetadataProcess"
+                PROCESS_ARGS="continueLoop=true"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node60>
+        <node61
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email Feedback to Author"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator, notificationType=feedback"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node61>
+        <node62
+            jcr:primaryType="cq:WorkflowNode"
+            description="Content approved by Legal reviewer."
+            title="Content Approved - Legal"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node62>
+        <node63
+            jcr:primaryType="cq:WorkflowNode"
+            description="Legal review not required."
+            title="Skip Legal Review"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="/libs/workflow/scripts/noop.ecma"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node63>
+        <node64
+            jcr:primaryType="cq:WorkflowNode"
+            description="Checks continueLoop flag. If feedback was given, uses back routes to loop to Content Authoring Team. If all approved, advances forward to final steps."
+            title="Loop Check - Conditional GOTO"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.ConditionalGotoProcess"
+                PROCESS_ARGS="conditionKey=continueLoop, conditionValue=true, targetTitle=Reviewer Selection"
+                PROCESS_AUTO_ADVANCE="false"/>
+        </node64>
+        <node65
+            jcr:primaryType="cq:WorkflowNode"
+            title="Email to Author - Ready for Final Approval"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.EmailNotificationProcess"
+                PROCESS_ARGS="templatePath=/etc/notification/email/tmvc/workflow-notification.txt, reviewers=initiator"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node65>
+        <node66
+            jcr:primaryType="cq:WorkflowNode"
+            description="Content author (Initiator) publishes content."
+            title="Final Approval"
+            type="DYNAMIC_PARTICIPANT">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                DYNAMIC_PARTICIPANT="/libs/workflow/scripts/initiator-participant-chooser.ecma"
+                PROCESS_AUTO_ADVANCE="false"/>
+        </node66>
+        <node67
+            jcr:primaryType="cq:WorkflowNode"
+            title="CDN Purge Cache for Payload"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.CdnPurgeCacheProcess"
+                PROCESS_ARGS="purgeTypeHeader=X-AEM-Purge, type=resource"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node67>
+        <node68
+            jcr:primaryType="cq:WorkflowNode"
+            title="Deploy Content to Stage Publish"
+            type="PROCESS">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                PROCESS="com.mvw.core.workflow.ReplicateContentProcess"
+                PROCESS_ARGS="publish"
+                PROCESS_AUTO_ADVANCE="true"/>
+        </node68>
+        <node69
+            jcr:primaryType="cq:WorkflowNode"
+            title="End"
+            type="END">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node69>
+    </nodes>
+    <transitions jcr:primaryType="nt:unstructured">
+        <node0_x0023_node1
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node0"
+            rule="\0"
+            to="node1">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node0_x0023_node1>
+        <node1_x0023_node2
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node1"
+            rule="\0"
+            to="node2">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node1_x0023_node2>
+        <node2_x0023_node3
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node2"
+            rule="\0"
+            to="node3">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node2_x0023_node3>
+        <node3_x0023_node4
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node3"
+            rule="\0"
+            to="node4">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node3_x0023_node4>
+        <node4_x0023_node5
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node4"
+            to="node5">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node4_x0023_node5>
+        <node5_x0023_node7
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node5"
+            rule="/apps/mvw/workflow/scripts/checkSelfReviewer.ecma"
+            to="node7">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node5_x0023_node7>
+        <node7_x0023_node8
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node7"
+            rule="\0"
+            to="node8">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node7_x0023_node8>
+        <node8_x0023_node9
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node8"
+            rule="\0"
+            to="node9">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node8_x0023_node9>
+        <node9_x0023_node10
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node9"
+            to="node10">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node9_x0023_node10>
+        <node10_x0023_node12
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node10"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+            to="node12">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node10_x0023_node12>
+        <node12_x0023_node13
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node12"
+            rule="\0"
+            to="node13">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node12_x0023_node13>
+        <node13_x0023_node11
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node13"
+            to="node11">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node13_x0023_node11>
+        <node10_x0023_node14
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node10"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma"
+            to="node14">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node10_x0023_node14>
+        <node14_x0023_node11
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node14"
+            to="node11">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node14_x0023_node11>
+        <node11_x0023_node6
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node11"
+            to="node6">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node11_x0023_node6>
+        <node5_x0023_node15
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node5"
+            rule="/apps/mvw/workflow/scripts/defaultSkip.ecma"
+            to="node15">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node5_x0023_node15>
+        <node15_x0023_node6
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node15"
+            to="node6">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node15_x0023_node6>
+        <node6_x0023_node16
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node6"
+            rule="\0"
+            to="node16">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node6_x0023_node16>
+        <node16_x0023_node17
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node16"
+            to="node17">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node16_x0023_node17>
+        <node17_x0023_node19
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node17"
+            rule="/apps/mvw/workflow/scripts/checkQaReviewer.ecma"
+            to="node19">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node17_x0023_node19>
+        <node19_x0023_node20
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node19"
+            rule="\0"
+            to="node20">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node19_x0023_node20>
+        <node20_x0023_node21
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node20"
+            rule="\0"
+            to="node21">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node20_x0023_node21>
+        <node21_x0023_node22
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node21"
+            to="node22">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node21_x0023_node22>
+        <node22_x0023_node24
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node22"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+            to="node24">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node22_x0023_node24>
+        <node24_x0023_node25
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node24"
+            rule="\0"
+            to="node25">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node24_x0023_node25>
+        <node25_x0023_node23
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node25"
+            to="node23">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node25_x0023_node23>
+        <node22_x0023_node26
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node22"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma"
+            to="node26">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node22_x0023_node26>
+        <node26_x0023_node23
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node26"
+            to="node23">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node26_x0023_node23>
+        <node23_x0023_node18
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node23"
+            to="node18">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node23_x0023_node18>
+        <node17_x0023_node27
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node17"
+            rule="/apps/mvw/workflow/scripts/defaultSkip.ecma"
+            to="node27">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node17_x0023_node27>
+        <node27_x0023_node18
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node27"
+            to="node18">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node27_x0023_node18>
+        <node18_x0023_node28
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node18"
+            rule="\0"
+            to="node28">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node18_x0023_node28>
+        <node28_x0023_node29
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node28"
+            to="node29">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node28_x0023_node29>
+        <node29_x0023_node31
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node29"
+            rule="/apps/mvw/workflow/scripts/checkCopyProofReviewer.ecma"
+            to="node31">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node29_x0023_node31>
+        <node31_x0023_node32
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node31"
+            rule="\0"
+            to="node32">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node31_x0023_node32>
+        <node32_x0023_node33
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node32"
+            rule="\0"
+            to="node33">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node32_x0023_node33>
+        <node33_x0023_node34
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node33"
+            to="node34">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node33_x0023_node34>
+        <node34_x0023_node36
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node34"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+            to="node36">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node34_x0023_node36>
+        <node36_x0023_node37
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node36"
+            rule="\0"
+            to="node37">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node36_x0023_node37>
+        <node37_x0023_node35
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node37"
+            to="node35">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node37_x0023_node35>
+        <node34_x0023_node38
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node34"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma"
+            to="node38">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node34_x0023_node38>
+        <node38_x0023_node35
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node38"
+            to="node35">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node38_x0023_node35>
+        <node35_x0023_node30
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node35"
+            to="node30">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node35_x0023_node30>
+        <node29_x0023_node39
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node29"
+            rule="/apps/mvw/workflow/scripts/defaultSkip.ecma"
+            to="node39">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node29_x0023_node39>
+        <node39_x0023_node30
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node39"
+            to="node30">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node39_x0023_node30>
+        <node30_x0023_node40
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node30"
+            rule="\0"
+            to="node40">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node30_x0023_node40>
+        <node40_x0023_node41
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node40"
+            to="node41">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node40_x0023_node41>
+        <node41_x0023_node43
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node41"
+            rule="/apps/mvw/workflow/scripts/checkBusinessReviewer.ecma"
+            to="node43">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node41_x0023_node43>
+        <node43_x0023_node44
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node43"
+            rule="\0"
+            to="node44">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node43_x0023_node44>
+        <node44_x0023_node45
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node44"
+            rule="\0"
+            to="node45">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node44_x0023_node45>
+        <node45_x0023_node46
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node45"
+            to="node46">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node45_x0023_node46>
+        <node46_x0023_node48
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node46"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+            to="node48">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node46_x0023_node48>
+        <node48_x0023_node49
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node48"
+            rule="\0"
+            to="node49">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node48_x0023_node49>
+        <node49_x0023_node47
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node49"
+            to="node47">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node49_x0023_node47>
+        <node46_x0023_node50
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node46"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma"
+            to="node50">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node46_x0023_node50>
+        <node50_x0023_node47
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node50"
+            to="node47">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node50_x0023_node47>
+        <node47_x0023_node42
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node47"
+            to="node42">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node47_x0023_node42>
+        <node41_x0023_node51
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node41"
+            rule="/apps/mvw/workflow/scripts/defaultSkip.ecma"
+            to="node51">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node41_x0023_node51>
+        <node51_x0023_node42
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node51"
+            to="node42">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node51_x0023_node42>
+        <node42_x0023_node52
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node42"
+            rule="\0"
+            to="node52">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node42_x0023_node52>
+        <node52_x0023_node53
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node52"
+            to="node53">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node52_x0023_node53>
+        <node53_x0023_node55
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node53"
+            rule="/apps/mvw/workflow/scripts/checkLegalReviewer.ecma"
+            to="node55">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node53_x0023_node55>
+        <node55_x0023_node56
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node55"
+            rule="\0"
+            to="node56">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node55_x0023_node56>
+        <node56_x0023_node57
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node56"
+            rule="\0"
+            to="node57">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node56_x0023_node57>
+        <node57_x0023_node58
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node57"
+            to="node58">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node57_x0023_node58>
+        <node58_x0023_node60
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node58"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackTrue.ecma"
+            to="node60">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node58_x0023_node60>
+        <node60_x0023_node61
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node60"
+            rule="\0"
+            to="node61">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node60_x0023_node61>
+        <node61_x0023_node59
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node61"
+            to="node59">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node61_x0023_node59>
+        <node58_x0023_node62
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node58"
+            rule="/apps/mvw/workflow/scripts/actionFeedbackFalse.ecma"
+            to="node62">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node58_x0023_node62>
+        <node62_x0023_node59
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node62"
+            to="node59">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node62_x0023_node59>
+        <node59_x0023_node54
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node59"
+            to="node54">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node59_x0023_node54>
+        <node53_x0023_node63
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node53"
+            rule="/apps/mvw/workflow/scripts/defaultSkip.ecma"
+            to="node63">
+            <metaData
+                jcr:primaryType="nt:unstructured"
+                isDefault="false"/>
+        </node53_x0023_node63>
+        <node63_x0023_node54
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node63"
+            to="node54">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node63_x0023_node54>
+        <node54_x0023_node64
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node54"
+            rule="\0"
+            to="node64">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node54_x0023_node64>
+        <node64_x0023_node65
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node64"
+            rule="\0"
+            to="node65">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node64_x0023_node65>
+        <node65_x0023_node66
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node65"
+            rule="\0"
+            to="node66">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node65_x0023_node66>
+        <node66_x0023_node67
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node66"
+            rule="\0"
+            to="node67">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node66_x0023_node67>
+        <node67_x0023_node68
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node67"
+            rule="\0"
+            to="node68">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node67_x0023_node68>
+        <node68_x0023_node69
+            jcr:primaryType="cq:WorkflowTransition"
+            from="node68"
+            to="node69">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node68_x0023_node69>
+    </transitions>
+</jcr:root>

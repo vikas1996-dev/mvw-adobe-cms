@@ -1,0 +1,180 @@
+<sly data-sly-use.details="com.mvw.core.models.ResortDetailsModel" />
+<sly data-sly-use.policies="com.mvw.core.models.ResortPolicyModel" />
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+  <sly data-sly-test="${contents.propertiesList}">
+    <sly data-sly-list.content="${contents.propertiesList}">
+      <sly data-sly-test="${content.nodename == 'phone-icon'}">
+        <sly data-sly-set.phoneIcon="${content.properties  @ context='html'}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'address-icon'}">
+        <sly data-sly-set.addressIcon=" ${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'smoking-icon'}">
+        <sly data-sly-set.smokingIcon="${content.properties  @ context='html'}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'service-animal-icon'}">
+        <sly data-sly-set.serviceAnimalIcon=" ${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'no-resort-fees-icon'}">
+        <sly data-sly-set.noResortFeesIcon=" ${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'essentials-header'}">
+        <sly data-sly-set.essentialsHeader=" ${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'check-in-label'}">
+        <sly data-sly-set.checkInLabel=" ${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'check-out-label'}">
+        <sly data-sly-set.checkOutLabel=" ${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'policies-header'}">
+        <sly data-sly-set.policiesHeader=" ${content.properties}" />
+      </sly>
+<sly data-sly-test="${content.nodename == 'policies-header'}">
+        <sly data-sly-set.policiesHeader=" ${content.properties}" />
+      </sly>
+      <sly data-sly-test="${content.nodename == 'parking-icon'}">
+        <sly data-sly-set.parkingIcon=" ${content.properties}" />
+      </sly>
+<sly data-sly-test="${content.nodename == 'hours-icon'}">
+        <sly data-sly-set.hoursIcon=" ${content.properties}" />
+      </sly>
+<sly data-sly-test="${content.nodename == 'mvc-instagram-icon'}">
+        <sly data-sly-set.instagram=" ${content.properties}" />
+      </sly>
+     <sly data-sly-test="${content.nodename == 'icon'}">
+    <sly data-sly-set.facebook="${content.properties[0]}" />
+</sly>
+     <sly data-sly-test="${content.nodename == 'mvc-facebook-icon'}">
+        <sly data-sly-set.facebookIcon=" ${content.properties}" />
+      </sly>
+    </sly>
+
+  </sly>
+</sly>
+<sly data-sly-list.property="${details.propertiesList}">
+
+  <section class="resort-detail-sec" id="resort-details">
+    <div class="grid-container resort-detail-wrapper">
+      <h2 class="heading2">Resort Details</h2>
+
+      <div class="resort-detail-grid">
+
+        <!-- ================= ESSENTIALS ================= -->
+        <div class="detail-col essentials">
+          <h3 class="col-title">${essentialsHeader}</h3>
+
+          <ul class="essentials-list">
+
+            <li data-sly-test="${property.checkIn && property.checkOut}">
+              <i class="fa-regular ${hoursIcon}"></i>
+              ${checkInLabel}: ${property.checkIn} | ${checkOutLabel}: ${property.checkOut}
+            </li>
+
+            <li data-sly-test="${property.address1}">
+              <i class="fa-light ${addressIcon}"></i>
+              ${property.address1}<br/>
+              ${property.city}, ${property.state}
+            </li>
+
+            <li data-sly-test="${property.phoneMain}">
+              <i class="fa-light ${phoneIcon}"></i>
+              <a href="tel:${property.phoneMain}">${property.phoneMain}</a>
+            </li>
+
+            <li data-sly-test="${property.instagram}">
+              <i class="${instagram}"></i>
+              <a href="${property.instagram}" target="_blank" rel="noopener" class="third-party-link">Resort Instagram</a>
+            </li>
+
+            <li data-sly-test="${property.facebook}">
+              <i class="${facebookIcon}"></i>
+              <a href="${property.facebook}" target="_blank" rel="noopener" class="third-party-link">Resort Facebook</a>
+            </li>
+
+          </ul>
+
+          <!-- TripAdvisor -->
+          <sly data-sly-use.model="com.mvw.core.models.ResortAwardsModel">
+    <sly data-sly-list.policy="${model.propertiesList}">
+          <div class="tripadvisor-badge">
+             <sly data-sly-list.image="${policy.images}">
+                  <sly data-sly-test="${imageList.index == 0}">
+                    <sly data-sly-list.photo="${image.photo}">
+                      <sly data-sly-test="${photoList.index == 0}">
+            <img src="${photo.path}" alt="Tripadvisor"/>
+           </sly>
+                    </sly>
+                  </sly>
+                </sly>
+            <p class="tripadvisor-note">
+              ${policy.description @context='html'}
+            </p>
+          </div>
+        
+</sly>
+</sly>
+</div>
+
+
+        <!-- ================= POLICIES ================= -->
+        <div class="detail-col policies">
+          <h3 class="col-title">${policiesHeader}</h3>
+
+          <ul class="policy-list">
+            <sly data-sly-list.item="${policies.resortInfoItems}">
+               
+              <li>
+                <i class="fa-light ${item.icon}"></i>
+                <a href="#" data-media-lightbox="content" data-content-id="policy-${itemList.index}">
+                  ${item.name}
+                </a>
+              </li>
+
+            </sly>
+            <sly data-sly-list.club="${property.club}">
+<li><i class="custom marriot-vacation-club" aria-hidden="true">${club.code}</i><a href="#" data-media-lightbox="content" data-content-id="policy-${club.code}">${club.name}</a></li>
+            <template id="policy-${club.code}">
+                <div class="policy-lightbox">
+                  <h3 class="heading3 cmp-title align-left">${club.name}</h3>
+                  <div class="model-content">
+                    ${club.clubDescription @ context='html'}
+                  </div>
+                </div>
+              </template>
+            </sly>
+          </ul>
+          
+          <!-- Policy Lightboxes -->
+          <div style="display:none;">
+            <sly data-sly-list.item="${policies.resortInfoItems}">
+              <template id="policy-${itemList.index}">
+                <div class="policy-lightbox">
+                  <h3 class="heading3 cmp-title align-left">${item.name}</h3>
+                  <div class="model-content">
+                    ${item.description @ context='html'}
+                  </div>
+                </div>
+              </template>
+            </sly>
+          </div>
+        </div>
+
+
+        <!-- ================= AREA MAP ================= -->
+        <div class="detail-col area-map">
+          <h3 class="col-title">Area Map</h3>
+
+          <div class="map-embed" data-sly-test="${property.coordinateLatitude && property.coordinateLongitude}">
+            <div id="map" data-lat="${property.coordinateLatitude}" data-lng="${property.coordinateLongitude}"
+              data-name="${property.name}" style="width:100%; height:260px;">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</sly>

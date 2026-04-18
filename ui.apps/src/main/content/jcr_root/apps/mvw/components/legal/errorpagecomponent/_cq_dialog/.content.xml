@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Contact Details for Error Page"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <copy
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Copy Text"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        granite:class="cq-RichText-FixedColumn-column"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <twoColumns
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="Check if the right side images section to be hidden."
+                                                name="./twoColumns"
+                                                text="hide second Column?"
+                                                uncheckedValue="false"
+                                                value="{Boolean}true" />
+                                            <copy
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldDescription="Copy Text for Information Page"
+                                                fieldLabel="Copy Text"
+                                                name="./copyText"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/mvw/components/legal/richtext_block/cq:dialog/content/items/richtext/rtePlugins" />
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/mvw/components/legal/richtext_block/cq:dialog/content/items/richtext/uiSettings" />
+                                            </copy>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </copy>
+                    <supportLinks
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Support Links"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        granite:class="cq-RichText-FixedColumn-column"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <navigationlink
+                                                granite:class="mf-validate"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Support Links List"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Support Links">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    jcr:title="Cards"
+                                                    sling:resourceType="granite/ui/components/foundation/container"
+                                                    name="./cardList">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/collapsible" />
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <iconclass
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Item Icon"
+                                                            fieldDescription="Enter the icon class for the item from fontawesome."
+                                                            name="./iconClass" />
+                                                        <cardTitle
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldDescription="Enter the Item Label for the item."
+                                                            fieldLabel="Item Label"
+                                                            name="./label" />
+                                                        <linkText
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldDescription="Enter the Link Text for the item."
+                                                            fieldLabel="Link Text"
+                                                            name="./linkText" />
+                                                        <buttonlink
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                            fieldDescription="Select/Enter the link URL for the button."
+                                                            fieldLabel="Button Link"
+                                                            name="./buttonLink"
+                                                            rootPath="/content" />
+                                                    </items>
+                                                </field>
+                                            </navigationlink>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </supportLinks>
+                    <logoimage
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Ellipse Images"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <mainImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                allowUpload="false"
+                                                class="cq-droptarget"
+                                                fieldDescription="Upload Primary Image to be shown in convex group&#xa;"
+                                                fieldLabel="Big Image"
+                                                fileNameParameter="./mainImage/fileName"
+                                                fileReferenceParameter="./mainImage/fileReference"
+                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                name="./mainImage/file"
+                                                useHTML5="true" />
+                                            <mainalt
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Enter the Alt Text for the Main image."
+                                                fieldLabel="Main Image Alt Text"
+                                                name="./mainImageAltText" />
+                                            <overlayImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                allowupload="false"
+                                                class="cq-droptarget"
+                                                enableNextGenDynamicMedia="{Boolean}true"
+                                                fieldDescription="Upload the overlay image to be displayed."
+                                                fieldLabel="Small Image"
+                                                fileNameParameter="./overlay/overlayImage"
+                                                fileReferenceParameter="./overlay/fileReference"
+                                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                name="./overlay/file"
+                                                useHTML5="true" />
+                                            <altText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Enter the Alt Text for the overlay image."
+                                                fieldLabel="Overlay Image Alt Text"
+                                                name="./overlayImageAltText" />
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </logoimage>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

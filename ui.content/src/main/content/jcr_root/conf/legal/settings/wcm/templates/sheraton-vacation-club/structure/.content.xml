@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:lastModified="{Date}2026-02-23T10:30:56.056-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/legal/settings/wcm/templates/sheraton-vacation-club"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="mvw/components/legal/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="mvw/components/container"
+            layout="responsiveGrid">
+            <experiencefragment
+                jcr:created="{Date}2025-11-16T19:59:28.797-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2026-02-23T10:30:31.895-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/legal/marriottvacationclubs/sheraton/header/master"/>
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid"/>
+            <experiencefragment_2020695214
+                jcr:created="{Date}2025-11-16T20:08:58.237-05:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2026-02-23T10:30:56.053-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mvw/components/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/legal/marriottvacationclubs/footer/master"/>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}650"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

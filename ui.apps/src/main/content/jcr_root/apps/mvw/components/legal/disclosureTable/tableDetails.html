@@ -1,0 +1,24 @@
+<sly data-sly-template.tableData="${ @ id,pdfDetails,class,tableType }">
+  <div class="table-container ${class @ context='attribute'}" id="${id @ context='attribute'}">
+    <table class="document-table">
+      <thead>
+        <tr>
+          <th class="column-sno">#</th>
+          <th class="column-title">Document Title</th>
+          <th class="column-action">Action</th>
+        </tr>
+      </thead>
+      <tbody data-sly-list.pdf="${pdfDetails}">
+        <tr>
+          <td>${pdf.number @ context='text'}</td>
+          <td>
+            <span class="file-icon"></span>
+            <a href="${pdf.path @ context='uri'}" class="file-link" title="${pdf.title}">${pdf.count}>${pdf.title @ context='text'}</a>
+          </td>
+          <td class="row-action"> <a href="${pdf.path @ context='uri'}" ><span class="download-icon"></span></a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-sly-test="${pdfDetails.size == 0}" class="no-content">No ${tableType @ context='text'} PDFs found.</div>
+  </div>
+</sly>

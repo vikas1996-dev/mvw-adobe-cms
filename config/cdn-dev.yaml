@@ -1,0 +1,37 @@
+kind: "CDN"
+version: "1"
+metadata:
+  envTypes: ["dev"]
+data:
+  authentication:
+    authenticators:
+      - name: purge-auth
+        type: purge
+        purgeKey1: ${{CDN_PURGEKEY_DEV_1}}
+        purgeKey2: ${{CDN_PURGEKEY_QA_1}}
+    rules:
+      - name: purge-auth-rule
+        when:
+          allOf:
+            # Changed 'equals' to 'in' to support both tiers
+            - reqProperty: tier
+              in: ["publish", "preview"]
+            - reqProperty: forwardedDomain
+              in:
+                # Publish Domains
+                - "dev-publish.marriottvacationclubs.com"
+                - "dev-publish.docs.marriottvacationclubs.com"
+                - "dev-publish.docs.hyattvacationclub.com"
+                - "qa-publish.marriottvacationclubs.com"
+                - "qa-publish.docs.marriottvacationclubs.com"
+                - "qa-publish.docs.hyattvacationclub.com"
+                # Preview Domains
+                - "dev-preview.marriottvacationclubs.com"
+                - "dev-preview.docs.marriottvacationclubs.com"
+                - "dev-preview.docs.hyattvacationclub.com"
+                - "qa-preview.marriottvacationclubs.com"
+                - "qa-preview.docs.marriottvacationclubs.com"
+                - "qa-preview.docs.hyattvacationclub.com"
+        action:
+          type: authenticate
+          authenticator: purge-auth

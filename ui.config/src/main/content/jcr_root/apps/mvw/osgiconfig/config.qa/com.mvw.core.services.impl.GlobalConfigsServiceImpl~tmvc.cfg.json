@@ -1,0 +1,6 @@
+{
+  "site.id":"tmvcs",
+  "adobe.launch.url":"$[env:TMVC_LAUNCH_SCRIPT;default=]",
+  "gtm.container.id":"$[env:TMVC_GTM_CONTAINER_ID;default=]",
+  "cookie.consent.script":"$[env:TMVC_COOKIE_CONSENT_SCRIPT;default=]"
+}

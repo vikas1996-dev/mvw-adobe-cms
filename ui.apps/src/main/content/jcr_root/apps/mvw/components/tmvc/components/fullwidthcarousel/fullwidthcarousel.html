@@ -1,0 +1,137 @@
+<sly data-sly-use.carousel="com.mvw.core.models.CarouselEnhancementModel">
+    <sly data-sly-use.tpl="/apps/mvw/components/tmvc/components/placeHolder.html" />
+
+    <sly data-sly-call="${tpl.placeHolderBlock @
+    title='Configure Component',
+    content='Please open the dialog and configure the settings.'
+}" />
+
+    <div class="full-width-carousel ${carousel.style == 'xl2CardCarousel' ? 'xl2CardCarousel' : ''} bg-theme-${carousel.copySectionBgColor}" data-mod="full-width-carousel" data-parent-component="FullWidthCarousel">
+
+        <div class="full-container ${carousel.style == 'xl2CardCarousel' ? 'grid-container' : ''} ">
+            <div class="carousel-header  ${carousel.style != 'xl2CardCarousel' ? 'grid-container' : ''} " data-sly-test="${(carousel.headlineTag && carousel.headlineText != '' && carousel.headlineTextPresent) || carousel.copyText}">
+                <sly data-sly-test="${carousel.headlineTag && carousel.headlineText != '' && carousel.headlineTextPresent}">
+                    <span data-sly-element="${carousel.headlineTag}" class="carousel-title cmp-title title ${carousel.headlineType} align-${carousel.copySectionAlignment} m-align-${carousel.copyAlignment}">${carousel.headlineText @ context='html'}</span>
+                </sly>
+                <sly data-sly-test="${carousel.copyText}">
+                    <div class="carousel-intro ${carousel.copySectionAlignment}">
+                        <div class="carousel-description">
+                            ${carousel.copyText @ context='html'}
+                        </div>
+                        <sly
+                                data-sly-resource="${'primaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}" />
+                    </div>
+                </sly>
+            </div>
+            <div class="services-grid">
+                <sly data-sly-list.slide="${carousel.carouselSlide}">
+
+                    <div class="service-card bg-theme-${carousel.carouselBgColor}" data-url="${slide.ctaDestination}">
+                        <div class="image-container">
+                            <picture>
+                                <sly data-sly-test="${slide.mobileImage}">
+                                    <source media="(max-width: 768px)"
+                                            srcset="${slide.mobileImage @ context='uri'}" />
+                                </sly>
+
+                                <img src="${slide.carouselImage @ context='uri'}"
+                                     loading="eager" fetchpriority="high"
+                                     alt="${slide.carouselImageAlt}" />
+                            </picture>
+                            <sly data-sly-test="${slide.badgeFontAwesomeIcon || slide.badge}">
+                                <div class="location bg-theme-${slide.badgeColor}">
+                                    <i class="${slide.badgeFontAwesomeIcon}" ></i>
+                                    <span>${slide.badge}</span>
+                                </div>
+                            </sly>
+
+                        </div>
+                        <div class="details">
+                            <div class="text">
+                                <sly data-sly-test="${slide.headlineTag}">
+                                    <span data-sly-element="${slide.headlineTag}">${slide.carouselHeadline @ context='html'}</span>
+                                </sly>
+
+                                <!-- DIV for the added resort fields -->
+                                <sly data-sly-test="${carousel.style == 'xl2CardCarousel'}">
+                                    <div class="resort-details" >
+                                        <p class="resort-details-name">${slide.resortName}</p>
+                                        <div class="resort-details-features">
+                                            <div class="resort-details-features-pax"><i class="${slide.feature1FontAwesomeIcon}"></i><p>${slide.feature1Label}</p></div>
+                                            <div class="resort-details-features-view"><i class="${slide.feature2FontAwesomeIcon}"></i><p>${slide.feature2Label}</p></div>
+                                        </div>
+                                    </div>
+                                </sly>
+                                <!-- Conditional for style -->
+                                <div class="cta-group">
+                                    <a href="${slide.ctaDestination}"
+                                       class="cmp-button cmp-button--${slide.ctaStyle} cmp-button--${slide.ctaSize} ${slide.ctaPlacement == 'icon-only' ? ' cmp-button--icon-only' : ''}"
+                                       data-url="${slide.ctaDestination}" data-tab="${slide.ctaOpensIn}"
+                                       target="${slide.ctaTab == 'newTab' ? '_blank' : '_self'}">
+                                        <sly data-sly-test="${slide.ctaPlacement != 'icon-only'}">
+                                            <sly
+                                                    data-sly-test="${slide.ctaPlacement == 'left-icon' && slide.fontAwesomeIcon}">
+                                                <span class="cmp-button__icon cmp-button__icon--left fa fa-brands  ${slide.fontAwesomeIcon}"></span>
+                                            </sly>
+                                            <span data-sly-test="${slide.ctaText}" class="cmp-button__text">${slide.ctaText @ context='html'}</span>
+                                            <sly
+                                                    data-sly-test="${slide.ctaPlacement == 'right-icon' && slide.fontAwesomeIcon}">
+                                                <span class="cmp-button__icon cmp-button__icon--right fa fa-brands  ${slide.fontAwesomeIcon}"></span>
+                                            </sly>
+                                        </sly>
+                                        <sly data-sly-test="${slide.ctaPlacement == 'icon-only'}">
+                                            <span class="cmp-button__icon cmp-button__icon fa fa-brands  ${slide.fontAwesomeIcon}"></span>
+                                        </sly>
+                                    </a>
+                                </div>
+                            </div>
+                            <div data-sly-test="${slide.brandIconImage}" class="icon m-bg-theme-${carousel.brandIconImageBgcolor}">
+                                <img src="${slide.brandIconImage}" loading="eager" fetchpriority="high" alt="Icon 1" />
+                            </div>
+                        </div>
+                        <a class="card-link" href="${slide.ctaDestination}"
+                           target="${slide.ctaTab == 'newTab' ? '_blank' : '_self'}"
+                           aria-label="${slide.ctaText}" data-link-type="Internal Navigation"></a>
+                    </div>
+                </sly>
+            </div>
+
+            <div class="nav-icons" role="group" aria-label="Carousel navigation">
+                <button class="nav-icon-left" type="button" aria-label="Previous slide">
+                    <i class="prev-icon" ></i>
+                </button>
+                <div class="current-slide">1 / 3</div>
+                <button class="nav-icon-right" type="button" aria-label="Next slide">
+                    <i class="next-icon" ></i>
+                </button>
+            </div>
+            <sly data-sly-test="${carousel.secondaryCopyText}">
+                <div class="carousel-intro ${carousel.style != 'xl2CardCarousel' ? 'grid-container' : ''} ${carousel.copySectionAlignment} desktop-only secondary">
+                    <div class="carousel-description">${carousel.secondaryCopyText @ context='html'}</div>
+                    <sly
+                            data-sly-resource="${'secondaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}" />
+                </div>
+            </sly>
+
+            <!-- Mobile: Show copyText/secondaryCopyText below carousel -->
+            <sly data-sly-test="${carousel.copyText}">
+                <div class="text-sec-mobile mobile-only m-${carousel.copyAlignment}">
+                    <div class="carousel-description m-align-${carousel.copyAlignment}">${carousel.copyText @
+                        context='html'}</div>
+                    <sly
+                            data-sly-resource="${'primaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}" />
+                </div>
+            </sly>
+            <sly data-sly-test="${carousel.secondaryCopyText}">
+                <div class="text-sec-mobile  secondary mobile-only m-${carousel.secondaryCopyAlignment}">
+                    <div class="carousel-description m-align-${carousel.secondaryCopyAlignment} ">
+                        ${carousel.secondaryCopyText @ context='html'}</div>
+                    <sly
+                            data-sly-resource="${'secondaryCta' @ resourceType='mvw/components/tmvc/components/ctacontainer'}" />
+                </div>
+            </sly>
+        </div>
+    </div>
+</sly>
+
+

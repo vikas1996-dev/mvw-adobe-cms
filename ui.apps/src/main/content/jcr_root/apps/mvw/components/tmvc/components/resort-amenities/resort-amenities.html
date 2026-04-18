@@ -1,0 +1,126 @@
+<sly data-sly-use.resortAmenitiesModel="com.mvw.core.models.ResortAmenitiesModel"/>
+<sly data-sly-use.contents="com.mvw.core.models.StaticContentModel">
+      <sly data-sly-test="${contents.propertiesList}">
+         <sly data-sly-list.content="${contents.propertiesList}">
+            <sly data-sly-test="${content.nodename == 'resort-favorites-header'}">
+               <sly data-sly-set.resortFavoritesHeader="${content.properties @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${content.nodename == 'other-amenities-header'}">
+               <sly data-sly-set.otherAmenitiesHeader="${content.properties @ context='html'}" />
+            </sly>
+            
+
+         </sly>
+      </sly>
+   </sly>
+<div class="resort-amenities-sec" id="amenities">
+    <div class="grid-container resort-favourites-wrapper">
+        <h3 class="resort-fav-title heading3">${resortFavoritesHeader}</h3>
+        <!-- Featured Amenities List -->
+        <div class="favourites-list">
+            <sly data-sly-list.amenity="${resortAmenitiesModel.featuredAmenities}">
+                <div class="favourite-item">
+                    <!-- Image Section -->
+                    <div class="img-sec">
+                        <sly data-sly-list.image="${amenity.images}">
+                            <sly data-sly-test="${imageList.index == 0}">
+                                <sly data-sly-list.photo="${image.photo}">
+                                    <sly data-sly-test="${photoList.index == 0}">
+                                        <img
+                                                src="${photo.path}"
+                                                alt="${image.nodename || amenity.name}" />
+                                    </sly>
+                                </sly>
+                            </sly>
+                        </sly>
+                    </div>
+                    <div class="text-sec">
+                        <h3 class="heading3">
+                            <sly data-sly-test="${amenity.mvcsIcon}">
+                                <span class="fa-resort fa-light ${amenity.mvcsIcon}"></span>
+                            </sly>
+                            <sly data-sly-test="${!amenity.mvcsIcon && amenity.icon}">
+                                <span class="fa-resort fa-solid ${amenity.icon}"></span>
+                            </sly>
+                            ${amenity.name}
+                        </h3>
+                        <div class="text-area">
+                            ${amenity.description @ context='html'}
+                        </div>
+                        <button class="show-more"
+                                type="button"
+                                aria-expanded="false"
+                                data-media-lightbox="content"
+                                data-content-id="amenity-${amenityList.index}"
+                                data-modal-class="amenities-modal">
+                            Show more
+                        </button>
+                        <template id="amenity-${amenityList.index}">
+                            <div class="amenities-lightbox-wrapper">
+                                <h3 class="heading3 align-left">${amenity.name}</h3>
+                                <div class="amenities-model-content">
+                                    <sly data-sly-list.image="${amenity.images}">
+                                        <sly data-sly-test="${imageList.index == 0}">
+                                            <sly data-sly-list.photo="${image.photo}">
+                                                <sly data-sly-test="${photoList.index == 0}">
+                                                    <div class="img">
+                                                        <img
+                                                                src="${photo.path}"
+                                                                alt="${image.nodename || amenity.name}" />
+                                                    </div>
+                                                </sly>
+                                            </sly>
+                                        </sly>
+                                    </sly>
+                                    <div class="rte-content">
+                                        ${amenity.description @ context='html'}
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </sly>
+        </div>
+    </div>
+</div>
+<sly data-sly-test="${resortAmenitiesModel.remainingAmenities}">
+    <div class="other-amenities-container" id="other-amenities" data-open-first="true" data-multiple-open="false">
+        <div class="grid-container">
+           
+            <div class="amenities-list">
+                <sly data-sly-list.category="${resortAmenitiesModel.remainingAmenities}">
+                    <div data-sly-test="${category.description && category.featured}" class="amenities-section">
+                        <div class="section-header">
+                            <h4 class="section-title">
+                                <sly data-sly-test="${category.mvcsIcon}">
+                                    <span class="fa-resort fa-light ${category.mvcsIcon}"></span>
+                                </sly>
+                                <sly data-sly-test="${!category.mvcsIcon && category.icon}">
+                                    <span class="fa-resort fa-solid ${category.icon}"></span>
+                                </sly>
+                                ${category.name}
+                            </h4>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="section-content">
+                            <div class="children-amenities">
+                                ${category.description @ context='html'}
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </sly>
+                
+                <div class="non-featured-amenities">
+                     <h3 class="main-title heading3">${otherAmenitiesHeader}</h3>
+                    <ul>
+                        <sly data-sly-list.category="${resortAmenitiesModel.remainingAmenities}">
+                            <li data-sly-test="${!category.featured}">${category.name}</li>
+                        </sly>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

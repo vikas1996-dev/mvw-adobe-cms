@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Header"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[mvw.cta.container.authoring]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <logoimage
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Logo Image"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <logoImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                fieldDescription="Upload the logo image to be displayed in the header."
+                                                class="cq-droptarget"
+                                                allowUpload="{Boolean}false"
+                                                enableNextGenDynamicMedia="{Boolean}true"
+                                                fieldLabel="Logo Image"
+                                                fileNameParameter="./fileName"
+                                                fileReferenceParameter="./logoImage"
+                                                mimeTypes="[image/jpeg,image/png,image/tiff,image/svg+xml,image/webp]"
+                                                name="./logoImages"
+                                                required="{Boolean}true" />
+                                            <altText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Alt Text"
+                                                fieldDescription="Enter the Alt Text for the logo image."
+                                                name="./logoImageAltText"
+                                                required="{Boolean}true" />
+                                            <homeLink
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Home Page Link"
+                                                fieldDescription="Select/Enter the Home Page Link URL."
+                                                name="./homeLink"
+                                                required="{Boolean}true"
+                                                rootPath="/content" />
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </logoimage>
+                    <navigationlink
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Navigation Link"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        granite:class="cq-RichText-FixedColumn-column"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <navigationlink
+                                                granite:class="mf-validate"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Navigation Link"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Navigation Link"
+                                                >
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    jcr:title="Navigation Links"
+                                                    sling:resourceType="granite/ui/components/foundation/container"
+                                                    name="./navigationLink">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/collapsible" />
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <navlinkbuttoncontainer
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/mvw/components/commons/cta_link_section/linkDetails" />
+                                                    </items>
+                                                </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    max="{Long}5"
+                                                    min="{Long}1"/>
+                                            </navigationlink>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </navigationlink>
+                    <login
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Login"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <loginbutton
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                path="/mnt/overlay/mvw/components/commons/btn_section/buttontab/items/column" />
+                                            <buttonHide
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="Check to hide the login button."
+                                                checked="false"
+                                                name="./buttonHide"
+                                                text="Hide Button"
+                                                value="true" />
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </login>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

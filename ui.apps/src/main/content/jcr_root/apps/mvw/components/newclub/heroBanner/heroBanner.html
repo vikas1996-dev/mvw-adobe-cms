@@ -1,0 +1,53 @@
+<sly data-sly-use.model="com.mvw.core.models.NewClubHeroBanner"
+     data-sly-use.configModel="com.mvw.core.models.GlobalConfigModel"/>
+<sly data-sly-use.templates="mvw/components/newclub/templates.html"
+    data-sly-call="${ templates.placeholder @ component_name= 'Hero Banner' }" />
+<sly data-sly-test="${model.bgType == 'image'}">
+    <img src="${model.bannerImageFileReference @ context='uri'}" alt="${model.bannerImageAltText @ context='text'}"
+        data-sly-attribute.loading="${model.disableLazyLoading == 'true' ? 'eager' : 'lazy'}"
+        data-sly-attribute.fetchpriority="${model.fetchPriority == 'true' ?'high' : ''}" class="carousel-bg-image">
+</sly>
+<sly data-sly-test="${model.bgType == 'video'}">
+    <div class="carousel-bg-video" data-cmp-hook-carousel="bgVideo">
+        <video-js class="video-js"
+                  data-account="${configModel.brightcoveAccountId}"
+                  data-player="${configModel.brightcovePlayerId}"
+                  data-embed="default"
+                  data-video-id="${model.videoId}"
+                  muted
+                  loop
+                  playsinline
+                  controls="false"
+                  data-playlist-id=""
+                  data-application-id="">
+        </video-js>
+    </div>
+</sly>
+<sly data-sly-test="${model.overlayTitle || model.overlayDescription || model.overlayImagePath}">
+    <div class="carousel-content-wrapper">
+        <div class="carousel-logo-wrapper overlay-desktop"
+             data-sly-test="${model.overlayImagePath}">
+            <img src="${model.overlayImagePath  @ context='uri'}"
+                 data-sly-attribute.loading="${model.disableLazyLoading == 'true' ? 'eager' : 'lazy'}"
+                 data-sly-attribute.fetchpriority="${model.fetchPriority == 'true' ?'high' : ''}"
+                 class="carousel-logo"
+                 alt="${model.overlayImageAltText @ context='text'}" tabindex="0">
+        </div>
+        <div class="carousel-logo-wrapper overlay-mobile"
+             data-sly-test="${model.mobileOverlayImagePath}">
+            <img src="${model.mobileOverlayImagePath  @ context='uri'}"
+                 data-sly-attribute.loading="${model.disableLazyLoading == 'true' ? 'eager' : 'lazy'}"
+                 data-sly-attribute.fetchpriority="${model.fetchPriority == 'true' ?'high' : ''}"
+                 class="carousel-logo"
+                 alt="${model.overlayImageAltText @ context='text'}" tabindex="0">
+        </div>
+        <sly data-sly-test="${model.overlayTitle || model.overlayDescription}">
+            <div class="carousel-content">
+                <h2 data-sly-test="${model.overlayTitle}" class="carousel-headline" tabindex="0">${model.overlayTitle @
+                    context='text'}</h2>
+                <p data-sly-test="${model.overlayDescription}" class="carousel-description" tabindex="0">${model.overlayDescription @
+                    context='text'}</p>
+            </div>
+        </sly>
+    </div>
+</sly>

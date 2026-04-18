@@ -1,0 +1,31 @@
+<div data-sly-use.carousel="com.adobe.cq.wcm.core.components.models.Carousel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.controlsTemplate="controls.html"
+     data-panelcontainer="${wcmmode.edit && 'carousel'}"
+     id="${carousel.id}"
+     class="resort-carousel-container"
+     role="group"
+     aria-live="polite"
+     aria-roledescription="carousel"
+     data-cmp-is="carousel"
+     data-cmp-data-layer="${carousel.data.json}"
+     data-placeholder-text="${wcmmode.edit && 'Please add Carousel components here' @ i18n}">
+    <div data-sly-set.items="${carousel.children || carousel.items}"
+         data-sly-test="${items && items.size > 0}"
+         class="resort-carousel"
+         aria-atomic="false"
+         aria-live="${carousel.autoplay ? 'off' : 'polite'}">
+        <div data-sly-repeat.item="${items}"
+             data-sly-resource="${item.resource @ decorationTagName='div'}"
+             id="${item.id}-tabpanel"
+             class="resort-carousel-cell${item.name == carousel.activeItem ? ' active-slide' : ''}"
+             aria-labelledby="${item.id}-tab"
+             aria-roledescription="slide"
+             role="group"
+             aria-label="${(carousel.accessibilityAutoItemTitles && item.title) || 'Slide {0} of {1}' @ format=[itemList.count, carousel.items.size], i18n}"
+             data-cmp-data-layer="${item.data.json}"
+             data-cmp-hook-carousel="item"></div>
+    </div>
+    <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
+         data-sly-test="${(wcmmode.edit || wcmmode.preview) && items.size < 1}"></sly>
+</div>

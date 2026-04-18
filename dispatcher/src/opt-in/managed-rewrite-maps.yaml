@@ -1,0 +1,5 @@
+maps:
+  - name: map301
+    path: /content/dam/tmvcs/redirects/301.txt
+  - name: map302
+    path: /content/dam/tmvcs/redirects/302.txt

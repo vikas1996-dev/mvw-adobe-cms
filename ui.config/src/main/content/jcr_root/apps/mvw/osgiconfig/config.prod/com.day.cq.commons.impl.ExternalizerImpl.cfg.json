@@ -1,0 +1,7 @@
+{
+  "externalizer.domains": [
+    "tmvcs $[env:TMVC_DOMAIN_NAME;default=]",
+    "legal_tmvcs $[env:LEGALTMVC_DOMAIN_NAME;default=]",
+    "legal_hvc $[env:LEGALHVC_DOMAIN_NAME;default=]"
+  ]
+}
