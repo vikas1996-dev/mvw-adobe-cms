@@ -83,14 +83,6 @@
 
     "# 18. mvw-law-registration-governingdocs - Legal registration access for author/dev",
     "create group mvw-law-registration-governingdocs",
-    "set ACL on /,/apps,/conf,/etc,/home,/libs,/system,/tmp,/var (ACLOptions=mergePreserve)\n  allow jcr:read for mvw-law-registration-governingdocs\nend",
-    "set ACL on /conf/legal,/content/dam/legal,/content/dam/legalwebpages,/var/replication (ACLOptions=mergePreserve)\n  allow jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement for mvw-law-registration-governingdocs\nend",
-    "set ACL on /content/experience-fragments,/etc/workflow (ACLOptions=mergePreserve)\n  allow rep:write, jcr:versionManagement, jcr:lockManagement for mvw-law-registration-governingdocs\nend",
-    "set ACL on /content/legal,/var/workflow (ACLOptions=mergePreserve)\n  allow rep:write, jcr:versionManagement, jcr:lockManagement, crx:replicate for mvw-law-registration-governingdocs\nend",
-    "set ACL on /var/audit (ACLOptions=mergePreserve)\n  allow jcr:read for mvw-law-registration-governingdocs\nend",
-    "set ACL on /content/legal (ACLOptions=mergePreserve)\n  allow jcr:removeChildNodes, jcr:removeNode, jcr:addChildNodes, jcr:nodeTypeManagement for mvw-law-registration-governingdocs restriction(rep:glob,*/jcr:content/*)\nend",
-    "set ACL on /content/brightcovetools,/content/campaigns,/content/cq:graphql,/content/launches,/content/mvw,/content/outbound-marketing,/content/tmvcs,/content/usergenerated,/content/dam/assetinsights,/content/dam/brightcove_assets,/content/dam/collections,/content/dam/mvw,/content/dam/tmvcs,/content/dam/trainingmodels (ACLOptions=mergePreserve)\n  deny jcr:read for mvw-law-registration-governingdocs\nend",
-    "set ACL on /content/experience-fragments/mvw,/content/experience-fragments/tmvcs (ACLOptions=mergePreserve)\n  deny jcr:read, rep:write, jcr:versionManagement, jcr:lockManagement for mvw-law-registration-governingdocs\nend",
     "add ims-dev-mvw-governingdocs-law-registration to group mvw-law-registration-governingdocs",
 
     "# 19. mvw-law-registration-reviewers - Legal registration access for author/dev",
@@ -99,7 +91,6 @@
     "set ACL on /content/legal,/content/dam/legal,/content/dam/legalwebpages,/content/experience-fragments/legal (ACLOptions=mergePreserve)\n  allow jcr:read for mvw-law-registration-reviewers\nend",
     "set ACL on /content/brightcovetools,/content/campaigns,/content/cq:graphql,/content/launches,/content/mvw,/content/outbound-marketing,/content/tmvcs,/content/usergenerated,/content/dam/assetinsights,/content/dam/brightcove_assets,/content/dam/collections,/content/dam/mvw,/content/dam/tmvcs,/content/experience-fragments/mvw,/content/experience-fragments/tmvcs (ACLOptions=mergePreserve)\n  deny jcr:read for mvw-law-registration-reviewers\nend",
     "add ims-dev-mvw-governingdocs-reviewer to group mvw-law-registration-reviewers",
-
 
     "# =============================================",
     "# Workflow Authorization Groups",
@@ -132,7 +123,6 @@
     "add mvw-law-registration-governingdocs to group workflow-users",
     "add mvw-law-registration-reviewers to group workflow-users",
     "add mvw-law-registration-reviewers to group workflow-administrators",
-
 
     "# =============================================",
     "# Test Users for Workflow Review (Local Development)",
